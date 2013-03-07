@@ -26,8 +26,14 @@ class user_personal_info {
 	private $gender;                   //User Gender
 	
 	//get the value of specified variable
-	public function getinfo($varname){		
-		return $this->$varname;
+	public function getinfo(){		
+		$arr = get_class_vars(get_class($this));
+		$allfields = array();
+		foreach($arr as $key => $value ){			
+			$allfields[$key] = $this->$key;
+			//print($this->$key);
+		}
+		return $allfields;
 	}
 	//Set values from DB result set into class variables
 	public function setinfo($result){
@@ -46,7 +52,7 @@ class user_personal_info {
 	}
 */
 }
-class user_academic_data {
+class user_academic_info {
 	private $board_10;                           //User 10th Examination Board name
 	private $school_10;                          //User 10th school name
 	private $percentage_GPA_10;                  //User Percentage/GPA in 10th standard
@@ -66,7 +72,7 @@ class user_academic_data {
 		return $this->$$varname;
 	}	
 }
-class user_professional_data {
+class user_professional_info {
 	private $achievement;          //User achievements
 	private $skill_set;            //User skills
 	private $current_position;     //User current position in job

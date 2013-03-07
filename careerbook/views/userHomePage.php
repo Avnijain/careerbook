@@ -13,10 +13,13 @@ echo $_SERVER['HTTP_USER_AGENT'];
         $obj = new user_info_controller();
         $obj = unserialize($_SESSION['userData']);
         print("<br/>");
-	print("first_name =>".$obj->getuserinfo('first_name'));print("<br/>");
-	print("middle_name =>".$obj->getuserinfo('middle_name'));print("<br/>");
-	print("last_name =>".$obj->getuserinfo('last_name'));print("<br/>");
-	print("date_of_birth =>".$obj->getuserinfo('date_of_birth'));print("<br/>");
+        echo "<pre>";
+        print_r ($obj->getuserinfo());
+
+//     print("first_name =>".$obj->getuserinfo('first_name'));print("<br/>");
+// 	print("middle_name =>".$obj->getuserinfo('middle_name'));print("<br/>");
+// 	print("last_name =>".$obj->getuserinfo('last_name'));print("<br/>");
+// 	print("date_of_birth =>".$obj->getuserinfo('date_of_birth'));print("<br/>");
 //        echo "<pre>";
 //        print_r($obj);
 //        echo "</pre>";
