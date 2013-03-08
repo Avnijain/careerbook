@@ -1,0 +1,70 @@
+
+<html>
+<head>
+
+<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../JavaScript/jquery.tools.min.js"></script>
+
+ <link rel="stylesheet" type="text/css" href="../css/resume.css" />
+
+
+<script>
+$(function() {
+
+  $("img[rel]").overlay({mask: 'black'});
+
+
+});
+</script>
+</head>
+<body>
+<h1>Resume Bulider</h1>
+<h3>Choose From these Formats</h3>
+<div id="main">
+	
+	<img border= 1 px red src="../images/resume1.jpg" rel="#mies2"/>
+	<img border= 1 px #cccc src="../images/resume3.jpg" rel="#mies1"/>
+	<img border= 1 px #cccc src="../images/resume2.jpg" rel="#mies3"/>
+	<form action="word.php" method=post>
+	<div class="simple_overlay" id="mies1">
+	  <!-- large image -->
+	  <img src="../images/resume3.jpg" />
+	 
+	  <!-- image details -->
+	  <div class="details">
+		<h3>TEMPLATE 2</h3>
+		<h4>With snapshot</h4>
+		<p><ol><li>objective</li><li>snapshot</li><li>eduction</li>other courses<li>technical skills</li><li>Projects</li></ol></p>
+		<br/><Input Type=Submit value="use this template" name="template2"/>
+	  </div>
+	</div>
+	<div class="simple_overlay" id="mies2">
+	  <!-- large image -->
+	  <img src="../images/resume1.jpg" />
+	 
+	  <!-- image details -->
+	  <div class="details">
+		<h3>TEMPLATE 1</h3>
+		<h4>With photo</h4>
+		<h3><ol><li>Contact Inforamtion</li><li>Personal inforamation</li><li>eductional inforamation</li><li>Strength/skills</li><li>Employment info</li></ol></h3>
+		<br/><Input Type=Submit value="use this template" name="template1"/>
+	  </div>
+	</div>
+
+	<div class="simple_overlay" id="mies3">
+	  <!-- large image -->
+	  <img src="../images/resume2.jpg" />
+	 
+	  <!-- image details -->
+	  <div class="details">
+		<h3>TEMPLATE 3</h3>
+		<h4>With Experience</h4>
+		<h3><ol><li>objective</li><li>Education</li><li>Strength</li><li>Career graph</li><li>current Company</li><li>Work Experience</li></ol></h3>
+		<br/><Input Type=Submit value="use this template" name="template3"/>
+	  </div>
+	</div>
+	<br/>
+	</form>
+<div>
+</body>
+</html>
