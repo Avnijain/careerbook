@@ -17,7 +17,7 @@
 		    bottom:0px;
 		    left:0px;
 		}
-		#content{
+		#slider_content{
 /* 		    margin:150px auto 10px auto; */
 		    margin-top: 23px;
 			filter:alpha(opacity=50);
@@ -40,7 +40,7 @@
 	    </style>
 	</head>
 	<body>
-	    <div id="content">
+	    <div id="slider_content">
 		<a class="back" href=""></a>
 		<div class="rotator">
 		    <ul id="rotmenu">
@@ -95,9 +95,6 @@
 		</div>
 	    </div>
 
-	   <!-- The JavaScript -->
-	    <script type="text/javascript" src="./JavaScript/jquery.min.js"></script>
-	    <script type="text/javascript" src="./JavaScript/jquery.easing.1.3.js"></script>
 	    <script type="text/javascript">
 		$(function() {
 		    var current = 1;
