@@ -8,18 +8,15 @@ include_once("../classes/lang.php");
     <head>
         <title>User Registration Form</title>
 
-
-
-        
         <link rel="stylesheet" href="../css/NewRegistration.css" type="text/css" media="screen"/>
-	<script type="text/javascript" src="../JavaScript/jquery.min.js"></script>
+    <script type="text/javascript" src="../JavaScript/jquery.min.js"></script>
         <script type="text/javascript" src="../JavaScript/sliding.form.js"></script>
         
         
-
+ 
             <link rel="stylesheet" href="../css/jquery-ui.css" />
             <script src="../JavaScript/jquery-1.9.1.min.js"></script>
-            <script src="../JavaScript/jquery-ui.js"></script>
+            <script src="../JavaScript/jquery-ui.js"></script> 
         <script>
         $(function() {
 	 $( "#datepicker" ).datepicker({
@@ -32,6 +29,25 @@ include_once("../classes/lang.php");
 
         
     </head>
+    <style>
+        span.reference{
+            position:fixed;
+            left:5px;
+            top:5px;
+            font-size:10px;
+            text-shadow:1px 1px 1px #fff;
+        }
+        span.reference a{
+            color:#555;
+            text-decoration:none;
+			text-transform:uppercase;
+        }
+        span.reference a:hover{
+            color:#000;
+            
+        }
+
+    </style>
      <body>
         <div>
             <span class="reference">
@@ -126,7 +142,5 @@ include_once("../classes/lang.php");
                 </div>
             </div>
         </div>
-		
-
     </body>
 </html>
