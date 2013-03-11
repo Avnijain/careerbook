@@ -1,13 +1,3 @@
-<link rel="stylesheet" href="css/login-form.css" media="screen"></link>
-<script src="../JavaScript/modernizr.custom.63321.js"></script>
-		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
-<script type="text/javascript">
-	function openRegisterWindow()
-	{
-		
-	}	
-</script>
-
 <!-- 	<h1>Login Form</h1> -->
 <!-- 	<form action="./controller/mainentrance.php?action=login" method="post"> -->
 <!-- 	<fieldset> -->
@@ -44,11 +34,16 @@
 					<div class="form-3">
 				    <p class="clearfix">
 				        <input type="button" name="forgetpassword" value="Forget Password">
-				        <input type="button" name="signup" value="Sign Up">
+				        
+				            <input type="button" name="signup" id="signup" onclick="testoverlay()" value="Sign Up"> 
+				            <!--  <a href="javascript:void(0)" id="signup" onclick="testoverlay()" >Signup</a> -->
+				            
+				        
 				    </p>				    
 				    </div>			
 				</form>
 </section>
+
 
 
 
