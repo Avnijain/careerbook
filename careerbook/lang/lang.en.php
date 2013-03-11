@@ -66,7 +66,12 @@
 					     'POSITION'=>"position",
 					     'COMPANY'=>"Company",
 					     'ENDPERIOD'=>"end Period",
-					      'SKILLSET'=>"Skillset"
+					      'SKILLSET'=>"Skillset",
+						  'RESUMEBUILDER'=>	"Resume Builder",
+						  'CHOOSETEMPLATE'=>"Choose From the These formats",
+						  'ACCOUNT'=>"Account",
+						  'PERSONALDETAILS'=>"Personal Details",
+						  'CONFIRM'=>"Confirm"
                                            );
 
 
