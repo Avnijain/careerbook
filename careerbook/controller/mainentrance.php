@@ -38,7 +38,7 @@ class mainentrance {
 		//print("yes I am here");
 		
 		session_start ();
-		if($_REQUEST['action']=="registration"){
+		if($_REQUEST['action']=="Registration"){
 			print("yes I am here");
 			$this->userRegistration();
 
