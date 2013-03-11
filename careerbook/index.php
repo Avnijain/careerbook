@@ -1,3 +1,6 @@
+<?php
+include_once("./classes/lang.php");
+?>
 <html>
     <head>
         <title>Career Book : Home</title>
@@ -25,7 +28,7 @@
             </div>
             <div id="googleAdds"></div>
             <div id="footer">
-                    <center>Career Book|All Right are Reserved|2013</center>
+                    <center><?php echo $lang->FOOTER; ?></center>
             </div>
         </div>
     </body>

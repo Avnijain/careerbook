@@ -1,3 +1,6 @@
+<?php
+include_once("../classes/lang.php");
+?>
 <html>
     <head>
         <title></title>
@@ -24,9 +27,9 @@
                 </tr>
             </table>
 	</form>
-	<a id="hyperlink" href="#">Forgot your password?</a><br/><br/>
-        <label class="text-label">Still not registered?</label><br/><br/>
-        <button id="signup_button" onclick="">Sign Up</button>
+	<a id="hyperlink" href="#"><?php echo $lang->FORGETPASSWORD; ?></a><br/><br/>
+        <label class="text-label"><?php echo $lang->STILLNOTREG; ?></label><br/><br/>
+        <button id="signup_button" onclick=""><?php echo $lang->SIGNUP; ?></button>
     </div>
 </body>
 </html>

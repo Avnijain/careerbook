@@ -72,7 +72,7 @@ include_once("../classes/lang.php");
                 <div id="steps" >
                     <form id="formElem" name="formElem" action="../controller/mainentrance.php?action=login" method="post" ">
                         <fieldset class="step">
-                            <legend>Account</legend>
+                            <legend><?php echo $lang->ACCOUNT; ?></legend>
                             <p>
                                 <label ><?php echo $lang->FIRSTNAME;?></label>
                                 <input id="username" name="first_name" />
@@ -104,7 +104,7 @@ include_once("../classes/lang.php");
                             </p>
                         </fieldset>
                         <fieldset class="step">
-                            <legend>Personal Details</legend>
+                            <legend><?php echo $lang->PERSONALINFO; ?></legend>
                             <p>
                                 <label ><?php echo $lang->ADDRESS;?></label>
                                 <input id="adress" name="adress" type="text" AUTOCOMPLETE=OFF />
@@ -124,7 +124,7 @@ include_once("../classes/lang.php");
                             </p>
                         </fieldset>
                         <fieldset class="step">
-                            <legend>Payment</legend>
+                            <legend><?php echo $lang->EDUCATION; ?></legend>
                             <p>
                                 <label ><?php echo $lang->BOARD10;?></label>
                                 <input id="board_10" name="board_10" type="text" AUTOCOMPLETE=OFF />
@@ -163,7 +163,7 @@ include_once("../classes/lang.php");
                             </p>
                         </fieldset>
                         <fieldset class="step" id="otherDegree">
-                            <legend>Settings</legend>
+                            <legend><?php echo $lang->SETTINGS; ?></legend>
                             <p>
                                 <label ><?php echo $lang->DEGREE;?></label>
                                 <input id="board_10" name="degree" type="text" AUTOCOMPLETE=OFF />
@@ -179,7 +179,7 @@ include_once("../classes/lang.php");
                             </p>
                         </fieldset>
                         <fieldset class="step" id="otherDegree">
-                            <legend>Job</legend>
+                            <legend><?php echo $lang->JOB; ?></legend>
                             <p>
 				<label ><?php echo $lang->SKILLSET;?></label>
                                 <input id="skill_id" name="skill" type="text" AUTOCOMPLETE=OFF />
@@ -192,7 +192,7 @@ include_once("../classes/lang.php");
                             </p>
                         </fieldset>
                         <fieldset class="step" id="otherDegree">
-                            <legend>Previous Job Experience</legend>
+                            <legend><?php echo $lang->PREVJOB; ?></legend>
                             <p>
                                 <label ><?php echo $lang->POSITION;?></label>
                                 <input id="board_10" name="degree" type="text" AUTOCOMPLETE=OFF />
@@ -206,14 +206,10 @@ include_once("../classes/lang.php");
                            
                         </fieldset>
 			<fieldset class="step">
-                            <legend>Confirm</legend>
+                            <legend><?php echo $lang->CONFIRM; ?></legend>
 							<p>
-								Everything in the form was correctly filled 
-								if all the steps have a green checkmark icon.
-								A red checkmark icon indicates that some field 
-								is missing or filled out with invalid data. In this
-								last step the user can confirm the submission of
-								the form.
+							 <?php echo $lang->CONFIRMMSG; ?>
+								
 							</p>
                             <p class="submit">
                                 <button id="registerButton" type="submit">Register</button>
@@ -224,25 +220,25 @@ include_once("../classes/lang.php");
                 <div id="navigation" style="display:none;">
                     <ul>
                         <li class="selected">
-                            <a href="#">Account</a>
+                            <a href="#"><?php echo $lang->ACCOUNT; ?></a>
                         </li>
                         <li>
-                            <a href="#">Personal Details</a>
+                            <a href="#"><?php echo $lang->PERSONALINFO; ?></a>
                         </li>
                         <li>
-                            <a href="#">Payment</a>
+                            <a href="#"><?php echo $lang->EDUCATION; ?></a>
                         </li>
                         <li>
-                            <a href="#">Settings</a>
+                            <a href="#"><?php echo $lang->SETTINGS; ?></a>
                         </li>
                        <li>
-                            <a href="#">Job</a>
+                            <a href="#"><?php echo $lang->JOB; ?></a>
                         </li>
                          <li>
-                            <a href="#">JobOther</a>
+                            <a href="#"><?php echo $lang->PREVJOB; ?></a>
                         </li>
 			<li>
-                            <a href="#">Confirm</a>
+                            <a href="#"><?php echo $lang->CONFIRM; ?></a>
                         </li>
                     </ul>
                 </div>
@@ -252,3 +248,4 @@ include_once("../classes/lang.php");
 
     </body>
 </html>
+

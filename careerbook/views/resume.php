@@ -34,9 +34,9 @@ $(function() {			//for producing the overlay effect
 	 
 	  <!-- image details -->
 	  <div class="details">
-		<h3>TEMPLATE 2</h3>
-		<h4>With snapshot</h4>
-		<p><ol><li>objective</li><li>snapshot</li><li>eduction</li>other courses<li>technical skills</li><li>Projects</li></ol></p>
+		<h3><?php echo $lang->TEMPLATE2; ?></h3>
+		<h4><?php echo $lang->WITHSNAPSHOT; ?></h4>
+		<p><ol><li><?php echo $lang->OBJECTIVE; ?></li><li><?php echo $lang->SNAPSHOT; ?></li><li><?php echo $lang->EDUCATION; ?></li><?php echo $lang->OTHERCOURSE; ?><li><?php echo $lang->TECHNICALSKILL; ?></li><li><?php echo $lang->PROJECT; ?></li></ol></p>
 		<br/><Input Type=Submit value="use this template" name="template2"/>
 	  </div>
 	</div>
@@ -46,9 +46,9 @@ $(function() {			//for producing the overlay effect
 	 
 	  <!-- image details -->
 	  <div class="details">
-		<h3>TEMPLATE 1</h3>
-		<h4>With photo</h4>
-		<h3><ol><li>Contact Inforamtion</li><li>Personal inforamation</li><li>eductional inforamation</li><li>Strength/skills</li><li>Employment info</li></ol></h3>
+		<h3><?php echo $lang->TEMPLATE1 ?></h3>
+		<h4><?php echo $lang->WITHPHOTO; ?></h4>
+		<h3><ol><li><?php echo $lang->CONTACTINFO; ?></li><li><?php echo $lang->PERSONALINFO; ?></li><li><?php echo $lang->EDUCATION; ?></li><li><?php echo $lang->STRENGHT; ?></li><li><?php echo $lang->EMPLOYMENTINFO; ?></li></ol></h3>
 		<br/><Input Type=Submit value="use this template" name="template1"/>
 	  </div>
 	</div>
@@ -59,9 +59,9 @@ $(function() {			//for producing the overlay effect
 	 
 	  <!-- image details -->
 	  <div class="details">
-		<h3>TEMPLATE 3</h3>
-		<h4>With Experience</h4>
-		<h3><ol><li>objective</li><li>Education</li><li>Strength</li><li>Career graph</li><li>current Company</li><li>Work Experience</li></ol></h3>
+		<h3><?php echo $lang->TEMPLATE3; ?></h3>
+		<h4><?php echo $lang->WITHEXPER; ?></h4>
+		<h3><ol><li><?php echo $lang->OBJECTIVE; ?></li><li><?php echo $lang->EDUCATION; ?></li><li><?php echo $lang->STRENGHT; ?></li><li><?php echo $lang->CAREERGRAPH; ?></li><li><?php echo $lang->CURRENTCOMPANY; ?></li><li><?php echo $lang->WORKEXPERIENCE; ?></li></ol></h3>
 		<br/><Input Type=Submit value="use this template" name="template3"/>
 	  </div>
 	</div>
@@ -70,3 +70,4 @@ $(function() {			//for producing the overlay effect
 <div>
 </body>
 </html>
+
