@@ -1,10 +1,11 @@
 <?php
 include_once("../classes/lang.php");
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>User Information Form</title>
+        <title><?php echo $lang->USERINFOFORM;?></title>
 
         <link rel="stylesheet" href="../css/styleUserInfoForm.css" type="text/css" media="screen"/>
 	<script type="text/javascript" src="../JavaScript/jquery.min.js"></script>
@@ -16,7 +17,7 @@ include_once("../classes/lang.php");
             <script src="../JavaScript/jquery-1.9.1.min.js"></script>
             <script src="../JavaScript/jquery-ui.js"></script>
         <script>
-        $(function() {
+        $(function() {					//to display calendar
 	 $( "#datepicker" ).datepicker({
 		 changeMonth: true,
 		 changeYear: true
@@ -39,25 +40,7 @@ include_once("../classes/lang.php");
         
     </head>
     <style>
-        span.reference{
-            position:fixed;
-            left:5px;
-            top:5px;
-            font-size:10px;
-            text-shadow:1px 1px 1px #fff;
-        }
-        span.reference a{
-            color:#555;
-            text-decoration:none;
-			text-transform:uppercase;
-        }
-        span.reference a:hover{
-            color:#000;
-            
-        }
-	.step p {
-	    margin-left: 25%;
-	}
+       
 
     </style>
      <body>
@@ -70,7 +53,7 @@ include_once("../classes/lang.php");
             
             <div id="wrapper" style="width: 780px">
                 <div id="steps" >
-                    <form id="formElem" name="formElem" action="../controller/mainentrance.php?action=login" method="post" ">
+                    <form id="formElem" name="formElem" action="../controller/mainentrance.php?action=registration" method="post" ">
                         <fieldset class="step">
                             <legend><?php echo $lang->ACCOUNT; ?></legend>
                             <p>
@@ -120,8 +103,8 @@ include_once("../classes/lang.php");
 
                             <p>
                                 <label ><?php echo $lang->IMAGE;?></label>
-
-                            </p>
+                                <input id="image" name="image" type="file" AUTOCOMPLETE=OFF />
+                             </p>
                         </fieldset>
                         <fieldset class="step">
                             <legend><?php echo $lang->EDUCATION; ?></legend>

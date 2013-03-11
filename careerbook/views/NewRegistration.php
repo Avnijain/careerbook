@@ -32,25 +32,6 @@ include_once("../classes/lang.php");
 
         
     </head>
-    <style>
-        span.reference{
-            position:fixed;
-            left:5px;
-            top:5px;
-            font-size:10px;
-            text-shadow:1px 1px 1px #fff;
-        }
-        span.reference a{
-            color:#555;
-            text-decoration:none;
-			text-transform:uppercase;
-        }
-        span.reference a:hover{
-            color:#000;
-            
-        }
-
-    </style>
      <body>
         <div>
             <span class="reference">

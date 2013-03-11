@@ -38,16 +38,19 @@ class mainentrance {
 		//print("yes I am here");
 		
 		session_start ();
-		if($_REQUEST['action']=="Registration"){
+		if($_REQUEST['action']=="registration"){
+			print("yes I am here");
 			$this->userRegistration();
 
 		}
 		if($_REQUEST['action']=="login"){
-		$this->userLogin();
+			echo "login";
+			$this->userLogin();
 	}
 	}
 	//function to register a user and validate the feilds
 	private function userRegistration(){
+		print("yes I am hereeeeee");
 			$this->validationCheck();
 			$ObjModel = new MyClass ();
 			$result=$ObjModel->FindUsers();
@@ -106,7 +109,7 @@ class mainentrance {
 	
 	
 private function validationCheck() {
-                
+	echo "validation funnnn";
 	$validdob= new validation();
 	$validdob->validate($_POST);
 

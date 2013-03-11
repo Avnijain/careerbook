@@ -1,6 +1,3 @@
-<?php
-
-?>
 
 
 <link href="../css/captchastyle.css" rel="stylesheet" type="text/css">
@@ -8,13 +5,13 @@
 <script>
 $(document).ready(function() { 
 
- // refresh captcha
+ 
  $('img#captcha-refresh').click(function() {  
 		
 		change_captcha();
  });
  
- function change_captcha()
+ function change_captcha()				// refresh captcha
  {
 	document.getElementById('captcha').src="get_captcha.php?rnd=" + Math.random();
  }
