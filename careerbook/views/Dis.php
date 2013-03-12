@@ -10,29 +10,31 @@ include_once 'call.php';
 <style>
  #overlay {
     background-image:url(../images/transparent.png);
-    color:#efefef;
-    height:450px;
+    color:white;
+    height:400px;
+	height:400px;
   }
   /* container for external content. uses vertical scrollbar, if needed */
   div.contentWrap {
-    height:441px;
+    height:400px;
     overflow-y:auto;
   }
 .apple_overlay {
     background-image: url("../images/white.png");
     display: none;
-    font-size: 11px;
+    font-size: 16px;
     padding: 35px;
-    width: 640px;
+    width: 580px;
 }
 .apple_overlay .close {
 
+	background-image: url("../images/close4.png");
     cursor: pointer;
-    height: 35px;
+    height: 40px;
     position: absolute;
     right: 5px;
     top: 5px;
-    width: 35px;
+    width: 40px;
 }
   
 
@@ -43,9 +45,9 @@ $(function() {
 	 
     // if the function argument is given to overlay,
     // it is assumed to be the onBeforeLoad event listener
-    $("#sdfgds").overlay({
+    $("a[rel]").overlay({
  
-        mask: 'balck',
+        mask: 'grey',
 
  
         onBeforeLoad: function() {
@@ -72,8 +74,8 @@ foreach($images as $i){
 	if($cal%2==0){
 ?>
 	<div id=<?php echo "even"?> class="myDiscuss">
- 		<div class="disInfo" id="hhhh"><a href="new.php" rel="#overlay" id="sdfgds" style="text-decoration:none"><img id="sdfgdfsg" src="../images/<?php echo $i[0];?>" alt="User Pic"/></a></div>
-		<div class="disInfo"><p><?php echo $i[1];?></p></div>
+ 		<div class="disInfo" id="hhhh"><a href="new.php?<?php echo $i[0];?>&amp;<?php echo $cal;?>" rel="#overlay" id="<?php echo $cal;?>" style="text-decoration:none"><img id="<?php echo $cal;?>" src="../images/<?php echo $i[0];?>" alt="User Pic"/></a></div>
+		<div class="disInfo"><p id="<?php echo $cal;?>"><?php echo $i[1];?></p></div>
 	
 	</div>
 
@@ -82,8 +84,8 @@ foreach($images as $i){
 	else {
 ?>
 	<div id=<?php echo "odd"?> class="myDiscuss">
-	<div class="disInfo"><p><?php echo $i[1];?></p></div>
-	<div class="disInfo"><a href="new.php" rel="#overlay" id="sdfgds" style="text-decoration:none"><img id="sdfgdfsg" src="../images/<?php echo $i[0];?>" alt="User Pic"/></a></div>
+	<div class="disInfo"><p id="<?php echo $cal;?>"><?php echo $i[1];?></p></div>
+	<div class="disInfo"><a href="new.php?<?php echo $i[0];?>&amp;<?php echo $cal;?>" rel="#overlay" id="<?php echo $cal;?>" style="text-decoration:none"><img id="<?php echo $cal;?>" src="../images/<?php echo $i[0];?>" alt="User Pic"/></a></div>
 	</div>
 
 <?php 
