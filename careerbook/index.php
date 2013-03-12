@@ -84,7 +84,12 @@
             </div>
             <div id="googleAdds"></div>
             <div id="footer">
-                    <center>Career Book|All Right are Reserved|2013</center>
+<div class="footer-bottom">
+			<div class="shell">
+				<p class="copy">© Copyright 2013<span>|</span>Career Book | All Right Reserved</p>
+			</div>
+		</div>            
+            <!--          <center>Career Book|All Right are Reserved|2013</center>-->
             </div>
 <div class="apple_overlay" id="overlay">
   <!-- the external content is loaded inside this tag -->

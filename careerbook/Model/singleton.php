@@ -1,7 +1,4 @@
 <?php
-
-ini_set("display_errors", "1");
-
 /**
  * 
  * @author root
@@ -14,7 +11,7 @@ class DBConnection {
     private static $instance;
     private static $_host = "localhost";
     private static $_user = "root";
-    private static $_password = "YES";
+    private static $_password = "root";
     private static $_database = "careerbook";
     private $_tableName = "";
 	private $_join = "";

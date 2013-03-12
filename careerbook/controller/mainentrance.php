@@ -14,11 +14,14 @@
     *************************************************************************
 
 */
+
+ini_set("display_errors", "1");
+
 //namespace controller;
 
 require_once '../Model/model.php';
 require_once '../Model/validation.php';
- require_once '../controller/userpersnlinfo.php';
+ require_once '../controller/userInfo.php';
 
 class mainentrance {
 	

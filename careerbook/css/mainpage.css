@@ -1,3 +1,5 @@
+@IMPORT url("global.css");
+
 #main {
 	width: 100%;
 	height: auto;
@@ -16,10 +18,6 @@
 
 #mainHeaderContainer { 
 /*      height: 150px;  */	
-}
-
-body {
-	background-color: #D0D0D0;
 }
 
 #float-left {
@@ -52,14 +50,6 @@ body {
 	/*filter:alpha(opacity=50);*/
 
 	/*opacity:0.5;*/
-}
-
-#footer {
-	clear: both;
-	height: 5%;
-	padding: 0;
-	margin: 0;
-	/*filter:alpha(opacity=50);*/
 }
 
 #text-feild {
@@ -221,3 +211,26 @@ p {
 	/* Safari */ 
 	background-origin : content-box;
 }
+
+/* Footer CSS*/
+
+#footer {
+	clear: both;
+	height: 5%;
+	padding: 0;
+	margin: 0;
+	/*filter:alpha(opacity=50);*/
+}
+
+/* #footer { border-top: 1px solid #fff; position: relative; height: 285px; } */
+
+.footer-bottom { background: #38a6f0; height: 14px; padding: 22px 0 18px 0; }
+.footer-nav { float: left; font-size: 11px; line-height: 11px;  }
+.footer-nav ul { list-style: none; list-style-position: outside; }
+.footer-nav ul li { float: left; padding: 0 10px; background: url(images/footer-nav-border.png) no-repeat 0 0; }
+.footer-nav ul li.first { background: transparent; padding-left: 0;  }
+.footer-nav ul a { color: #6b848a; }
+.footer-bottom p.copy { float: right; color: #FFFFFF;  line-height: 11px; }
+.footer-bottom p.copy span  { padding: 0 9px;  }
+.footer-bottom p.copy a { text-decoration: underline; }
+.footer-bottom p.copy a:hover { text-decoration: none; }

@@ -47,5 +47,5 @@ $(document).ready(function() {
 </div>
 
 
-<?php echo (string)$_SESSION['random_number'];?>
+<?php //echo (string)$_SESSION['random_number'];?>
 
