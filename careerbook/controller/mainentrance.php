@@ -48,8 +48,12 @@ class mainentrance {
 		}
 		if($_REQUEST['action']=="login"){
 			echo "login";
-			$this->userLogin();
+			$this->userLogin();			
 	}
+	if($_REQUEST['action']=="profileinfo"){
+		echo "Filling profile information # ";
+		$this->fillUserProfile();
+	}	
 	}
 	//function to register a user and validate the feilds
 	private function userRegistration(){
@@ -94,7 +98,7 @@ class mainentrance {
 				{
 //					$_SESSION['userData']=$result;
 					$obj_usrinfo = new user_info_controller();
-                        		$obj_usrinfo->setuserinfo($result);
+                        		$obj_usrinfo->setUserPersonalInfo($result);
 					$_SESSION['userData']=serialize($obj_usrinfo);
 //	print($obj_usrinfo->getuserinfo('first_name'));
 					header("location:../views/userHomePage.php");
@@ -109,8 +113,14 @@ class mainentrance {
 			}
 		}
 	
-	
-	
+
+		private function fillUserProfile(){
+		
+			echo "filling user profile";
+			die;
+		
+		}
+			
 private function validationCheck() {
 	echo "validation funnnn";
 	$validdob= new validation();

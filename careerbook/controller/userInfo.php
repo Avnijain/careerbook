@@ -39,14 +39,14 @@ class user_info_controller
 		$this->objPersonalInfo = new UserPersonalInfo();
 		$this->objProfessionalInfo = new UserProfessionalInfo();
 	}
-	public function setuserinfo($result)
+	public function setUserPersonalInfo($result)
 	{
 		$this->objPersonalInfo->setinfo($result);
 //		$this->obj->getdefinedvars();
 // 		echo "<pre/>";
 // 		print_r ($result);
 	}
-	public function getuserinfo()
+	public function getUserPersonalInfo()
 	{
 //		print($varname);
 		return $this->objPersonalInfo->getinfo();
