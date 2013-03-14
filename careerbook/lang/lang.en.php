@@ -105,7 +105,7 @@
 									 		'STILLNOTREG'=>"Still not registered?",
 									 		'SIGNUP'=>"Sign Up",
 									 		'FOOTER'=>"Career Book|All Right are Reserved|2013",
-									 		''=>"",
+									 		'USERINFOFORM'=>"User Information Form",
 									 		''=>"",
 									 		''=>"",
 									 		''=>"",

@@ -83,7 +83,7 @@ include_once("../classes/lang.php");
         <div id="content">
             
             <div id="wrapper" style="width: 780px">
-                <div id="steps" >
+                <div id="steps" width="700px">
                     <form id="formElem" name="formElem" action="../controller/mainentrance.php?action=registration" method="post" ">
                         <fieldset class="step">
                             <legend><?php echo $lang->ACCOUNT; ?></legend>

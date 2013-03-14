@@ -18,9 +18,10 @@ $(function() {
 	$('#steps .step').each(function(i){
         var $step 		= $(this);
 		widths[i]  		= stepsWidth;
+		//alert($step);
         stepsWidth	 	+= $step.width();
     });
-	$('#steps').width(stepsWidth);
+	$('#steps').width(stepsWidth+200);
 	
 	/*
 	to avoid problems in IE, focus the first input of the form
@@ -58,7 +59,7 @@ $(function() {
 		*/
         $('#steps').stop().animate({
             marginLeft: '-' + widths[current-1] + 'px'
-        },500,function(){
+        },700,function(){
 			if(current == fieldsetCount)
 				validateSteps();
 			else
