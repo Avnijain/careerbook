@@ -10,7 +10,8 @@
 	***************************** Update Log ********************************
 	Sr.NO.		Version		Updated by           Updated on          Description
     -------------------------------------------------------------------------
-     
+     1			1.0			Avni Jain			March 09,2013		added constant for userinfo.php
+	 2			1.0			Avni Jain			March 14,2013		added constant for profile.php
     *************************************************************************
 
 */
@@ -105,14 +106,38 @@
 									 		'STILLNOTREG'=>"Still not registered?",
 									 		'SIGNUP'=>"Sign Up",
 									 		'FOOTER'=>"Career Book|All Right are Reserved|2013",
-									 		'USERINFOFORM'=>"User Information Form",
-									 		''=>"",
-									 		''=>"",
-									 		''=>"",
-									 		''=>"",
-									 		''=>"",
-									 		''=>"",
-									 		''=>""
+									 		'EDUCATION'=>"Education",
+									 		'SKILLS'=>"Skills",
+									 		'INDUSTRIALEXPERIENCE'=>"Industrial Experience",
+									 		'PROJECTS'=>"Projects",
+									 		'ACHIEVEMENTS'=>"Achievments",
+									 		'STD'=>"Class/Std",
+									 		'BOARD'=>"Board/University",
+									 		'CPI'=>"CPI/Marks Scored",
+											'LANGUAGE'=>"Lanaguage",
+									 		'OPERATINGSYSTEM'=>"Operating System",
+									 		'DATABASE'=>"Database",
+											'IDE'=>"IDE",
+									 		'COMPANYNAME'=>"Company",
+									 		'DURATION'=>"Duartion",
+									 		'DURATION'=>"Duartion",
+											'DESIGNATION'=>"designation",
+									 		'ACADEMIC'=>"Academic",
+									 		'COCIRCULAR'=>"Co-Circular",
+											'MYINFORMATION'=>"My Information",
+											'NAME'=>"Name",
+											'USERINFOFORM'=>"User Information Form",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>""
                                            );
 
 
