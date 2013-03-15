@@ -85,7 +85,7 @@ include_once("../classes/lang.php");
             
             <div id="wrapper" style="width: 780px">
                 <div id="steps" width="700px">
-                    <form id="formElem" name="formElem" action="../controller/mainentrance.php?action=registration" method="post" ">
+                    <form id="formElem" name="formElem" action="../controller/mainentrance.php?action=profileinfo" method="post" ">
                         <fieldset class="step">
                             <legend><?php echo $lang->ACCOUNT; ?></legend>
                             <p>
@@ -196,7 +196,7 @@ include_once("../classes/lang.php");
                             <legend><?php echo $lang->JOB; ?></legend>
                             <p>
 				<label ><?php echo $lang->SKILLSET;?></label>
-                                <input id="skill_id" name="skill" type="text" AUTOCOMPLETE=OFF />
+                                <input id="skill_id" name="skill_set" type="text" AUTOCOMPLETE=OFF />
 				<label ><?php echo $lang->CURRENTPOSITION;?></label>
                                 <input id="current_position" name="currentposition" type="text" AUTOCOMPLETE=OFF />
 				<label ><?php echo $lang->CURRENTCOMPANY;?></label>

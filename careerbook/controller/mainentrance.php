@@ -26,9 +26,11 @@ require_once '../Model/validation.php';
 class mainentrance {
 	
 	private static $instance;
+	private $obj_usrinfo;
 	
 	private function __construct() {
-	
+	    $this->obj_usrinfo = new user_info_controller();
+	     
 	}
 	
 	public static function getinstance() {
@@ -97,9 +99,8 @@ class mainentrance {
 				if(md5($_POST['password'])==$result[0]['password'])
 				{
 //					$_SESSION['userData']=$result;
-					$obj_usrinfo = new user_info_controller();
-                        		$obj_usrinfo->setUserPersonalInfo($result);
-					$_SESSION['userData']=serialize($obj_usrinfo);
+                        		$this->obj_usrinfo->setUserPersonalInfo($result);
+					$_SESSION['userData']=serialize($this->obj_usrinfo);
 //	print($obj_usrinfo->getuserinfo('first_name'));
 					header("location:../views/userHomePage.php");
 					die;
@@ -117,6 +118,15 @@ class mainentrance {
 		private function fillUserProfile(){
 		
 			echo "filling user profile";
+			echo "<pre/>";
+			print_r($_POST);
+			$result = array("skill" => $_POST['skill'],
+			    "currentposition" => $_POST['currentposition'],
+			    "currentcompany" => $_POST['currentcompany'],
+			    "startperiod" => $_POST['startperiod']);
+			
+			print_r($result);
+			$this->obj_usrinfo->setUserProfessionalInfo($result);
 			die;
 		
 		}

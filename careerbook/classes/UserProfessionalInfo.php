@@ -21,8 +21,22 @@ class UserProfessionalInfo {
 	private $current_company;      //User current position in company
 	private $start_period;         //User current job start period
 
-	public function getinfo($varname){
-		return $this->$$varname;
+	public function getinfo(){
+		$arr = get_class_vars(get_class($this));
+		$allfields = array();
+		foreach($arr as $key => $value ){
+			$allfields[$key] = $this->$key;
+			//print($this->$key);
+		}
+		return $allfields;
+	}
+	//Set values from DB result set into class variables
+	public function setinfo($result){
+		$arr = get_class_vars(get_class($this));
+		foreach($arr as $key => $value ){
+			$this->$key = $result[0][$key];
+			//print($this->$key);
+		}
 	}
 }
 ?>

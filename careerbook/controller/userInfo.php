@@ -46,6 +46,13 @@ class user_info_controller
 // 		echo "<pre/>";
 // 		print_r ($result);
 	}
+	public function setUserProfessionalInfo($result)
+	{
+	    $this->objProfessionalInfo->setinfo($result);
+	    //		$this->obj->getdefinedvars();
+	    // 		echo "<pre/>";
+	    // 		print_r ($result);
+		}	
 	public function getUserPersonalInfo()
 	{
 //		print($varname);
