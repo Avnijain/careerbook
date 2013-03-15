@@ -15,12 +15,9 @@ Sr.NO.		Version		Updated by           Updated on          Description
 *************************************************************************
 */
 
-class UserProfessionalInfo {
-//	private $achievement;          //User achievements
-	private $skill_set;            //User skills
-	private $current_position;     //User current position in job
-	private $current_company;      //User current position in company
-	private $start_period;         //User current job start period
+class userIdentityInfo {
+
+	private $id;            //User id in the database
 
 	public function getinfo(){
 		$arr = get_class_vars(get_class($this));
@@ -34,12 +31,12 @@ class UserProfessionalInfo {
 	//Set values from DB result set into class variables
 	public function setinfo($result){
 		$arr = get_class_vars(get_class($this));
-		
+
 		foreach($arr as $key => $value ){
 			$this->$key = $result[0][$key];
 			//print($this->$key);
 		}
-		
+
 	}
 }
 ?>

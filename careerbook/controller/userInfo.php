@@ -20,6 +20,8 @@ Sr.NO.		Version		Updated by           Updated on          Description
  * All the ojects here created corresponds to class in user.php file 
  * */
 
+require_once '../Model/model.php';
+
 function __autoload($className)
 {
 
@@ -32,12 +34,13 @@ class user_info_controller
 	private $objPersonalInfo;
 	private $objProfessionalInfo;
 	private $objAcademicInfo;
-	private $objIdentityInfo;
+	private $objIdentityInfo;	
 
 	public function __construct()
 	{
 		$this->objPersonalInfo = new UserPersonalInfo();
 		$this->objProfessionalInfo = new UserProfessionalInfo();
+		$this->objIdentityInfo = new userIdentityInfo();
 	}
 	public function setUserPersonalInfo($result)
 	{
@@ -46,21 +49,34 @@ class user_info_controller
 // 		echo "<pre/>";
 // 		print_r ($result);
 	}
-	public function setUserProfessionalInfo($result)
+	public function getUserPersonalInfo()
+	{
+		//		print($varname);
+		return $this->objPersonalInfo->getinfo();
+	}	
+	public function setUserProfessionalInfo($result,$userInfo)
 	{
 	    $this->objProfessionalInfo->setinfo($result);
+	    $ObjModel = new MyClass ();
+	    $result=$ObjModel->insertIntoUserProfessional($userInfo);	    
+	    //print_r($this->objIdentityInfo->getinfo());
 	    //		$this->obj->getdefinedvars();
 	    // 		echo "<pre/>";
 	    // 		print_r ($result);
-	    insertintodb($this->objProfessionalInfo);
+	    
 	    
 	}	
-	public function getUserPersonalInfo()
+	public function getUserProfessionalInfo()
 	{
-//		print($varname);
-		return $this->objPersonalInfo->getinfo();
+		return $this->objProfessionalInfo->getinfo();
+	}	
+
+	public function setUserIdInfo($result){
+		$this->objIdentityInfo->setinfo($result);
 	}
-	
+	public function getUserIdInfo(){
+		return $this->objIdentityInfo->getinfo();
+	}	
 }
 
 // $obj = new user_info_controller;

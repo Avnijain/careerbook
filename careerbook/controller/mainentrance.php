@@ -100,6 +100,7 @@ class mainentrance {
 				{
 //					$_SESSION['userData']=$result;
                         		$this->obj_usrinfo->setUserPersonalInfo($result);
+                        		$this->obj_usrinfo->setUserIdInfo($result);
 					$_SESSION['userData']=serialize($this->obj_usrinfo);
 //	print($obj_usrinfo->getuserinfo('first_name'));
 					header("location:../views/userHomePage.php");
@@ -119,14 +120,16 @@ class mainentrance {
 		
 			echo "filling user profile";
 			echo "<pre/>";
-			print_r($_POST);
-			$result = array("skill_set" => $_POST['skill_set'],
+			$this->obj_usrinfo = unserialize($_SESSION['userData']);
+			//print_r($_POST);
+			$result = array(array("skill_set" => $_POST['skill_set'],
 			    "current_position" => $_POST['current_position'],
 			    "current_company" => $_POST['current_company'],
-			    "start_period" => $_POST['start_ period']);
+			    "start_period" => $_POST['start_period']));
 			
-			print_r($result);
-			$this->obj_usrinfo->setUserProfessionalInfo($result);
+			//print_r($result);
+			$this->obj_usrinfo->setUserProfessionalInfo($result,$this->obj_usrinfo);
+			$_SESSION['userData']=serialize($this->obj_usrinfo);
 			die;
 		
 		}

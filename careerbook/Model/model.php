@@ -4,6 +4,7 @@
  * @author  Mohit K. Singh
  * @access Public
  */
+ini_set("display_errors", "1");
 require_once 'singleton.php';
 
 abstract class model {
@@ -33,13 +34,16 @@ class MyClass extends model {
 	  echo "<pre/>";
 	  print_r($result);*/
 	  }
-	  public function insertIntoUserProfessional() {
-	  
-		$this->db->Fields(array("skill_set"=>$_POST['first_name'],
-					"current_position"=>$_POST['middle_name'],
-					"current_company"=>$_POST['last_name'],
-					"start_period"=>$_POST['date_of_birth']));
-		$this->db->From("users");
+	  public function insertIntoUserProfessional($userInfo) {
+	  	$objProfessionalInfo = $userInfo->getUserProfessionalInfo();
+	  	$user_id = $userInfo->getUserIdInfo();
+
+		$this->db->Fields(array("user_id"=>$user_id['id'],
+				"skill_set"=>$objProfessionalInfo['skill_set'],
+					"current_position"=>$objProfessionalInfo['current_position'],
+					"current_company"=>$objProfessionalInfo['current_company'],
+					"start_period"=>$objProfessionalInfo['start_period']));
+		$this->db->From("user_professional_info");
 		$this->db->Insert();
 		echo $this->db->lastQuery();
 	  }	  
