@@ -39,45 +39,6 @@ include_once("../classes/lang.php");
             $("#otherDegree").append($text1+$text2+$text3+$text4+$text5+$text6+$text7+$text8);
 
         }
-        function setClickable() {
-        	$('#editInPlace').trigger('click');
-        	
-        	   $('#editInPlace').click(function(){
-//				var cthis = $('#editInPlace');
-//				alert($(this). 
-//alert($(this).html());
-       		   var textarea = '<div><input id="adress" name="adress" type="text" value="'+ $(this).html() +'" AUTOCOMPLETE=OFF />';
-       		   var button = '<div><input type="button" value="SAVE" class="saveButton" /> OR <input type="button" value="CANCEL" class="cancelButton"/></div></div>';
-        		   var revert = $(this).html();
-       		   $(this).after(textarea+button).remove();
-        	        
-        	 	   $('.saveButton').click(function(){saveChanges(this, false);});
-       		   $('.cancelButton').click(function(){saveChanges(this, revert);});
-        		           		   
-      		   }).mouseover(function() {$(this).addClass("editable"); }).mouseout(function() { $(this).removeClass("editable"); });
-        }
- 	   
-
-	   
-        function saveChanges(obj, cancel) { 
-        	if (!cancel) {
-        		var t = $(obj).parent().siblings(0).val();
-                 	$.post("../views/first.php",{content: t},function(txt){
-              		   alert(txt);
-              		 });
-                 	$(obj).parent().parent().after('<div id="editInPlace">'+t+'</div>').remove() ;
-        	}
-        	else {
-        		   var t = cancel;
-       		   $(obj).parent().parent().after('<div id="editInPlace">'+t+'</div>').remove() ;
-//$(obj).remove();
-//alert($(obj).after('<div id="editInPlace">'+t+'</div>'));
-        		 }
-
-           	
-        }
-
-
         
 </script>
         
@@ -161,9 +122,7 @@ include_once("../classes/lang.php");
                             <legend><?php echo $lang->PERSONALINFO; ?></legend>
                             <p>
                                 <label ><?php echo $lang->ADDRESS;?></label>
-                                <div id="editInPlace">Some data</div>
-                                <input type="button" onclick="setClickable()" value="edit" />
-                            </p>
+                                <input id="adress" name="adress" type="text" AUTOCOMPLETE=OFF />
                             <p>
                                 <label for="country"><?php echo $lang->CITY;?></label>
                                 <input id="city" name="city_name" type="text" AUTOCOMPLETE=OFF />
