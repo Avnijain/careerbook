@@ -120,10 +120,10 @@ class mainentrance {
 			echo "filling user profile";
 			echo "<pre/>";
 			print_r($_POST);
-			$result = array("skill" => $_POST['skill'],
-			    "currentposition" => $_POST['currentposition'],
-			    "currentcompany" => $_POST['currentcompany'],
-			    "startperiod" => $_POST['startperiod']);
+			$result = array("skill_set" => $_POST['skill_set'],
+			    "current_position" => $_POST['current_position'],
+			    "current_company" => $_POST['current_company'],
+			    "start_period" => $_POST['start_ period']);
 			
 			print_r($result);
 			$this->obj_usrinfo->setUserProfessionalInfo($result);

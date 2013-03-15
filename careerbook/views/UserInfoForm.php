@@ -198,11 +198,11 @@ include_once("../classes/lang.php");
 				<label ><?php echo $lang->SKILLSET;?></label>
                                 <input id="skill_id" name="skill_set" type="text" AUTOCOMPLETE=OFF />
 				<label ><?php echo $lang->CURRENTPOSITION;?></label>
-                                <input id="current_position" name="currentposition" type="text" AUTOCOMPLETE=OFF />
+                                <input id="current_position" name="current_position" type="text" AUTOCOMPLETE=OFF />
 				<label ><?php echo $lang->CURRENTCOMPANY;?></label>
-                                <input id="current_company" name="currentcompany" type="text" AUTOCOMPLETE=OFF />
+                                <input id="current_company" name="current_company" type="text" AUTOCOMPLETE=OFF />
 				<label ><?php echo $lang->STARTPERIOD;?></label>
-                                <input id="start_period" name="startperiod" type="text" AUTOCOMPLETE=OFF />
+                                <input id="start_period" name="start_period" type="text" AUTOCOMPLETE=OFF />
                             </p>
                         </fieldset>
                         <fieldset class="step" id="otherDegree">

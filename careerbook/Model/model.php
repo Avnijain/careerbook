@@ -33,7 +33,16 @@ class MyClass extends model {
 	  echo "<pre/>";
 	  print_r($result);*/
 	  }
+	  public function insertIntoUserProfessional() {
 	  
+		$this->db->Fields(array("skill_set"=>$_POST['first_name'],
+					"current_position"=>$_POST['middle_name'],
+					"current_company"=>$_POST['last_name'],
+					"start_period"=>$_POST['date_of_birth']));
+		$this->db->From("users");
+		$this->db->Insert();
+		echo $this->db->lastQuery();
+	  }	  
 	public function FindLoginUsers() {
 	
 	 //$this->db->Fields(array("email_primary","password"));

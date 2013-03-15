@@ -52,12 +52,15 @@ class user_info_controller
 	    //		$this->obj->getdefinedvars();
 	    // 		echo "<pre/>";
 	    // 		print_r ($result);
-		}	
+	    insertintodb($this->objProfessionalInfo);
+	    
+	}	
 	public function getUserPersonalInfo()
 	{
 //		print($varname);
 		return $this->objPersonalInfo->getinfo();
 	}
+	
 }
 
 // $obj = new user_info_controller;
