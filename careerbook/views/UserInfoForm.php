@@ -122,14 +122,14 @@ include_once("../classes/lang.php");
                             <legend><?php echo $lang->PERSONALINFO; ?></legend>
                             <p>
                                 <label ><?php echo $lang->ADDRESS;?></label>
-                                <input id="adress" name="adress" type="text" AUTOCOMPLETE=OFF />
+                                <input id="adress" name="address" type="text" AUTOCOMPLETE=OFF />
                             <p>
                                 <label for="country"><?php echo $lang->CITY;?></label>
-                                <input id="city" name="city_name" type="text" AUTOCOMPLETE=OFF />
+                                <input id="city" name="city_id" type="text" AUTOCOMPLETE=OFF />
                             </p>
                              <p>
                                 <label ><?php echo $lang->STATE;?></label>
-                                <input id="state" name="state_name" type="text" AUTOCOMPLETE=OFF />
+                                <input id="state" name="state_id" type="text" AUTOCOMPLETE=OFF />
                             </p>
 
                             <p>

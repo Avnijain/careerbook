@@ -34,19 +34,64 @@ class MyClass extends model {
 	  echo "<pre/>";
 	  print_r($result);*/
 	  }
+/* Start *********************************************** Professional Information Manipulation ************************************/	  
 	  public function insertIntoUserProfessional($userInfo) {
 	  	$objProfessionalInfo = $userInfo->getUserProfessionalInfo();
-	  	$user_id = $userInfo->getUserIdInfo();
+	  	$user_id = $userInfo->getUserIdInfo();	  	
+	  	$objProfessionalInfo['user_id'] = $user_id['id'];
+	  	
+//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
 
-		$this->db->Fields(array("user_id"=>$user_id['id'],
-				"skill_set"=>$objProfessionalInfo['skill_set'],
-					"current_position"=>$objProfessionalInfo['current_position'],
-					"current_company"=>$objProfessionalInfo['current_company'],
-					"start_period"=>$objProfessionalInfo['start_period']));
+	  	$this->db->Fields($objProfessionalInfo);
 		$this->db->From("user_professional_info");
 		$this->db->Insert();
+//		echo $this->db->lastQuery();
+	  }
+	  public function updateUserProfessional($userInfo) {
+	  	$objProfessionalInfo = $userInfo->getUserProfessionalInfo();
+	  	$user_id = $userInfo->getUserIdInfo();
+	  	
+//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+
+	  	$this->db->Fields($objProfessionalInfo);	  	
+ 	  	$this->db->From("user_professional_info");
+ 	  	$this->db->Where(array("user_id"=>$user_id['id']));
+ 	  	$this->db->Update();
+ //	  	echo $this->db->lastQuery();
+	  }	  	  
+	public function fetchUserProfessionalInfo($userInfo){
+		$user_id = $userInfo->getUserIdInfo();
+		$this->db->From("user_professional_info");
+		$this->db->Where(array("user_id"=>$user_id['id']));
+		$this->db->Select();
+//		echo $this->db->lastQuery();
+		return $this->db->resultArray();
+	}  
+
+/* Start *********************************************** Professional Information Manipulation ************************************/
+	public function fetchUserAddressInfo($userInfo){
+		$user_id = $userInfo->getUserIdInfo();
+		$this->db->From("user_personal_info");
+		$this->db->Where(array("user_id"=>$user_id['id']));
+		$this->db->Select();
 		echo $this->db->lastQuery();
-	  }	  
+		return $this->db->resultArray();				
+	}
+	public function insertIntoUserAddress($userInfo){
+		$objAddressInfo = $userInfo->getUserAddressInfo();
+		$user_id = $userInfo->getUserIdInfo();
+		$objAddressInfo['user_id'] = $user_id['id'];
+		
+		//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+		
+		$this->db->Fields($objAddressInfo);
+		$this->db->From("user_personal_info");
+		$this->db->Insert();
+		echo $this->db->lastQuery();
+		
+	}
+/* End *********************************************** Professional Information Manipulation ************************************/
+
 	public function FindLoginUsers() {
 	
 	 //$this->db->Fields(array("email_primary","password"));
@@ -93,10 +138,10 @@ class MyClass extends model {
 	public function startTransaction(){
 	$this->db->startTransaction();
     }
-        public function Commit(){
+    public function Commit(){
 	$this->db->Commit();
     }
-        public function Rollback(){
+    public function Rollback(){
 	$this->db->Rollback();
     }
 

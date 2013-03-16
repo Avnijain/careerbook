@@ -1,7 +1,7 @@
 <?php
 /*
  **************************** Creation Log *******************************
-File Name                   -  user.php
+File Name                   -  UserAddressInfo.php
 Project Name                -  Careerbook
 Description                 -  Class file for users personal information,
 academic information,
@@ -14,14 +14,23 @@ Sr.NO.		Version		Updated by           Updated on          Description
 -------------------------------------------------------------------------
 *************************************************************************
 */
+class UserAddressInfo {
+	private $address;               //User Address information
+	private $city_id;              //User living in city
+	private $state_id;              //User living in state
 
-class UserProfessionalInfo {
-//	private $achievement;          //User achievements
-	private $skill_set;            //User skills
-	private $current_position;     //User current position in job
-	private $current_company;      //User current position in company
-	private $start_period;         //User current job start period
-
+	//get the value of specified variable
+	public function getInfoExcptState(){
+		$arr = get_class_vars(get_class($this));
+		$allfields = array();
+		foreach($arr as $key => $value ){
+			if($key != "state_id"){
+				$allfields[$key] = $this->$key;
+			//print($this->$key);
+			}
+		}
+		return $allfields;		
+	}
 	public function getinfo(){
 		$arr = get_class_vars(get_class($this));
 		$allfields = array();
@@ -31,17 +40,21 @@ class UserProfessionalInfo {
 		}
 		return $allfields;
 	}
-	
 	//Set values from DB result set into class variables
 	public function setinfo($result){
-		$arr = get_class_vars(get_class($this));		
-		foreach($arr as $key => $value ){			
-			if(!empty($result[0][$key])){
-				$this->$key = $result[0][$key];
-			}			
+		$arr = get_class_vars(get_class($this));
+		foreach($arr as $key => $value ){
+			$this->$key = $result[0][$key];
 			//print($this->$key);
 		}
-		
 	}
+	/* FOR TESTING AND GETTING CLASS VARIABLES
+	 public function getdefinedvars(){
+	$arr = get_class_vars(get_class($this));
+	foreach($arr as $key => $value){
+	print($key."<br/>");
+	}
+	}
+	*/
 }
 ?>

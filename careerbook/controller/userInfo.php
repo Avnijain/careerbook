@@ -35,12 +35,16 @@ class user_info_controller
 	private $objProfessionalInfo;
 	private $objAcademicInfo;
 	private $objIdentityInfo;	
+	private	$ObjModel;
+	private $ObjAddressInfo;
 
 	public function __construct()
 	{
 		$this->objPersonalInfo = new UserPersonalInfo();
 		$this->objProfessionalInfo = new UserProfessionalInfo();
 		$this->objIdentityInfo = new userIdentityInfo();
+		$this->ObjModel = new MyClass ();
+		$this->ObjAddressInfo = new UserAddressInfo();
 	}
 	public function setUserPersonalInfo($result)
 	{
@@ -54,17 +58,37 @@ class user_info_controller
 		//		print($varname);
 		return $this->objPersonalInfo->getinfo();
 	}	
+	public function setUserAddressInfo($result,$userInfo){
+		$this->ObjAddressInfo->setinfo($result);		
+		$result = $this->ObjModel->fetchUserAddressInfo($userInfo);
+		
+		if(count($result) > 0 ){
+			$this->ObjModel->updateUserAddress($userInfo);
+		}
+		else{
+			$this->ObjModel->insertIntoUserAddress($userInfo);
+		}
+	}
+	public function getUserAddressInfo()
+	{
+		return $this->ObjAddressInfo->getInfoExcptState();
+	}
 	public function setUserProfessionalInfo($result,$userInfo)
 	{
 	    $this->objProfessionalInfo->setinfo($result);
-	    $ObjModel = new MyClass ();
-	    $result=$ObjModel->insertIntoUserProfessional($userInfo);	    
+	    $result = $this->ObjModel->fetchUserProfessionalInfo($userInfo);
+	    	    
+	    if(count($result) > 0 ){
+	    	$this->ObjModel->updateUserProfessional($userInfo);
+	    }
+	    else{
+	    	$this->ObjModel->insertIntoUserProfessional($userInfo);
+	    }
+	    //$result=$ObjModel->insertIntoUserProfessional($userInfo);	    
 	    //print_r($this->objIdentityInfo->getinfo());
 	    //		$this->obj->getdefinedvars();
 	    // 		echo "<pre/>";
 	    // 		print_r ($result);
-	    
-	    
 	}	
 	public function getUserProfessionalInfo()
 	{

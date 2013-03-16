@@ -119,16 +119,45 @@ class mainentrance {
 		private function fillUserProfile(){
 		
 			echo "filling user profile";
+			$userProfessionalInfo = array(array("skill_set" => "" ,"current_position" => "","current_company" => "", "start_period" => ""));
+			$userAddressInfo = array(array("address"=>"","city_id"=>"","state_id"=>""));
+			
 			echo "<pre/>";
 			$this->obj_usrinfo = unserialize($_SESSION['userData']);
 			//print_r($_POST);
-			$result = array(array("skill_set" => $_POST['skill_set'],
-			    "current_position" => $_POST['current_position'],
-			    "current_company" => $_POST['current_company'],
-			    "start_period" => $_POST['start_period']));
+//			foreach($_POST as $key => $value){
+//			print_r(array_keys($userProfessionalInfo[0]));
+
+			foreach(array_keys($userProfessionalInfo[0]) as $key => $value){
+				if(isset($_POST[$value])){
+					if(!empty($_POST[$value])){
+						$userProfessionalInfo[0][$value] = $_POST[$value];
+					}
+				}
+			}
+			$this->obj_usrinfo->setUserProfessionalInfo($userProfessionalInfo,$this->obj_usrinfo);			
+						
+			foreach(array_keys($userAddressInfo[0]) as $key => $value){
+				if(isset($_POST[$value])){
+					if(!empty($_POST[$value])){
+						$userAddressInfo[0][$value] = $_POST[$value];
+					}
+				}
+			}
+			$this->obj_usrinfo->setUserAddressInfo($userAddressInfo, $this->obj_usrinfo);
+//			print_r($userAddressInfo);
+//			print_r($userProfessionalInfo);
+// 				if(isset($_POST[$key])){
+// 					if(!empty($_POST[$key])){
+						
+// 					}
+// //				}
+// 			$result = array(array("skill_set" => $_POST['skill_set'],
+// 			    "current_position" => $_POST['current_position'],
+// 			    "current_company" => $_POST['current_company'],
+// 			    "start_period" => $_POST['start_period']));
 			
-			//print_r($result);
-			$this->obj_usrinfo->setUserProfessionalInfo($result,$this->obj_usrinfo);
+// 			//print_r($result);
 			$_SESSION['userData']=serialize($this->obj_usrinfo);
 			die;
 		

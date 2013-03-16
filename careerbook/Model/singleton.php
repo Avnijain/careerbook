@@ -290,6 +290,9 @@ class DBConnection {
             $this->_result = mysql_query($this->_query);
             $bool = true;
         }
+        $this->_where = "";
+        $this->_keys = array();
+        $this->_values = array();
         return $bool;
     }
 
@@ -333,7 +336,8 @@ class DBConnection {
                 }
             }
         }
-
+        $this->_keys = array();
+        $this->_values = array();
         return $bool;
     }
 
@@ -376,7 +380,9 @@ class DBConnection {
                 $bool = true;
             }
         }
-
+        $this->_where = "";
+        $this->_keys = array();
+        $this->_values = array();
         return $bool;
     }
 
