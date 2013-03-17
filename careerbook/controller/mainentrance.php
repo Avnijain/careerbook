@@ -120,7 +120,7 @@ class mainentrance {
 		
 			echo "filling user profile";
 			$userProfessionalInfo = array(array("skill_set" => "" ,"current_position" => "","current_company" => "", "start_period" => ""));
-			$userAddressInfo = array(array("address"=>"","city_id"=>"","state_id"=>""));
+			$userAddressInfo = array(array("address"=>"","city_name"=>"","state_name"=>""));
 			
 			echo "<pre/>";
 			$this->obj_usrinfo = unserialize($_SESSION['userData']);

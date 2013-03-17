@@ -16,15 +16,15 @@ Sr.NO.		Version		Updated by           Updated on          Description
 */
 class UserAddressInfo {
 	private $address;               //User Address information
-	private $city_id;              //User living in city
-	private $state_id;              //User living in state
+	private $city_name;              //User living in city
+	private $state_name;              //User living in state
 
 	//get the value of specified variable
 	public function getInfoExcptState(){
 		$arr = get_class_vars(get_class($this));
 		$allfields = array();
 		foreach($arr as $key => $value ){
-			if($key != "state_id"){
+			if($key != "state_name"){
 				$allfields[$key] = $this->$key;
 			//print($this->$key);
 			}

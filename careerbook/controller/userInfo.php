@@ -71,7 +71,7 @@ class user_info_controller
 	}
 	public function getUserAddressInfo()
 	{
-		return $this->ObjAddressInfo->getInfoExcptState();
+		return $this->ObjAddressInfo->getInfo();
 	}
 	public function setUserProfessionalInfo($result,$userInfo)
 	{

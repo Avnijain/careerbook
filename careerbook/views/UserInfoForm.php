@@ -125,11 +125,11 @@ include_once("../classes/lang.php");
                                 <input id="adress" name="address" type="text" AUTOCOMPLETE=OFF />
                             <p>
                                 <label for="country"><?php echo $lang->CITY;?></label>
-                                <input id="city" name="city_id" type="text" AUTOCOMPLETE=OFF />
+                                <input id="city" name="city_name" type="text" AUTOCOMPLETE=OFF />
                             </p>
                              <p>
                                 <label ><?php echo $lang->STATE;?></label>
-                                <input id="state" name="state_id" type="text" AUTOCOMPLETE=OFF />
+                                <input id="state" name="state_name" type="text" AUTOCOMPLETE=OFF />
                             </p>
 
                             <p>

@@ -68,10 +68,11 @@ class MyClass extends model {
 		return $this->db->resultArray();
 	}  
 
-/* Start *********************************************** Professional Information Manipulation ************************************/
+/* Start *********************************************** Address Information Manipulation ************************************/
 	public function fetchUserAddressInfo($userInfo){
-		$user_id = $userInfo->getUserIdInfo();
 		$this->db->From("user_personal_info");
+		$user_id = $userInfo->getUserIdInfo();
+		
 		$this->db->Where(array("user_id"=>$user_id['id']));
 		$this->db->Select();
 		echo $this->db->lastQuery();
@@ -79,18 +80,53 @@ class MyClass extends model {
 	}
 	public function insertIntoUserAddress($userInfo){
 		$objAddressInfo = $userInfo->getUserAddressInfo();
+		$city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
 		$user_id = $userInfo->getUserIdInfo();
-		$objAddressInfo['user_id'] = $user_id['id'];
 		
-		//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+		$finalInfo = array("user_id"=>$user_id['id'],
+				"address"=>$objAddressInfo['address'],
+				"city_id"=>$city_id[0]['id']
+				);
 		
-		$this->db->Fields($objAddressInfo);
+//		print_r($finalInfo);
+		
+		$this->db->Fields($finalInfo);
 		$this->db->From("user_personal_info");
 		$this->db->Insert();
 		echo $this->db->lastQuery();
-		
 	}
-/* End *********************************************** Professional Information Manipulation ************************************/
+	public function updateUserAddress($userInfo) {
+		$objAddressInfo = $userInfo->getUserAddressInfo();
+		$city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
+		$user_id = $userInfo->getUserIdInfo();
+		
+		$finalInfo = array("user_id"=>$user_id['id'],
+				"address"=>$objAddressInfo['address'],
+				"city_id"=>$city_id[0]['id']
+				);	
+//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+	
+		$this->db->Fields($finalInfo);
+		$this->db->From("user_personal_info");
+		$this->db->Where(array("user_id"=>$user_id['id']));
+		$this->db->Update();
+	  	echo $this->db->lastQuery();
+	}	
+	private function getCityIdInfo($cityName){
+		$this->db->From("city");
+		$this->db->Where(array("name"=>$cityName));
+		$this->db->Select();
+//		echo $this->db->lastQuery();
+		return $this->db->resultArray();
+	}
+	private function getStateIdInfo($stateName){
+		$this->db->From("state");
+		$this->db->Where(array("name"=>$stateName));
+		$this->db->Select();
+//		echo $this->db->lastQuery();
+		return $this->db->resultArray();		
+	}
+/* End *********************************************** Address Information Manipulation ************************************/
 
 	public function FindLoginUsers() {
 	
