@@ -1,0 +1,99 @@
+@CHARSET "UTF-8";
+div {
+	/*border: 1px solid red;*/
+		
+}
+
+button{
+	outline: 0px;
+}
+
+button:focus { 
+    outline: none; 
+	
+}
+
+button::-moz-focus-inner { border: 0; }
+
+#discussMain {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	background-color: #D0D0D0;
+
+}
+#addPost input[type=button]{
+	width: 35%;
+	height: 6%;
+	margin-top : 2%;
+	outline: 0;
+
+	background-color: #7DB495;
+	
+}
+
+.myDiscuss {
+	border : 1px solid black;
+	height : 15%;
+	margin-top : 2%;
+
+	width: 40%;
+	overflow: hidden;
+
+	
+	background-color: #eeeeee;
+}
+.myDiscuss:hover {
+	border : 3px solid red;
+	cursor: pointer;
+}
+#even{
+	background-color: #7597C4;
+	padding-top :1%;
+	padding-left: 2%;
+}
+#odd{
+	background-color: #757D96;
+	padding-top :1%;
+	padding-left: 2%;
+
+}
+
+
+#even  img {
+	width: 30%;
+	height: 85%;
+	
+	float: left;
+}
+#odd  img {
+	width: 30%;
+	height: 85%;
+
+	float: right;
+}
+
+#even p{
+	border: 1px solid #adadad;
+	border-radius: 480px 4px 0px 4px;
+	float: right;
+	width: 64%;
+	padding-left: 2%;
+	padding-right : 2%;
+	overflow: hidden;
+	
+}
+#odd p{
+	border: 1px solid #adadad;
+	border-radius: 4px 480px 0px 4px;
+	float: left	;
+	width: 64%;
+	padding-left: 2%;
+	padding-right : 2%;
+	overflow: hidden;
+	
+}
+
+	
+}
+
