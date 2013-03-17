@@ -1,0 +1,17 @@
+body
+{
+
+background-color: #D0D0D0;
+}
+#main
+{
+background-image:url('../images/paper1.jpg');
+color:white;
+margin:35px 35px 35px 35px;
+background-size:contain;
+border-color:#668099;
+}
+p
+{
+background-color:#668099;
+}

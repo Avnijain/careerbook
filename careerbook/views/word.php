@@ -1,4 +1,6 @@
-
+<?php
+include_once("../classes/lang.php");
+?>
 
 <?php
 /*
@@ -24,15 +26,15 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template"))
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
 	echo "<b><center><h1>my name</h1></center></b>";  //name
-	echo "<b><h3>Contact Information<h3></b>";
+	echo "<b><h3>$lang->CONTACTINFO<h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Personal Information</h3></b>";
+	echo "<b><h3>$lang->PERSONALINFORMATION</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Educational Information</h3></b>";
+	echo "<b><h3>$lang->EDUCATIONINFORMATION</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>strength/skills</h3></b>";
+	echo "<b><h3>$lang->STRENGHTSKILLS</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>employment information</h3></b>";
+	echo "<b><h3>$lang->EMPLOYMENTINFORMATION</h3></b>";
 	echo "hhshsadjsjdj";
 	echo "</body>";
 	echo "</html>";
@@ -46,17 +48,17 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
 	echo "<b><center><h1>my name</h1></center></b>";  //name
-	echo "<b><center><h4>address</h4></center></b>";
+	echo "<b><center><h4>$lang->ADDRESS</h4></center></b>";
 	echo "<b><center><h4>my name email</h4></center></b>"; 
-	echo "<b><h3>Snapshots</h3></b>";
+	echo "<b><h3>$lang->SNAPSHOT</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Education</h3></b>";
-	echo "<table><tr><td>Qualification</td><td>Institute/Board</td><td>Year</td></tr><tr></tr><tr></tr></table>";
-	echo "<b><h3>Other Cousres</h3></b>";
+	echo "<b><h3>$lang->EDUCATION</h3></b>";
+	echo "<table><tr><td>$lang->QUALIFICATION</td><td>$lang->INSTITUTEBOARD</td><td>$lang->YEAR</td></tr><tr></tr><tr></tr></table>";
+	echo "<b><h3>$lang->OTHERCOURSES</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3> Technical skills</h3></b>";
+	echo "<b><h3> $lang->TECHNICALSKILLS</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Academic project</h3></b>";
+	echo "<b><h3>$lang->ACADEMICPROJECT</h3></b>";
 	echo "hhshsadjsjdj";
 	echo "</body>";
 	echo "</html>";
@@ -70,19 +72,19 @@ else if($_POST['template3']=="use this template")
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
 	echo "<b><h1>my name</h1></b>";  //name
-	echo "<b><h4>contact Number</h4></b>";
-	echo "<b><h4>email address</h4></b>"; 
-	echo "<b><h3>Objective</h3></b>";
+	echo "<b><h4>$lang->CONTACTNUMBER</h4></b>";
+	echo "<b><h4>$lang->EMAILADDRESS</h4></b>"; 
+	echo "<b><h3>$lang->OBJECTIVE</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Education</h3></b>";
+	echo "<b><h3>$lang->EDUCATION</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Strength</h3></b>";
+	echo "<b><h3>$lang->STRENGHT</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Career Graph</h3></b>";
+	echo "<b><h3>$lang->CAREERGRAPH</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Current Company</h3></b>";
+	echo "<b><h3>$lang->CURRENTCOMPANY</h3></b>";
 	echo "hhshsadjsjdj";
-	echo "<b><h3>Work Experience</h3></b>";
+	echo "<b><h3>$lang->WORKEXPERIENCE</h3></b>";
 	echo "hhshsadjsjdj";
 	echo "</body>";
 	echo "</html>";

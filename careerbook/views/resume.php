@@ -1,4 +1,16 @@
+
+
+
 <?php
+/*
+**************************** Creation Log *******************************
+	File Name                   -  resume.php
+    Project Name                -  Careerbook
+    Description                 -  selection of template for the resume of user
+    Version                     -  1.0
+    Created by                  -  Avni Jain
+    Created on                  -  March 07, 2013
+*/
 include_once("../classes/lang.php");
 ?>
 <html>

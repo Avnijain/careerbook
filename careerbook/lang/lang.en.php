@@ -12,6 +12,7 @@
     -------------------------------------------------------------------------
      1			1.0			Avni Jain			March 09,2013		added constant for userinfo.php
 	 2			1.0			Avni Jain			March 14,2013		added constant for profile.php
+	 3			1.0			Avni Jain			March 17,2013		added constant for resume.php
     *************************************************************************
 
 */
@@ -73,9 +74,9 @@
 											  'ACCOUNT'=>"Account",
 											  'PERSONALDETAILS'=>"Personal Details",
 											  'CONFIRM'=>"Confirm",
- 											'TEMPALTE2'=>"Template 2",
-									 		'TEMPALTE1'=>"Template 1",
-									 		'TEMPALTE3'=>"Template 3",
+ 											'TEMPLATE2'=>"template2",
+									 		'TEMPLATE1'=>"template1",
+									 		'TEMPLATE3'=>"template3",
 									 		'WITHSNAPSHOT'=>"With Snapsot",
 									 		'WITHPHOTO'=>"With Photo",
 									 		'WITHEXPER'=>"With Experience",
@@ -127,6 +128,31 @@
 											'MYINFORMATION'=>"My Information",
 											'NAME'=>"Name",
 											'USERINFOFORM'=>"User Information Form",
+											'CONTACTINFORMATION'=>"Contact Information",
+											'PERSONALINFORMATION'=>"Personal Information",
+											'EDUCATIONINFORMATION'=>"Educational Information",
+											'STRENGHTSKILLS'=>"Strenght/Skills",
+											'EMPLOYMENTINFORMATION'=>"employment information",
+											'ADDRESS'=>"address",
+											'SNAPSHOT'=>"Snapshot",
+											'EDUCATION'=>"Education",
+											'QUALIFICATION'=>"Qualification",
+											'INSTITUTEBOARD'=>"Institute/Board",
+											'YEAR'=>"Year",
+											'OTHERCOURSES'=>"Other Cousres",
+											'TECHNICALSKILLS'=>"Technical skills",
+											'ACADEMICPROJECT'=>"Academic project",
+											'CONTACTNUMBER'=>"contact Number",
+											'EMAILADDRESS'=>"email address",
+											'OBJECTIVE'=>"Objective",
+											'STRENGHT'=>"Strenght",
+											'CAREERGRAPH'=>"Career Graph",
+											'CURRENTCOMPANY'=>"Current Company",
+											'WORKEXPERIENCE'=>"Work Experience",
+											''=>"",
+											''=>"",
+											''=>"",
+											''=>"",
 											''=>"",
 											''=>"",
 											''=>"",
