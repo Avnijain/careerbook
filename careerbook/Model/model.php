@@ -127,7 +127,41 @@ class MyClass extends model {
 		return $this->db->resultArray();		
 	}
 /* End *********************************************** Address Information Manipulation ************************************/
+/* Start *********************************************** Academic Information Manipulation ************************************/
+	public function fetchUserAcademicInfo($userInfo){
+	    $this->db->From("user_academic_info");
+	    $user_id = $userInfo->getUserIdInfo();
+	
+	    $this->db->Where(array("user_id"=>$user_id['id']));
+	    $this->db->Select();
+	    echo $this->db->lastQuery();
+	    return $this->db->resultArray();
+	}
+	public function insertIntoUserAcademic($userInfo){
+	  	$objAcademicInfo = $userInfo->getUserAcademicInfo();
+	  	$user_id = $userInfo->getUserIdInfo();	  	
+	  	$objAcademicInfo['user_id'] = $user_id['id'];
+	  	
+//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
 
+	  	$this->db->Fields($objAcademicInfo);
+		$this->db->From("user_academic_info");
+		$this->db->Insert();
+		echo $this->db->lastQuery();
+	}
+	public function updateUserAcademic($userInfo) {
+	  	$objAcademicInfo = $userInfo->getUserAcademicInfo();
+	  	$user_id = $userInfo->getUserIdInfo();	  	
+	  	
+	    //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+	
+	    $this->db->Fields($objAcademicInfo);
+	    $this->db->From("user_academic_info");
+	    $this->db->Where(array("user_id"=>$user_id['id']));
+	    $this->db->Update();
+	    //	  	echo $this->db->lastQuery();
+	}	
+/* End *********************************************** Address Information Manipulation ************************************/	
 	public function FindLoginUsers() {
 	
 	 //$this->db->Fields(array("email_primary","password"));

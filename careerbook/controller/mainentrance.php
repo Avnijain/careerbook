@@ -121,6 +121,11 @@ class mainentrance {
 			echo "filling user profile";
 			$userProfessionalInfo = array(array("skill_set" => "" ,"current_position" => "","current_company" => "", "start_period" => ""));
 			$userAddressInfo = array(array("address"=>"","city_name"=>"","state_name"=>""));
+			$userAcademicInfo = array(array("board_10"=>"","school_10"=>"","percentage_GPA_10"=>"","board_12"=>"","school_12"=>"",
+			    "percentage_12"=>"","graduation_degree"=>"","graduation_specialization"=>"", "graduation_college"=>"",
+			    "graduation_percentage"=>"", "post_graduation_degree"=>"", "post_graduation_specialization"=>"",
+			    "post_graduation_college"=>"", "post_graduation_percentage"=>""
+			));
 			
 			echo "<pre/>";
 			$this->obj_usrinfo = unserialize($_SESSION['userData']);
@@ -145,6 +150,17 @@ class mainentrance {
 				}
 			}
 			$this->obj_usrinfo->setUserAddressInfo($userAddressInfo, $this->obj_usrinfo);
+			
+			foreach(array_keys($userAcademicInfo[0]) as $key => $value){
+			    if(isset($_POST[$value])){
+			        if(!empty($_POST[$value])){
+			            $userAcademicInfo[0][$value] = $_POST[$value];
+			        }
+			    }
+			}
+			$this->obj_usrinfo->setUserAcademicInfo($userAcademicInfo, $this->obj_usrinfo);
+//			print_r($userAcademicInfo);
+//			die;
 //			print_r($userAddressInfo);
 //			print_r($userProfessionalInfo);
 // 				if(isset($_POST[$key])){

@@ -30,8 +30,25 @@ class UserAcademicInfo {
 	private $post_graduation_college;            //User Post graduation college name
 	private $post_graduation_percentage;         //User Percentage/GPA in Post graduation
 
-	public function getinfo($varname){
-		return $this->$$varname;
+	public function getinfo(){
+		$arr = get_class_vars(get_class($this));
+		$allfields = array();
+		foreach($arr as $key => $value ){
+			$allfields[$key] = $this->$key;
+			//print($this->$key);
+		}
+		return $allfields;
+	}
+	
+	//Set values from DB result set into class variables
+	public function setinfo($result){
+		$arr = get_class_vars(get_class($this));		
+		foreach($arr as $key => $value ){			
+			if(!empty($result[0][$key])){
+				$this->$key = $result[0][$key];
+			}			
+			//print($this->$key);
+		}
 	}
 }
 ?>

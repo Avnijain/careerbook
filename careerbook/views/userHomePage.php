@@ -38,7 +38,7 @@ require_once '../controller/userInfo.php';
 		<h1 id="logo"><a href="#">CareerBook</a></h1>
 		<form action="" method="post" id="search">
 			<div class="field-holder">
-				<input type="text" class="field" value="Search" title="Search">
+				<input type="text" class="field" placeholder="Search" title="Search">
 			</div>
 			<input type="submit" class="button" value="Search">
 			<div class="cl">&nbsp;</div>
@@ -49,11 +49,11 @@ require_once '../controller/userInfo.php';
 			<a href="#" class="nav-btn">HOMEPAGE<span></span></a>			
 				<span class="top-nav-shadow"></span>
 				<ul>
-					<li class="active first"><span><a href="#">home</a></span></li>
+					<li class="active first"><span><a href="userHomePage.php">home</a></span></li>
 					<li><span><a href="#">group</a></span></li>
 					<li><span><a href="#">users</a></span></li>
 					<li><span><a href="#">messages</a></span></li>
-					<li><span><a href="#">help</a></span></li>					
+					<li><span><a href="resume.php">Resume</a></span></li>					
 					<li class="last"><span><a href="UserInfoForm.php">profile</a></span></li>
 				</ul>
 			</div>

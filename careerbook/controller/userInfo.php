@@ -45,7 +45,9 @@ class user_info_controller
 		$this->objIdentityInfo = new userIdentityInfo();
 		$this->ObjModel = new MyClass ();
 		$this->ObjAddressInfo = new UserAddressInfo();
+		$this->objAcademicInfo = new UserAcademicInfo();
 	}
+/*******************************************************************************************/
 	public function setUserPersonalInfo($result)
 	{
 		$this->objPersonalInfo->setinfo($result);
@@ -57,7 +59,8 @@ class user_info_controller
 	{
 		//		print($varname);
 		return $this->objPersonalInfo->getinfo();
-	}	
+	}
+/*******************************************************************************************/
 	public function setUserAddressInfo($result,$userInfo){
 		$this->ObjAddressInfo->setinfo($result);		
 		$result = $this->ObjModel->fetchUserAddressInfo($userInfo);
@@ -73,6 +76,23 @@ class user_info_controller
 	{
 		return $this->ObjAddressInfo->getInfo();
 	}
+/*******************************************************************************************/
+	public function setUserAcademicInfo($result,$userInfo){
+	    $this->objAcademicInfo->setinfo($result);
+	    $result = $this->ObjModel->fetchUserAcademicInfo($userInfo);
+	
+	    if(count($result) > 0 ){
+	        $this->ObjModel->updateUserAcademic($userInfo);
+	    }
+	    else{
+	        $this->ObjModel->insertIntoUserAcademic($userInfo) or die(mysql_error());
+	    }
+	}
+	public function getUserAcademicInfo()
+	{
+	    return $this->objAcademicInfo->getInfo();
+	}	
+/*******************************************************************************************/	
 	public function setUserProfessionalInfo($result,$userInfo)
 	{
 	    $this->objProfessionalInfo->setinfo($result);
@@ -94,13 +114,14 @@ class user_info_controller
 	{
 		return $this->objProfessionalInfo->getinfo();
 	}	
-
+/*******************************************************************************************/
 	public function setUserIdInfo($result){
 		$this->objIdentityInfo->setinfo($result);
 	}
 	public function getUserIdInfo(){
 		return $this->objIdentityInfo->getinfo();
 	}	
+/*******************************************************************************************/	
 }
 
 // $obj = new user_info_controller;
