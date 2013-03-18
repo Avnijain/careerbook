@@ -140,7 +140,7 @@ class mainentrance {
 					}
 				}
 			}
-			$this->obj_usrinfo->setUserProfessionalInfo($userProfessionalInfo,$this->obj_usrinfo);			
+//			$this->obj_usrinfo->setUserProfessionalInfo($userProfessionalInfo,$this->obj_usrinfo);			
 						
 			foreach(array_keys($userAddressInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){
@@ -149,7 +149,7 @@ class mainentrance {
 					}
 				}
 			}
-			$this->obj_usrinfo->setUserAddressInfo($userAddressInfo, $this->obj_usrinfo);
+			//$this->obj_usrinfo->setUserAddressInfo($userAddressInfo, $this->obj_usrinfo);
 			
 			foreach(array_keys($userAcademicInfo[0]) as $key => $value){
 			    if(isset($_POST[$value])){
@@ -158,7 +158,10 @@ class mainentrance {
 			        }
 			    }
 			}
-			$this->obj_usrinfo->setUserAcademicInfo($userAcademicInfo, $this->obj_usrinfo);
+			//$this->obj_usrinfo->setUserAcademicInfo($userAcademicInfo, $this->obj_usrinfo);
+			echo "<pre/>";
+			print_r($this->obj_usrinfo->getUserProfessionalInfo());
+			die;
 //			print_r($userAcademicInfo);
 //			die;
 //			print_r($userAddressInfo);

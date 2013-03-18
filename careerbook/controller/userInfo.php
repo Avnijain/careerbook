@@ -97,7 +97,7 @@ class user_info_controller
 	{
 	    $this->objProfessionalInfo->setinfo($result);
 	    $result = $this->ObjModel->fetchUserProfessionalInfo($userInfo);
-	    	    
+
 	    if(count($result) > 0 ){
 	    	$this->ObjModel->updateUserProfessional($userInfo);
 	    }
@@ -112,6 +112,10 @@ class user_info_controller
 	}	
 	public function getUserProfessionalInfo()
 	{
+	    $result = $this->ObjModel->fetchUserProfessionalInfo($userInfo);
+	    if(count($result) > 0 ){
+	        $this->objProfessionalInfo->setinfo($result);
+	    }
 		return $this->objProfessionalInfo->getinfo();
 	}	
 /*******************************************************************************************/
@@ -124,7 +128,7 @@ class user_info_controller
 /*******************************************************************************************/	
 }
 
-// $obj = new user_info_controller;
+$ObjuserInfo = new user_info_controller;
 // $obj->getuserinfo();
 
 ?>

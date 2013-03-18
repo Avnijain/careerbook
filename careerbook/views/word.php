@@ -16,6 +16,11 @@ include_once("../classes/lang.php");
 /*header("Content-type: application/vnd.ms-word");
 
 header("Content-Disposition: attachment;Filename=document_name.doc");*/
+require_once '../controller/userInfo.php';
+$ObjuserInfo = unserialize($_SESSION['userData']);
+
+
+
 
 if((isset($_POST['template1']))&&($_POST['template1']=="use this template"))
 {	
