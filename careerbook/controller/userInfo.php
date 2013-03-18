@@ -77,45 +77,61 @@ class user_info_controller
 		return $this->ObjAddressInfo->getInfo();
 	}
 /*******************************************************************************************/
-	public function setUserAcademicInfo($result,$userInfo){
+	public function setUserAcademicInfoForm($result){
 	    $this->objAcademicInfo->setinfo($result);
-	    $result = $this->ObjModel->fetchUserAcademicInfo($userInfo);
+	    $result = $this->ObjModel->fetchUserAcademicInfo($this);
 	
 	    if(count($result) > 0 ){
-	        $this->ObjModel->updateUserAcademic($userInfo);
+	        $this->ObjModel->updateUserAcademic($this);
 	    }
 	    else{
-	        $this->ObjModel->insertIntoUserAcademic($userInfo) or die(mysql_error());
-	    }
+	        $this->ObjModel->insertIntoUserAcademic($this) or die(mysql_error());
+	    }	    
+	}
+	private function serializedata($userInfo){
+		session_start();
+		$_SESSION['userData'] = serialize($userInfo);
+	}
+	public function setUserAcademicInfoDb(){
+		$result = $this->ObjModel->fetchUserAcademicInfo($this);	
+		if(count($result) > 0 ){
+			$this->objAcademicInfo->setinfo($result);
+			return true;
+		}
+		return false;
 	}
 	public function getUserAcademicInfo()
 	{
 	    return $this->objAcademicInfo->getInfo();
 	}	
-/*******************************************************************************************/	
-	public function setUserProfessionalInfo($result,$userInfo)
-	{
-	    $this->objProfessionalInfo->setinfo($result);
-	    $result = $this->ObjModel->fetchUserProfessionalInfo($userInfo);
-
-	    if(count($result) > 0 ){
-	    	$this->ObjModel->updateUserProfessional($userInfo);
-	    }
-	    else{
-	    	$this->ObjModel->insertIntoUserProfessional($userInfo);
-	    }
-	    //$result=$ObjModel->insertIntoUserProfessional($userInfo);	    
-	    //print_r($this->objIdentityInfo->getinfo());
-	    //		$this->obj->getdefinedvars();
-	    // 		echo "<pre/>";
-	    // 		print_r ($result);
-	}	
+/*******************************************************************************************/		
+	public function setUserProfessionalInfoForm($result,$userInfo){
+		$this->objProfessionalInfo->setinfo($result);
+		$result = $this->ObjModel->fetchUserProfessionalInfo($userInfo->getUserIdInfo());
+		
+		if(count($result) > 0 ){
+			$this->ObjModel->updateUserProfessional($userInfo);
+		}
+		else{
+			$this->ObjModel->insertIntoUserProfessional($userInfo);
+		}
+		//$result=$ObjModel->insertIntoUserProfessional($userInfo);
+		//print_r($this->objIdentityInfo->getinfo());
+		//		$this->obj->getdefinedvars();
+		// 		echo "<pre/>";
+		// 		print_r ($result);
+		
+	}
+	public function setUserProfessionalInfoDb(){
+		$result = $this->ObjModel->fetchUserProfessionalInfo($this);
+		if(count($result) > 0 ){
+			$this->objProfessionalInfo->setinfo($result);
+			return true;
+		}
+		return false;
+	}
 	public function getUserProfessionalInfo()
 	{
-	    $result = $this->ObjModel->fetchUserProfessionalInfo($userInfo);
-	    if(count($result) > 0 ){
-	        $this->objProfessionalInfo->setinfo($result);
-	    }
 		return $this->objProfessionalInfo->getinfo();
 	}	
 /*******************************************************************************************/

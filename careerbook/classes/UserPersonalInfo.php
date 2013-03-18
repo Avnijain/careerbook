@@ -28,9 +28,16 @@ class UserPersonalInfo {
 	public function getinfo(){
 		$arr = get_class_vars(get_class($this));
 		$allfields = array();
+		$emptyFlag = true;
 		foreach($arr as $key => $value ){
-			$allfields[$key] = $this->$key;
+			if(!empty($this->$key)){
+				$allfields[$key] = $this->$key;
+				$emptyFlag = false;
+			}			
 			//print($this->$key);
+		}
+		if($emptyFlag){
+			return array("empty data" => "empty data" );
 		}
 		return $allfields;
 	}

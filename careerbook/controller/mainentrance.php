@@ -53,7 +53,7 @@ class mainentrance {
 			$this->userLogin();			
 	}
 	if($_REQUEST['action']=="profileinfo"){
-		echo "Filling profile information # ";
+//		echo "Filling profile information # ";
 		$this->fillUserProfile();
 	}	
 	}
@@ -101,6 +101,8 @@ class mainentrance {
 //					$_SESSION['userData']=$result;
                         		$this->obj_usrinfo->setUserPersonalInfo($result);
                         		$this->obj_usrinfo->setUserIdInfo($result);
+                        		$this->obj_usrinfo->setUserProfessionalInfoDb();
+                        		$this->obj_usrinfo->setUserAcademicInfoDb();
 					$_SESSION['userData']=serialize($this->obj_usrinfo);
 //	print($obj_usrinfo->getuserinfo('first_name'));
 					header("location:../views/userHomePage.php");
@@ -118,7 +120,7 @@ class mainentrance {
 
 		private function fillUserProfile(){
 		
-			echo "filling user profile";
+//			echo "filling user profile";
 			$userProfessionalInfo = array(array("skill_set" => "" ,"current_position" => "","current_company" => "", "start_period" => ""));
 			$userAddressInfo = array(array("address"=>"","city_name"=>"","state_name"=>""));
 			$userAcademicInfo = array(array("board_10"=>"","school_10"=>"","percentage_GPA_10"=>"","board_12"=>"","school_12"=>"",
@@ -140,7 +142,7 @@ class mainentrance {
 					}
 				}
 			}
-//			$this->obj_usrinfo->setUserProfessionalInfo($userProfessionalInfo,$this->obj_usrinfo);			
+//			$this->obj_usrinfo->setUserProfessionalInfoForm($userProfessionalInfo,$this->obj_usrinfo);			
 						
 			foreach(array_keys($userAddressInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){
@@ -158,10 +160,9 @@ class mainentrance {
 			        }
 			    }
 			}
-			//$this->obj_usrinfo->setUserAcademicInfo($userAcademicInfo, $this->obj_usrinfo);
+			$this->obj_usrinfo->setUserAcademicInfoForm($userAcademicInfo);
 			echo "<pre/>";
-			print_r($this->obj_usrinfo->getUserProfessionalInfo());
-			die;
+//			print_r($this->obj_usrinfo->getUserProfessionalInfo());
 //			print_r($userAcademicInfo);
 //			die;
 //			print_r($userAddressInfo);
@@ -178,7 +179,7 @@ class mainentrance {
 			
 // 			//print_r($result);
 			$_SESSION['userData']=serialize($this->obj_usrinfo);
-			die;
+			header("location:../views/userHomePage.php");
 		
 		}
 			
