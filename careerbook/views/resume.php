@@ -1,6 +1,3 @@
-
-
-
 <?php
 /*
 **************************** Creation Log *******************************
@@ -13,9 +10,6 @@
 */
 include_once("../classes/lang.php");
 ?>
-<html>
-<head>
-
 <script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="../JavaScript/jquery.tools.min.js"></script>
 
@@ -30,15 +24,14 @@ $(function() {			//for producing the overlay effect
 
 });
 </script>
-</head>
-<body>
+
 <h1><?php echo $lang->RESUMEBUILDER; ?> </h1>
 <h3><?php echo $lang->CHOOSETEMPLATE; ?> </h3>
 <div id="main">
 	
-	<img border= 1 px red src="../images/resume1.jpg" rel="#mies2"/>
-	<img border= 1 px #cccc src="../images/resume3.jpg" rel="#mies1"/>
-	<img border= 1 px #cccc src="../images/resume2.jpg" rel="#mies3"/>
+	<img border= 1 px red src="../images/resume1.jpg" width="33%" rel="#mies2"/>
+	<img border= 1 px #cccc src="../images/resume3.jpg" width="33%" rel="#mies1"/>
+	<img border= 1 px #cccc src="../images/resume2.jpg" width="32%" rel="#mies3"/>
 	<form action="word.php" method=post>
 	<div class="simple_overlay" id="mies1">
 	  <!-- large image -->
@@ -80,6 +73,5 @@ $(function() {			//for producing the overlay effect
 	<br/>
 	</form>
 <div>
-</body>
-</html>
+
 

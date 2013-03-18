@@ -2,9 +2,6 @@
 include_once("../classes/lang.php");
 ?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
         <title><?php echo $lang->USERINFOFORM;?></title>
         <link rel="stylesheet" type="text/css" href="../css/global.css" ></link>
         <link rel="stylesheet" type="text/css" href="../css/topheader.css" ></link>
@@ -42,40 +39,9 @@ include_once("../classes/lang.php");
         
 </script>
         
-    </head>
-    <style>
-       
 
-    </style>
-     <body>
+
      <div id="mainWrapper">
-<div id="headerWrapper">
-<div id="top">
-		<div class="cl">&nbsp;</div>
-		<h1 id="logo"><a href="#">CareerBook</a></h1>
-		<form action="" method="post" id="search">
-			<div class="field-holder">
-				<input type="text" class="field" placeholder="Search" title="Search">
-			</div>
-			<input type="submit" class="button" value="Search">
-			<div class="cl">&nbsp;</div>
-		</form>
-</div>
-<nav class="top-nav">
-			<div class="shell">
-			<a href="#" class="nav-btn">HOMEPAGE<span></span></a>			
-				<span class="top-nav-shadow"></span>
-				<ul>
-					<li class="active first"><span><a href="userHomePage.php">home</a></span></li>
-					<li><span><a href="#">group</a></span></li>
-					<li><span><a href="#">users</a></span></li>
-					<li><span><a href="#">messages</a></span></li>
-					<li><span><a href="resume.php">Resume</a></span></li>					
-					<li class="last"><span><a href="UserInfoForm.php">profile</a></span></li>
-				</ul>
-			</div>
-</nav>
-</div>     
         <div>
             <span class="reference">
                 
@@ -260,6 +226,3 @@ include_once("../classes/lang.php");
         </div>
 		
 </div>
-    </body>
-</html>
-
