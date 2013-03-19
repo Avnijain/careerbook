@@ -1,36 +1,32 @@
 <?php
 /*
-    **************************** Creation Log *******************************
-    File Name                   -  lang.php
-    Project Name                -  Careerbook
-    Description                 -  Class file for start
-    Version                     -  1.0
-    Created by                  -  Mohit K. Singh 
-    Created on                  -  March 08, 2013
-	***************************** Update Log ********************************
-	Sr.NO.		Version		Updated by           Updated on          Description
-    -------------------------------------------------------------------------
-     
-    *************************************************************************
+ **************************** Creation Log *******************************
+File Name                   -  lang.php
+Project Name                -  Careerbook
+Description                 -  Class file for start
+Version                     -  1.0
+Created by                  -  Mohit K. Singh
+Created on                  -  March 08, 2013
+***************************** Update Log ********************************
+Sr.NO.		Version		Updated by           Updated on          Description
+-------------------------------------------------------------------------
+
+*************************************************************************
 
 */
 session_start();
-class Language{
-    
+class Language {
 
-        private $_lang;          //store user selected language array
+	private $_lang;          //store user selected language array
 
 	public function __construct($language) {
 		$this->_lang=$language;
-	
 	}
-	      
-        public function __get($key){
-            
-            return $this->_lang[$key];
-            
-        }
-    
+
+	public function __get($key){
+		return $this->_lang[$key];
+	}
+
 }
 
 if(isset($_SESSION['lang'])){

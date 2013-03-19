@@ -16,23 +16,15 @@ Sr.NO.		Version		Updated by           Updated on          Description
 
 */
 
-
+ini_set("display_errors", "1");
 require_once 'singleton.php';
 
-//class for database connection instance
-abstract class model {
-
-	protected $_db = "";
-
-	function __construct() {
-		$this->_db = DBConnection::Connect();
-	}
-
-}
-
 //Model for group class 
-class Group extends model {
+class Group extends DBConnection {
 	
+	//protected $db = "";
+	protected $_group_image;
+	protected $_group_title;
 	protected $_group_description;
 	protected $_group_id;
 	protected $_group_discussion_title;
@@ -44,15 +36,11 @@ class Group extends model {
 	protected $_group_member_user_id;
 	protected $_created_on;
 	protected $_created_by;
-	protected $_updated_on;
+		
+	
 	
 	//function to add user post 
 	function add_post($group_id, $description) {
-		
-		$this->_group_id = ( int ) $group_id;
-		$this->_group_discussion_description = mysql_real_escape_string ( $description );
-		$this->_created_by = $_SESSION['userid'];
-		$this->_created_on = date ( 'Y-m-d H:i:s' );
 		
 		$this->_db->Fields(array
 							(
@@ -100,9 +88,23 @@ class Group extends model {
 	}
 	
 	//function to add new group
-	function add_group($group_title, $group_description, $group_image) {
+	function add_group() {
 		
+		$this->Fields(array
+				(
+						"title"=>$this->_group_title,
+						"description"=>$this->_group_description,
+						"group_image"=>$this->_group_image,
+						"created_by"=>$this->_created_by,
+						"created_on"=>$this->_created_on
+				)
+		);
 		
+		$this->From("group_details");
+		$this->Insert();
+		echo $this->lastQuery();
+		echo (mysql_error());
+
 	}
 	
 	//function to list group post
