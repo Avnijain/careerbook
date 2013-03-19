@@ -9,45 +9,31 @@
 	***************************** Update Log ********************************
 	Sr.NO.		Version		Updated by           Updated on          Description
     -------------------------------------------------------------------------
-     
+     1			1.0			Avni Jain			March 19,2013		extracting and displaying user information
     *************************************************************************
 */
 include_once("../classes/lang.php");
 $field="it";
+require_once '../controller/userInfo.php';
+$objUserInfo = unserialize($_SESSION['userData']);
+$ob=$objUserInfo->getUserPersonalInfo();
+$ob1=$objUserInfo->getUserAcademicInfo();
 ?>
-<style>
-body
-{
-
-background-color: #D0D0D0;
-}
-#main
-{
-background-image:url('../images/paper1.jpg');
-color:white;
-margin:35px 35px 35px 35px;
-background-size:contain;
-border-color:#668099;
-}
-p
-{
-background-color:#668099;
-}
-</style>
-
+<link rel="stylesheet" type="text/css" href="../css/information.css" />
 <body>
 <div id="main">
 	<h2><?php echo $lang->MYINFORMATION?></h2>
 	<div id="mainframe">
-	<h2><?php echo $lang->NAME?></h2><br/>
+	<h2><?php echo $ob['first_name'];echo "   ";echo $ob['last_name'];?></h2><br/>
 	<tr><td><img src="../images/a1.jpeg" height=35% width=15%/>
 		<div id="Education">
 			<p><?php echo $lang->EDUCATION?></p>
 			<table cellspacing="10" cellpadding="5";>
 			<tr><td><?php echo $lang->STD?></td><td><?php echo $lang->BOARD?></td><td><?php echo $lang->CPI?></td></tr>
-			<tr><td><?php echo $lang->EDUCATION?></td><td><?php echo $lang->EDUCATION?></td><td><?php echo $lang->EDUCATION?></td></tr>
-			<tr><td><?php echo $lang->EDUCATION?></td><td><?php echo $lang->EDUCATION?></td><td><?php echo $lang->EDUCATION?></td></tr>
-			<table>
+			<tr><td><?php echo $lang->TENTH?></td><td><?php echo $ob1['board_10']?></td><td><?php echo $ob1['percentage_GPA_10']?></td></tr>
+			<tr><td><?php echo $lang->TWELETH?></td><td><?php echo $ob1['board_10']?></td><td><?php echo $ob1['percentage_12']?></td></tr>
+			<tr><td><?php echo $ob1['graduation_degree']?></td><td><?php echo $ob1['graduation_college']?></td><td><?php echo $ob1['graduation_percentage']?></td></tr>
+			</table>
 		</div>
 		<div id="Skills"><p><?php echo $lang->SKILLS?></p></div>
 		<?php if ($field=="it")?>
