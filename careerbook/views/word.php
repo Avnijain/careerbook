@@ -17,7 +17,7 @@ include_once("../classes/lang.php");
 
 header("Content-Disposition: attachment;Filename=document_name.doc");*/
 require_once '../controller/userInfo.php';
-$ObjuserInfo = unserialize($_SESSION['userData']);
+$objUserInfo = unserialize($_SESSION['userData']);
 
 
 

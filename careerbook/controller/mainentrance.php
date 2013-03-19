@@ -103,6 +103,7 @@ class mainentrance {
                         		$this->obj_usrinfo->setUserIdInfo($result);
                         		$this->obj_usrinfo->setUserProfessionalInfoDb();
                         		$this->obj_usrinfo->setUserAcademicInfoDb();
+                        		$this->obj_usrinfo->setUserAddressInfoDb();
 					$_SESSION['userData']=serialize($this->obj_usrinfo);
 //	print($obj_usrinfo->getuserinfo('first_name'));
 					header("location:../views/userHomePage.php");
@@ -142,7 +143,7 @@ class mainentrance {
 					}
 				}
 			}
-//			$this->obj_usrinfo->setUserProfessionalInfoForm($userProfessionalInfo,$this->obj_usrinfo);			
+			$this->obj_usrinfo->setUserProfessionalInfoForm($userProfessionalInfo);			
 						
 			foreach(array_keys($userAddressInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){
@@ -151,7 +152,7 @@ class mainentrance {
 					}
 				}
 			}
-			//$this->obj_usrinfo->setUserAddressInfo($userAddressInfo, $this->obj_usrinfo);
+			$this->obj_usrinfo->setUserAddressInfoForm($userAddressInfo);
 			
 			foreach(array_keys($userAcademicInfo[0]) as $key => $value){
 			    if(isset($_POST[$value])){
@@ -161,7 +162,7 @@ class mainentrance {
 			    }
 			}
 			$this->obj_usrinfo->setUserAcademicInfoForm($userAcademicInfo);
-			echo "<pre/>";
+//			echo "<pre/>";
 //			print_r($this->obj_usrinfo->getUserProfessionalInfo());
 //			print_r($userAcademicInfo);
 //			die;

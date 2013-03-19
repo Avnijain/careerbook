@@ -52,8 +52,8 @@ class UserAddressInfo {
 		$arr = get_class_vars(get_class($this));
 		foreach($arr as $key => $value ){
 			$this->$key = $result[0][$key];
-			//print($this->$key);
-		}
+//			print($this->$key);
+		}		
 	}
 	/* FOR TESTING AND GETTING CLASS VARIABLES
 	 public function getdefinedvars(){

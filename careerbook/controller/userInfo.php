@@ -36,7 +36,7 @@ class user_info_controller
 	private $objAcademicInfo;
 	private $objIdentityInfo;	
 	private	$ObjModel;
-	private $ObjAddressInfo;
+	private $objAddressInfo;
 
 	public function __construct()
 	{
@@ -44,7 +44,7 @@ class user_info_controller
 		$this->objProfessionalInfo = new UserProfessionalInfo();
 		$this->objIdentityInfo = new userIdentityInfo();
 		$this->ObjModel = new MyClass ();
-		$this->ObjAddressInfo = new UserAddressInfo();
+		$this->objAddressInfo = new UserAddressInfo();
 		$this->objAcademicInfo = new UserAcademicInfo();
 	}
 /*******************************************************************************************/
@@ -61,20 +61,29 @@ class user_info_controller
 		return $this->objPersonalInfo->getinfo();
 	}
 /*******************************************************************************************/
-	public function setUserAddressInfo($result,$userInfo){
-		$this->ObjAddressInfo->setinfo($result);		
-		$result = $this->ObjModel->fetchUserAddressInfo($userInfo);
-		
+	public function setUserAddressInfoForm($result){
+		$this->objAddressInfo->setinfo($result);		
+		$result = $this->ObjModel->fetchUserAddressInfo($this);		
+
 		if(count($result) > 0 ){
-			$this->ObjModel->updateUserAddress($userInfo);
+			$this->ObjModel->updateUserAddress($this);
 		}
 		else{
-			$this->ObjModel->insertIntoUserAddress($userInfo);
+			$this->ObjModel->insertIntoUserAddress($this);
 		}
+	}
+	public function setUserAddressInfoDb(){
+		$result = $this->ObjModel->fetchFullUserAddressInfo($this);
+		if(count($result) > 0 ){
+			$this->objAddressInfo->setinfo($result);
+			return true;
+		}
+		return false;
 	}
 	public function getUserAddressInfo()
 	{
-		return $this->ObjAddressInfo->getInfo();
+		$this->setUserAddressInfoDb();
+		return $this->objAddressInfo->getInfo();
 	}
 /*******************************************************************************************/
 	public function setUserAcademicInfoForm($result){
@@ -88,10 +97,10 @@ class user_info_controller
 	        $this->ObjModel->insertIntoUserAcademic($this) or die(mysql_error());
 	    }	    
 	}
-	private function serializedata($userInfo){
-		session_start();
-		$_SESSION['userData'] = serialize($userInfo);
-	}
+// 	private function serializedata($userInfo){
+// 		session_start();
+// 		$_SESSION['userData'] = serialize($userInfo);
+// 	}
 	public function setUserAcademicInfoDb(){
 		$result = $this->ObjModel->fetchUserAcademicInfo($this);	
 		if(count($result) > 0 ){
@@ -102,18 +111,19 @@ class user_info_controller
 	}
 	public function getUserAcademicInfo()
 	{
+		$this->setUserAcademicInfoDb();
 	    return $this->objAcademicInfo->getInfo();
 	}	
 /*******************************************************************************************/		
-	public function setUserProfessionalInfoForm($result,$userInfo){
+	public function setUserProfessionalInfoForm($result){
 		$this->objProfessionalInfo->setinfo($result);
-		$result = $this->ObjModel->fetchUserProfessionalInfo($userInfo->getUserIdInfo());
+		$result = $this->ObjModel->fetchUserProfessionalInfo($this);
 		
 		if(count($result) > 0 ){
-			$this->ObjModel->updateUserProfessional($userInfo);
+			$this->ObjModel->updateUserProfessional($this);
 		}
 		else{
-			$this->ObjModel->insertIntoUserProfessional($userInfo);
+			$this->ObjModel->insertIntoUserProfessional($this);
 		}
 		//$result=$ObjModel->insertIntoUserProfessional($userInfo);
 		//print_r($this->objIdentityInfo->getinfo());
@@ -132,6 +142,7 @@ class user_info_controller
 	}
 	public function getUserProfessionalInfo()
 	{
+		$this->setUserProfessionalInfoDb();
 		return $this->objProfessionalInfo->getinfo();
 	}	
 /*******************************************************************************************/
@@ -144,7 +155,7 @@ class user_info_controller
 /*******************************************************************************************/	
 }
 
-$ObjuserInfo = new user_info_controller;
+$objUserInfo = new user_info_controller;
 // $obj->getuserinfo();
 
 ?>

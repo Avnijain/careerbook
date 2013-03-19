@@ -78,14 +78,15 @@ echo "<br>";
 echo $_SERVER['HTTP_USER_AGENT'];
     if(isset($_SESSION['userData']))
     {
-        $obj = new user_info_controller();
-        $obj = unserialize($_SESSION['userData']);
+//        $obj = new user_info_controller();
+        $objUserInfo = unserialize($_SESSION['userData']);
         print("<br/>");
         echo "<pre>";
-        print_r ($obj->getUserPersonalInfo());
-        print_r ($obj->getUserIdInfo());
-        print_r ($obj->getUserProfessionalInfo());
-        print_r ($obj->getUserAcademicInfo());
+        print_r ($objUserInfo->getUserPersonalInfo());
+        print_r ($objUserInfo->getUserIdInfo());
+        print_r ($objUserInfo->getUserProfessionalInfo());
+        print_r ($objUserInfo->getUserAcademicInfo());
+        print_r ($objUserInfo->getUserAddressInfo());
 
 //     print("first_name =>".$obj->getuserinfo('first_name'));print("<br/>");
 // 	print("middle_name =>".$obj->getuserinfo('middle_name'));print("<br/>");
