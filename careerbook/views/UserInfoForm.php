@@ -34,14 +34,14 @@ include_once("../classes/lang.php");
 		 });
         function addMoreDegree()
         {
-            var $text1="<p><label ><?php echo $lang->DEGREE;?></label>";
-            var $text2="<input id=\"board_10\" name=\"degree\" type=\"text\" AUTOCOMPLETE=OFF />";
-            var $text3="<label ><?php echo $lang->SPECIALIZATION;?></label>";
-            var $text4="<input id=\"school_10\" name=\"specialization\" type=\"text\" AUTOCOMPLETE=OFF />";
-            var $text5="<label ><?php echo $lang->COLLEGE;?></label>";
-            var $text6="<input id=\"school_10\" name=\"college\" type=\"text\" AUTOCOMPLETE=OFF />";
-            var $text7="<label ><?php echo $lang->PERCENTAGE;?></label>";                                                  
-            var $text8="<input id=\"10percentage\" name=\"percentage\" type=\"number\" AUTOCOMPLETE=OFF /></p>";                  
+            var $text1="<p><label ><?php echo $lang->TITLE;?> </label>";
+            var $text2="<input id=\"title\" name=\"title\" type=\"text\" AUTOCOMPLETE=OFF />";
+            var $text3="<label ><?php echo $lang->DESCRIPITION;?></label>";
+            var $text4="<input id=\"descripition\" name=\"descripition\" type=\"text\" AUTOCOMPLETE=OFF />";
+            var $text5="<label ><?php echo $lang->TECHNOLOGYUSED;?></label>";
+            var $text6="<input id=\"technology\" name=\"technology\" type=\"text\" AUTOCOMPLETE=OFF />";
+            var $text7="<label ><?php echo $lang->DURATION;?></label>";                                                  
+            var $text8="<input id=\"duration\" name=\"duration\" type=\"number\" AUTOCOMPLETE=OFF /></p>";                  
             $("#otherDegree").append($text1+$text2+$text3+$text4+$text5+$text6+$text7+$text8);
 
         }
@@ -166,16 +166,16 @@ include_once("../classes/lang.php");
 					</fieldset>
 					<fieldset class="step" id="otherDegree">
 						<legend>
-							<?php echo $lang->SETTINGS; ?>
+							<?php echo $lang->PROJECT; ?>
 						</legend>
 						<p>
-							<label><?php echo $lang->DEGREE;?> </label> <input id="board_10"
-								name="degree" type="text" AUTOCOMPLETE=OFF /> <label><?php echo $lang->SPECIALIZATION;?>
-							</label> <input id="school_10" name="specialization" type="text"
-								AUTOCOMPLETE=OFF /> <label><?php echo $lang->COLLEGE;?> </label>
-							<input id="school_10" name="college" type="text" AUTOCOMPLETE=OFF />
-							<label><?php echo $lang->PERCENTAGE;?> </label> <input
-								id="10percentage" name="percentage" type="number"
+							<label><?php echo $lang->TITLE;?> </label> <input id="title"
+								name="title" type="text" AUTOCOMPLETE=OFF /> <label><?php echo $lang->DESCRIPITION;?>
+							</label> <input id="descripition" name="description" type="text"
+								AUTOCOMPLETE=OFF /> <label><?php echo $lang->TECHNOLOGYUSED;?> </label>
+							<input id="technology" name="technology" type="text" AUTOCOMPLETE=OFF />
+							<label><?php echo $lang->DURATION;?> </label> <input
+								id="duration" name="duartion" type="number"
 								AUTOCOMPLETE=OFF />
 						</p>
 						<p>
@@ -236,7 +236,7 @@ include_once("../classes/lang.php");
 					</li>
 					<li><a href="#"><?php echo $lang->EDUCATION; ?> </a>
 					</li>
-					<li><a href="#"><?php echo $lang->SETTINGS; ?> </a>
+					<li><a href="#"><?php echo $lang->PROJECT; ?> </a>
 					</li>
 					<li><a href="#"><?php echo $lang->JOB; ?> </a>
 					</li>
