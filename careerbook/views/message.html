@@ -1,0 +1,257 @@
+
+
+   
+    <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
+    <!--[if IE 7]>
+    <style type="text/css">
+        #vtab > ul > li.selected{
+            border-right: 1px solid #fff !important;
+        }
+        #vtab > ul > li {
+            border-right: 1px solid #ddd !important;
+        }
+        #vtab > div { 
+            z-index: -1 !important;
+            left:1px;
+        }
+    </style>
+    <![endif]-->
+    <style type="text/css">
+        body {
+            background: #fff;
+            font-family: verdana;
+            padding-top: 50px;
+        }
+        #vtab {
+            margin: auto;
+            width: 800px;
+            height: 100%;
+        }
+        #vtab > ul > li {
+            width: 110px;
+            height: 110px;
+            background-color: #fff !important;
+            list-style-type: none;
+            display: block;
+            text-align: center;
+            margin: auto;
+            padding-bottom: 10px;
+            border: 1px solid #fff;
+            position: relative;
+            border-right: none;
+            opacity: .3;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+        }
+        #vtab > ul > li.home {
+            background: url('../images/inbox.jpg') no-repeat center center;
+        }
+        #vtab > ul > li.login {
+            background: url('../images/compose.jpg') no-repeat center center;
+        }
+        #vtab > ul > li.support {
+            background: url('../images/outbox.jpg') no-repeat center center;
+        }
+        #vtab > ul > li.selected {
+            opacity: 1;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+            border: 1px solid #ddd;
+            border-right: none;
+            z-index: 10;
+            background-color: #fafafa !important;
+            position: relative;
+        }
+        #vtab > ul {
+            float: left;
+            width: 110px;
+            text-align: left;
+            display: block;
+            margin: auto 0;
+            padding: 0;
+            position: relative;
+            top: 30px;
+        }
+        #vtab > div {
+            background-color: #fafafa;
+            margin-left: 110px;
+            border: 1px solid #ddd;
+            min-height: 500px;
+            padding: 12px;
+            position: relative;
+            z-index: 9;
+            -moz-border-radius: 20px;
+        }
+        #vtab > div > h4 {
+            color: #800;
+            font-size: 1.2em;
+            border-bottom: 1px dotted #800;
+            padding-top: 5px;
+            margin-top: 0;
+        }
+        #SendForm label {
+            float: left;
+            width: 100px;
+            text-align: right;
+            clear: left;
+            margin-right: 15px;
+        }
+        #SendForm fieldset {
+            border: none;
+        }
+        #SendForm fieldset > div {
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+        #SendForm #message {
+            margin-left: 115px;
+        }
+    </style>
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <script type="text/javascript">
+        $(function() {
+            var $items = $('#vtab>ul>li');
+            $items.mouseover(function() {
+                $items.removeClass('selected');
+                $(this).addClass('selected');
+
+                var index = $items.index($(this));
+                $('#vtab>div').hide().eq(index).show();
+            }).eq(1).mouseover();
+        });
+    </script>
+
+    <div id="vtab">
+        <ul>
+            <li class="home selected"></li>
+            <li class="login"></li>
+            <li class="support"></li>
+        </ul>
+        <div>
+            <h4>
+                My Inbox</h4>
+			  <div class="container">
+			<section>
+                <div id="container_buttons">
+					
+					<ul>
+						<li class="toggle">
+							<a href="#six">Avni Jain</a>
+							<p id="six">
+								Lets start learning CSS3 before its too late, I just saw a website which amazed me with its animation effects. First I thought that the site is using some JQuery libraries but when I actually went into the code, I found it is CSS3. So I started learning it, and today I made my first  <a href="http://webstutorial.com/css3-clock/css3">details....</a>
+							</p>
+						</li>
+						<li class="toggle">
+							<a href="#One">Prateek</a>
+							<p id="One">
+								Lets start learning CSS3 before its too late, I just saw a website which amazed me with its animation effects. First I thought that the site is using some JQuery libraries but when I actually went into the code, I found it is CSS3. So I started learning it, and today I made my first  <a href="http://webstutorial.com/css3-clock/css3">details....</a>
+							</p>
+						</li>
+						<li class="toggle">
+							<a href="#Two">Mohit</a>
+							<p id="Two">
+								Model-View-Controller Cake enforces an MVC structure for your web applications. Basically, it effectively separates typical operations into specific areas: MODELS : for all your database interaction VIEWS : for all your output and displays CONTROLLERS : for all your commands/scripts for input and program flow The typical PHP application mixes each of these three functions  <a href="http://webstutorial.com/learn-cakephp-novice-professional-part-2/framework">details....</a>
+							</p>
+						</li>
+						<li class="toggle">
+							<a href="#Three">Manish</a>
+							<p id="Three">
+								This guide is for beginners to CakePHP. Whether or not you have much experience with the PHP scripting language, working in Cake will require some new methods you may or may not have tried before. If you don't know what a "has-and-belongs-to-many" relationship is, don't know how to build your own class object, or don't  <a href="http://webstutorial.com/learn-cakephp-novice-professional-part-1/framework">details....</a>
+							</p>
+						</li>
+						
+						<li class="toggle">
+							<a href="#Four">Varun</a>
+							<p id="Four">
+								Recently I got a new project of real estate where I had to display about 1000 of projects on the google map. I was having the address of 1000 projects, so I started with my php and js code. When I coded and started testing, I found that on the map only 20-30 markers were  <a href="http://webstutorial.com/google-server-side-geocoding-php-infobox/website-tweaks/google">details....</a>
+							</p>
+						</li>
+						
+						<li class="toggle">
+							<a href="#Five">Rohit</a>
+							<p id="Five">
+								What is CodeIgniter? CodeIgniter is an open source PHP framework. This framework is used to build web applications and websites. CodeIgniter is best for developers who are into front-end development. It's easy to learn and it's fully flexibe. To learn CI (CodeIgniter), you should know PHP, MYSQL, OOPs and MVC. If you are new to  <a href="http://webstutorial.com/codeigniter-tutorials-codeigniter-lessons-part-1/programming/php">details....</a>
+							</p>
+						</li>
+					</ul>
+					
+                </div>
+			</section>
+        </div>
+        </div>
+        <div>
+            <h4>
+                Compose Message</h4>
+            <form id="SendForm" action="">
+            <fieldset>
+                <legend>Add Message</legend>
+                <div>
+                    <label for="to">
+                        To:</label>
+                    <input type="text" name="" id="email" />
+                </div>
+                <div>
+                    <label for="meassage">
+                        message:</label>
+						<textarea name="descripition"></textarea>
+                </div>
+                <div>
+                    <input id="message" type="submit" value="Send" />
+                </div>
+            </fieldset>
+            </form>
+        </div>
+        <div>
+            <h4>
+                Outbox</h4>
+			  <div class="container">
+			<section>
+                <div id="container_buttons">
+					
+					<ul>
+						<li class="toggle">
+							<a href="#six1">Avni Jain</a>
+							<p id="six1">
+								Lets start learning CSS3 before its too late, I just saw a website which amazed me with its animation effects. First I thought that the site is using some JQuery libraries but when I actually went into the code, I found it is CSS3. So I started learning it, and today I made my first  <a href="http://webstutorial.com/css3-clock/css3">details....</a>
+							</p>
+						</li>
+						<li class="toggle">
+							<a href="#One1">Prateek</a>
+							<p id="One1">
+								Lets start learning CSS3 before its too late, I just saw a website which amazed me with its animation effects. First I thought that the site is using some JQuery libraries but when I actually went into the code, I found it is CSS3. So I started learning it, and today I made my first  <a href="http://webstutorial.com/css3-clock/css3">details....</a>
+							</p>
+						</li>
+						<li class="toggle">
+							<a href="#Two1">Mohit</a>
+							<p id="Two1">
+								Model-View-Controller Cake enforces an MVC structure for your web applications. Basically, it effectively separates typical operations into specific areas: MODELS : for all your database interaction VIEWS : for all your output and displays CONTROLLERS : for all your commands/scripts for input and program flow The typical PHP application mixes each of these three functions  <a href="http://webstutorial.com/learn-cakephp-novice-professional-part-2/framework">details....</a>
+							</p>
+						</li>
+						<li class="toggle">
+							<a href="#Three1">Manish</a>
+							<p id="Three1">
+								This guide is for beginners to CakePHP. Whether or not you have much experience with the PHP scripting language, working in Cake will require some new methods you may or may not have tried before. If you don't know what a "has-and-belongs-to-many" relationship is, don't know how to build your own class object, or don't  <a href="http://webstutorial.com/learn-cakephp-novice-professional-part-1/framework">details....</a>
+							</p>
+						</li>
+						
+						<li class="toggle">
+							<a href="#Four1">Rashmi</a>
+							<p id="Four1">
+								Recently I got a new project of real estate where I had to display about 1000 of projects on the google map. I was having the address of 1000 projects, so I started with my php and js code. When I coded and started testing, I found that on the map only 20-30 markers were  <a href="http://webstutorial.com/google-server-side-geocoding-php-infobox/website-tweaks/google">details....</a>
+							</p>
+						</li>
+						
+						<li class="toggle">
+							<a href="#Five1">Anmol</a>
+							<p id="Five1">
+								What is CodeIgniter? CodeIgniter is an open source PHP framework. This framework is used to build web applications and websites. CodeIgniter is best for developers who are into front-end development. It's easy to learn and it's fully flexibe. To learn CI (CodeIgniter), you should know PHP, MYSQL, OOPs and MVC. If you are new to  <a href="http://webstutorial.com/codeigniter-tutorials-codeigniter-lessons-part-1/programming/php">details....</a>
+							</p>
+						</li>
+					</ul>
+					
+                </div>
+			</section>
+        </div>
+		   
+        </div>
+    </div>

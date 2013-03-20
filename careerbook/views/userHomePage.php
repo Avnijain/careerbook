@@ -54,7 +54,7 @@ require_once '../controller/userInfo.php';
 		<li class="active first"><span><a href="userHomePage.php">home</a></span></li>
 		<li><span><a href="userHomePage.php?group">group</a></span></li>
 		<li><span><a href="#">users</a></span></li>
-		<li><span><a href="#">messages</a></span></li>
+		<li><span><a href="userHomePage.php?message">messages</a></span></li>
 		<li><span><a href="userHomePage.php?resume">Resume</a></span></li>					
 		<li class="last"><span><a href="userHomePage.php?profile">profile</a></span></li>
 		</ul>
@@ -82,7 +82,10 @@ else if(isset($_GET['logOut'])){
    die;
 } else if (isset($_GET['group'])) {
 	include 'add_group.php';
-} else{
+}
+else if (isset($_GET['message'])) {
+	//include 'message.html'; 
+}else{
    include 'userHomeContent.php';
 }
 ?>
