@@ -45,6 +45,17 @@ include_once("../classes/lang.php");
             $("#otherDegree").append($text1+$text2+$text3+$text4+$text5+$text6+$text7+$text8);
 
         }
+        function addMore()
+        {
+            var $text1="<p><label ><?php echo $lang->CERTIFICATENAME;?> </label>";
+            var $text2="<input id=\"certificatename\" name=\"certificatename\" type=\"text\" AUTOCOMPLETE=OFF />";
+            var $text3="<label ><?php echo $lang->DESCRIPITION;?></label>";
+            var $text4="<input id=\"certificatedescription\" name=\"certificatedescription\" type=\"text\" AUTOCOMPLETE=OFF />";
+            var $text5="<label ><?php echo $lang->DATEDAT;?></label>";
+            var $text6="<input id=\"datedat\" name=\"datedat\" type=\"text\" AUTOCOMPLETE=OFF />";                  
+            $("#other").append($text1+$text2+$text3+$text4+$text5+$text6);
+
+        }
         
 </script>
 
@@ -214,6 +225,28 @@ include_once("../classes/lang.php");
 						</p>
 
 					</fieldset>
+					<fieldset class="step" id="other">
+						<legend>
+							<?php echo $lang->OTHER; ?>
+						</legend>
+						<p>
+							<label><?php echo $lang->CERTIFICATENAME;?> </label> <input
+								id="certificatename" name="certificatename" type="text" AUTOCOMPLETE=OFF /> <label><?php echo $lang->DESCRIPITION;?>
+							</label> <input id="certificatedescription" name="certificatedescription" type="text"
+								AUTOCOMPLETE=OFF /> <label><?php echo $lang->DATEDAT;?> </label>
+							<input id="datedat" name="datedat" type="text" AUTOCOMPLETE=OFF />
+							</p>
+							<p>
+							<input type="button" value="<?php echo $lang->ADDMORE;?>"
+								onclick="addMore();">
+						</p>
+						<p>
+							<label><?php echo $lang->EXTRACIRCULAR;?> </label> <input
+								id="extracircular" name="extracircular" type="number"
+								AUTOCOMPLETE=OFF />
+						</p>
+
+					</fieldset>
 					<fieldset class="step">
 						<legend>
 							<?php echo $lang->CONFIRM; ?>
@@ -241,6 +274,8 @@ include_once("../classes/lang.php");
 					<li><a href="#"><?php echo $lang->JOB; ?> </a>
 					</li>
 					<li><a href="#"><?php echo $lang->PREVJOB; ?> </a>
+					</li>
+					<li><a href="#"><?php echo $lang->OTHER; ?> </a>
 					</li>
 					<li><a href="#"><?php echo $lang->CONFIRM; ?> </a>
 					</li>

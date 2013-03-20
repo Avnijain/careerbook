@@ -156,14 +156,20 @@
 											'TECHNOLOGYUSED'=>"Technology used",
 											'DESCRIPITION'=>"Descripition",
 											'TITLE'=>"Title",
+											'OTHER'=>"Others",
+											'CERTIFICATENAME'=>"Certificate Name",
+											'DATEDAT'=>"Dated At",
+											'EXTRACIRCULAR'=>"Extra Circular",
 											''=>"",
 											''=>"",
 											''=>"",
 											''=>"",
-											''=>"",
-											''=>"",
-											''=>"",
-											''=>""
+									 		''=>"",
+									 		''=>"",
+									 		''=>"",
+									 		''=>"",
+									 		''=>"",
+									 		''=>""
                                            );
 
 
