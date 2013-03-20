@@ -86,8 +86,8 @@ class user_info_controller
 	}
 	public function getUserAddressInfoDB()
 	{
-	    $this->setUserAddressInfoDb();
-	    return $this->objAddressInfo->getInfo();
+	    $flag = $this->setUserAddressInfoDb();
+	    return $this->objAddressInfo->getInfo($flag);
 	}
 /*******************************************************************************************/
 	public function setUserAcademicInfoForm($result){
@@ -119,8 +119,8 @@ class user_info_controller
 	}
 	public function getUserAcademicInfoDB()
 	{
-	    $this->setUserAcademicInfoDb();
-	    return $this->objAcademicInfo->getInfo();
+	    $flag = $this->setUserAcademicInfoDb();
+	    return $this->objAcademicInfo->getInfo($flag);
 	}	
 /*******************************************************************************************/		
 	public function setUserProfessionalInfoForm($result){
@@ -154,8 +154,8 @@ class user_info_controller
 	}	
 	public function getUserProfessionalInfoDB()
 	{
-	    $this->setUserProfessionalInfoDb();
-	    return $this->objProfessionalInfo->getinfo();
+	    $flag = $this->setUserProfessionalInfoDb();
+	    return $this->objProfessionalInfo->getinfo($flag);
 	}
 /*******************************************************************************************/
 	public function setUserIdInfo($result){

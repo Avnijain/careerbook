@@ -152,7 +152,7 @@ class mainentrance {
 				}
 			}
 			if($flagData){
-			    $this->obj_usrinfo->setUserProfessionalInfo($userProfessionalInfo);
+			    $this->obj_usrinfo->setUserProfessionalInfoForm($userProfessionalInfo);
 //			    echo "inserting professional";
 			}
 			

@@ -88,9 +88,9 @@ class MyClass extends model {
 		$this->db->Join("city cty", "cty.id = upersnli.city_id ", $type="INNER");
 		$this->db->Select();
 		
-// 		echo $this->db->lastQuery();
-// 		print_r ($this->db->resultArray());		
-// 		die;
+//  		echo $this->db->lastQuery();
+//  		print_r ($this->db->resultArray());		
+//  		die;
 		return $this->db->resultArray();
 	}
 	public function insertIntoUserAddress($userInfo){
