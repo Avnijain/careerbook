@@ -30,14 +30,15 @@ class GroupHandler extends Group {
 		{
 			$obj = new user_info_controller();
 			$obj = unserialize($_SESSION['userData']);
-			$this->userid = $obj->getUserIdInfo();
+			$userid = $obj->getUserIdInfo();
+			$this->userid = $userid['id'];
 		}
 	}
 
 	function handleAddGroup() {
 		$this->_group_title = mysql_real_escape_string($_POST['title']);
 		$this->_group_description = mysql_real_escape_string($_POST['description']);
-		$this->_created_by = 14;
+		$this->_created_by = $this->userid;
 		$this->_created_on = date ( 'Y-m-d H:i:s' );
 		$maxsize = 1024000; //set to approx 1 MB
 		

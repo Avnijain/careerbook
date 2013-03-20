@@ -35,6 +35,9 @@ require_once '../controller/userInfo.php';
 <div id="top">
 	<div class="cl">&nbsp;</div>
 	<h1 id="logo"><a href="#">CareerBook</a></h1>
+           <label id="userName">Welcome User Name</label>
+		 <a href="./userHomePage.php?logOut" class="small magenta awesome">LogOut</a><br><br>	
+	
 	<form action="" method="post" id="search">
 		<div class="field-holder">
 			<input type="text" class="field" placeholder="Search" title="Search">
@@ -60,10 +63,23 @@ require_once '../controller/userInfo.php';
 </div>
 <div id="contentWrapper">
 <?php 
+
+if(!isset($_SESSION['userData']))
+{
+    header("location:../index.php");
+    die;
+}
+
+
 if(isset($_GET['profile'])){
    include 'UserInfoForm.php';
 } else if(isset($_GET['resume'])){
    include 'resume.php';
+}
+else if(isset($_GET['logOut'])){
+   session_destroy();
+   header("location:../index.php");
+   die;
 } else if (isset($_GET['group'])) {
 	include 'add_group.php';
 } else{
