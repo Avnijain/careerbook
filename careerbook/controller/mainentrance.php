@@ -45,16 +45,16 @@ class mainentrance {
 		session_start ();
 		
 		if($_REQUEST['action']=="Registration"){
-			print("yes I am here");
+			//print("yes I am here");
 			$this->userRegistration();
 
 		}
 		if($_REQUEST['action']=="login"){
-			echo "login";
+			//echo "login";
 			$this->userLogin();
 		}
 		if($_REQUEST['action']=="profileinfo"){
-			echo "Filling profile information # ";
+			//echo "Filling profile information # ";
 			$this->fillUserProfile();
 		}
 		if($_REQUEST['action']=="add_group"){
@@ -65,7 +65,7 @@ class mainentrance {
 	
 	//function to register a user and validate the feilds
 	private function userRegistration(){
-		print("yes I am hereeeeee");
+		//print("yes I am hereeeeee");
 		$this->validationCheck();
 		$ObjModel = new MyClass ();
 		$result=$ObjModel->FindUsers();
@@ -97,7 +97,7 @@ class mainentrance {
 
 			if(!count($result))
 			{
-				echo "here";
+				//echo "here";
 				die;
 				header("location:../index.php?err=AuthenticationFailed");
 				die;
@@ -107,10 +107,14 @@ class mainentrance {
 				//					$_SESSION['userData']=$result;
 				$this->obj_usrinfo->setUserPersonalInfo($result);
 				$this->obj_usrinfo->setUserIdInfo($result);
+				$this->obj_usrinfo->setUserAddressInfoDb($result);
+				$this->obj_usrinfo->setUserAcademicInfoDb($result);
+				$this->obj_usrinfo->setUserProfessionalInfoDb($result);
+				
 				$_SESSION['userData']=serialize($this->obj_usrinfo);
 				//	print($obj_usrinfo->getuserinfo('first_name'));
 				header("location:../views/userHomePage.php");
-				die;
+				//die;
 			}
 		}
 		else
@@ -124,7 +128,7 @@ class mainentrance {
 
 	private function fillUserProfile(){
 
-		echo "filling user profile";
+		//echo "filling user profile";
 		$userProfessionalInfo = array(array("skill_set" => "" ,"current_position" => "","current_company" => "", "start_period" => ""));
 		$userAddressInfo = array(array("address"=>"","city_name"=>"","state_name"=>""));
 		$userAcademicInfo = array(array("board_10"=>"","school_10"=>"","percentage_GPA_10"=>"","board_12"=>"","school_12"=>"",
@@ -133,38 +137,49 @@ class mainentrance {
 				"post_graduation_college"=>"", "post_graduation_percentage"=>""
 		));
 			
-		echo "<pre/>";
+		//echo "<pre/>";
 		$this->obj_usrinfo = unserialize($_SESSION['userData']);
 		//print_r($_POST);
 		//			foreach($_POST as $key => $value){
 		//			print_r(array_keys($userProfessionalInfo[0]));
-
+		    $flagData = false;
 			foreach(array_keys($userProfessionalInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){
 					if(!empty($_POST[$value])){
 						$userProfessionalInfo[0][$value] = $_POST[$value];
+						$flagData = true;
 					}
 				}
 			}
-			//			$this->obj_usrinfo->setUserProfessionalInfo($userProfessionalInfo,$this->obj_usrinfo);
-
+			if($flagData){
+			    $this->obj_usrinfo->setUserProfessionalInfo($userProfessionalInfo,$this->obj_usrinfo);
+			}
+			
+			$flagData = false;
 			foreach(array_keys($userAddressInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){
 					if(!empty($_POST[$value])){
 						$userAddressInfo[0][$value] = $_POST[$value];
+						$flagData = true;
 					}
 				}
 			}
-			$this->obj_usrinfo->setUserAddressInfoForm($userAddressInfo);
-				
+			if($flagData){
+			    $this->obj_usrinfo->setUserAddressInfoForm($userAddressInfo);
+			}
+			
+			$flagData = false;
 			foreach(array_keys($userAcademicInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){
 					if(!empty($_POST[$value])){
 						$userAcademicInfo[0][$value] = $_POST[$value];
+						$flagData = true;
 					}
 				}
 			}
-			$this->obj_usrinfo->setUserAcademicInfoForm($userAcademicInfo);
+			if($flagData){
+			    $this->obj_usrinfo->setUserAcademicInfoForm($userAcademicInfo);
+			}
 //			echo "<pre/>";
 //			print_r($this->obj_usrinfo->getUserProfessionalInfo());
 			//			print_r($userAcademicInfo);
@@ -183,7 +198,8 @@ class mainentrance {
 					
 				// 			//print_r($result);
 				$_SESSION['userData']=serialize($this->obj_usrinfo);
-				die;
+				header("location:../views/userHomePage.php");
+				//die;
 
 			}
 				

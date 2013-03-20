@@ -95,19 +95,25 @@ class MyClass extends model {
 	}
 	public function insertIntoUserAddress($userInfo){
 		$objAddressInfo = $userInfo->getUserAddressInfo();
-		$city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
+		if(isset($objAddressInfo['city_name'])){
+		    $city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
+		}
 		$user_id = $userInfo->getUserIdInfo();
 
+		if(isset($objAddressInfo['address'])){
 		$finalInfo = array("user_id"=>$user_id['id'],
 				"address"=>$objAddressInfo['address'],
 				"city_id"=>$city_id[0]['id']
 		);
+		}
 
 		//		print_r($finalInfo);
 
+		if(isset($finalInfo)){
 		$this->db->Fields($finalInfo);
 		$this->db->From("user_personal_info");
 		$this->db->Insert();
+		}
 //		echo $this->db->lastQuery();
 	}
 	public function updateUserAddress($userInfo) {
