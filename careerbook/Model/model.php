@@ -180,7 +180,8 @@ class MyClass extends model {
 		$this->db->From("user_academic_info");
 		$this->db->Where(array("user_id"=>$user_id['id']));
 		$this->db->Update();
-		//	  	echo $this->db->lastQuery();
+//	    echo $this->db->lastQuery();
+//	    die;
 	}
 	/* End *********************************************** Address Information Manipulation ************************************/
 	public function FindLoginUsers() {

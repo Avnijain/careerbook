@@ -79,7 +79,7 @@ class DBConnection {
 			$this->_join .= " ON ".$condition." ";
 		}
 	}
-	public function  n ($data = array(), $raw = false, $operator = "AND") {
+	public function Where($data = array(), $raw = false, $operator = "AND") {
 		$count = count($data);
 		if ($count > 0) {
 
@@ -291,6 +291,7 @@ class DBConnection {
 			$bool = true;
 		}
 		$this->_where = "";
+		$this->_join = "";
 		$this->_keys = array();
 		$this->_values = array();
 		return $bool;

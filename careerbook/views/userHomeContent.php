@@ -87,9 +87,9 @@ echo $_SERVER['HTTP_USER_AGENT'];
         echo "<pre>";
         print_r ($objUserInfo->getUserPersonalInfo());
         print_r ($objUserInfo->getUserIdInfo());
-        print_r ($objUserInfo->getUserProfessionalInfo());
-        print_r ($objUserInfo->getUserAcademicInfo());
-        print_r ($objUserInfo->getUserAddressInfo());
+        print_r ($objUserInfo->getUserProfessionalInfoDB());
+        print_r ($objUserInfo->getUserAcademicInfoDB());
+        print_r ($objUserInfo->getUserAddressInfoDB());
 
 //     print("first_name =>".$obj->getuserinfo('first_name'));print("<br/>");
 // 	print("middle_name =>".$obj->getuserinfo('middle_name'));print("<br/>");

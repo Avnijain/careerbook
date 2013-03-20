@@ -63,9 +63,9 @@ class user_info_controller
 /*******************************************************************************************/
 	public function setUserAddressInfoForm($result){
 		$this->objAddressInfo->setinfo($result);		
-		$result = $this->ObjModel->fetchUserAddressInfo($this);		
+		$resultDB = $this->ObjModel->fetchUserAddressInfo($this);		
 
-		if(count($result) > 0 ){
+		if(count($resultDB) > 0 ){
 			$this->ObjModel->updateUserAddress($this);
 		}
 		else{
@@ -82,15 +82,19 @@ class user_info_controller
 	}
 	public function getUserAddressInfo()
 	{
-		$this->setUserAddressInfoDb();
 		return $this->objAddressInfo->getInfo();
+	}
+	public function getUserAddressInfoDB()
+	{
+	    $this->setUserAddressInfoDb();
+	    return $this->objAddressInfo->getInfo();
 	}
 /*******************************************************************************************/
 	public function setUserAcademicInfoForm($result){
 	    $this->objAcademicInfo->setinfo($result);
-	    $result = $this->ObjModel->fetchUserAcademicInfo($this);
-	
-	    if(count($result) > 0 ){
+	    $resultDB = $this->ObjModel->fetchUserAcademicInfo($this);
+	    
+	    if(count($resultDB) > 0 ){
 	        $this->ObjModel->updateUserAcademic($this);
 	    }
 	    else{
@@ -111,15 +115,19 @@ class user_info_controller
 	}
 	public function getUserAcademicInfo()
 	{
-		$this->setUserAcademicInfoDb();
+	    return $this->objAcademicInfo->getInfo();
+	}
+	public function getUserAcademicInfoDB()
+	{
+	    $this->setUserAcademicInfoDb();
 	    return $this->objAcademicInfo->getInfo();
 	}	
 /*******************************************************************************************/		
 	public function setUserProfessionalInfoForm($result){
 		$this->objProfessionalInfo->setinfo($result);
-		$result = $this->ObjModel->fetchUserProfessionalInfo($this);
+		$resultDB = $this->ObjModel->fetchUserProfessionalInfo($this);
 		
-		if(count($result) > 0 ){
+		if(count($resultDB) > 0 ){
 			$this->ObjModel->updateUserProfessional($this);
 		}
 		else{
@@ -142,9 +150,13 @@ class user_info_controller
 	}
 	public function getUserProfessionalInfo()
 	{
-		$this->setUserProfessionalInfoDb();
 		return $this->objProfessionalInfo->getinfo();
 	}	
+	public function getUserProfessionalInfoDB()
+	{
+	    $this->setUserProfessionalInfoDb();
+	    return $this->objProfessionalInfo->getinfo();
+	}
 /*******************************************************************************************/
 	public function setUserIdInfo($result){
 		$this->objIdentityInfo->setinfo($result);
