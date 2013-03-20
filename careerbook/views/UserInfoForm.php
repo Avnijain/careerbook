@@ -31,6 +31,22 @@ include_once("../classes/lang.php");
 		 changeMonth: true,
 		 changeYear: true
 		 });
+	 $( "#start_period" ).datepicker({
+		 changeMonth: true,
+		 changeYear: true
+		 });
+	 $( "#startPeriod" ).datepicker({
+		 changeMonth: true,
+		 changeYear: true
+		 });
+	 $( "#endPeriod" ).datepicker({
+		 changeMonth: true,
+		 changeYear: true
+		 });
+		 $( "#datedat" ).datepicker({
+			 changeMonth: true,
+			 changeYear: true
+			 });
 		 });
         function addMoreDegree()
         {
@@ -218,9 +234,9 @@ include_once("../classes/lang.php");
 								id="board_10" name="degree" type="text" AUTOCOMPLETE=OFF /> <label><?php echo $lang->COMPANY;?>
 							</label> <input id="school_10" name="specialization" type="text"
 								AUTOCOMPLETE=OFF /> <label><?php echo $lang->STARTPERIOD;?> </label>
-							<input id="school_10" name="college" type="text" AUTOCOMPLETE=OFF />
+							<input id="startPeriod" name="college" type="text" AUTOCOMPLETE=OFF />
 							<label><?php echo $lang->ENDPERIOD;?> </label> <input
-								id="10percentage" name="percentage" type="number"
+								id="endPeriod" name="percentage" type="number"
 								AUTOCOMPLETE=OFF />
 						</p>
 
@@ -236,15 +252,16 @@ include_once("../classes/lang.php");
 								AUTOCOMPLETE=OFF /> <label><?php echo $lang->DATEDAT;?> </label>
 							<input id="datedat" name="datedat" type="text" AUTOCOMPLETE=OFF />
 							</p>
-							<p>
-							<input type="button" value="<?php echo $lang->ADDMORE;?>"
-								onclick="addMore();">
-						</p>
 						<p>
 							<label><?php echo $lang->EXTRACIRCULAR;?> </label> <input
 								id="extracircular" name="extracircular" type="number"
 								AUTOCOMPLETE=OFF />
 						</p>
+							<p>
+							<input type="button" value="<?php echo $lang->ADDMORE;?>"
+								onclick="addMore();">
+						</p>
+
 
 					</fieldset>
 					<fieldset class="step">
