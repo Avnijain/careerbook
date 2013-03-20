@@ -63,10 +63,46 @@ class GroupHandler extends Group {
 	}
 	
 	function handleAddPost() {
-		$this->_group_id = ( int ) $group_id;
-		$this->_group_discussion_description = mysql_real_escape_string ($_POST['group_']);
-		$this->_created_by = $_SESSION['userid'];
+		$this->_group_id = ( int ) ($_REQUEST['group_id']);
+		$this->_group_discussion_description = mysql_real_escape_string ($_POST['group_discussion_description']);
+		$this->_created_by = $this->userid;
 		$this->_created_on = date ( 'Y-m-d H:i:s' );
+		
+		$this->add_post();
+	}
+	
+	function handleEditPost() {
+		$this->_group_discussion_id = ( int ) ($_REQUEST['group_id']);
+		$this->_group_discussion_description = mysql_real_escape_string ($_POST['group_discussion_description']);
+
+		$this->edit_post();
+	}
+	
+	function handleDelete() {
+		$this->_group_discussion_id = ( int ) ($_REQUEST['group_id']);
+		
+		$this->delete();
+	}
+	
+	function handleGetPost() {
+		$this->_group_id = ( int ) ($_REQUEST['group_id']);
+		
+		$this->get_posts();
+	}
+	
+	function handleGetGroup() {
+		$this->_created_by = $this->userid;
+		
+		$this->get_group();
+	}
+	
+	function handleAddComment() {
+		$this->_group_discussion_id = ( int ) ($_REQUEST['group_id']);
+		$this->_group_discussion_comment = mysql_real_escape_string ( $_POST['group_discussion_comment']);
+		$this->_created_by = $this->userid;
+		$this->_created_on = date ( 'Y-m-d H:i:s' );
+		
+		$this->add_comment();
 	}
 
 }

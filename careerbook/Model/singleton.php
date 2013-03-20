@@ -79,7 +79,7 @@ class DBConnection {
 			$this->_join .= " ON ".$condition." ";
 		}
 	}
-	public function Where($data = array(), $raw = false, $operator = "AND") {
+	public function  n ($data = array(), $raw = false, $operator = "AND") {
 		$count = count($data);
 		if ($count > 0) {
 

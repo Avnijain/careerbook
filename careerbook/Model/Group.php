@@ -37,12 +37,10 @@ class Group extends DBConnection {
 	protected $_created_on;
 	protected $_created_by;
 		
-	
-	
 	//function to add user post 
-	function add_post($group_id, $description) {
+	function add_post() {
 		
-		$this->_db->Fields(array
+		$this->Fields(array
 							(
 							"group_id"=>$this->_group_id,
 							"description"=>$this->_group_discussion_description,
@@ -51,39 +49,33 @@ class Group extends DBConnection {
 							)
 						);
 		
-		$this->_db->From("group_discussion");
-		$this->_db->Insert();
-		echo $this->_db->lastQuery();
+		$this->From("group_discussions");
+		$this->Insert();
+		echo $this->lastQuery();
 		
 	}
 	
 	//function to edit user post
 	function edit_post($group_discussion_id, $description) {
-		
-		$this->_group_discussion_id = ( int ) $group_discussion_id;
-		$this->_group_discussion_description = mysql_real_escape_string ( $description );
-		$this->_created_by = $_SESSION['userid'];
-		
-		$this->_db->Fields(array(
+			
+		$this->Fields(array(
 							"description"=>$this->_group_discussion_description
 							)
 						);
-		$this->_db->From("group_discussion");
-		$this->_db->Where(array("id"=>$this->_group_discussion_id));
-		$this->_db->Update();
-		echo $this->_db->lastQuery();
+		$this->From("group_discussions");
+		$this->Where(array("id"=>$this->_group_discussion_id));
+		$this->Update();
+		echo $this->lastQuery();
 	
 	}
 	
 	//function to delete user post
-	function delete($group_discussion_id) {
+	function delete() {
 		
-		$this->_group_discussion_id = ( int ) $group_discussion_id;
-		
-		$this->_db->From("group_discussion");
-		$this->_db->Where(array("id"=>$this->_group_discussion_id));
-		$this->_db->Delete();
-		echo $this->_db->lastQuery();
+		$this->From("group_discussions");
+		$this->Where(array("id"=>$this->_group_discussion_id));
+		$this->Delete();
+		echo $this->lastQuery();
 		
 	}
 	
@@ -108,10 +100,9 @@ class Group extends DBConnection {
 	}
 	
 	//function to list group post
-	function get_posts($group_id = NULL, $group_discussion_id = NULL) {
+	function get_posts() {
 		
-		$this->_db->Fields(array(
-							"title",
+		$this->Fields(array(
 							"description",
 							"created_by",
 							"created_on",
@@ -119,44 +110,33 @@ class Group extends DBConnection {
 							)
 						);
 		
-		$this->_db->From("group_discussion");
-		if (isset ( $group_id )) {
-			$this->_db->Where(array("group_id"=>$this->_group_id));
-		}
-		
-		if (isset ( $group_discussion_id )) {
-			$this->_db->Where(array("id"=>$this->_group_discussion_id));
-		}
-		$this->_db->Select();
-		return $this->_db->resultArray();
+		$this->From("group_discussions");
+		$this->Where(array("group_id"=>$this->_group_id));
+
+		$this->Select();
+		return $this->resultArray();
 		
 	}
 	
 	//function to list group details
 	function get_group() {
 
-		$this->_created_by = $_SESSION['userid'];
-		$this->_db->Fields(array(
+		$this->Fields(array(
 						"title",
 						"description",
 						"group_image",
 					)
 				);
 		
-		$this->_db->From("group_details");
-		$this->_db->Join("group_members"," group_details.id = group_members.group_id ");
-		$this->_db->Where(array("member_id"=>$this->_created_by));
+		$this->From("group_details");
+		$this->Join("group_members"," group_details.id = group_members.group_id ");
+		$this->Where(array("group_members.member_id"=>$this->_created_by));
 	}
 	
 	//function to add comments
-	function add_comment($group_discussion_id, $group_discussion_comment) {
-		
-		$this->_group_discussion_id = ( int ) $group_discussion_id;
-		$this->_group_discussion_comment = mysql_real_escape_string ( $group_discussion_comment );
-		$this->_created_by = $_SESSION['userid'];
-		$this->_created_on = date ( 'Y-m-d H:i:s' );
-		
-		$this->_db->Fields(array
+	function add_comment() {
+				
+		$this->Fields(array
 				(
 						"discussion_id"=>$this->_group_discussion_id,
 						"description"=>$this->_group_discussion_comment,
@@ -165,9 +145,9 @@ class Group extends DBConnection {
 				)
 		);
 		
-		$this->_db->From("group_discussion_comment");
-		$this->_db->Insert();
-		echo $this->_db->lastQuery();
+		$this->From("group_discussion_comment");
+		$this->Insert();
+		echo $this->lastQuery();
 		
 		echo mysql_error ();
 	}

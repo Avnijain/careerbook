@@ -70,7 +70,10 @@
 <div id="contentCenter">
 
 <?php
-
+if (isset($_GET['group'])) {
+	include 'add_group.php';
+}
+else{
 $ip= $_SERVER['REMOTE_ADDR'];
 echo $lang->IPADDRESS;
 echo "<br> " . $ip;
@@ -100,6 +103,7 @@ echo $_SERVER['HTTP_USER_AGENT'];
     {
        header("location:../index.php");
 	die;   
+    }
     }
 ?>
 
