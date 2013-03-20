@@ -22,7 +22,7 @@ class UserProfessionalInfo {
 	private $current_company;      //User current position in company
 	private $start_period;         //User current job start period
 
-	public function getinfo($dbDataFlag){
+	public function getinfo($dbDataFlag = "false"){
 		$arr = get_class_vars(get_class($this));
 		$allfields = array();
 		$emptyFlag = true;

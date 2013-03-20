@@ -86,6 +86,7 @@ class mainentrance {
 
 		if(isset($_POST['userid']) && isset($_POST['password']))
 		{
+		    
 			if(!filter_var($_POST['userid'], FILTER_SANITIZE_FULL_SPECIAL_CHARS,FILTER_SANITIZE_MAGIC_QUOTES))
 			{
 
@@ -97,7 +98,7 @@ class mainentrance {
 
 			if(!count($result))
 			{
-				//echo "here";
+				//echo "here No result from DB";
 				die;
 				header("location:../index.php?err=AuthenticationFailed");
 				die;
@@ -166,8 +167,8 @@ class mainentrance {
 				}
 			}
 			if($flagData){
-			    $this->obj_usrinfo->setUserAddressInfoForm($userAddressInfo);
-//			    echo "inserting Address";
+			    echo "Inserting professional data";
+			    $this->obj_usrinfo->setUserAddressInfoForm($userAddressInfo);			    
 			}
 			
 			$flagData = false;

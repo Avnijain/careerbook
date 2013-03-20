@@ -31,7 +31,7 @@ class UserAddressInfo {
 		}
 		return $allfields;		
 	}
-	public function getinfo($dbDataFlag){
+	public function getinfo($dbDataFlag = "false"){
 		$arr = get_class_vars(get_class($this));
 		$allfields = array();
 		$emptyFlag = true;
