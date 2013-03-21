@@ -6,23 +6,31 @@
 				<div class="posts">
 					<!-- Post -->
 				    <div class="post">
+					<p>
+						<?php
+							$ip= $_SERVER['REMOTE_ADDR'];
+							echo $lang->IPADDRESS;
+							echo " " . $ip;
+							echo "<br>";
+							//echo $_SERVER['HTTP_USER_AGENT'];
+						?>
+						
+					</p>
 				    	<div class="image">
-				    		<a href="#"><img src="css/images/post-1.jpg" alt=""></a>
+				    		<a href="#"><img src="../images/message.jpg" alt="" width="90%"></a>
 				    	</div>
 				    	<div class="data">
-				    		<h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-				    		<p>Maecenas sodales auctor urna cursus facilisis. Cras rutrum justo id mi bibendum luctus. </p>
+				    		<p>User Messages</p>
 				    	</div>
 				    </div>
 				    <!-- /Post -->
 					<!-- Post -->
 				   <div class="post last">
 				    	<div class="image">
-				    		<a href="#"><img src="css/images/post-2.jpg" alt=""></a>
+				    		<a href="#"><img src="../images/addFriends.jpg" alt="" width="90%"></a>
 				    	</div>
 				    	<div class="data">
-				    		<h4><a href="#">Maecenas scelerisque sapien </a></h4>
-				    		<p>Maecenas sodales auctor urna cursus facilisis. Cras rutrum justo id mi bibendum luctus. </p>
+				    		<p>User Friend Request</p>
 				    	</div>
 				    </div>
 				    <!-- /Post -->
@@ -71,33 +79,33 @@
 
 <?php
 if (isset($_GET['group'])) {
-	include 'add_group.php';
+	include_once 'add_group.php';
 }
 else{
-$ip= $_SERVER['REMOTE_ADDR'];
-echo $lang->IPADDRESS;
-echo "<br> " . $ip;
-echo "<br>";
-echo $_SERVER['HTTP_USER_AGENT'];
+
     if(isset($_SESSION['userData']))
     {
-//        $obj = new user_info_controller();
-        $objUserInfo = unserialize($_SESSION['userData']);
-        print("<br/>");
-        echo "<pre>";
-        print_r ($objUserInfo->getUserPersonalInfo());
-        print_r ($objUserInfo->getUserIdInfo());
-        print_r ($objUserInfo->getUserProfessionalInfoDB());
-        print_r ($objUserInfo->getUserAcademicInfoDB());
-        print_r ($objUserInfo->getUserAddressInfoDB());
+       //$obj = new user_info_controller();
+      // echo $obj->getuserinfo('first_name');
+	//$objUserInfo = unserialize($_SESSION['userData']);
+	//$userData=$objUserInfo->getUserPersonalInfo();
+	//echo $userData['first_name'];
+         //print("<br/>");
+         //echo "<pre>";
+         //print_r ($objUserInfo->getUserPersonalInfo());
+         //print_r ($objUserInfo->getUserIdInfo());
+         //print_r ($objUserInfo->getUserProfessionalInfoDB());
+         //print_r ($objUserInfo->getUserAcademicInfoDB());
+         //print_r ($objUserInfo->getUserAddressInfoDB());
+	include_once './Dis.php';
 
-//     print("first_name =>".$obj->getuserinfo('first_name'));print("<br/>");
-// 	print("middle_name =>".$obj->getuserinfo('middle_name'));print("<br/>");
-// 	print("last_name =>".$obj->getuserinfo('last_name'));print("<br/>");
-// 	print("date_of_birth =>".$obj->getuserinfo('date_of_birth'));print("<br/>");
-//        echo "<pre>";
-//        print_r($obj);
-//        echo "</pre>";
+	// print("first_name =>".$obj->getuserinfo('first_name'));print("<br/>");
+ 	//print("middle_name =>".$obj->getuserinfo('middle_name'));print("<br/>");
+ 	//print("last_name =>".$obj->getuserinfo('last_name'));print("<br/>");
+ 	//print("date_of_birth =>".$obj->getuserinfo('date_of_birth'));print("<br/>");
+       // echo "<pre>";
+        //print_r($obj);
+        //echo "</pre>";
     }
     else
     {
@@ -118,24 +126,10 @@ echo $_SERVER['HTTP_USER_AGENT'];
 				<div class="posts">
 					<!-- Post -->
 				    <div class="post">
-				    	<div class="image">
-				    		<a href="#"><img src="css/images/post-1.jpg" alt=""></a>
-				    	</div>
-				    	<div class="data">
-				    		<h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-				    		<p>Maecenas sodales auctor urna cursus facilisis. Cras rutrum justo id mi bibendum luctus. </p>
-				    	</div>
-				    </div>
-				    <!-- /Post -->
-					<!-- Post -->
-				   <div class="post last">
-				    	<div class="image">
-				    		<a href="#"><img src="css/images/post-2.jpg" alt=""></a>
-				    	</div>
-				    	<div class="data">
-				    		<h4><a href="#">Maecenas scelerisque sapien </a></h4>
-				    		<p>Maecenas sodales auctor urna cursus facilisis. Cras rutrum justo id mi bibendum luctus. </p>
-				    	</div>
+						<?php
+							include_once('./profile.php');
+    
+						?>
 				    </div>
 				    <!-- /Post -->
 				    <div class="cl">&nbsp;</div>
@@ -148,27 +142,21 @@ echo $_SERVER['HTTP_USER_AGENT'];
 				<div class="cl">&nbsp;</div>				
 				<div class="posts">
 					<!-- Post -->
-				    <div class="post">
-				    	<div class="image">
-				    		<a href="#"><img src="css/images/post-1.jpg" alt=""></a>
-				    	</div>
-				    	<div class="data">
-				    		<h4><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h4>
-				    		<p>Maecenas sodales auctor urna cursus facilisis. Cras rutrum justo id mi bibendum luctus. </p>
-				    	</div>
-				    </div>
-				    <!-- /Post -->
+					<?php
+						include_once('./friendsImage.php');
+					?>
+				</div>
+			</div>
+			<!-- /Box -->
+			
+			<div class="box">
+				<h2><span>Group</span></h2>
+				<div class="cl">&nbsp;</div>				
+				<div class="posts">
 					<!-- Post -->
-				   <div class="post last">
-				    	<div class="image">
-				    		<a href="#"><img src="css/images/post-2.jpg" alt=""></a>
-				    	</div>
-				    	<div class="data">
-				    		<h4><a href="#">Maecenas scelerisque sapien </a></h4>
-				    		<p>Maecenas sodales auctor urna cursus facilisis. Cras rutrum justo id mi bibendum luctus. </p>
-				    	</div>
-				    </div>
-				    <div class="cl">&nbsp;</div>
+					<?php
+						include_once('./groupImage.php');
+					?>									   
 				</div>
 			</div>
 			<!-- /Box -->

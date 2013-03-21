@@ -1,6 +1,13 @@
 <?php
 include_once("../classes/lang.php");
 require_once '../controller/userInfo.php';
+
+if(!isset($_SESSION['userData']))
+{
+    header("location:../index.php");
+    die;
+}
+
 ?>
 <html>
 <head>
@@ -14,7 +21,13 @@ require_once '../controller/userInfo.php';
 <div id="top">
 	<div class="cl">&nbsp;</div>
 	<h1 id="logo"><a href="#">CareerBook</a></h1>
-           <label id="userName">Welcome User Name</label>
+           <label id="userName">Welcome <?php
+	   
+					$objUserInfo = unserialize($_SESSION['userData']);
+					$userData=$objUserInfo->getUserPersonalInfo();
+					
+					echo $userData['first_name']." ".$userData['last_name'];
+					?></label>
 		 <a href="./userHomePage.php?logOut" class="small magenta awesome">LogOut</a><br><br>	
 	
 	<form action="" method="post" id="search">
@@ -42,14 +55,6 @@ require_once '../controller/userInfo.php';
 </div>
 <div id="contentWrapper">
 <?php 
-
-if(!isset($_SESSION['userData']))
-{
-    header("location:../index.php");
-    die;
-}
-
-
 if(isset($_GET['profile'])){
    include 'UserInfoForm.php';
 } else if(isset($_GET['resume'])){
@@ -59,11 +64,9 @@ else if(isset($_GET['logOut'])){
    session_destroy();
    header("location:../index.php");
    die;
-} else if (isset($_GET['group'])) {
-	include 'add_group.php';
-}
+} 
 else if (isset($_GET['message'])) {
-	//include 'message.html'; 
+	include 'message.html'; 
 }else{
    include 'userHomeContent.php';
 }

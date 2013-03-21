@@ -4,16 +4,7 @@ div {
 		
 }
 
-button{
-	outline: 0px;
-}
 
-button:focus { 
-    outline: none; 
-	
-}
-
-button::-moz-focus-inner { border: 0; }
 
 #discussMain {
 	width: 100%;
@@ -23,41 +14,31 @@ button::-moz-focus-inner { border: 0; }
 
 }
 #addPost input[type=button]{
-	width: 35%;
-	height: 6%;
+	width: 26%;
+	height: 5%;
 	margin-top : 2%;
 	outline: 0;
 
-	background-color: #7DB495;
+	background-color: #B6DDE7;
 	
 }
 
 .myDiscuss {
-	border : 1px solid black;
+	/*border : 1px solid black;*/
 	height : 15%;
 	margin-top : 2%;
 
-	width: 40%;
+	width: 99%;
 	overflow: hidden;
 
 	
-	background-color: #eeeeee;
+	
 }
 .myDiscuss:hover {
-	border : 3px solid red;
+	border : 1px dotted green;
 	cursor: pointer;
 }
-#even{
-	background-color: #7597C4;
-	padding-top :1%;
-	padding-left: 2%;
-}
-#odd{
-	background-color: #757D96;
-	padding-top :1%;
-	padding-left: 2%;
 
-}
 
 
 #even  img {
@@ -72,28 +53,91 @@ button::-moz-focus-inner { border: 0; }
 
 	float: right;
 }
+#text {
+	overflow: hidden;
+	width: 95%;
+	height:56%;
+	}
 
 #even p{
-	border: 1px solid #adadad;
-	border-radius: 480px 4px 0px 4px;
+
 	float: right;
-	width: 64%;
-	padding-left: 2%;
-	padding-right : 2%;
-	overflow: hidden;
-	
-}
+	margin-top: 10px;
+	margin-right: 5px;
+
+	}
 #odd p{
-	border: 1px solid #adadad;
-	border-radius: 4px 480px 0px 4px;
-	float: left	;
-	width: 64%;
-	padding-left: 2%;
-	padding-right : 2%;
-	overflow: hidden;
+
+	float: left;
+	margin-top: 10px;
+	margin-right: 5px;
 	
+	
+
+	}
+.bubbleLeft
+{
+margin-left: 45%;	
+position: relative;
+width: 50%;
+height:70%;
+padding: 0px;
+background: #699EFF;
+background-image: url(../images/blue.png);
+border: #699EFF solid 3px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 30px;
 }
 
-	
+.bubbleLeft:after
+{
+content: "";
+position: absolute;
+top: 30%;
+left: -35%;
+border-style: solid;
+border-width: 1px 82px 13px 0;
+border-color: transparent #699EFF;
+
+width: 0;
+z-index: 1;
 }
+
+
+
+
+.bubbleRight
+{
+float: left;
+position: relative;
+width: 50%;
+height: 70%;
+padding: 0px;
+background: #AFE15F;
+border: #AFE15F solid 2px;
+background-image: url(../images/green.png);
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 30px;
+}
+
+.bubbleRight:after
+{
+content: "";
+position: absolute;
+top: 30%;
+right: -38%;
+border-style: solid;
+border-width: 1px 0 11px 89px;
+border-color: transparent #AFE15F ;
+display: block;
+width: 0;
+z-index: 0;
+}
+
+
+
+	
+
 

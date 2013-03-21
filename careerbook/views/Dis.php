@@ -3,7 +3,7 @@
 include_once 'call.php'; 
 ?>
 <head>
-<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<!--<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>-->
 <script type="text/javascript" src="../JavaScript/jquery.tools.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/call.css"/>
 
@@ -75,7 +75,7 @@ foreach($images as $i){
 ?>
 	<div id=<?php echo "even"?> class="myDiscuss">
  		<div class="disInfo" id="hhhh"><a href="new.php?<?php echo $i[0];?>&amp;<?php echo $cal;?>" rel="#overlay" id="<?php echo $cal;?>" style="text-decoration:none"><img id="<?php echo $cal;?>" src="../images/<?php echo $i[0];?>" alt="User Pic"/></a></div>
-		<div class="disInfo"><p id="<?php echo $cal;?>"><?php echo $i[1];?></p></div>
+		<div class="disInfo"><div class="bubbleLeft" id="<?php echo $cal;?>"><p id="text"><?php echo $i[1];?></p></div></div>
 	
 	</div>
 
@@ -84,7 +84,7 @@ foreach($images as $i){
 	else {
 ?>
 	<div id=<?php echo "odd"?> class="myDiscuss">
-	<div class="disInfo"><p id="<?php echo $cal;?>"><?php echo $i[1];?></p></div>
+	<div class="disInfo"><div class="bubbleRight" id="<?php echo $cal;?>"><p id="text"><?php echo $i[1];?></p></div></div>
 	<div class="disInfo"><a href="new.php?<?php echo $i[0];?>&amp;<?php echo $cal;?>" rel="#overlay" id="<?php echo $cal;?>" style="text-decoration:none"><img id="<?php echo $cal;?>" src="../images/<?php echo $i[0];?>" alt="User Pic"/></a></div>
 	</div>
 

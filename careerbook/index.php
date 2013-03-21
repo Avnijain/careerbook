@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(isset($_SESSION['userData']))
+{
+    header("location:./views/userHomePage.php");
+    die;
+}
+?>
+
+
+
 <html>
     <head>
         <title>Career Book : Home</title>
@@ -31,14 +42,16 @@
                 <?php require_once './views/login.php'; ?>
             </div>
             <div id="googleAdds"></div>
+	    
             <div id="footer">
 		<div class="footer-bottom">
 			<div class="shell">
-				<p class="copy">© Copyright 2013<span>|</span>Career Book | All Right Reserved</p>
+				<center><p class="copy">© Copyright 2013<span>|</span>Career Book | All Right Reserved</p></center>
 			</div>
 		</div>            
             <!--          <center>Career Book|All Right are Reserved|2013</center>-->
             </div>
+	    
         </div>        
     </body>
 </html>
