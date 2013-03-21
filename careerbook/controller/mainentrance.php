@@ -23,14 +23,17 @@ require_once '../Model/model.php';
 require_once '../Model/validation.php';
 require_once '../controller/userInfo.php';
 require_once '../controller/group_controller.php';
+require_once '../classes/dateManipulation.php';
 
 class mainentrance {
 
 	private static $instance;
 	private $obj_usrinfo;
+	private $objdate;
 
 	private function __construct() {
 		$this->obj_usrinfo = new user_info_controller();
+		$this->objdate = new dateManipulation();
 	}
 
 	public static function getinstance() {
@@ -67,6 +70,7 @@ class mainentrance {
 	private function userRegistration(){
 		//print("yes I am hereeeeee");
 		$this->validationCheck();
+		$_POST['date_of_birth'] = $this->objdate->reverseDate($_POST['date_of_birth']);
 		$ObjModel = new MyClass ();
 		$result=$ObjModel->FindUsers();
 		if(count($result))
@@ -74,7 +78,7 @@ class mainentrance {
 			header("location:../views/NewRegistration.php?err=6");
 			die;
 		}
-			
+		
 		$ObjModel->AddUser();
 		//sendMail();
 		header("location:../views/ConfirmRegistration.php");
