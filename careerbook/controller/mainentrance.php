@@ -132,6 +132,9 @@ class mainentrance {
 
 
 	private function fillUserProfile(){
+// 		echo "<pre/>";
+// 		print_r($_POST);
+// 		die;
 
 		//echo "filling user profile";
 		$userProfessionalInfo = array(array("skill_set" => "" ,"current_position" => "","current_company" => "", "start_period" => ""));
@@ -141,6 +144,9 @@ class mainentrance {
 				"graduation_percentage"=>"", "post_graduation_degree"=>"", "post_graduation_specialization"=>"",
 				"post_graduation_college"=>"", "post_graduation_percentage"=>""
 		));
+		$userPersonalInfo = array(array("first_name" => "" , "middle_name" => "" , "last_name" => "" ,
+				 "date_of_birth" => "" , "email_primary" => "" , "email_secondary" => "" ,  
+				"phone_no" => "" ,"gender" => "" ));
 			
 		//echo "<pre/>";
 		$this->obj_usrinfo = unserialize($_SESSION['userData']);
@@ -159,6 +165,26 @@ class mainentrance {
 			if($flagData){
 			    $this->obj_usrinfo->setUserProfessionalInfoForm($userProfessionalInfo);
 //			    echo "inserting professional";
+			}
+			
+			$flagData = false;
+			if(isset($_POST['date_of_birth'])){
+				if(!empty($_POST['date_of_birth'])){
+					$_POST['date_of_birth'] = $this->objdate->reverseDate($_POST['date_of_birth']);
+				}
+			}
+			foreach(array_keys($userPersonalInfo[0]) as $key => $value){
+				if(isset($_POST[$value])){
+					if(!empty($_POST[$value])){
+						$userPersonalInfo[0][$value] = $_POST[$value];
+						$flagData = true;
+					}
+				}
+			}
+			if($flagData){
+				$this->obj_usrinfo->setUserPersonalInfoForm($userPersonalInfo);
+//				die;
+				//			    echo "inserting professional";
 			}
 			
 			$flagData = false;

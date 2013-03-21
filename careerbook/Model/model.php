@@ -184,6 +184,30 @@ class MyClass extends model {
 //	    die;
 	}
 	/* End *********************************************** Address Information Manipulation ************************************/
+	/* Start *********************************************** Personal Information Manipulation ************************************/
+	public function fetchUserPersonalInfo($userInfo){
+		$this->db->From("users");
+		$user_id = $userInfo->getUserIdInfo();
+	
+		$this->db->Where(array("id"=>$user_id['id']));
+		$this->db->Select();
+		//	    echo $this->db->lastQuery();
+		return $this->db->resultArray();
+	}
+	public function updateUserPersonal($userInfo) {
+		$objPersonalInfo = $userInfo->getUserPersonalInfo();
+		$user_id = $userInfo->getUserIdInfo();
+	
+		//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+	
+		$this->db->Fields($objPersonalInfo);
+		$this->db->From("users");
+		$this->db->Where(array("id"=>$user_id['id']));
+		$this->db->Update();
+		//	    echo $this->db->lastQuery();
+		//	    die;
+	}
+	/* End *********************************************** Address Information Manipulation ************************************/
 	public function FindLoginUsers() {
 
 	 //$this->db->Fields(array("email_primary","password"));

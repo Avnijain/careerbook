@@ -44,7 +44,7 @@ class UserProfessionalInfo {
 	//Set values from DB result set into class variables
 	public function setinfo($result){
 		$arr = get_class_vars(get_class($this));		
-		foreach($arr as $key => $value ){			
+		foreach($arr as $key => $value ){
 			if(!empty($result[0][$key])){
 				$this->$key = $result[0][$key];
 			}			

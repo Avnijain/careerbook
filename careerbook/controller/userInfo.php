@@ -48,6 +48,17 @@ class user_info_controller
 		$this->objAcademicInfo = new UserAcademicInfo();
 	}
 /*******************************************************************************************/
+	public function setUserPersonalInfoForm($result){
+		$this->objPersonalInfo->setinfo($result);
+		$resultDB = $this->ObjModel->fetchUserPersonalInfo($this);
+// 		echo "<pre/>";
+// 		print_r($resultDB);
+// 		die;
+		
+		if(count($resultDB) > 0 ){
+			$this->ObjModel->updateUserPersonal($this);
+		}
+	}
 	public function setUserPersonalInfo($result)
 	{
 		$this->objPersonalInfo->setinfo($result);
@@ -55,11 +66,24 @@ class user_info_controller
 // 		echo "<pre/>";
 // 		print_r ($result);
 	}
+	public function setUserPersonalInfoDb(){
+		$result = $this->ObjModel->fetchUserPersonalInfo($this);
+		if(count($result) > 0 ){
+			$this->objPersonalInfo->setinfo($result);
+			return true;
+		}
+		return false;
+	}	
 	public function getUserPersonalInfo()
 	{
 		//		print($varname);
 		return $this->objPersonalInfo->getinfo();
 	}
+	public function getUserPersonalInfoDB()
+	{
+		$flag = $this->setUserPersonalInfoDb();
+		return $this->objPersonalInfo->getInfo();
+	}	
 /*******************************************************************************************/
 	public function setUserAddressInfoForm($result){
 		$this->objAddressInfo->setinfo($result);		
