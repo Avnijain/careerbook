@@ -6,28 +6,7 @@ require_once '../controller/userInfo.php';
 <head>
 	<link rel="stylesheet" type="text/css" href="../css/global.css" ></link>
     <link rel="stylesheet" type="text/css" href="../css/topheader.css" ></link>
-<style>
-	/* Content */
-	#contentSide { float:left; width:270px; padding-top: 10px; }
-	
-	#contentSide h2 { background:url(../images/content-heading.gif) left top no-repeat; padding-left: 3px; position:relative; top:-3px; left:-11px; float:left; }
-	#contentSide h2 span { float:left; background:url(../images/content-heading.gif) right top no-repeat; color: #FFFFFF; padding:10px 13px 11px 4px; }
-	
-	#contentSide .see-all { float:right; font-size:12px; line-height:14px; color:#00b1dd; text-decoration:underline; padding-top:6px; }
-	#contentSide .see-all:hover { text-decoration:none; }
-	
-	/* Content - Posts */
-	#contentSide .post { float:left; width:255px; min-height: 76px; margin-right:26px; padding:5px 0 10px 0; }
-	#contentSide .post .image { float:left; border:1px solid #d7d7d7; width:60px; }
-	#contentSide .post .image img { border:1px solid #fff; }
-	
-	#contentSide .post .data { float:right; width:186px; padding-top:1px;  }
-	#contentSide .post .data p { padding-left:2px; }
-	
-	#contentCenter{ float:left; width:470px; padding-top: 10px; padding-left: 5px; background-color: #  }
-	
-	#sideRight {float: right;}
-</style>
+    <link rel="stylesheet" type="text/css" href="../css/homeContent.css" ></link>
 </head>
 <body>
 <div id="mainWrapper">

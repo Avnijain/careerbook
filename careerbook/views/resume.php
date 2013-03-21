@@ -10,19 +10,16 @@ Created on                  -  March 07, 2013
 */
 include_once("../classes/lang.php");
 ?>
-<script
-	type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js">
-</script>
-<script
-	type="text/javascript" src="../JavaScript/jquery.tools.min.js">
-</script>
-<link rel="stylesheet" type="text/css" href="../css/resume.css" />
+<script	type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<script	type="text/javascript" src="../JavaScript/jquery.tools.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/resume.css" ></link>
 <script>
 $(function() {			//for producing the overlay effect
   $("img[rel]").overlay({mask: 'black'});
 });
 </script>
 
+<div id="resume_wrapper">
 <h1>
 	<?php echo $lang->RESUMEBUILDER; ?>
 </h1>
@@ -111,3 +108,4 @@ $(function() {			//for producing the overlay effect
 		<br />
 	</form>
 	</div>
+</div>
