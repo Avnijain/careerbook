@@ -131,7 +131,7 @@
             <h4>
                 My Inbox</h4>
 			  <div class="container">
-			<section>
+			<!--<section>-->
                 <div id="container_buttons">
 					<a href="../controller/mainentrance.php?action=get_message">click here</a>
 			
@@ -206,10 +206,15 @@
             <h4>
                 Outbox</h4>
 			  <div class="container">
-			<section>
+			<!--<section>-->
                 <div id="container_buttons">
 					<a href="../controller/mainentrance.php?action=message_sent">click here</a>
-							<?php session_start() if(isset($_SESSION['inbox'])){ /*print_r($_SESSION['inbox']);*/ $a=$_SESSION['inbox'];}?>
+							<?php
+                                                        //session_start()
+                                                        if(isset($_SESSION['inbox'])){
+                                                        $a=$_SESSION['inbox'];
+                                                        }
+                                                        ?>
 							<?php echo $a['1']['description'];?>
 					<ul>
 						<li class="toggle">

@@ -116,6 +116,22 @@ class MyClass extends model {
 		}
 //		echo $this->db->lastQuery();
 	}
+	
+	    public function acceptNewFrnd($frndId)
+	    {
+		$user_id=17;
+		$this->db->Fields(array("status"=>"F"));
+		$this->db->From("friends");
+		$this->db->Where(array("friend_id=".$frndId." AND user_id=".$user_id),true);
+		$this->db->Update();
+		$this->db->unsetValues();
+		$this->db->Fields(array("status"=>"F"));
+		$this->db->From("friends");
+		$this->db->Where(array("friend_id=".$user_id." AND user_id=".$frndId),true);
+		$this->db->Update();
+	    }	
+	
+	
 	public function updateUserAddress($userInfo) {
 		$objAddressInfo = $userInfo->getUserAddressInfo();
 		$city_id = $this->getCityIdInfo($objAddressInfo['city_name']);

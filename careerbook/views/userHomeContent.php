@@ -1,3 +1,4 @@
+
 <div id="contentSide">
 			<!-- Box -->
 			<div class="box">
@@ -5,37 +6,10 @@
 				<div class="cl">&nbsp;</div>				
 				<div class="posts">
 					<!-- Post -->
-				    <div class="post">
-					<p>
-						<?php
-							$ip= $_SERVER['REMOTE_ADDR'];
-							echo $lang->IPADDRESS;
-							echo " " . $ip;
-							echo "<br>";
-							//echo $_SERVER['HTTP_USER_AGENT'];
-						?>
-						
-					</p>
-				    	<div class="image">
-				    		<a href="#"><img src="../images/message.jpg" alt="" width="90%"></a>
-				    	</div>
-				    	<div class="data">
-				    		<p>User Messages</p>
-				    	</div>
-				    </div>
-				    <!-- /Post -->
-					<!-- Post -->
-				   <div class="post last">
-				    	<div class="image">
-				    		<a href="#"><img src="../images/addFriends.jpg" alt="" width="90%"></a>
-				    	</div>
-				    	<div class="data">
-				    		<p>User Friend Request</p>
-				    	</div>
-				    </div>
-				    <!-- /Post -->
-				    <div class="cl">&nbsp;</div>
-				</div>
+				    <?php
+				    $objFrndControl->start('FrndReq');
+				    include_once 'notification.php';
+				    ?>
 			</div>
 			<!-- /Box -->
 			<!-- Box -->
@@ -82,10 +56,14 @@ if (isset($_GET['group'])) {
 	include_once 'add_group.php';
 }
 elseif(isset($_GET['users'])){
-	$_SESSION['request']='myFriends';
-	include_once "../controller/friends_controller.php";
+	$objFrndControl->start('myFriends');
 	include_once "./friends.php";
 }
+elseif(isset($_GET['FriendsRequest'])){
+	
+	include_once "./friendsRequest.php";
+}
+
 else{
 
     if(isset($_SESSION['userData']))

@@ -44,10 +44,22 @@ class mainentrance {
 		return self::$instance;
 	}
 	
+	
+	 private function acceptFrnd()
+	  {
+		$ObjModel = new MyClass();
+		$ObjModel->acceptNewFrnd($_POST['id']);
+	   }	
+	
 	public function start() {
 		
 		session_start ();
-		
+
+		if($_REQUEST['action']=="acceptFrnd"){
+			
+			$this->acceptFrnd();
+
+		}		
 		if($_REQUEST['action']=="Registration"){
 			//print("yes I am here");
 			$this->userRegistration();

@@ -1,6 +1,7 @@
 <?php
 include_once("../classes/lang.php");
 require_once '../controller/userInfo.php';
+include_once "../controller/friends_controller.php";
 
 if(!isset($_SESSION['userData']))
 {
@@ -14,6 +15,9 @@ if(!isset($_SESSION['userData']))
 	<link rel="stylesheet" type="text/css" href="../css/global.css" ></link>
     <link rel="stylesheet" type="text/css" href="../css/topheader.css" ></link>
     <link rel="stylesheet" type="text/css" href="../css/homeContent.css" ></link>
+
+
+    
 </head>
 <body>
 <div id="mainWrapper">

@@ -30,7 +30,23 @@ class DBConnection {
 	private function __construct() {
 
 	}
-
+	public function unsetValues()
+	{
+	$this->_tableName = "";
+	$this->_join = "";
+	$this->_where = "";
+	$this->_having="";
+	$this->_orderBy = "";
+	$this->_groupBy = "";
+	$this->_limit = "";
+	$this->_keys = array();
+	$this->_values = array();
+	$this->_insertId;
+	$this->_errorLog = "";
+	$this->_query = "";
+	$this->_result = "";		
+		
+	}
 	public static function Connect() {
 		if (is_null(DBConnection::$instance)) {
 
