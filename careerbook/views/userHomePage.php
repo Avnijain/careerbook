@@ -45,7 +45,7 @@ if(!isset($_SESSION['userData']))
 	<ul>
 		<li class="active first"><span><a href="userHomePage.php">home</a></span></li>
 		<li><span><a href="userHomePage.php?group">group</a></span></li>
-		<li><span><a href="#">users</a></span></li>
+		<li><span><a href="userHomePage.php?users">users</a></span></li>
 		<li><span><a href="userHomePage.php?message">messages</a></span></li>
 		<li><span><a href="userHomePage.php?resume">Resume</a></span></li>					
 		<li class="last"><span><a href="userHomePage.php?profile">profile</a></span></li>

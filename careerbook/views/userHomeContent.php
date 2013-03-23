@@ -81,6 +81,11 @@
 if (isset($_GET['group'])) {
 	include_once 'add_group.php';
 }
+elseif(isset($_GET['users'])){
+	$_SESSION['request']='myFriends';
+	include_once "../controller/friends_controller.php";
+	include_once "./friends.php";
+}
 else{
 
     if(isset($_SESSION['userData']))
