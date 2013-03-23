@@ -133,10 +133,10 @@
 			  <div class="container">
 			<section>
                 <div id="container_buttons">
-					<a href="../controller/mainentrance.php?action=get_message"></a>
+					<a href="../controller/mainentrance.php?action=get_message">click here to see</a>
 							<?php session_start(); 
-							if(isset($_SESSION['myinbox'][0]))
-								{ /*print_r($_SESSION['myinbox']);*/ $a=$_SESSION['myinbox'];}
+							if(isset($_SESSION['myinbox']))
+								{ /*print_r($_SESSION['myinbox']);*/ $a=$_SESSION['myinbox'];
 								$n=count($a);
 								?><ul>
 							<?php for($i=0;$i<$n;$i++)
@@ -147,7 +147,7 @@
 									<?php echo $a[$i]['description'];?> <a href=" ">details....</a>
 								</p>
 							</li>
-							<?php }?></ul>
+							<?php } }?></ul>
 					</div>
 			</section>
         </div>
@@ -181,10 +181,10 @@
 			  <div class="container">
 			<section>
                 <div id="container_buttons">
-					<a href="../controller/mainentrance.php?action=message_sent"></a>
+					<a href="../controller/mainentrance.php?action=message_sent">click here to see</a>
 							<?php //session_start(); 
 							if(isset($_SESSION['outbox']))
-								{ /*print_r($_SESSION['inbox']);*/ $a=$_SESSION['outbox'];}
+								{ /*print_r($_SESSION['inbox']);*/ $a=$_SESSION['outbox'];
 								$n=count($a);
 								?><ul>
 							<?php for($i=0;$i<$n;$i++)
@@ -195,7 +195,7 @@
 									<?php echo $a[$i]['description'];?> <a href=" ">details....</a>
 								</p>
 							</li>
-							<?php }?></ul>
+							<?php } }?></ul>
 				</div>
 			</section>
         </div>
