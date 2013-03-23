@@ -24,6 +24,7 @@ require_once '../Model/validation.php';
 require_once '../controller/userInfo.php';
 require_once '../controller/group_controller.php';
 require_once '../classes/dateManipulation.php';
+require_once '../controller/message_controller.php';
 
 class mainentrance {
 
@@ -63,6 +64,18 @@ class mainentrance {
 		if($_REQUEST['action']=="add_group"){
 			$objGroup = new GroupHandler();
 			$objGroup->handleAddGroup();
+		}
+		if($_REQUEST['action']=="send_message"){
+			$objMessage = new MessageController();
+			$objMessage->handleSendMessage();
+		}
+		if($_REQUEST['action']=="get_message"){
+			$objMessage = new MessageController();
+			$objMessage->handleRecieveMessage();
+		}
+		if($_REQUEST['action']=="message_sent"){
+			$objMessage = new MessageController();
+			$objMessage->handleSentMessage();
 		}
 	}
 	
