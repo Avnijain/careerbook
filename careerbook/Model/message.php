@@ -28,7 +28,7 @@ class Message extends DBConnection {
 	protected $_user_from;
 	protected $_user_to;
 	protected $_messaging_time;
-	
+	protected $_user_name;
 	
 	
 	

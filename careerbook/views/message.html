@@ -134,6 +134,7 @@
 			<section>
                 <div id="container_buttons">
 					<a href="../controller/mainentrance.php?action=get_message">click here</a>
+			
 					<ul>
 						<li class="toggle">
 							<a href="#six">Avni Jain</a>
@@ -208,11 +209,13 @@
 			<section>
                 <div id="container_buttons">
 					<a href="../controller/mainentrance.php?action=message_sent">click here</a>
+							<?php session_start() if(isset($_SESSION['inbox'])){ /*print_r($_SESSION['inbox']);*/ $a=$_SESSION['inbox'];}?>
+							<?php echo $a['1']['description'];?>
 					<ul>
 						<li class="toggle">
 							<a href="#six1">Avni Jain</a>
 							<p id="six1">
-								Lets start learning CSS3 before its too late, I just saw a website which amazed me with its animation effects. First I thought that the site is using some JQuery libraries but when I actually went into the code, I found it is CSS3. So I started learning it, and today I made my first  <a href="http://webstutorial.com/css3-clock/css3">details....</a>
+							<?php echo $a['1']['description'];?> <a href=" ">details....</a>
 							</p>
 						</li>
 						<li class="toggle">

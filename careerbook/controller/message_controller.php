@@ -41,7 +41,7 @@ public $userid;
 	
 		$this->_user_to = $this->userid;
 	    $result=$this->get_message();
-		print_r($result);
+		return($result);
 		//echo $result['user_from'];
 		//echo $result['descripition'];
 	}
@@ -49,7 +49,8 @@ public $userid;
 	
 	    $this->_user_from = $this->userid;
 	    $result=$this->sent_message();
-		print_r($result);
+		//print_r($result);
+		return($result);
 	
 	
 	}
