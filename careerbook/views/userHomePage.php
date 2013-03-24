@@ -48,7 +48,7 @@ if(!isset($_SESSION['userData']))
 	<span class="top-nav-shadow"></span>
 	<ul>
 		<li class="active first"><span><a href="userHomePage.php">home</a></span></li>
-		<li><span><a href="userHomePage.php?group">group</a></span></li>
+		<li><span><a href="../controller/mainentrance.php?action=getGroup">group</a></span></li>
 		<li><span><a href="userHomePage.php?users">users</a></span></li>
 		<li><span><a href="userHomePage.php?message">messages</a></span></li>
 		<li><span><a href="userHomePage.php?resume">Resume</a></span></li>					
@@ -71,7 +71,15 @@ else if(isset($_GET['logOut'])){
 } 
 else if (isset($_GET['message'])) {
 	include 'message.html'; 
-}else{
+} else if (isset($_GET['getGroup'])) {
+	include 'group.php';
+} else if (isset($_GET['addGroup'])) {
+	include 'add_group.php';
+} else if (isset($_GET['groupPost'])) {
+	include 'groupPost.php';
+} else if (isset($_GET['groupComment'])) {
+	include 'groupComment.php';
+} else{
    include 'userHomeContent.php';
 }
 ?>

@@ -27,7 +27,7 @@ class Group extends DBConnection {
 	protected $_group_title;
 	protected $_group_description;
 	protected $_group_id;
-	protected $_group_discussion_title;
+	//protected $_group_discussion_title;
 	protected $_group_discussion_description;
 	protected $_group_discussion_id;
 	protected $_group_discussion_comment;
@@ -36,7 +36,7 @@ class Group extends DBConnection {
 	protected $_group_member_user_id;
 	protected $_created_on;
 	protected $_created_by;
-		
+	
 	//function to add user post 
 	function add_post() {
 		
@@ -103,6 +103,7 @@ class Group extends DBConnection {
 	function get_posts() {
 		
 		$this->Fields(array(
+							"id",
 							"description",
 							"created_by",
 							"created_on",
@@ -114,6 +115,8 @@ class Group extends DBConnection {
 		$this->Where(array("group_id"=>$this->_group_id));
 
 		$this->Select();
+		echo $this->lastQuery();
+		//print_r ($this->resultArray()); die;
 		return $this->resultArray();
 		
 	}
@@ -122,15 +125,21 @@ class Group extends DBConnection {
 	function get_group() {
 
 		$this->Fields(array(
+						"group_details.id",
 						"title",
-						"description",
-						"group_image",
+						"description"
+						//"group_image",
 					)
 				);
 		
 		$this->From("group_details");
 		$this->Join("group_members"," group_details.id = group_members.group_id ");
 		$this->Where(array("group_members.member_id"=>$this->_created_by));
+		
+		$this->Select();
+// 		echo $this->lastQuery();
+// 		print_r ($this->resultArray()); die;
+		return $this->resultArray();
 	}
 	
 	//function to add comments
@@ -145,11 +154,32 @@ class Group extends DBConnection {
 				)
 		);
 		
-		$this->From("group_discussion_comment");
+		$this->From("group_discussion_comments");
 		$this->Insert();
 		echo $this->lastQuery();
 		
 		echo mysql_error ();
+	}
+	
+	function get_comments() {
+	
+		$this->Fields(array(
+				"discussion_id",
+				"description",
+				"created_by",
+				"created_on",
+				"updated_on"
+		)
+		);
+	
+		$this->From("group_discussion_comments");
+		$this->Where(array("discussion_id"=>$this->_group_discussion_id));
+	
+		$this->Select();
+		echo $this->lastQuery();
+		//print_r ($this->resultArray()); die;
+		return $this->resultArray();
+	
 	}
 
 }

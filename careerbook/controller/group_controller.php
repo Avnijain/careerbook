@@ -18,20 +18,25 @@ Sr.NO.		Version		Updated by           Updated on          Description
 
 include_once '../Model/Group.php';
 include_once '../controller/userInfo.php';
+include_once '../Model/Group.php';
+include_once '../classes/groupClass.php';
 //session_start();
 
 class GroupHandler extends Group {
 
-	public $groupData;
+	private $_objGroupModel = array();
+	private $_objGroupClass;
 	public $userid;
 	
 	function __construct() {
+		//$this->_objGroupModel = new Group();
+		$this->_objGroupClass = new GroupClass();
 		if(isset($_SESSION['userData']))
 		{
 			$obj = new user_info_controller();
 			$obj = unserialize($_SESSION['userData']);
 			$userid = $obj->getUserIdInfo();
-			$this->userid = $userid['id'];
+			$this->userid = (int) $userid['id'];
 		}
 	}
 
@@ -63,12 +68,13 @@ class GroupHandler extends Group {
 	}
 	
 	function handleAddPost() {
-		$this->_group_id = ( int ) ($_REQUEST['group_id']);
+		$this->_group_id = ( int ) ($_REQUEST['groupId']);
 		$this->_group_discussion_description = mysql_real_escape_string ($_POST['group_discussion_description']);
 		$this->_created_by = $this->userid;
 		$this->_created_on = date ( 'Y-m-d H:i:s' );
 		
 		$this->add_post();
+		header('Location: ../views/userHomePage.php?groupPost&groupId='.$this->_group_id);
 	}
 	
 	function handleEditPost() {
@@ -85,26 +91,47 @@ class GroupHandler extends Group {
 	}
 	
 	function handleGetPost() {
-		$this->_group_id = ( int ) ($_REQUEST['group_id']);
-		
-		$this->get_posts();
+		echo $this->_group_id = ( int ) ($_REQUEST['groupId']);
+		$result = $this->get_posts();
+		$_SESSION['groupPost'] = serialize($result);
+		header('Location: ../views/userHomePage.php?groupPost&groupId='.$this->_group_id);
+		print_r($result);
+		die;
+	}
+	
+	function handleGetComment() {
+		echo $this->_group_discussion_id = ( int ) ($_REQUEST['groupDiscussionId']);
+		$result = $this->get_comments();
+		$_SESSION['groupDiscussionComment'] = serialize($result);
+		header('Location: ../views/userHomePage.php?groupComment&groupDiscussionId='.$this->_group_discussion_id);
+		print_r($result);
+		die;
 	}
 	
 	function handleGetGroup() {
 		$this->_created_by = $this->userid;
-		
-		$this->get_group();
+		$result = array();
+		$result = $this->get_group();
+// 		print_r($result);
+// 		die;
+		//$this->_objGroupClass->setGroupList($result);
+		$_SESSION['groupList'] = serialize($result);
+
+		header('Location: ../views/userHomePage.php?getGroup');
 	}
 	
 	function handleAddComment() {
-		$this->_group_discussion_id = ( int ) ($_REQUEST['group_id']);
+		$this->_group_discussion_id = ( int ) ($_REQUEST['groupDiscussionId']);
 		$this->_group_discussion_comment = mysql_real_escape_string ( $_POST['group_discussion_comment']);
 		$this->_created_by = $this->userid;
 		$this->_created_on = date ( 'Y-m-d H:i:s' );
 		
 		$this->add_comment();
+		header('Location: ../views/userHomePage.php?groupComment&groupDiscussionId='. $this->_group_discussion_id);
 	}
 
 }
+
+$objGroup = new GroupHandler();
 
 ?>

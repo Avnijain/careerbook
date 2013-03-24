@@ -1,0 +1,8 @@
+alter table group_details modify title varchar(265) not null;
+
+
+
+alter table group_members add status enum('A','D') default 'A' Not null;
+
+
+

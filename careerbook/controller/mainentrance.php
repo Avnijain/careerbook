@@ -94,6 +94,26 @@ class mainentrance {
 			header('message.php');
 			
 		}
+		if($_REQUEST['action']=="getGroup"){
+			$objGroup = new GroupHandler();
+			$objGroup->handleGetGroup();
+		}
+		if($_REQUEST['action']=="getPost"){
+			$objGroup = new GroupHandler();
+			$objGroup->handleGetPost();
+		}
+		if($_REQUEST['action']=="addPost"){
+			$objGroup = new GroupHandler();
+			$objGroup->handleAddPost();
+		}
+		if($_REQUEST['action']=="addComment"){
+			$objGroup = new GroupHandler();
+			$objGroup->handleAddComment();
+		}
+		if($_REQUEST['action']=="getComment"){
+			$objGroup = new GroupHandler();
+			$objGroup->handleGetComment();
+		}
 	}
 	
 	//function to register a user and validate the feilds

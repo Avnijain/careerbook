@@ -52,8 +52,8 @@
 <div id="contentCenter">
 
 <?php
-if (isset($_GET['group'])) {
-	include_once 'add_group.php';
+if (isset($_GET['getGroup'])) {
+	include 'group.php';
 }
 elseif(isset($_GET['users'])){
 	$objFrndControl->start('myFriends');
