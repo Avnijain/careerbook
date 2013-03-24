@@ -87,7 +87,7 @@ include_once("../classes/lang.php");
 			<div id="steps" width="700px">
 				<form id="formElem" name="formElem"
 					action="../controller/mainentrance.php?action=profileinfo"
-					method="post"">
+					method="post" enctype="multipart/form-data" >
 					<fieldset class="step">
 						<legend>
 							<?php echo $lang->ACCOUNT; ?>
@@ -146,7 +146,7 @@ include_once("../classes/lang.php");
 
 						<p>
 							<label><?php echo $lang->IMAGE;?> </label> <input id="image"
-								name="image" type="file" AUTOCOMPLETE=OFF />
+								name="user_image" type="file" AUTOCOMPLETE=OFF />
 						</p>
 					</fieldset>
 					<fieldset class="step">

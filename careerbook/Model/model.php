@@ -224,6 +224,34 @@ class MyClass extends model {
 		//	    die;
 	}
 	/* End *********************************************** Address Information Manipulation ************************************/
+	/* Start *********************************************** User Image Information Manipulation ************************************/
+	public function insertIntoUserImage($userInfo){
+		$objImageInfo = $userInfo->getImageInfo();
+		$user_id = $userInfo->getUserIdInfo();
+		$objImageInfo['user_id'] = $user_id['id'];
+		
+		//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+		
+		$this->db->Fields($objImageInfo);
+		$this->db->From("user_personal_info");
+		$this->db->Insert() or die(mysql_error());
+//		echo $this->db->lastQuery();
+//		die;
+	}
+	public function updateIntoUserImage($userInfo){
+		$objImageInfo = $userInfo->getImageInfo();
+		$user_id = $userInfo->getUserIdInfo();
+		
+		//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+		
+		$this->db->Fields($objImageInfo);
+		$this->db->From("user_personal_info");
+		$this->db->Where(array("user_id"=>$user_id['id']));
+		$this->db->Update();
+//	    echo $this->db->lastQuery();
+//	    die;
+	}	
+	/* End *********************************************** User Image Information Manipulation ************************************/
 	public function FindLoginUsers() {
 
 	 //$this->db->Fields(array("email_primary","password"));

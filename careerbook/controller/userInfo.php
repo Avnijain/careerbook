@@ -37,6 +37,7 @@ class user_info_controller
 	private $objIdentityInfo;	
 	private	$ObjModel;
 	private $objAddressInfo;
+	private $objImageInfo;
 
 	public function __construct()
 	{
@@ -46,6 +47,7 @@ class user_info_controller
 		$this->ObjModel = new MyClass ();
 		$this->objAddressInfo = new UserAddressInfo();
 		$this->objAcademicInfo = new UserAcademicInfo();
+		$this->objImageInfo = new UserImageInfo();
 	}
 /*******************************************************************************************/
 	public function setUserPersonalInfoForm($result){
@@ -83,7 +85,22 @@ class user_info_controller
 	{
 		$flag = $this->setUserPersonalInfoDb();
 		return $this->objPersonalInfo->getInfo();
-	}	
+	}
+/*******************************************************************************************/	
+	public function setUserImageInfoForm($result){
+		$this->objImageInfo->addImage($result);
+		$resultDB = $this->ObjModel->fetchUserAddressInfo($this);
+		
+		if(count($resultDB) > 0 ){
+			$this->ObjModel->updateIntoUserImage($this);
+		}
+		else{
+			$this->ObjModel->insertIntoUserImage($this);
+		}		
+	}
+	public function getImageInfo(){
+		return $this->objImageInfo->getInfo();
+	}
 /*******************************************************************************************/
 	public function setUserAddressInfoForm($result){
 		$this->objAddressInfo->setinfo($result);		

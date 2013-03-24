@@ -168,16 +168,20 @@ class mainentrance {
 
 		//echo "filling user profile";
 		$userProfessionalInfo = array(array("skill_set" => "" ,"current_position" => "","current_company" => "", "start_period" => ""));
+		
 		$userAddressInfo = array(array("address"=>"","city_name"=>"","state_name"=>""));
+		
 		$userAcademicInfo = array(array("board_10"=>"","school_10"=>"","percentage_GPA_10"=>"","board_12"=>"","school_12"=>"",
 				"percentage_12"=>"","graduation_degree"=>"","graduation_specialization"=>"", "graduation_college"=>"",
 				"graduation_percentage"=>"", "post_graduation_degree"=>"", "post_graduation_specialization"=>"",
 				"post_graduation_college"=>"", "post_graduation_percentage"=>""
 		));
+		
 		$userPersonalInfo = array(array("first_name" => "" , "middle_name" => "" , "last_name" => "" ,
 				 "date_of_birth" => "" , "email_primary" => "" , "email_secondary" => "" ,  
 				"phone_no" => "" ,"gender" => "" ));
-			
+		
+		$userImageInfo = array(array("user_image" => ""));
 		//echo "<pre/>";
 		$this->obj_usrinfo = unserialize($_SESSION['userData']);
 		//print_r($_POST);
@@ -197,6 +201,20 @@ class mainentrance {
 //			    echo "inserting professional";
 			}
 			
+			$flagData = false;
+			foreach(array_keys($userImageInfo[0]) as $key => $value){
+				if(isset($_FILES[$value])){
+					if(!empty($_FILES[$value])){
+						$userImageInfo[0][$value] = $_FILES[$value];
+						$flagData = true;
+					}
+				}
+			}
+			if($flagData){
+				$this->obj_usrinfo->setUserImageInfoForm($userImageInfo);
+				//			    echo "inserting professional";
+			}
+						
 			$flagData = false;
 			if(isset($_POST['date_of_birth'])){
 				if(!empty($_POST['date_of_birth'])){
@@ -227,7 +245,7 @@ class mainentrance {
 				}
 			}
 			if($flagData){
-			    echo "Inserting professional data";
+//			    echo "Inserting professional data";
 			    $this->obj_usrinfo->setUserAddressInfoForm($userAddressInfo);			    
 			}
 			
