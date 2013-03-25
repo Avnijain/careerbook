@@ -14,10 +14,9 @@ class FriendsModel extends model {
     	$user_id=$user_id['id'];
         //$user_id=17;
         $this->db->Fields(array('u.id','u.first_name','u.middle_name','u.last_name','u.gender','u.email_primary','f.status'));
-        $this->db->From('users u');
-        $this->db->Join('friends f','u.id=f.user_id');
-        //$this->db->Join('user_personal_info p','u.id=p.user_id');
-        $this->db->Where(array("u.id IN(select friend_id from friends where user_id=".$user_id." and status='F')"),true);
+        $this->db->From('users u,friends f');
+        
+        $this->db->Where(array("user_id=".$user_id." AND friend_id=u.id AND f.status='F'"),true);
         $this->db->Select();
 		$result = $this->db->resultArray();
 		return($result);               
@@ -29,12 +28,15 @@ class FriendsModel extends model {
     	$user_id=$user_id['id'];
 		//$user_id=17;
         $this->db->Fields(array('u.id','u.first_name','u.middle_name','u.last_name','u.gender','u.email_primary','f.status'));
-        $this->db->From('users u');
-        $this->db->Join('friends f','u.id=f.user_id');
-        //$this->db->Join('user_personal_info p','u.id=p.user_id');
-        $this->db->Where(array("u.id IN(select friend_id from friends where user_id=".$user_id." and status='R')"),true);
+        $this->db->From('users u,friends f');
+        
+        $this->db->Where(array("user_id=".$user_id." AND friend_id=u.id AND f.status='R'"),true);
         $this->db->Select();
 		$result = $this->db->resultArray();
+		/*echo $this->db->lastQuery();
+		echo "<pre>";
+		print_r($result);
+		die;*/
 		return($result);         
     }
     
@@ -44,20 +46,17 @@ class FriendsModel extends model {
     	$user_id=$user_id['id'];
     	//$user_id=17;
     	$this->db->Fields(array('u.id','u.first_name','u.middle_name','u.last_name','u.gender','u.email_primary','f.status'));
-    	$this->db->From('users u');
-    	$this->db->Join('friends f','u.id=f.user_id');
-    	//$this->db->Join('user_personal_info p','u.id=p.user_id');
-    	$this->db->Where(array("u.id IN(select friend_id from friends where user_id=".$user_id." and (status='F' OR status='R' OR status='W')) AND (u.first_name like '%".$searchVal."%' OR u.middle_name like '%".$searchVal."%' OR u.last_name like '%".$searchVal."%' OR u.email_primary like '%".$searchVal."%')"),true);
+        $this->db->From('users u,friends f');
+        $this->db->Where(array("user_id=".$user_id." AND friend_id=u.id  AND (f.status='F' OR f.status='R' OR f.status='W') AND  (u.first_name like '%".$searchVal."%' OR u.middle_name like '%".$searchVal."%' OR u.last_name like '%".$searchVal."%' OR u.email_primary like '%".$searchVal."%')  "),true);
+    	
     	$this->db->Select();
     	$result1 = $this->db->resultArray();
     	
     	$this->db->unsetValues();
     	
     	$this->db->Fields(array('u.id'));
-    	$this->db->From('users u');
-    	$this->db->Join('friends f','u.id=f.user_id');
-    	//$this->db->Join('user_personal_info p','u.id=p.user_id');
-    	$this->db->Where(array("u.id IN(select friend_id from friends where user_id=".$user_id." and (status='F' OR status='R' OR status='W'))"),true);
+        $this->db->From('users u,friends f');
+        $this->db->Where(array("user_id=".$user_id." AND friend_id=u.id  AND (f.status='F' OR f.status='R' OR f.status='W') AND  (u.first_name like '%".$searchVal."%' OR u.middle_name like '%".$searchVal."%' OR u.last_name like '%".$searchVal."%' OR u.email_primary like '%".$searchVal."%')  "),true);
     	$this->db->Select();
     	$result2 = $this->db->resultArray();
 
