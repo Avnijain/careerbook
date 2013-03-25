@@ -6,7 +6,7 @@ function frndAccept(frndId)
         
         
     	$("#aid"+frndId).html("<p class='ReqSentstatus'>Request Sent</p>");
-    	$("#cid"+frndId).html("");
+    	$("#cid"+frndId).html(" ");
         });
     
 }
