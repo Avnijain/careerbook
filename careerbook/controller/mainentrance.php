@@ -48,7 +48,15 @@ class mainentrance {
 	 private function acceptFrnd()
 	  {
 		$ObjModel = new MyClass();
-		$ObjModel->acceptNewFrnd($_POST['id']);
+		$this->obj_usrinfo = unserialize($_SESSION['userData']);
+		
+		$ObjModel->acceptNewFrnd($this->obj_usrinfo,$_POST['id']);
+	   }
+	   private function addFrnd()
+	   {
+	   	$ObjModel = new MyClass();
+	   	$this->obj_usrinfo = unserialize($_SESSION['userData']);
+	   	$ObjModel->addNewFrnd($this->obj_usrinfo,$_POST['id']);
 	   }	
 	
 	public function start() {
@@ -59,6 +67,11 @@ class mainentrance {
 			
 			$this->acceptFrnd();
 
+		}
+		if($_REQUEST['action']=="addFrnd"){
+				
+			$this->addFrnd();
+		
 		}		
 		if($_REQUEST['action']=="Registration"){
 			//print("yes I am here");

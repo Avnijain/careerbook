@@ -152,9 +152,28 @@ class MyClass extends model {
 //		echo $this->db->lastQuery();
 	}
 	
-	    public function acceptNewFrnd($frndId)
+	
+		public function addNewFrnd($userInfo,$frndId)
+		{
+			$user_id = $userInfo->getUserIdInfo();
+			$user_id=$user_id['id'];
+			//$user_id=17;
+			$this->db->Fields(array("user_id"=>$user_id,"friend_id"=>$frndId,"status"=>"W"));
+			$this->db->From("friends");
+			$this->db->Insert();
+			$this->db->unsetValues();
+			$this->db->Fields(array("user_id"=>$frndId,"friend_id"=>$user_id,"status"=>"R"));
+			$this->db->From("friends");
+			$this->db->Insert();			
+			
+			
+		}
+	
+	    public function acceptNewFrnd($userInfo,$frndId)
 	    {
-		$user_id=17;
+	    	$user_id = $userInfo->getUserIdInfo();
+	    	$user_id=$user_id['id'];
+		//$user_id=17;
 		$this->db->Fields(array("status"=>"F"));
 		$this->db->From("friends");
 		$this->db->Where(array("friend_id=".$frndId." AND user_id=".$user_id." AND status='R'"),true);

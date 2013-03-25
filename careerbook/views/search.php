@@ -18,8 +18,27 @@
             echo "<li>".$values['gender']."</li>";
             echo "<li>".$values['email_primary']."</li>";
             echo "</ul></td>";
-            echo "<td>".$values['status']."</td>";
             ?>
+            <?php
+            echo "<td id='aid".$values['id']."'>";
+            		if($values['status']=='F')
+            		{
+            			echo "<p class='frndStatus'>Friend</p>";
+            		}
+            		elseif($values['status']=='R')
+            		{
+            			echo "<p class='RequestStatus'>Request Pending</p>";
+            		}
+            		elseif($values['status']=='W')
+            		{
+            			echo "<p class='ReqSentstatus'>Request Sent</p>";
+            		}            		
+            		elseif($values['status']=='A')
+            		{
+            			echo "<input type='button' value='Add' onClick='addFrnd(".$values['id'].");'>";
+            		}            
+            ?></td>
+            
         </tr>
         <?php
         }
@@ -27,10 +46,27 @@
     
 </table>
 </center>
+<script src="../JavaScript/jquery.min.js" type="text/javascript"></script>
+<script src="../JavaScript/search.js"></script>
 <style>
   #frnd td{
         border-top: 1px solid red;
         border-bottom:  solid 1px red;
+    }
+    .frndStatus{
+    	width : 100%;
+    	height: 100%;
+    	background-color: green;
+    }
+    .RequestStatus{
+    	width : 100%;
+    	height: 100%;
+    	background-color: red;
+    }
+    .ReqSentstatus{
+    	width : 100%;
+    	height: 100%;
+    	background-color: blue;
     }
     
 </style>

@@ -4,11 +4,14 @@ ini_set("display_errors", "1");
 require_once '../Model/friends_model.php';
 require_once '../Model/model.php';
 require_once'../classes/friendsClass.php';
+require_once '../controller/userInfo.php';
 class MyFriend{
     
     private $_objFriend;
     private $_objFrndModel;
     private $_objModel;
+    private $_obj_usrinfo;
+    
     
     public function __construct()
     {
@@ -17,6 +20,7 @@ class MyFriend{
         $this->_objMyFrndReq=new FriendRequestClass();
         $this->_objAllUsers=new AllUsersClass();
         $this->_objFrndModel=new FriendsModel();
+        $this->_obj_usrinfo=new user_info_controller();
     }
     
     public function start($request,$searchVal="")
@@ -45,18 +49,20 @@ class MyFriend{
     
     private function allUsers($searchVal)
     {
-    	$result=$this->_objFrndModel->getAllUsersData($searchVal);
+    	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
+    	$result=$this->_objFrndModel->getAllUsersData($this->_obj_usrinfo,$searchVal);
     	$this->_objAllUsers->setAllUsers($result);
     	$_SESSION['allUsers']=serialize($this->_objAllUsers);
     }
-    private function acceptFrnd()
+    /*private function acceptFrnd()
     {
-
-        $this->_objModel->acceptNewFrnd($_POST['id']);
-    }
+    	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
+        $this->_objModel->acceptNewFrnd($this->_obj_usrinfo,$_POST['id']);
+    }*/
     private function getFrndReq()
     {
-        $result=$this->_objFrndModel->getFrndsReqData();
+    	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
+        $result=$this->_objFrndModel->getFrndsReqData($this->_obj_usrinfo);
         $this->_objMyFrndReq->setRequestedFriends($result);
         $_SESSION['FrndReq']=serialize($this->_objMyFrndReq);
         
@@ -64,7 +70,8 @@ class MyFriend{
     
     private function getMyFriends()
     {
-        $result=$this->_objFrndModel->getFriends();
+    	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
+        $result=$this->_objFrndModel->getFriends($this->_obj_usrinfo);
         $this->_objFriend->setMyFriendsNetwork($result);
         $_SESSION['myFriends']=serialize($this->_objFriend);
         
