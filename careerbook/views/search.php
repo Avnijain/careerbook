@@ -11,6 +11,7 @@
         ?>
         <tr>
             <?php
+            
             echo "<td><img src='../images/a6.jpg' width='80px' height='80px'></td>";
             echo "<td><ul style='list-style: none; margin-left:5px;'>";
             echo "<li>".$values['first_name']." ".$values['middle_name']." ".$values['last_name']."</li>";

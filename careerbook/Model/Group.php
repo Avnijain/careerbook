@@ -31,6 +31,7 @@ class Group extends DBConnection {
 	protected $_group_member_user_id;
 	protected $_created_on;
 	protected $_created_by;
+	protected $_search_group;
 	
 	// function to add user post
 	function add_post() {
@@ -187,6 +188,23 @@ class Group extends DBConnection {
 				"member_id" => $this->_created_by 
 		) );
 		$this->Update ();
+	}
+	
+	function search_group() {
+		$this->Fields ( array (
+				"group_details.id",
+				"title",
+				"description"
+				//  "group_image",
+		) );
+		
+		$this->From ( "group_details" );
+		$this->Like (
+				"title",
+				$this->_search_group
+		 );
+		$this->Select ();
+		return $this->resultArray ();
 	}
 }
 

@@ -57,7 +57,7 @@ class GroupHandler extends Group {
 		
 		$this->add_group ();
 		
-		header ( 'Location: ../views/userHomePage.php?Group' );
+		$this->handleGetGroup();
 	}
 	function handleAddPost() {
 		$this->_group_id = ( int ) ($_REQUEST ['groupId']);
@@ -66,7 +66,8 @@ class GroupHandler extends Group {
 		$this->_created_on = date ( 'Y-m-d H:i:s' );
 		
 		$this->add_post ();
-		header ( 'Location: ../views/userHomePage.php?groupPost&groupId=' . $this->_group_id );
+		$this->handleGetPost();
+		
 	}
 	function handleEditPost() {
 		$this->_group_discussion_id = ( int ) ($_REQUEST ['group_id']);
@@ -90,8 +91,7 @@ class GroupHandler extends Group {
 		$result = $this->get_comments ();
 		$_SESSION ['groupDiscussionComment'] = serialize ( $result );
 		header ( 'Location: ../views/userHomePage.php?groupComment&groupDiscussionId=' . $this->_group_discussion_id );
-		print_r ( $result );
-		die ();
+
 	}
 	function handleGetGroup() {
 		$this->_created_by = $this->userid;
@@ -108,7 +108,7 @@ class GroupHandler extends Group {
 		$this->_created_on = date ( 'Y-m-d H:i:s' );
 		
 		$this->add_comment ();
-		header ( 'Location: ../views/userHomePage.php?groupComment&groupDiscussionId=' . $this->_group_discussion_id );
+		$this->handleGetComment();
 	}
 	function handleJoinGroup() {
 		$this->_group_id = ( int ) ($_REQUEST ['groupId']);
@@ -123,6 +123,13 @@ class GroupHandler extends Group {
 	
 		$this->unjoin_group();
 		header ( 'Location: ../views/userHomePage.php?Group' );
+	}
+	function handleSearchGroup() {
+		$this->_search_group = $_REQUEST['groupSearch'];
+		
+		$result = $this->search_group();
+		$_SESSION ['groupSearch'] = serialize ( $result );
+		header ( 'Location: ../views/userHomePage.php?searchGroup' );
 	}
 }
 

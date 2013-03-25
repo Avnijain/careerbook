@@ -124,6 +124,10 @@ class mainentrance {
 			$objGroup = new GroupHandler();
 			$objGroup->handleUnjoinGroup();
 		}
+		if($_REQUEST['action']=="searchGroup"){
+			$objGroup = new GroupHandler();
+			$objGroup->handleSearchGroup();
+		}
 	}
 	
 	//function to register a user and validate the feilds

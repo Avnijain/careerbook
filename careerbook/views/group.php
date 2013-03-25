@@ -4,7 +4,7 @@ $groupData = array ();
 $groupData = unserialize ( $_SESSION ['groupList'] );
 ?>
 <a href="../views/userHomePage.php?addGroup">Add Group</a>
-<a href="#">Search Group</a>
+<a href="../views/userHomePage.php?searchGroup">Search Group</a>
 <?php
 foreach ( $groupData as $keys => $values ) {
 	?>

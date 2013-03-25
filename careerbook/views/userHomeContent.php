@@ -64,6 +64,8 @@ if (isset($_GET['Group'])) {
 	include 'groupComment.php';
 } else if (isset($_GET['addGroup'])) {
 	include 'add_group.php';
+} else if (isset($_GET['searchGroup'])) {
+	include 'searchGroup.php';
 }
 elseif(isset($_GET['users'])){
 	$objFrndControl->start('myFriends');
