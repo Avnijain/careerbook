@@ -55,7 +55,7 @@ class Message extends DBConnection {
 	}
 	
 	//function to get user's message
-	function get_message() {
+	function get_message1() {
 		
 		$this->Fields(array(
 							"description",
@@ -72,8 +72,24 @@ class Message extends DBConnection {
 		return $this->resultArray();
 		
 	}
+	function get_message() {
+	
+		$this->Fields(array(
+				"a.description",
+				"b.first_name",
+				"b.last_name"
+		)
+		);
+		$this->From("messaging a,users b");
+		$this->Where1(array("user_to"=>$this->_user_to,"user_from"=>"b.id"));
+	
+		$this->Select();
+		echo $this->lastQuery();
+		return $this->resultArray();
+	
+	}
 	//function to get sent message
-	function sent_message() {
+	function sent_message1() {
 		
 		$this->Fields(array(
 							"description",
@@ -89,6 +105,24 @@ class Message extends DBConnection {
 		//echo $this->lastQuery();
 		return $this->resultArray();
 		
+	}
+	function sent_message() {
+	
+		$this->Fields(array(
+				"a.description",
+				"b.first_name",
+				"b.last_name"
+		)
+		);
+	
+		$this->From("messaging a,users b");
+		//$a="b.id";
+		$this->Where1(array("user_from"=>$this->_user_from,"user_to"=>"b.id"));
+	
+		$this->Select();
+		echo $this->lastQuery();
+		return $this->resultArray();
+	
 	}
 	function get_id() {
 	

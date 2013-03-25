@@ -140,6 +140,51 @@ class DBConnection {
 		}
 		return $this;
 	}
+	public function Where1($data = array(), $raw = false, $operator = "AND") {
+		$count = count($data);
+		if ($count > 0) {
+	
+			$index = 0;
+			foreach ($data as $key => $value) {
+					
+					
+	
+				if ($index >= 1 || !empty($this->_where)) {
+					$ope  = strtoupper($operator);
+					if(in_array($ope,array("AND","OR"))){
+						$this->_where .= " $ope ";
+					}
+				}
+	
+				if($raw){
+					$this->_where .= " ".$value;
+					break;
+				}
+	
+				if (is_string($value)) {
+					$value = " $value ";
+				}
+	
+	
+				$op = array("=",">","<",">=","<=");
+				$opMatch = false;
+				for($i = 0;$i < count($op);$i++){
+	
+					if(strpos($key, $op[$i]) > 0){
+						$opMatch  = true;
+						break;
+					}
+				}
+				if($opMatch){
+					$this->_where .= " $key $value";
+				} else {
+					$this->_where .= " $key =  $value";
+				}
+				$index++;
+			}
+		}
+		return $this;
+	}
 
 
 

@@ -136,14 +136,14 @@
 					  <a href="../controller/mainentrance.php?action=get_message">click here to see</a>
 							<?php session_start(); 
 							if(isset($_SESSION['myinbox']))
-								{ print_r($_SESSION['myinbox']);
+								{ //print_r($_SESSION['myinbox']);
 									 $a=$_SESSION['myinbox'];
 								$n=count($a);
 								?><ul>
 							<?php for($i=0;$i<$n;$i++)
 							{?>
 								<li class="toggle">
-									<a href="#inbox<?php echo $i?>"><?php echo $a[$i]['user_from'];?></a>
+									<a href="#inbox<?php echo $i?>"><?php echo $a[$i]['first_name'];echo $a[$i]['last_name'];?></a>
 									<p id="inbox<?php echo $i?>">
 									<?php echo $a[$i]['description'];?> <a href=" ">details....</a>
 								</p>
@@ -185,15 +185,15 @@
 					<a href="../controller/mainentrance.php?action=message_sent">click here to see</a>
 							<?php //session_start(); 
 							if(isset($_SESSION['outbox']))
-								{ print_r($_SESSION['inbox']); $a=$_SESSION['outbox'];
-								$n=count($a);
+								{  $a1=$_SESSION['outbox'];
+								$n=count($a1);
 								?><ul>
 							<?php for($i=0;$i<$n;$i++)
 							{?>
 								<li class="toggle">
-									<a href="#six<?php echo $i?>"><?php echo $a[$i]['user_to'];?></a>
+									<a href="#six<?php echo $i?>"><?php echo $a1[$i]['first_name'];echo $a1[$i]['last_name'];?></a>
 									<p id="six<?php echo $i?>">
-									<?php echo $a[$i]['description'];?> <a href=" ">details....</a>
+									<?php echo $a1[$i]['description'];?> <a href=" ">details....</a>
 								</p>
 							</li>
 							<?php } }?></ul>

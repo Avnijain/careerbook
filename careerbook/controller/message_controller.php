@@ -34,7 +34,7 @@ class MessageController extends Message
 		$this->_message_description = mysql_real_escape_string($_POST['descripition']);
 		$this->_email_id=mysql_real_escape_string($_POST['uid']);
 		$s=parent::get_id();
-		print_r($s);
+		//print_r($s);die;
 		$this->_user_to = $s[0]['id'];
 		$this->_user_from = $this->userid;
 		$this->_messaging_time = date ( 'Y-m-d H:i:s' );
@@ -43,7 +43,7 @@ class MessageController extends Message
 	function handleRecieveMessage() {
 		$this->_user_to = $this->userid;
 	    $result=$this->get_message();
-	    echo $result or die;
+	    echo $result;
 		return($result);
 		//echo $result['user_from'];
 		//echo $result['descripition'];
@@ -52,7 +52,7 @@ class MessageController extends Message
 	
 	    $this->_user_from = $this->userid;
 	    $result=$this->sent_message();
-		//print_r($result);
+		print_r($result);
 		return($result);
 	
 	
