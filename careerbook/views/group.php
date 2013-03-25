@@ -17,7 +17,7 @@ foreach ( $groupData as $keys => $values ) {
 	?>
 		<br /> <a
 		href="../controller/mainentrance.php?action=getPost&groupId=<?php echo $values['id'];?>">View</a><a
-		href="#">Unlink</a><br />
+		href="../controller/mainentrance.php?action=unjoinGroup&groupId=<?php echo $values['id'];?>">Unlink</a><br />
 </div>
 <?php
 }

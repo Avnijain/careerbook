@@ -17,7 +17,7 @@ if (isset($_SESSION ['groupSearch'])) {
 		echo "Title : " .$values['title'] . "<br/>";
 		echo "Description : " .$values['description'] . "<br/>";
 		?>
-		<a href="#">Join Group</a><br/>
+		<a href="../controller/mainentrance.php?action=joinGroup&groupId=<?php echo $values['id'];?>">Join Group</a><br/>
 		<?php
 	}
 	unset($_SESSION['groupSearch']);

@@ -44,7 +44,6 @@ class Group extends DBConnection {
 		
 		$this->From ( "group_discussions" );
 		$this->Insert ();
-		echo $this->lastQuery ();
 	}
 	
 	// function to edit user post
@@ -57,7 +56,6 @@ class Group extends DBConnection {
 				"id" => $this->_group_discussion_id 
 		) );
 		$this->Update ();
-		echo $this->lastQuery ();
 	}
 	
 	// function to delete user post
@@ -67,7 +65,6 @@ class Group extends DBConnection {
 				"id" => $this->_group_discussion_id 
 		) );
 		$this->Delete ();
-		echo $this->lastQuery ();
 	}
 	
 	// function to add new group
@@ -109,7 +106,7 @@ class Group extends DBConnection {
 		) );
 		
 		$this->Select ();
-		echo $this->lastQuery ();
+
 		return $this->resultArray ();
 	}
 	
@@ -126,10 +123,12 @@ class Group extends DBConnection {
 		$this->From ( "group_details" );
 		$this->Join ( "group_members", " group_details.id = group_members.group_id " );
 		$this->Where ( array (
-				"group_members.member_id" => $this->_created_by 
-		) );
+				"group_members.member_id = " .$this->_created_by . " AND group_members.status = 'A'"
+		),true );
 		
 		$this->Select ();
+		
+		//echo $this->lastQuery();die;
 
 		return $this->resultArray ();
 	}
@@ -145,9 +144,7 @@ class Group extends DBConnection {
 		
 		$this->From ( "group_discussion_comments" );
 		$this->Insert ();
-		echo $this->lastQuery ();
 		
-		echo mysql_error ();
 	}
 	
 	function get_comments() {
@@ -165,18 +162,38 @@ class Group extends DBConnection {
 		) );
 		
 		$this->Select ();
-		echo $this->lastQuery ();
 
 		return $this->resultArray ();
 	}
 	
 	function join_group() {
+		
 		$this->Fields ( array (
 				"group_id" => $this->_group_id,
-				"member_id" => $this->_created_by 
+				"member_id" => $this->_created_by
 		) );
 		$this->From ( "group_members" );
-		$this->Insert ();
+		$this->Where ( array (
+				"member_id = " .$this->_created_by  . " AND group_id = " . $this->_group_id
+		),true );
+		$this->Select();
+		
+		$result= $this->resultArray ();
+		
+		if (count($result) == 0) {
+			$this->Fields ( array (
+					"group_id" => $this->_group_id,
+					"member_id" => $this->_created_by
+			) );
+			$this->From ( "group_members" );
+			$this->Insert();
+		} else {
+			$this->Fields ( array (
+					"status" => 'A'
+			) );
+			$this->From ( "group_members" );
+			$this->Update ();
+		}
 	}
 	
 	function unjoin_group() {
@@ -185,8 +202,8 @@ class Group extends DBConnection {
 		) );
 		$this->From ( "group_members" );
 		$this->Where ( array (
-				"member_id" => $this->_created_by 
-		) );
+				"member_id = " .$this->_created_by  . " AND group_id = " . $this->_group_id
+		),true );
 		$this->Update ();
 	}
 	
@@ -205,6 +222,26 @@ class Group extends DBConnection {
 		 );
 		$this->Select ();
 		return $this->resultArray ();
+	}
+	
+	function is_group_member() {
+		$this->Fields ( array (
+				"group_id" => $this->_group_id,
+				"member_id" => $this->_created_by
+		) );
+		$this->From ( "group_members" );
+		$this->Where ( array (
+				"member_id = " .$this->_created_by  . " AND group_id = " . $this->_group_id . " AND status = 'A'"
+		),true );
+		$this->Select();
+		
+		$result = $this->resultArray ();
+		
+		if (count($result) == 0) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }
 
