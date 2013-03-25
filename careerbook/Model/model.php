@@ -122,12 +122,12 @@ class MyClass extends model {
 		$user_id=17;
 		$this->db->Fields(array("status"=>"F"));
 		$this->db->From("friends");
-		$this->db->Where(array("friend_id=".$frndId." AND user_id=".$user_id),true);
+		$this->db->Where(array("friend_id=".$frndId." AND user_id=".$user_id." AND status='R'"),true);
 		$this->db->Update();
 		$this->db->unsetValues();
 		$this->db->Fields(array("status"=>"F"));
 		$this->db->From("friends");
-		$this->db->Where(array("friend_id=".$user_id." AND user_id=".$frndId),true);
+		$this->db->Where(array("friend_id=".$user_id." AND user_id=".$frndId. " AND status='W'"),true);
 		$this->db->Update();
 	    }	
 	

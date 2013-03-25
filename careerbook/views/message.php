@@ -136,7 +136,8 @@
 					<a href="../controller/mainentrance.php?action=get_message">click here to see</a>
 							<?php session_start(); 
 							if(isset($_SESSION['myinbox']))
-								{ /*print_r($_SESSION['myinbox']);*/ $a=$_SESSION['myinbox'];
+								{ print_r($_SESSION['myinbox']);
+									 $a=$_SESSION['myinbox'];
 								$n=count($a);
 								?><ul>
 							<?php for($i=0;$i<$n;$i++)
@@ -184,7 +185,7 @@
 					<a href="../controller/mainentrance.php?action=message_sent">click here to see</a>
 							<?php //session_start(); 
 							if(isset($_SESSION['outbox']))
-								{ /*print_r($_SESSION['inbox']);*/ $a=$_SESSION['outbox'];
+								{ print_r($_SESSION['inbox']); $a=$_SESSION['outbox'];
 								$n=count($a);
 								?><ul>
 							<?php for($i=0;$i<$n;$i++)

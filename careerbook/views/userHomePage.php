@@ -34,9 +34,9 @@ if(!isset($_SESSION['userData']))
 					?></label>
 		 <a href="./userHomePage.php?logOut" class="small magenta awesome">LogOut</a><br><br>	
 	
-	<form action="" method="post" id="search">
+	<form action="userHomePage.php" method="get" id="search">
 		<div class="field-holder">
-			<input type="text" class="field" placeholder="Search" title="Search">
+			<input type="text" class="field" placeholder="Search" title="Search" name="Search">
 		</div>
 		<input type="submit" class="button" value="Search">
 		<div class="cl">&nbsp;</div>

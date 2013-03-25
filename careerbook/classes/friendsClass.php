@@ -60,7 +60,11 @@ class AllUsersClass {
     public function getAllUsers()
     {
         return($this->_allUsers);
-    }    
+    }   
+    public function countAllUsers()
+    {
+    	return(count($this->_allUsers));
+    } 
     
 }
 

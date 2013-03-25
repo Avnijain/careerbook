@@ -19,7 +19,7 @@ class MyFriend{
         $this->_objFrndModel=new FriendsModel();
     }
     
-    public function start($request)
+    public function start($request,$searchVal="")
     {
 
         if($request=='myFriends')
@@ -35,8 +35,20 @@ class MyFriend{
 
             $this->acceptFrnd();
         }
+        elseif($request=='allUsers')
+        {
+        
+        	$this->allUsers($searchVal);
+        }
+        
     }
     
+    private function allUsers($searchVal)
+    {
+    	$result=$this->_objFrndModel->getAllUsersData($searchVal);
+    	$this->_objAllUsers->setAllUsers($result);
+    	$_SESSION['allUsers']=serialize($this->_objAllUsers);
+    }
     private function acceptFrnd()
     {
 
