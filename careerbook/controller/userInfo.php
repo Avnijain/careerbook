@@ -35,7 +35,7 @@ class user_info_controller
 	private $objProfessionalInfo;
 	private $objAcademicInfo;
 	private $objIdentityInfo;	
-	private	$ObjModel;
+	private	 $ObjModel;
 	private $objAddressInfo;
 	private $objImageInfo;
 	private $objProjectInfo;
@@ -170,32 +170,9 @@ class user_info_controller
 // 	    echo "<pre/>";
 // 	    print_r($result);
 // 	    die;
- 	    $tempuserProjectInfo = array(array("title"=>"","description"=>"","technology"=>"","duration"=>""));
-        $count  = 0; 
-        $maxProjct = 0;
-        foreach($result[0] as $key => $value){
-            foreach ($value as $inkey => $invalue){
-                $maxProjct++;
-            }
-            break;
-        }
-//         print($maxProjct);
-//         die;
-        for($i = 0; $i < $maxProjct ; $i++){
-	    foreach($result[0] as $key => $value){
-	        $id = $key;	        
-	        //print($id);
-//	        foreach ($key as $inkey => $invalue){
-	            $tempuserProjectInfo[0][$id] = $result[0][$id][$i]; 
-	             
-//	        }
-	    }
-	    $this->objProjectInfo[$i]->setinfo($tempuserProjectInfo);
- 	    if($i+1 == $maxProjct){
- 	        break;
- 	    }
- 	    $this->objProjectInfo[] = new UserProjectInfo();
-        }
+
+	    $this->setDatainProject($result);
+
 // 	    print_r($this->objProjectInfo[0]->getinfo());
 // 	    die;
 // 	    $this->objAcademicInfo->setinfo($result);
@@ -212,6 +189,68 @@ class user_info_controller
 //        }
 //	    }	    
 	}
+	private function setDatainProject($result){
+	    $tempuserProjectInfo = array(array("title"=>"","description"=>"","technology"=>"","duration"=>""));
+	    $count  = 0;
+	    $maxProjct = 0;
+	    foreach($result[0] as $key => $value){
+	        foreach ($value as $inkey => $invalue){
+	            $maxProjct++;
+	        }
+	        break;
+	    }
+	    //         print($maxProjct);
+	    //         die;
+	    for($i = 0; $i < $maxProjct ; $i++){
+	        foreach($result[0] as $key => $value){
+	            $id = $key;
+	            //print($id);
+	            //	        foreach ($key as $inkey => $invalue){
+	            $tempuserProjectInfo[0][$id] = $result[0][$id][$i];
+	    
+	            //	        }
+	            }
+	            $this->objProjectInfo[$i]->setinfo($tempuserProjectInfo);
+	            if($i+1 == $maxProjct){
+	                break;
+	            }
+	            $this->objProjectInfo[] = new UserProjectInfo();
+	        }
+	}
+	private function setDatainProjectDB($result){
+	    $tempuserProjectInfo = array(array("title"=>"","description"=>"","technology"=>"","duration"=>""));
+	    $count  = 0;
+	    $maxProjct = 0;
+	    foreach($result as $key => $value){
+//	        foreach ($value as $inkey => $invalue){
+	            $maxProjct++;
+//	        }
+//	        break;
+	    }
+	    //         print($maxProjct);
+	    //         die;
+//	    for($i = 0; $i < $maxProjct ; $i++){
+	        foreach($result as $key => $value){
+	            $i = $key;
+	            foreach($value as $inkey => $invalue){
+	            $id = $inkey;
+	            //print($id);
+	            //	        foreach ($key as $inkey => $invalue){
+	            $tempuserProjectInfo[0][$id] = $result[$i][$id];
+	             
+	            //	        }
+	            }
+	            $this->objProjectInfo[$i]->setinfo($tempuserProjectInfo);
+	            if($i+1 == $maxProjct){
+	                break;
+	            }
+	            $this->objProjectInfo[] = new UserProjectInfo();
+	        }
+//	    }
+// 	    	    echo "<pre/>";
+// 	    	    print_r($this->objProjectInfo);
+// 	    	    die;
+	}
 	public function getUserProjectInfo()
 	{
 	    $allproject = array();
@@ -222,11 +261,17 @@ class user_info_controller
 // 	    print_r($allproject);
 // 	    die;
 	    return $allproject;
+	}
+	public function getUserProjectInfoDB()
+	{
+	    $flag = $this->setUserProjectInfoDb();
+	    return $this->getUserProjectInfo();
 	}	
 	public function setUserProjectInfoDb(){
-	    $result = $this->ObjModel->fetchUserAcademicInfo($this);
+	    $result = $this->ObjModel->fetchUserProjectInfo($this);
+	     
 	    if(count($result) > 0 ){
-	        $this->objAcademicInfo->setinfo($result);
+	        $this->setDatainProjectDB($result);
 	        return true;
 	    }
 	    return false;

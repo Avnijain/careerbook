@@ -24,6 +24,12 @@ class dateManipulation {
 		$this->date->setDate($datearr[2], $datearr[0], $datearr[1]);
 		return $this->date->format("Y-m-d");
 	}
+	//Reverse the date in parameter to year-month-date
+	public function formatDate($temp, $format = "Y-m-d"){	    
+	    $datearr = explode("-", $temp);	    	    
+	    $this->date->setDate($datearr[0], $datearr[1], $datearr[2]);
+	    return $this->date->format($format);
+	}
 	//Calculate the age from the given date in parameter to today date
 	public function getAge($temp){
 		$dateTemp = new DateTime($temp);
