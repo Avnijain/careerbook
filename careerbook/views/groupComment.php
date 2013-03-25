@@ -1,7 +1,7 @@
 <?php
-//include_once('../classes/groupClass.php');
-$groupData = array();
-$groupData=unserialize($_SESSION['groupDiscussionComment']);
+// include_once('../classes/groupClass.php');
+$groupData = array ();
+$groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
 
 ?>
 <div id="groupDiscussionComment">
@@ -15,13 +15,13 @@ $groupData=unserialize($_SESSION['groupDiscussionComment']);
 	</form>
 </div>
 <div>
-	<?php 
-	foreach ($groupData as $keys=>$values) {
+	<?php
+	foreach ( $groupData as $keys => $values ) {
 		?>
 	<div>
 		<?php
-		echo "Description : ". $values['description'] . "<br />";
-		echo "Posted on ". $values['created_on'] . "<br/>";
+		echo "Description : " . $values ['description'] . "<br />";
+		echo "Posted on " . $values ['created_on'] . "<br/>";
 		?>
 		<br />
 	</div>

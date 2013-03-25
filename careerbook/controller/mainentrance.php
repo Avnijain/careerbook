@@ -114,6 +114,14 @@ class mainentrance {
 			$objGroup = new GroupHandler();
 			$objGroup->handleGetComment();
 		}
+		if($_REQUEST['action']=="joinGroup"){
+			$objGroup = new GroupHandler();
+			$objGroup->handleJoinGroup();
+		}
+		if($_REQUEST['action']=="unjoinGroup"){
+			$objGroup = new GroupHandler();
+			$objGroup->handleUnjoinGroup();
+		}
 	}
 	
 	//function to register a user and validate the feilds
