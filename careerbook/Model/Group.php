@@ -94,9 +94,17 @@ class Group extends DBConnection {
 		
 		$this->From("group_details");
 		$this->Insert();
-		echo $this->lastQuery();
-		echo (mysql_error());
-
+		//$this->lastQuery();
+		$gid = $this->lastInsertId();
+		
+		$this->Fields(array
+				(
+						"group_id"=>$gid,
+						"member_id"=>$this->_created_by
+				)
+		);
+		$this->From("group_members");
+		$this->Insert();
 	}
 	
 	//function to list group post

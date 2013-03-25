@@ -2,8 +2,9 @@
 //include_once('../classes/groupClass.php');
 $groupData = array();
 $groupData=unserialize($_SESSION['groupList']);
-
-
+?>
+<a href="../views/userHomePage.php?addGroup">Add Group</a>
+<?php
 	foreach ($groupData as $keys=>$values) {
 		?>
 	<div>

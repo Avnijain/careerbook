@@ -3,3 +3,10 @@ alter table user_personal_info MODIFY COLUMN city_id int(11) unsigned default 0;
 mysql> insert into state values ('0',"Default");
 
 mysql> alter table state auto_increment = 1;
+
+alter table group_details modify title varchar(265) not null;
+
+
+
+alter table group_members add status enum('A','D') default 'A' Not null;
+

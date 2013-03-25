@@ -65,6 +65,8 @@ class GroupHandler extends Group {
 		
 		$this->add_group();
 		
+		header('Location: ../views/userHomePage.php?Group');
+		
 	}
 	
 	function handleAddPost() {
@@ -117,7 +119,7 @@ class GroupHandler extends Group {
 		//$this->_objGroupClass->setGroupList($result);
 		$_SESSION['groupList'] = serialize($result);
 
-		header('Location: ../views/userHomePage.php?getGroup');
+		header('Location: ../views/userHomePage.php?Group');
 	}
 	
 	function handleAddComment() {

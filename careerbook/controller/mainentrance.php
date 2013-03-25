@@ -73,7 +73,7 @@ class mainentrance {
 			//echo "Filling profile information # ";
 			$this->fillUserProfile();
 		}
-		if($_REQUEST['action']=="group"){
+		if($_REQUEST['action']=="add_group"){
 			$objGroup = new GroupHandler();
 			$objGroup->handleAddGroup();
 		}
@@ -94,7 +94,7 @@ class mainentrance {
 			header('message.php');
 			
 		}
-		if($_REQUEST['action']=="getGroup"){
+		if($_REQUEST['action']=="Group"){
 			$objGroup = new GroupHandler();
 			$objGroup->handleGetGroup();
 		}

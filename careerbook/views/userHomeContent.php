@@ -52,7 +52,7 @@
 <div id="contentCenter">
 
 <?php
-if (isset($_GET['getGroup'])) {
+if (isset($_GET['Group'])) {
 	include 'group.php';
 }else if (isset($_GET['getGroup'])) {
 	include 'group.php';
@@ -62,6 +62,8 @@ if (isset($_GET['getGroup'])) {
 	include 'groupPost.php';
 } else if (isset($_GET['groupComment'])) {
 	include 'groupComment.php';
+} else if (isset($_GET['addGroup'])) {
+	include 'add_group.php';
 }
 elseif(isset($_GET['users'])){
 	$objFrndControl->start('myFriends');
