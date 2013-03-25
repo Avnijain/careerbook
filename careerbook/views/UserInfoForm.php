@@ -1,5 +1,7 @@
 <?php
 include_once("../classes/lang.php");
+require_once '../controller/userInfo.php';
+$objUserInfo = unserialize($_SESSION['userData']);
 ?>
 
 <title><?php echo $lang->USERINFOFORM;?></title>
