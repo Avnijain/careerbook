@@ -169,6 +169,20 @@ class MyClass extends model {
 			
 		}
 	
+		public function delMyFrnd($userInfo,$frndId)
+		{
+			$user_id = $userInfo->getUserIdInfo();
+			$user_id=$user_id['id'];
+			$this->db->Fields(array("status"=>"D"));
+			$this->db->From("friends");
+			$this->db->Where(array("friend_id=".$frndId." AND user_id=".$user_id." AND (status='R' OR status='F')"),true);
+			$this->db->Update();
+			$this->db->unsetValues();
+			$this->db->Fields(array("status"=>"D"));
+			$this->db->From("friends");
+			$this->db->Where(array("friend_id=".$user_id." AND user_id=".$frndId. " AND (status='W' OR status='F')"),true);
+			$this->db->Update();
+		}
 	    public function acceptNewFrnd($userInfo,$frndId)
 	    {
 	    	$user_id = $userInfo->getUserIdInfo();

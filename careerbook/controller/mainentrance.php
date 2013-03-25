@@ -57,6 +57,12 @@ class mainentrance {
 	   	$ObjModel = new MyClass();
 	   	$this->obj_usrinfo = unserialize($_SESSION['userData']);
 	   	$ObjModel->addNewFrnd($this->obj_usrinfo,$_POST['id']);
+	   }
+	   private function delFrnd()
+	   {
+	   	$ObjModel = new MyClass();
+	   	$this->obj_usrinfo = unserialize($_SESSION['userData']);
+	   	$ObjModel->delMyFrnd($this->obj_usrinfo,$_POST['id']);
 	   }	
 	
 	public function start() {
@@ -71,6 +77,11 @@ class mainentrance {
 		if($_REQUEST['action']=="addFrnd"){
 				
 			$this->addFrnd();
+		
+		}
+		if($_REQUEST['action']=="delFrnd"){
+		
+			$this->delFrnd();
 		
 		}		
 		if($_REQUEST['action']=="Registration"){

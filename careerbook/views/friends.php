@@ -17,7 +17,8 @@
             echo "<li>".$values['gender']."</li>";
             echo "<li>".$values['email_primary']."</li>";
             echo "</ul></td>";
-            echo "<td>".$values['status']."</td>";
+            echo "<td id='aid".$values['id']."'><input type='button' value='View' onClick=''></td>";
+            echo "<td id='cid".$values['id']."'><input type='button' value='Delete' onClick='frndDelete(".$values['id'].");'></td>";
             ?>
         </tr>
         <?php
@@ -26,6 +27,11 @@
     
 </table>
 </center>
+
+
+<script src="../JavaScript/jquery.min.js" type="text/javascript"></script>
+<script src="../JavaScript/friends.js"></script>
+
 <style>
   #frnd td{
         border-top: 1px solid red;

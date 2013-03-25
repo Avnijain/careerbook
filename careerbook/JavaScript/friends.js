@@ -10,3 +10,16 @@ function frndAccept(frndId)
         });
     
 }
+
+function frndDelete(frndId)
+{
+    
+    $.post('../controller/mainentrance.php',{'action':'delFrnd','id':frndId},function(){
+        
+        
+        
+    	$("#aid"+frndId).html("<p class='ReqSentstatus'>Not Intrested</p>");
+    	$("#cid"+frndId).html(" ");
+        });
+    
+}

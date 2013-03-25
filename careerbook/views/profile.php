@@ -6,7 +6,7 @@
 		$objUserInfo = unserialize($_SESSION['userData']);
 		$userData=$objUserInfo->getUserPersonalInfo();
 					
-	       echo "<b>User Nmae:</b>    ".$userData['first_name']." ".$userData['last_name']."<br>";
+	       echo "<b>User Name:</b>    ".$userData['first_name']." ".$userData['last_name']."<br>";
 	       echo "<b>Gender:</b>       ".$userData['gender']."<br>";
 	       echo "<b>Date of Birth:</b>".$userData['date_of_birth'];
 						       
