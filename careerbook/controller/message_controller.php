@@ -18,7 +18,7 @@ include_once '../Model/message.php';
 class MessageController extends Message
 {
 
-public $userid;
+
 	
 	function __construct() {
 		if(isset($_SESSION['userData']))
@@ -32,15 +32,18 @@ public $userid;
 	function handleSendMessage() {
 		$this->_message_id='';
 		$this->_message_description = mysql_real_escape_string($_POST['descripition']);
-		$this->_user_to = mysql_real_escape_string($_POST['uid']);
+		$this->_email_id=mysql_real_escape_string($_POST['uid']);
+		$s=parent::get_id();
+		print_r($s);
+		$this->_user_to = $s[0]['id'];
 		$this->_user_from = $this->userid;
 		$this->_messaging_time = date ( 'Y-m-d H:i:s' );
 	    $this->send_message();
 	}
 	function handleRecieveMessage() {
-	
 		$this->_user_to = $this->userid;
 	    $result=$this->get_message();
+	    echo $result or die;
 		return($result);
 		//echo $result['user_from'];
 		//echo $result['descripition'];
@@ -54,7 +57,9 @@ public $userid;
 	
 	
 	}
+	
 	}
+	$ob=new MessageController();
 
 ?>
 

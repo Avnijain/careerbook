@@ -1,4 +1,4 @@
-
+<?php include_once '../Model/message_controller.php';?>
 
    
     <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
@@ -133,7 +133,7 @@
 			  <div class="container">
 			<section>
                 <div id="container_buttons">
-					<a href="../controller/mainentrance.php?action=get_message">click here to see</a>
+					  <a href="../controller/mainentrance.php?action=get_message">click here to see</a>
 							<?php session_start(); 
 							if(isset($_SESSION['myinbox']))
 								{ print_r($_SESSION['myinbox']);

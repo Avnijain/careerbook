@@ -29,8 +29,10 @@ class Message extends DBConnection {
 	protected $_user_to;
 	protected $_messaging_time;
 	protected $_user_name;
+	protected $_email_id;
+	public $userid;
 	
-	
+
 	
 	//function to send a message
 	function send_message() {
@@ -88,6 +90,39 @@ class Message extends DBConnection {
 		return $this->resultArray();
 		
 	}
+	function get_id() {
+	
+		$this->Fields(array(
+				"id"
+		)
+		);
+	
+		$this->From("users");
+		$this->Where(array("email_primary"=>$this->_email_id));
+	
+		$this->Select();
+		echo $this->lastQuery();
+		return $this->resultArray();
+	
+	}
+	function get_name() {
+	
+		$this->Fields(array(
+							"first_name",
+							"last_name"
+		)
+		);
+	
+		$this->From("users");
+		$this->Where(array("id"=>$this->userid));
+	
+		$this->Select();
+		echo $this->lastQuery();
+		return $this->resultArray();
+	
+	}
+	
+	
 }
 
 ?>

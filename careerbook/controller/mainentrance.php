@@ -80,18 +80,20 @@ class mainentrance {
 		if($_REQUEST['action']=="send_message"){
 			$objMessage = new MessageController();
 			$objMessage->handleSendMessage();
+			header('location: ../views/message.php?c=sent');
 			//header('message1.php?c=sent');
 		}
 		if($_REQUEST['action']=="get_message"){
 			$objMessage1 = new MessageController();
 			$_SESSION['myinbox']=$objMessage1->handleRecieveMessage();
+			header('location: ../views/message.php');
 		}
 		if($_REQUEST['action']=="message_sent"){
 			$objMessage2 = new MessageController();
 			//session_start();
 			$_SESSION['outbox']=$objMessage2->handleSentMessage();
 			//print_r($_SESSION['outbox']);
-			header('message.php');
+			header('location: ../views/message.php');
 			
 		}
 		if($_REQUEST['action']=="Group"){
