@@ -54,6 +54,14 @@
 <?php
 if (isset($_GET['getGroup'])) {
 	include 'group.php';
+}else if (isset($_GET['getGroup'])) {
+	include 'group.php';
+} else if (isset($_GET['addGroup'])) {
+	include 'add_group.php';
+} else if (isset($_GET['groupPost'])) {
+	include 'groupPost.php';
+} else if (isset($_GET['groupComment'])) {
+	include 'groupComment.php';
 }
 elseif(isset($_GET['users'])){
 	$objFrndControl->start('myFriends');
@@ -62,7 +70,7 @@ elseif(isset($_GET['users'])){
 elseif(isset($_GET['FriendsRequest'])){
 	
 	include_once "./friendsRequest.php";
-}
+} 
 
 else{
 

@@ -127,7 +127,8 @@ class Group extends DBConnection {
 		$this->Fields(array(
 						"group_details.id",
 						"title",
-						"description"
+						"description",
+						"created_on"
 						//"group_image",
 					)
 				);

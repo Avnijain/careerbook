@@ -73,7 +73,7 @@ class mainentrance {
 			//echo "Filling profile information # ";
 			$this->fillUserProfile();
 		}
-		if($_REQUEST['action']=="add_group"){
+		if($_REQUEST['action']=="group"){
 			$objGroup = new GroupHandler();
 			$objGroup->handleAddGroup();
 		}
