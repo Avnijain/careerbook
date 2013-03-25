@@ -21,7 +21,10 @@ $objUserInfo = unserialize($_SESSION['userData']);
  print_r ($objUserInfo->getUserPersonalInfo());
 $ob=$objUserInfo->getUserPersonalInfo();
 $ob1=$objUserInfo->getUserAcademicInfo();
-//print_r ($objUserInfo->getUserProfessionalInfo());
+$UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
+$UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
+print_r ($UserProjectInfoDB);
+$n=count($UserProjectInfoDB);
 $fname=$ob['first_name'];
 $lname=$ob['last_name'];
 $dob=$ob['date_of_birth'];
@@ -70,6 +73,11 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template"))
 	echo "<tr><td>$lang->TWELETH</td><td>$board12</td><td>$marks12</td></tr>";
 	echo "<tr><td>$lang->GRADUATION</td><td>$grad</td><td>$marksg</td></tr></table>";
 	echo "<b><h3>$lang->STRENGHTSKILLS</h3></b>";
+	for($i=0;$i<$n;$i++)
+	{
+		echo $UserProjectInfoDB['$i']['title'];
+		//echo "<tr><td>$UserProjectInfoDB['$i']['title']</td><td>$UserProjectInfoDB['$i']['project_description']</td><td>$UserProjectInfoDB['$i']['technology_used']</td></tr>";
+	}
 	echo "hhshsadjsjdj";
 	echo "<b><h3>$lang->EMPLOYMENTINFORMATION</h3></b>";
 	echo "<table>

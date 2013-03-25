@@ -1,4 +1,4 @@
-<?php include_once '../Model/message_controller.php';?>
+<?php include_once '../Model/message_controller.php'; $a="false";?>
 
    
     <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
@@ -145,7 +145,7 @@
 								<li class="toggle">
 									<a href="#inbox<?php echo $i?>"><?php echo $a[$i]['first_name'];echo $a[$i]['last_name'];?></a>
 									<p id="inbox<?php echo $i?>">
-									<?php echo $a[$i]['description'];?> <a href=" ">details....</a>
+									<?php echo $a[$i]['description'];?> <a href=" "><?php echo $a[$i]['messaging_time'];?></a>
 								</p>
 							</li>
 							<?php } }?></ul>
@@ -193,7 +193,7 @@
 								<li class="toggle">
 									<a href="#six<?php echo $i?>"><?php echo $a1[$i]['first_name'];echo $a1[$i]['last_name'];?></a>
 									<p id="six<?php echo $i?>">
-									<?php echo $a1[$i]['description'];?> <a href=" ">details....</a>
+									<?php echo $a1[$i]['description'];?> <a href=" "><?php echo $a1[$i]['messaging_time'];?></a>
 								</p>
 							</li>
 							<?php } }?></ul>

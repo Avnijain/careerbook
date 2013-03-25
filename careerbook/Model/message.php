@@ -77,7 +77,8 @@ class Message extends DBConnection {
 		$this->Fields(array(
 				"a.description",
 				"b.first_name",
-				"b.last_name"
+				"b.last_name",
+				"a.messaging_time"
 		)
 		);
 		$this->From("messaging a,users b");
@@ -111,7 +112,8 @@ class Message extends DBConnection {
 		$this->Fields(array(
 				"a.description",
 				"b.first_name",
-				"b.last_name"
+				"b.last_name",
+				"a.messaging_time"
 		)
 		);
 	
