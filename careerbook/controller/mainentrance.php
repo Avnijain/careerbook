@@ -210,6 +210,9 @@ class mainentrance {
 				"phone_no" => "" ,"gender" => "" ));
 		
 		$userImageInfo = array(array("user_image" => ""));
+		
+		$userProjectInfo = array(array("title"=>"","project_description"=>"","technology_used"=>"","duration"=>""));
+		
 		//echo "<pre/>";
 		$this->obj_usrinfo = unserialize($_SESSION['userData']);
 		//print_r($_POST);
@@ -228,21 +231,45 @@ class mainentrance {
 			    $this->obj_usrinfo->setUserProfessionalInfoForm($userProfessionalInfo);
 //			    echo "inserting professional";
 			}
-			
+// 			echo "<pre/>";
+// 			print_r($_FILES);
+// 			die;
+
 			$flagData = false;
 			foreach(array_keys($userImageInfo[0]) as $key => $value){
-				if(isset($_FILES[$value])){
-					if(!empty($_FILES[$value])){
-						$userImageInfo[0][$value] = $_FILES[$value];
+			    if($_FILES[$value]["error"] != "4"){
+			    if(isset($_FILES[$value])){
+			        if(!empty($_FILES[$value])){
+			            $userImageInfo[0][$value] = $_FILES[$value];
+			            $flagData = true;
+			        }
+			    }
+			}
+			}
+			if($flagData){
+			    $this->obj_usrinfo->setUserImageInfoForm($userImageInfo);
+			    //			    echo "inserting professional";
+			}			
+/**************************** user project information ************************/			
+			$flagData = false;
+			foreach(array_keys($userProjectInfo[0]) as $key => $value){
+				if(isset($_POST[$value])){				    
+					if(!empty($_POST[$value])){
+					    if(!empty($_POST[$value][0])){
+						$userProjectInfo[0][$value] = $_POST[$value];
 						$flagData = true;
 					}
 				}
 			}
-			if($flagData){
-				$this->obj_usrinfo->setUserImageInfoForm($userImageInfo);
-				//			    echo "inserting professional";
 			}
-						
+// 			echo "<pre/>";
+// 			print_r($userProjectInfo);
+// 			die;
+			if($flagData){			     
+				$this->obj_usrinfo->setUserProjectInfoForm($userProjectInfo);
+//			    echo "inserting professional";
+			}
+/****************************************************/						
 			$flagData = false;
 			if(isset($_POST['date_of_birth'])){
 				if(!empty($_POST['date_of_birth'])){

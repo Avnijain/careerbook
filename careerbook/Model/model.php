@@ -67,7 +67,42 @@ class MyClass extends model {
 		//		echo $this->db->lastQuery();
 		return $this->db->resultArray();
 	}
+	/* Start *********************************************** Project Information Manipulation ************************************/
+	public function fetchUserProjectInfo($userInfo){
+	    $user_id = $userInfo->getUserIdInfo();
+	    $this->db->From("user_project_info");
+	    $this->db->Where(array("user_id"=>$user_id['id']));
+	    $this->db->Select();
+	    //		echo $this->db->lastQuery();
+	    return $this->db->resultArray();	    
+	}
+	public function insertIntoUserProject($userInfo) {
+	    $objProjectInfo = $userInfo->getUserProjectInfo();
+	    $user_id = $userInfo->getUserIdInfo();
+	    foreach($objProjectInfo as $key => $value){
 
+	        $value['user_id'] = $user_id['id'];
+// 	        echo "<pre/>";
+// 	        print_r($value);
+// 	        die;	        
+	        //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+	        
+	        $this->db->Fields($value);
+	        $this->db->From("user_project_info");
+	        $this->db->Insert();
+//	        echo $this->db->lastQuery();
+	    }
+	        
+// 	    $objProjectInfo['user_id'] = $user_id['id'];
+	
+// 	    //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+	
+// 	    $this->db->Fields($objProjectInfo);
+// 	    $this->db->From("user_academic_info");
+// 	    $this->db->Insert();
+// 		echo $this->db->lastQuery();
+// 		die;
+	}
 	/* Start *********************************************** Address Information Manipulation ************************************/
 	public function fetchUserAddressInfo($userInfo){
 		$this->db->From("user_personal_info");

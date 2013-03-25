@@ -38,6 +38,7 @@ class user_info_controller
 	private	$ObjModel;
 	private $objAddressInfo;
 	private $objImageInfo;
+	private $objProjectInfo;
 
 	public function __construct()
 	{
@@ -48,6 +49,7 @@ class user_info_controller
 		$this->objAddressInfo = new UserAddressInfo();
 		$this->objAcademicInfo = new UserAcademicInfo();
 		$this->objImageInfo = new UserImageInfo();
+		$this->objProjectInfo[] = new UserProjectInfo();
 	}
 /*******************************************************************************************/
 	public function setUserPersonalInfoForm($result){
@@ -162,6 +164,72 @@ class user_info_controller
 	{
 	    $flag = $this->setUserAcademicInfoDb();
 	    return $this->objAcademicInfo->getInfo($flag);
+	}
+/*******************************************************************************************/	
+	public function setUserProjectInfoForm($result){
+// 	    echo "<pre/>";
+// 	    print_r($result);
+// 	    die;
+ 	    $tempuserProjectInfo = array(array("title"=>"","description"=>"","technology"=>"","duration"=>""));
+        $count  = 0; 
+        $maxProjct = 0;
+        foreach($result[0] as $key => $value){
+            foreach ($value as $inkey => $invalue){
+                $maxProjct++;
+            }
+            break;
+        }
+//         print($maxProjct);
+//         die;
+        for($i = 0; $i < $maxProjct ; $i++){
+	    foreach($result[0] as $key => $value){
+	        $id = $key;	        
+	        //print($id);
+//	        foreach ($key as $inkey => $invalue){
+	            $tempuserProjectInfo[0][$id] = $result[0][$id][$i]; 
+	             
+//	        }
+	    }
+	    $this->objProjectInfo[$i]->setinfo($tempuserProjectInfo);
+ 	    if($i+1 == $maxProjct){
+ 	        break;
+ 	    }
+ 	    $this->objProjectInfo[] = new UserProjectInfo();
+        }
+// 	    print_r($this->objProjectInfo[0]->getinfo());
+// 	    die;
+// 	    $this->objAcademicInfo->setinfo($result);
+	    
+//	    $resultDB = $this->ObjModel->fetchUserProjectInfo($this);
+	     
+//	    if(count($resultDB) > 0 ){
+//	        $this->ObjModel->updateUserAcademic($this);
+//	    }
+//	    else{
+
+//        for($i = 0; $i < $maxProjct ; $i++){
+	        $this->ObjModel->insertIntoUserProject($this);
+//        }
+//	    }	    
+	}
+	public function getUserProjectInfo()
+	{
+	    $allproject = array();
+	    foreach ($this->objProjectInfo as $key => $value){
+	        $allproject[] = $this->objProjectInfo[$key]->getinfo(); 
+	    }
+// 	    echo "<pre/>";
+// 	    print_r($allproject);
+// 	    die;
+	    return $allproject;
+	}	
+	public function setUserProjectInfoDb(){
+	    $result = $this->ObjModel->fetchUserAcademicInfo($this);
+	    if(count($result) > 0 ){
+	        $this->objAcademicInfo->setinfo($result);
+	        return true;
+	    }
+	    return false;
 	}	
 /*******************************************************************************************/		
 	public function setUserProfessionalInfoForm($result){

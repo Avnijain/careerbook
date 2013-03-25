@@ -53,9 +53,9 @@ include_once("../classes/lang.php");
             var $text1="<p><label ><?php echo $lang->TITLE;?> </label>";
             var $text2="<input id=\"title\" name=\"title[]\" type=\"text\" AUTOCOMPLETE=OFF />";
             var $text3="<label ><?php echo $lang->DESCRIPITION;?></label>";
-            var $text4="<input id=\"descripition\" name=\"description[]\" type=\"text\" AUTOCOMPLETE=OFF />";
+            var $text4="<input id=\"descripition\" name=\"project_description[]\" type=\"text\" AUTOCOMPLETE=OFF />";
             var $text5="<label ><?php echo $lang->TECHNOLOGYUSED;?></label>";
-            var $text6="<input id=\"technology\" name=\"technology[]\" type=\"text\" AUTOCOMPLETE=OFF />";
+            var $text6="<input id=\"technology\" name=\"technology_used[]\" type=\"text\" AUTOCOMPLETE=OFF />";
             var $text7="<label ><?php echo $lang->DURATION;?></label>";                                                  
             var $text8="<input id=\"duration\" name=\"duration[]\" type=\"number\" AUTOCOMPLETE=OFF /></p>";                  
             $("#otherDegree").append($text1+$text2+$text3+$text4+$text5+$text6+$text7+$text8);
@@ -198,9 +198,9 @@ include_once("../classes/lang.php");
 						<p>
 							<label><?php echo $lang->TITLE;?> </label> <input id="title"
 								name="title[]" type="text" AUTOCOMPLETE=OFF /> <label><?php echo $lang->DESCRIPITION;?>
-							</label> <input id="descripition" name="description[]" type="text"
+							</label> <input id="descripition" name="project_description[]" type="text"
 								AUTOCOMPLETE=OFF /> <label><?php echo $lang->TECHNOLOGYUSED;?> </label>
-							<input id="technology" name="technology[]" type="text" AUTOCOMPLETE=OFF />
+							<input id="technology" name="technology_used[]" type="text" AUTOCOMPLETE=OFF />
 							<label><?php echo $lang->DURATION;?> </label> <input
 								id="duration" name="duration[]" type="number"
 								AUTOCOMPLETE=OFF />
