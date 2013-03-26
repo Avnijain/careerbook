@@ -15,9 +15,6 @@ if(!isset($_SESSION['userData']))
 	<link rel="stylesheet" type="text/css" href="../css/global.css" ></link>
     <link rel="stylesheet" type="text/css" href="../css/topheader.css" ></link>
     <link rel="stylesheet" type="text/css" href="../css/homeContent.css" ></link>
-
-
-    
 </head>
 <body>
 <div id="mainWrapper">
@@ -70,7 +67,7 @@ else if(isset($_GET['logOut'])){
    die;
 } 
 else if (isset($_GET['message'])) {
-	include 'message.html'; 
+	include 'message.php'; 
 }  else{
    include 'userHomeContent.php';
 }

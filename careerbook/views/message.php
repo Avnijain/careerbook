@@ -17,11 +17,11 @@
     </style>
     <![endif]-->
     <style type="text/css">
-        body {
-            background: #fff;
-            font-family: verdana;
-            padding-top: 50px;
-        }
+/*         body { */
+/*             background: #fff; */
+/*             font-family: verdana; */
+/*             padding-top: 50px; */
+/*         } */
         #vtab {
             margin: auto;
             width: 800px;
@@ -130,7 +130,7 @@
         <div>
             <h4>
                 My Inbox</h4>
-			  <div class="container">
+			  <div class="message_container">
 			<section>
                 <div id="container_buttons">
 					  <a href="../controller/mainentrance.php?action=get_message">click here to see</a>
@@ -179,7 +179,7 @@
         <div>
             <h4>
                 Outbox</h4>
-			  <div class="container">
+			  <div class="message_container">
 			<section>
                 <div id="container_buttons">
 					<a href="../controller/mainentrance.php?action=message_sent">click here to see</a>

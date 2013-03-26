@@ -1,55 +1,55 @@
 @charset "UTF-8";
 /* CSS Document */
 
-@font-face {
-    font-family: 'BebasNeueRegular';
-    src: url('fonts/BebasNeue-webfont.eot');
-    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/BebasNeue-webfont.woff') format('woff'),
-         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
-         url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-*::-moz-selection {
-    background: #F26D5E;
-    color: white;
-}
+/* @font-face { */
+/*     font-family: 'BebasNeueRegular'; */
+/*     src: url('fonts/BebasNeue-webfont.eot'); */
+/*     src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'), */
+/*          url('fonts/BebasNeue-webfont.woff') format('woff'), */
+/*          url('fonts/BebasNeue-webfont.ttf') format('truetype'), */
+/*          url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg'); */
+/*     font-weight: normal; */
+/*     font-style: normal; */
+/* } */
+/* *::-moz-selection { */
+/*     background: #F26D5E; */
+/*     color: white; */
+/* } */
 /* CSS reset */
-html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
-	margin:0;
-	padding:0;
+/* html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {  */
+/* 	margin:0; */
+/* 	padding:0; */
 	
-}
-fieldset,img { 
-	border:0;
-}
-ol,ul {
-	list-style:none;
-}
-h1,h2,h3,h4,h5,h6 {
-	font-size:100%;
-	font-weight:normal;
-	margin: 0 0 25px;
-}
-/* General Demo Style */
-body{
-	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-	background: #f8f8f8 url(../images/bg.jpg) repeat top left;
-	font-weight: 400;
-	font-size: 15px;
-	color: #416c80;
-	overflow-y: scroll;
-	overflow-x: hidden;
-}
-.ie7 body{
-	overflow:hidden;
-}
-a{
-	text-decoration: none;
-	outline:none;
-}
-.container{
+/* } */
+/* fieldset,img {  */
+/* 	border:0; */
+/* } */
+/* ol,ul { */
+/* 	list-style:none; */
+/* } */
+/* h1,h2,h3,h4,h5,h6 { */
+/* 	font-size:100%; */
+/* 	font-weight:normal; */
+/* 	margin: 0 0 25px; */
+/* } */
+/* /* General Demo Style */ */
+/* body{ */
+/* 	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif; */
+/* 	background: #f8f8f8 url(../images/bg.jpg) repeat top left; */
+/* 	font-weight: 400; */
+/* 	font-size: 15px; */
+/* 	color: #416c80; */
+/* 	overflow-y: scroll; */
+/* 	overflow-x: hidden; */
+/* } */
+/* .ie7 body{ */
+/* 	overflow:hidden; */
+/* } */
+/* a{ */
+/* 	text-decoration: none; */
+/* 	outline:none; */
+/* } */
+.message_container{
 	width: 100%;
 	position: relative;
 	text-align: center;
@@ -57,7 +57,7 @@ a{
 .clr{
 	clear: both;
 }
-.container > header{
+.message_container > header{
 	padding: 20px 30px 10px 30px;
 	margin: 0px 20px 10px 20px;
 	position: relative;
@@ -65,7 +65,7 @@ a{
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     text-align: center;
 }
-.container > header h1{
+.message_container > header h1{
 	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
 	font-size: 35px;
 	line-height: 35px;
@@ -75,11 +75,11 @@ a{
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
     padding: 0px 0px 5px 0px;
 }
-.container > header h1 span{
+.message_container > header h1 span{
 	color: #2ea2cd;
 	text-shadow: 0px 1px 1px rgba(255,255,255,0.8);
 }
-.container > header h2, p.info{
+.message_container > header h2, p.info{
 	font-size: 16px;
 	font-style: italic;
 	color: #4a3124;
@@ -215,8 +215,8 @@ li p:target{
 	padding: 10.5px 20px;
 }
 
-li{
-	margin:10px;
-}
+/* li{ */
+/* 	margin:10px; */
+/* } */
 
 em a{color:#4A3124}
