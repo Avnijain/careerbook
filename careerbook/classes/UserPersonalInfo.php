@@ -23,6 +23,7 @@ class UserPersonalInfo {
 	private $email_secondary;          //User Secondary Email ID
 	private $phone_no;                 //User Personal Mobile or Phone Number
 	private $gender;                   //User Gender
+	private $profile_image;		   //user profile Image	
 
 	//get the value of specified variable
 	public function getinfo(){

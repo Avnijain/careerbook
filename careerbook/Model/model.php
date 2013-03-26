@@ -335,6 +335,17 @@ class MyClass extends model {
 	}
 
 	public function AddUser(){
+		
+		if($_POST['gender']=='male'){
+		        $tmpName="../images/a6.jpg";
+		}
+		else{
+			$tmpName="../images/a7.jpg";
+		}
+                $fp = fopen($tmpName, 'r');
+                $imageData = fread($fp, filesize($tmpName));
+                $imageData = addslashes($imageData);
+                fclose($fp);
 
 		$this->db->Fields(array("first_name"=>$_POST['first_name'],
 				"middle_name"=>$_POST['middle_name'],
@@ -343,6 +354,7 @@ class MyClass extends model {
 				"email_primary"=>$_POST['email_primary'],
 				" phone_no"=>$_POST['phone_no'],
 				" gender"=>$_POST['gender'],
+				"profile_image"=>$imageData,
 				"password"=>md5("12345"),
 				"created_on"=>date('Y-m-d h:i:s', time())));
 		$this->db->From("users");
