@@ -23,7 +23,9 @@ $ob=$objUserInfo->getUserPersonalInfo();
 $ob1=$objUserInfo->getUserAcademicInfo();
 $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
 $UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
-print_r ($UserProjectInfoDB);
+$UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
+
+//print_r ($UserProjectInfoDB);
 $n=count($UserProjectInfoDB);
 $fname=$ob['first_name'];
 $lname=$ob['last_name'];
@@ -73,18 +75,33 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template"))
 	echo "<tr><td>$lang->TWELETH</td><td>$board12</td><td>$marks12</td></tr>";
 	echo "<tr><td>$lang->GRADUATION</td><td>$grad</td><td>$marksg</td></tr></table>";
 	echo "<b><h3>$lang->STRENGHTSKILLS</h3></b>";
+	echo $UserProfessionalInfoDB['skill_set'];
+	echo "<b><h3>$lang->PROJECT</h3></b>";
+	echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
 	for($i=0;$i<$n;$i++)
 	{
-		echo $UserProjectInfoDB['$i']['title'];
-		//echo "<tr><td>$UserProjectInfoDB['$i']['title']</td><td>$UserProjectInfoDB['$i']['project_description']</td><td>$UserProjectInfoDB['$i']['technology_used']</td></tr>";
+		echo "<tr><td>";
+		echo $UserProjectInfoDB[$i]['title'];
+		echo "</td><td>";
+		echo $UserProjectInfoDB[$i]['project_description'];
+		echo "</td><td>";
+		echo $UserProjectInfoDB[$i]['technology_used'];
+		echo "</td><td>";
+		echo $UserProjectInfoDB[$i]['duration'];
+		echo "</td></tr>";
 	}
-	echo "hhshsadjsjdj";
+	echo "</table>";
 	echo "<b><h3>$lang->EMPLOYMENTINFORMATION</h3></b>";
-	echo "<table>
-			<tr><td>$lang->COMPANYNAME</td><td></td></tr>
-			<tr><td>$lang->DURATION</td><td></td></tr>
-			<tr><td>$lang->DESIGNATION</td><td></td></tr>
-			</table>";
+	echo "<table><tr><td>$lang->COMPANYNAME</td><td>";
+	echo  $UserProfessionalInfoDB['current_company'];
+	echo "</td></tr>";
+	echo "<tr><td>$lang->DESIGNATION</td><td>";
+	echo  $UserProfessionalInfoDB['current_position'];
+	echo "</td></tr>";
+	echo "<tr><td>$lang->DURATION</td><td>";
+	echo  $UserProfessionalInfoDB['start_period'];
+	echo "</td></tr>";
+	echo "</table>";
 	echo "</body>";
 	echo "</html>";
 }
@@ -111,9 +128,21 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 	echo "<b><h3>$lang->OTHERCOURSES</h3></b>";
 	echo "hhshsadjsjdj";
 	echo "<b><h3> $lang->TECHNICALSKILLS</h3></b>";
-	echo "hhshsadjsjdj";
+	echo $UserProfessionalInfoDB['skill_set'];
 	echo "<b><h3>$lang->ACADEMICPROJECT</h3></b>";
-	echo "hhshsadjsjdj";
+	echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
+	for($j=0;$j<$n;$i++)
+	{
+		echo "<tr><td>";
+		echo $UserProjectInfoDB[$j]['title'];
+		echo "</td><td>";
+		echo $UserProjectInfoDB[$j]['project_description'];
+		echo "</td><td>";
+		echo $UserProjectInfoDB[$j]['technology_used'];
+		echo "</td><td>";
+		echo $UserProjectInfoDB[$j]['duration'];
+		echo "</td></tr>";
+	}
 	echo "</body>";
 	echo "</html>";
 }
@@ -129,15 +158,28 @@ else if($_POST['template3']=="use this template")
 	echo "<b><h4>$ph</h4></b>";
 	echo "<b><h4>$email</h4></b>"; 
 	echo "<b><h3>$lang->OBJECTIVE</h3></b>";
-	echo "hhshsadjsjdj";
+	echo "$lang->OBJECTIVE1";
 	echo "<b><h3>$lang->EDUCATION</h3></b>";
-	echo "hhshsadjsjdj";
+	echo "<table>";
+	echo "<tr><td>$lang->STD</td><td>$lang->BOARD</td><td>$lang->CPI</td></tr>";
+	echo "<tr><td>$lang->TENTH</td><td>$board10</td><td>$marks10</td></tr>";
+	echo "<tr><td>$lang->TWELETH</td><td>$board12</td><td>$marks12</td></tr>";
+	echo "<tr><td>$lang->GRADUATION</td><td>$grad</td><td>$marksg</td></tr></table>";
 	echo "<b><h3>$lang->STRENGHT</h3></b>";
 	echo "hhshsadjsjdj";
 	echo "<b><h3>$lang->CAREERGRAPH</h3></b>";
 	echo "hhshsadjsjdj";
 	echo "<b><h3>$lang->CURRENTCOMPANY</h3></b>";
-	echo "hhshsadjsjdj";
+	echo "<table><tr><td>$lang->COMPANYNAME</td><td>";
+	echo  $UserProfessionalInfoDB['current_company'];
+	echo "</td></tr>";
+	echo "<tr><td>$lang->DESIGNATION</td><td>";
+	echo  $UserProfessionalInfoDB['current_position'];
+	echo "</td></tr>";
+	echo "<tr><td>$lang->DURATION</td><td>";
+	echo  $UserProfessionalInfoDB['start_period'];
+	echo "</td></tr>";
+	echo "</table>";
 	echo "<b><h3>$lang->WORKEXPERIENCE</h3></b>";
 	echo "hhshsadjsjdj";
 	echo "</body>";

@@ -43,7 +43,14 @@ class MessageController extends Message
 	function handleRecieveMessage() {
 		$this->_user_to = $this->userid;
 	    $result=$this->get_message();
-	    echo $result;
+		$n=count($result);
+		for($i=0;$i<$n;$i++)
+		{
+	     if($result['$i']['status']=='U')
+		 {
+			parent::updateStatus($result['$i']['id']);
+		 }
+		}
 		return($result);
 		//echo $result['user_from'];
 		//echo $result['descripition'];

@@ -78,12 +78,13 @@ class Message extends DBConnection {
 				"a.description",
 				"b.first_name",
 				"b.last_name",
-				"a.messaging_time"
+				"a.messaging_time",
+				"a.status",
+				"a.id"
 		)
 		);
 		$this->From("messaging a,users b");
 		$this->Where1(array("user_to"=>$this->_user_to,"user_from"=>"b.id"));
-	
 		$this->Select();
 		echo $this->lastQuery();
 		return $this->resultArray();
@@ -157,8 +158,21 @@ class Message extends DBConnection {
 		return $this->resultArray();
 	
 	}
-	
-	
+	function updateStatus($messageId)
+	{	
+		
+		$this->Fields(array
+				(
+						"status"=>'R'
+				)
+		);
+		
+		$this->From("messaging");
+		$this->Where(array("id"=>$messageId));
+		
+		$this->Update();
+		echo $this->lastQuery();die;
+	}
 }
 
 ?>

@@ -43,13 +43,13 @@
             -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
             filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
         }
-        #vtab > ul > li.home {
+        #vtab > ul > li.Inbox {
             background: url('../images/inbox.jpg') no-repeat center center;
         }
-        #vtab > ul > li.login {
+        #vtab > ul > li.Compose {
             background: url('../images/compose.jpg') no-repeat center center;
         }
-        #vtab > ul > li.support {
+        #vtab > ul > li.Outbox {
             background: url('../images/outbox.jpg') no-repeat center center;
         }
         #vtab > ul > li.selected {
@@ -123,9 +123,9 @@
 
     <div id="vtab">
         <ul>
-            <li class="home selected"></li>
-            <li class="login"></li>
-            <li class="support"></li>
+            <li class="Inbox"></li>
+            <li class="Compose"></li>
+            <li class="Outbox"></li>
         </ul>
         <div>
             <h4>
@@ -178,7 +178,7 @@
         </div>
         <div>
             <h4>
-                Outbox</h4>
+               My Outbox</h4>
 			  <div class="message_container">
 			<section>
                 <div id="container_buttons">
