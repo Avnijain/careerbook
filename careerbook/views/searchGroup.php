@@ -27,6 +27,7 @@ if (isset($_SESSION ['groupSearch'])) {
 	foreach ($groupData as $keys=>$values) {
 		?>
 	<div class="group_list">
+		<img src="../images/default-group.jpg" class="group_image">
 		<?php
 		echo "Title : " .$values['title'] . "<br/>";
 		echo "Description : " .$values['description'] . "<br/>";

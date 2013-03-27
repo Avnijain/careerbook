@@ -13,12 +13,11 @@ $groupData = unserialize ( $_SESSION ['groupList'] );
 	<?php
 	foreach ( $groupData as $keys => $values ) {
 		?>
-	<div class="group_list">
+	<div class="group_list group_div">
+		<img src="../images/default-group.jpg" class="group_image">
 		<?php
-		echo "Id : " . $values ['id'] . "<br/>";
 		echo "Title : " . $values ['title'] . "<br />";
 		echo "Description : " . $values ['description'] . "<br />";
-		echo "Created on " . $values ['created_on'] . "<br/>";
 		?>
 		<br />
 		<div>

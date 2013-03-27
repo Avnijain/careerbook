@@ -13,7 +13,7 @@ class DBConnection {
 	private static $_user = "root";
 	private static $_password = "root";
 	private static $_database = "careerbook";
-	private $_tableName = "";
+	private $_tableName = "root";
 	private $_join = "";
 	private $_where = "";
 	private $_having="";

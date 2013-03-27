@@ -12,14 +12,15 @@ $groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
 		<p>
 			<textarea class="group_textarea" name="group_discussion_comment" rows="6" cols="20"></textarea>
 		</p>
-		<input type="submit" value="Post">
+		<input type="submit" value="Post" class="group_button">
 	</form>
 </div>
 <div>
 	<?php
 	foreach ( $groupData as $keys => $values ) {
 		?>
-	<div class="group_comment">
+	<div class="group_comment group_div">
+		<img src="../images/default-group.jpg" class="group_image">
 		<?php
 		echo "Description : " . $values ['description'] . "<br />";
 		echo "Posted on " . $values ['created_on'] . "<br/>";

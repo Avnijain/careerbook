@@ -20,7 +20,8 @@ $groupData = unserialize ( $_SESSION ['groupPost'] );
 	<?php
 	foreach ( $groupData as $keys => $values ) {
 		?>
-	<div class="group_post">
+	<div class="group_post group_div">
+		<img src="../images/default-group.jpg" class="group_image">
 		<?php
 		echo "Description : " . $values ['description'] . "<br />";
 		echo "Posted on " . $values ['created_on'] . "<br/>";

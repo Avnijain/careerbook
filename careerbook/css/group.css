@@ -78,3 +78,15 @@ textarea.group_textarea {
 	outline: none;
 }
 
+.group_image {
+	float: left;
+	width: 20%;
+	height: 15%;
+	padding: 10px;
+}
+
+.group_div {
+	min-width: 90%;
+	min-height: 18%;
+}
+
