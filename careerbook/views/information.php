@@ -43,6 +43,7 @@ $ob1=$objUserInfo->getUserAcademicInfo();
 			<tr><td><?php echo $lang->DATABASE?></td><td></td></tr>
 			<tr><td><?php echo $lang->IDE?></td><td></td></tr>
 			</table>
+			
 		<div id="Industrial Experience"><p><?php echo $lang->INDUSTRIALEXPERIENCE?></p></div>
 			<table cellspacing="10" cellpadding="5";>
 			<tr><td><?php echo $lang->COMPANYNAME?></td><td></td></tr>

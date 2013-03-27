@@ -18,7 +18,7 @@ include_once("../classes/lang.php");
 header("Content-Disposition: attachment;Filename=document_name.doc");*/
 require_once '../controller/userInfo.php';
 $objUserInfo = unserialize($_SESSION['userData']);
- print_r ($objUserInfo->getUserPersonalInfo());
+ //print_r ($objUserInfo->getUserPersonalInfo());
 $ob=$objUserInfo->getUserPersonalInfo();
 $ob1=$objUserInfo->getUserAcademicInfo();
 $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
@@ -148,8 +148,8 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 }
 else if($_POST['template3']=="use this template")
 {
-	echo "template3";
-	header("Content-type: application/vnd.ms-word");
+	
+    header("Content-type: application/vnd.ms-word");
 	header("Content-Disposition: attachment;Filename=$fname.doc");
 	echo "<html>";
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
@@ -188,7 +188,7 @@ else if($_POST['template3']=="use this template")
 }
 else
 {
-	echo"no button selected";
+	echo "no button selected";
 }
 
 ?>
