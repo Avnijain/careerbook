@@ -31,10 +31,12 @@ class mainentrance {
 	private static $instance;
 	private $obj_usrinfo;
 	private $objdate;
+	private $obj_group;
 
 	private function __construct() {
 		$this->obj_usrinfo = new user_info_controller();
 		$this->objdate = new dateManipulation();
+		$objGroup = new GroupHandler();
 	}
 
 	public static function getinstance() {

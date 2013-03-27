@@ -88,13 +88,15 @@ class GroupHandler extends Group {
 	}
 	function handleGetPost() {
 		$this->_group_id = ( int ) ($_REQUEST ['groupId']);
-		
-
+		$this->_created_by = $this->userid;
+		$flag = $this->is_group_member();
+		if ($flag) {
 			$result = $this->get_posts ();
 			$_SESSION ['groupPost'] = serialize ( $result );
 			header ( 'Location: ../views/userHomePage.php?groupPost&groupId=' . $this->_group_id );
-
-		
+		} else {
+			header ( 'Location: ../views/userHomePage.php?Group');
+		}
 	}
 	function handleGetComment() {
 		echo $this->_group_discussion_id = ( int ) ($_REQUEST ['groupDiscussionId']);

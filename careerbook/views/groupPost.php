@@ -6,6 +6,9 @@ $groupData = unserialize ( $_SESSION ['groupPost'] );
 // $groupList= $groupData->getGroupList();
 // var_dump($groupData);
 ?>
+<div>
+	
+</div>
 <div id="groupComment">
 	<form
 		action="../controller/mainentrance.php?action=addPost&groupId=<?php echo $_GET['groupId'];?>"
