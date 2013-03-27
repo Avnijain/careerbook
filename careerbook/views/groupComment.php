@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <?php
 // include_once('../classes/groupClass.php');
 $groupData = array ();
@@ -9,7 +10,7 @@ $groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
 		action="../controller/mainentrance.php?action=addComment&groupDiscussionId=<?php echo $_GET['groupDiscussionId'];?>"
 		method="post">
 		<p>
-			<textarea name="group_discussion_comment" rows="6" cols="20"></textarea>
+			<textarea class="group_textarea" name="group_discussion_comment" rows="6" cols="20"></textarea>
 		</p>
 		<input type="submit" value="Post">
 	</form>
@@ -18,13 +19,13 @@ $groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
 	<?php
 	foreach ( $groupData as $keys => $values ) {
 		?>
-	<div>
+	<div class="group_comment">
 		<?php
 		echo "Description : " . $values ['description'] . "<br />";
 		echo "Posted on " . $values ['created_on'] . "<br/>";
 		?>
-		<br />
-	</div>
+		
+	</div><br />
 	<?php
 	}
 	?>
