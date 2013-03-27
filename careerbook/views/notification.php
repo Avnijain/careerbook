@@ -17,6 +17,13 @@
 				    	</div>
 				    	<div class="data">
 				    		<p>User Messages</p>
+							<?php
+								
+								require_once '../controller/message_controller.php';
+								$objMessage1 = new MessageController();
+								$count=$objMessage1->handleNewMessage();
+								print($count[0]['count(id)']);
+							?>
 				    	</div>
 				    </div>
 				    <!-- /Post -->

@@ -64,6 +64,13 @@ class MessageController extends Message
 	
 	
 	}
+	function handleNewMessage() {
+	 $count=$this->getNewMessage();
+		//print_r($count);
+		return($count);
+		//session_start();
+		//$_SESSION['count']=
+	}
 	
 	}
 	$ob=new MessageController();

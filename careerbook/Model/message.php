@@ -171,7 +171,22 @@ class Message extends DBConnection {
 		$this->Where(array("id"=>$messageId));
 		
 		$this->Update();
-		echo $this->lastQuery();die;
+		echo $this->lastQuery();
+		//return $this->resultArray();
+	}
+	function getNewMessage()
+	{
+		$this->Fields(array
+				(
+				 "count(id)"	
+				)
+		);
+		$this->From("messaging");
+		$this->Where(array("status"=>'U',"user_to"=>$this->userid));
+		
+		$this->Select();
+		//echo $this->lastQuery();
+		return $this->resultArray();
 	}
 }
 
