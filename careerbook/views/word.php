@@ -131,7 +131,7 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 	echo $UserProfessionalInfoDB['skill_set'];
 	echo "<b><h3>$lang->ACADEMICPROJECT</h3></b>";
 	echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
-	for($j=0;$j<$n;$i++)
+	for($j=0;$j<$n;$j++)
 	{
 		echo "<tr><td>";
 		echo $UserProjectInfoDB[$j]['title'];

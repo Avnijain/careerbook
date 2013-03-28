@@ -20,16 +20,18 @@ class UserProjectInfo {
 	private $duration;               //User Project Duration Period
 
 	//get the value of specified variable
-	public function getinfo(){
+	public function getinfo($dbDataFlag = "false"){
 		$arr = get_class_vars(get_class($this));
 		$allfields = array();
 		$emptyFlag = true;
+		if($dbDataFlag){		
 		foreach($arr as $key => $value ){
 			if(!empty($this->$key)){
 				$allfields[$key] = $this->$key;
 				$emptyFlag = false;
 			}			
 			//print($this->$key);
+		}
 		}
 		if($emptyFlag){
 			return array("empty data" => "empty data" );

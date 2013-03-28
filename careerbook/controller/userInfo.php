@@ -39,6 +39,8 @@ class user_info_controller
 	private $objAddressInfo;
 	private $objImageInfo;
 	private $objProjectInfo;
+	private $projectCountDB;
+	private $projectCountForm;
 
 	public function __construct()
 	{
@@ -185,17 +187,33 @@ class user_info_controller
 //	    else{
 
 //        for($i = 0; $i < $maxProjct ; $i++){
-	        $this->ObjModel->insertIntoUserProject($this);
+
+//	    if(isset($this->projectCountForm) && isset($this->projectCountDB)){
+	     $nwProject = intval($this->projectCountForm) - intval($this->projectCountDB);
+//	    }
+// 	    print($this->projectCountForm);
+// 	    print($this->projectCountDB);
+// 	    print("New Projects " . $nwProject);
+// 	    die;
+
+	    if($this->projectCountDB > 0 ){
+	        $this->ObjModel->updateUserProject($this,$this->projectCountDB);
+	    }
+//	    else{
+        if($nwProject > 0){
+	        $this->ObjModel->insertIntoUserProject($this,$this->projectCountDB,$this->projectCountForm);
+        }
 //        }
 //	    }	    
 	}
-	private function setDatainProject($result){
+	private function setDatainProject($result){	    
 	    $tempuserProjectInfo = array(array("title"=>"","description"=>"","technology"=>"","duration"=>""));
 	    $count  = 0;
 	    $maxProjct = 0;
 	    foreach($result[0] as $key => $value){
 	        foreach ($value as $inkey => $invalue){
-	            $maxProjct++;
+	            if(!empty($inkey))
+	              $maxProjct++;
 	        }
 	        break;
 	    }
@@ -214,8 +232,20 @@ class user_info_controller
 	            if($i+1 == $maxProjct){
 	                break;
 	            }
-	            $this->objProjectInfo[] = new UserProjectInfo();
+	            if(!isset($this->objProjectInfo[$i+1])){
+	                $this->objProjectInfo[] = new UserProjectInfo();
+	            }            
 	        }
+	        $this->projectCountForm = $maxProjct;
+	        if(isset($this->projectCountDB)){
+	            if(empty($this->projectCountDB)){
+	                $this->projectCountDB = 0;
+	            }
+	        }
+// 	        print($this->projectCountForm);
+// 	        print($this->projectCountDB);
+// 	        die;
+
 	}
 	private function setDatainProjectDB($result){
 	    $tempuserProjectInfo = array(array("title"=>"","description"=>"","technology"=>"","duration"=>""));
@@ -244,19 +274,28 @@ class user_info_controller
 	            if($i+1 == $maxProjct){
 	                break;
 	            }
-	            $this->objProjectInfo[] = new UserProjectInfo();
+	        	            if($i+1 == $maxProjct){
+	                break;
+	            }
+	            if(!isset($this->objProjectInfo[$i+1])){
+	                $this->objProjectInfo[] = new UserProjectInfo();
+	            }
 	        }
 //	    }
+
+	        $this->projectCountDB = $maxProjct;
+//  	        print($this->projectCountDB);
 // 	    	    echo "<pre/>";
 // 	    	    print_r($this->objProjectInfo);
 // 	    	    die;
 	}
-	public function getUserProjectInfo()
+	public function getUserProjectInfo($flag = "true")
 	{
 	    $allproject = array();
 	    foreach ($this->objProjectInfo as $key => $value){
-	        $allproject[] = $this->objProjectInfo[$key]->getinfo(); 
+	        $allproject[] = $this->objProjectInfo[$key]->getinfo($flag); 
 	    }
+	    
 // 	    echo "<pre/>";
 // 	    print_r($allproject);
 // 	    die;
@@ -265,7 +304,7 @@ class user_info_controller
 	public function getUserProjectInfoDB()
 	{
 	    $flag = $this->setUserProjectInfoDb();
-	    return $this->getUserProjectInfo();
+	    return $this->getUserProjectInfo($flag);
 	}	
 	public function setUserProjectInfoDb(){
 	    $result = $this->ObjModel->fetchUserProjectInfo($this);
@@ -274,8 +313,11 @@ class user_info_controller
 	        $this->setDatainProjectDB($result);
 	        return true;
 	    }
+	    unset($this->objProjectInfo);
+	    $this->objProjectInfo[] = new UserProjectInfo();
+	    $this->projectCountDB = 0;
 	    return false;
-	}	
+	}
 /*******************************************************************************************/		
 	public function setUserProfessionalInfoForm($result){
 		$this->objProfessionalInfo->setinfo($result);

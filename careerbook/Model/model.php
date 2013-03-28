@@ -76,23 +76,51 @@ class MyClass extends model {
 	    //		echo $this->db->lastQuery();
 	    return $this->db->resultArray();	    
 	}
-	public function insertIntoUserProject($userInfo) {
+	public function updateUserProject($userInfo,$projectCountDB){
 	    $objProjectInfo = $userInfo->getUserProjectInfo();
 	    $user_id = $userInfo->getUserIdInfo();
-	    foreach($objProjectInfo as $key => $value){
 
-	        $value['user_id'] = $user_id['id'];
+	    for($i = 0 ; $i < $projectCountDB ; $i++){
+	    //foreach($objProjectInfo as $key => $value){
+	    
+	        $objProjectInfo[$i]['user_id'] = $user_id['id'];
+	        //$value['user_id'] = $user_id['id'];
+// 	        	        echo "<pre/>";
+// 	        	        print_r($objProjectInfo[$i]);
+// 	        	        die;
+	        //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+	         
+	        $this->db->Fields($objProjectInfo[$i]);
+	        $this->db->From("user_project_info");
+	        $this->db->Where(array("user_id"=>$user_id['id'],"id"=>$objProjectInfo[$i]['id']));
+	        $this->db->Update();
+// 	        echo $this->db->lastQuery();
+// 	        die;
+	    //}
+	    }
+	}
+	public function insertIntoUserProject($userInfo,$projectCountDB,$projectCountForm) {
+	    $objProjectInfo = $userInfo->getUserProjectInfo();
+	    $user_id = $userInfo->getUserIdInfo();
+// 	    echo "<pre/>";
+// 	    print_r($objProjectInfo);	     
+// 	    die;
+	    for($i = $projectCountDB ; $i < $projectCountForm ; $i++){
+//	    foreach($objProjectInfo as $key => $value){
+
+	        $objProjectInfo[$i]['user_id'] = $user_id['id'];
+//	        $value['user_id'] = $user_id['id'];
 // 	        echo "<pre/>";
-// 	        print_r($value);
+// 	        print_r($objProjectInfo);
 // 	        die;	        
 	        //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
 	        
-	        $this->db->Fields($value);
+	        $this->db->Fields($objProjectInfo[$i]);
 	        $this->db->From("user_project_info");
 	        $this->db->Insert();
 //	        echo $this->db->lastQuery();
+//	    }
 	    }
-	        
 // 	    $objProjectInfo['user_id'] = $user_id['id'];
 	
 // 	    //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
