@@ -32,11 +32,25 @@ class MessageController extends Message
 	function handleSendMessage() {
 		$this->_message_id='';
 		$this->_message_description = mysql_real_escape_string($_POST['descripition']);
-		$this->_email_id=mysql_real_escape_string($_POST['uid']);
+		$emailid=mysql_real_escape_string($_POST['uid']);
+		print($emailid);
+		if(!filter_var($emailid, FILTER_VALIDATE_EMAIL))
+		{
+		
+			header('location: ../views/userHomePage.php?message&c=invaild');
+			exit;
+		}
+		$this->_email_id=$emailid;
 		$s=parent::get_id();
 		//print_r($s);die;
 		$this->_user_to = $s[0]['id'];
 		$this->_user_from = $this->userid;
+		$r=parent::Checkfriend();
+		if(!count($r))
+		{
+			header('location: ../views/userHomePage.php?message&c=notfriend');
+			exit;
+		}
 		$this->_messaging_time = date ( 'Y-m-d H:i:s' );
 	    $this->send_message();
 	}
@@ -55,6 +69,7 @@ class MessageController extends Message
 			parent::updateStatus($result[$i]['id']);
 		 }
 		}
+		//print_r($result);
 		return($result);
 		//echo $result['user_from'];
 		//echo $result['descripition'];
@@ -74,6 +89,11 @@ class MessageController extends Message
 		return($count);
 		//session_start();
 		//$_SESSION['count']=
+	}
+	function handleGetFriend() {
+		$result=$this->getFriendId();
+// 		print_r($result);
+		return($result);
 	}
 	
 	}

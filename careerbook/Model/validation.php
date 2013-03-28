@@ -3,7 +3,7 @@
 class validation
 {
 	public function validate($a)
-	{  echo "validation fun";
+	{  //echo "validation fun";
 		foreach ($a as $key=>$value) {
 
 			if(($key=="email_primary")||($key=="email_secondary"))
@@ -11,7 +11,7 @@ class validation
 
 				if(!filter_var($value, FILTER_SANITIZE_EMAIL))
 				{
-					if($_REQUEST['action']=="registration")
+					if($_POST['action']=="registration")
 					{
 					header("location:../views/UserInfoForm.php?err=3");
 					exit;
@@ -27,7 +27,7 @@ class validation
 			{
 				if(!(var_dump(filter_var($value, FILTER_VALIDATE_FLOAT))))
 				{
-					if($_REQUEST['action']=="registration")
+					if($_POST['action']=="registration")
 						{
 						header("location:../views/UserInfoForm.php?err=3");
 						exit;
@@ -43,7 +43,7 @@ class validation
 			{
 				if(!(preg_match("/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/", $value)))
 				{
-					if($_REQUEST['action']=="registration")
+					if($_POST['action']=="registration")
 						{
 						header("location:../views/UserInfoForm.php?err=3");
 						exit;
@@ -83,7 +83,7 @@ class validation
 				if(!filter_var($value, FILTER_SANITIZE_FULL_SPECIAL_CHARS,FILTER_SANITIZE_MAGIC_QUOTES) && !isset($value))
 				{
 
-				if($_REQUEST['action']=="registration")
+				if($_POST['action']=="registration")
 					{
 					header("location:../views/UserInfoForm.php?err=3");
 					exit;

@@ -78,7 +78,7 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template"))
 	echo $UserProfessionalInfoDB['skill_set'];
 	echo "<b><h3>$lang->PROJECT</h3></b>";
 	echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
-	for($i=0;$i<$n;$i++)
+	for($i=0;$i<$n-1;$i++)
 	{
 		echo "<tr><td>";
 		echo $UserProjectInfoDB[$i]['title'];
@@ -107,8 +107,8 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template"))
 }
 else if((isset($_POST['template2']))&&($_POST['template2']=="use this template"))
 {
-	print_r ($objUserInfo->getUserPersonalInfo());
-	echo "template2";
+	//print_r ($objUserInfo->getUserPersonalInfo());
+	//echo "template2";
 	header("Content-type: application/vnd.ms-word");
 	header("Content-Disposition: attachment;Filename=$fname.doc");
 	echo "<html>";

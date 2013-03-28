@@ -106,21 +106,32 @@ class mainentrance {
 		if($_REQUEST['action']=="send_message"){
 			$objMessage = new MessageController();
 			$objMessage->handleSendMessage();
-			header('location: ../views/message.php?c=sent');
+			header('location: ../views/userHomePage.php?message&c=sent');
 			//header('message1.php?c=sent');
 		}
 		if($_REQUEST['action']=="get_message"){
 			$objMessage1 = new MessageController();
 			$_SESSION['myinbox']=$objMessage1->handleRecieveMessage();
-			header('location: ../views/message.php');
+			rsort($_SESSION['myinbox']);
+			print_r($_SESSION['myinbox']);
+			//header('location: ../views/userHomePage.php?message');
 		}
 		if($_REQUEST['action']=="message_sent"){
+
 			$objMessage2 = new MessageController();
 			//session_start();
 			$_SESSION['outbox']=$objMessage2->handleSentMessage();
 			//print_r($_SESSION['outbox']);
-			header('location: ../views/message.php');
+			rsort($_SESSION['outbox']);
+			header('location: ../views/userHomePage.php?message');
 			
+		}
+		if($_REQUEST['action']=="get_friend"){
+		
+			$objMessage2 = new MessageController();
+			//session_start();
+			$_SESSION['emailid']=$objMessage2->handleGetFriend();
+			//print_r($_SESSION['outbox']);
 		}
 		if($_REQUEST['action']=="Group"){
 			$objGroup = new GroupHandler();
@@ -154,6 +165,7 @@ class mainentrance {
 			$objGroup = new GroupHandler();
 			$objGroup->handleSearchGroup();
 		}
+		
 	}
 	
 	//function to register a user and validate the feilds
@@ -193,7 +205,7 @@ class mainentrance {
 			if(!count($result))
 			{
 				//echo "here No result from DB";
-				die;
+				//die;
 				header("location:../index.php?err=AuthenticationFailed");
 				die;
 			}

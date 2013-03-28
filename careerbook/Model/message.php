@@ -189,6 +189,37 @@ class Message extends DBConnection {
 		//echo $this->lastQuery();
 		return $this->resultArray();
 	}
+	function CheckFriend() {
+		$this->Fields(array
+				(
+						"id"
+				)
+		);
+		$this->From("friends");
+		$this->Where(array("user_id"=>$this->_user_from,"friend_id"=>$this->_user_to));
+		
+		$this->Select();
+		echo $this->lastQuery();
+		return $this->resultArray();
+	
+	
+	}
+	function getFriendId() {
+		$this->Fields(array(
+				'a.email_primary'
+		)
+		);
+		
+		$this->From("users a,friends b");
+		//$a="b.id";
+		$this->Where(array("a.id=b.friend_id AND b.user_id=".$this->userid." AND a.status='A'"),true);
+		
+		$this->Select();
+		echo $this->lastQuery();
+		return $this->resultArray();
+		
+	}
+	
 }
 
 ?>

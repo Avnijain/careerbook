@@ -120,6 +120,103 @@
             }).eq(1).mouseover();
         });
     </script>
+     <script>
+		$(document).ready(function () {
+		//$("p").text("The DOM is now loaded and can be manipulated.");
+			$("#email").keyup(function(){
+					//$("#searchresult").html("kdmsfmsmfcmds");
+					$.post('../controller/mainentrance.php',{'action':'get_friend'},function(data,status){
+
+						if(status=="success")
+						{
+							$.post('../views/friendemail.php',function(data,status){
+								$('#searchresult').html(data);
+							});
+						}
+						});
+					
+				});
+			$("li.inbox").hover(function(){
+// 				$.post('../controller/mainentrance.php',{'action':'get_message'},function(data,"){
+// 					});
+				$.post('../controller/mainentrance.php',{'action':'message_sent'},function(data,status){
+
+					if(status=="success")
+					{
+						$.post('../views/outbox.php',function(data,status){
+							$('#messageoutbox').html(data);
+						});
+					}
+					});
+// 		 		   $.ajax({ 
+// 	 		     type: "POST",
+// 	 		     url: '../controller/mainentrance.php?action=get_message',                  //the script to call to get data          
+
+// 	 		       success: function(){    	   
+// 	 		    	//   $('#messageinbox').html(data);
+// 		 		    	  $.ajax({ 
+// 			 		 		     type: "POST",
+// 			 		 		     url: '../views/inbox.php',                  //the script to call to get data          
+// 			 		 		       success: function(data){    	   
+// 			 		 		    	   $('#messageinbox').html(data);
+
+			 				    	   
+// 			 		 		       },
+
+// 			 		 		   });
+
+			    	   
+// 	 		       }
+// 	//		        complete: function () {
+			           
+// 	//		        },
+// 	//		        error: function(){
+			           
+// 	//		        }
+// 	 		   });
+			});
+			$("li.outbox").hover(function(){
+				$.post('../controller/mainentrance.php',{'action':'message_sent'},function(data,status){
+
+					if(status=="success")
+					{
+						$.post('../views/outbox.php',function(data,status){
+							$('#messageoutbox').html(data);
+						});
+					}
+					});
+// 		 		   $.ajax({ 
+// 	 		     type: "POST",
+// 	 		     url: '../controller/mainentrance.php?action=message_sent',                  //the script to call to get data          
+
+// 	 		       success: function(){    	   
+// 	 		    	//   $('#messageinbox').html(data);
+// 		 		    	  $.ajax({ 
+// 			 		 		     type: "POST",
+// 			 		 		     url: '../views/outbox.php',                  //the script to call to get data          
+// 			 		 		       success: function(data){    	   
+// 			 		 		    	   $('#messageoutbox').html(data);
+
+			 				    	   
+// 			 		 		       },
+
+// 			 		 		   });
+
+			    	   
+// 	 		       }
+	//		        complete: function () {
+			           
+	//		        },
+	//		        error: function(){
+			           
+	//		        }
+// 	 		   });
+			});
+		});
+		
+			
+
+	</script>
 
     <div id="vtab">
         <ul>
@@ -133,22 +230,9 @@
 			  <div class="message_container">
 			<section>
                 <div id="container_buttons">
-					  <a href="../controller/mainentrance.php?action=get_message">click here to see</a>
-							<?php //session_start(); 
-							if(isset($_SESSION['myinbox']))
-								{ //print_r($_SESSION['myinbox']);
-									 $a=$_SESSION['myinbox'];
-								$n=count($a);
-								?><ul>
-							<?php for($i=0;$i<$n;$i++)
-							{?>
-								<li class="toggle">
-									<a href="#inbox<?php echo $i?>"><?php echo $a[$i]['first_name'];echo $a[$i]['last_name'];?></a>
-									<p id="inbox<?php echo $i?>">
-									<?php echo $a[$i]['description'];?> <a href=" "><?php echo $a[$i]['messaging_time'];?></a>
-								</p>
-							</li>
-							<?php } }?></ul>
+                	<div id="messageinbox">
+
+						</div>
 					</div>
 			</section>
         </div>
@@ -162,7 +246,8 @@
                 <div>
                     <label for="to">
                         To:</label>
-                    <input type="text" name="uid" id="email" />
+                    <input type="text" name="uid" id="email"  />
+                    <div id="searchresult"></div>
                 </div>
                 <div>
                     <label for="meassage">
@@ -174,7 +259,12 @@
                 </div>
             </fieldset>
             </form>
-			<h3><?php if(isset($_REQUEST['c'])&&($_REQUEST['c']=="sent")) echo"Your Message has been sent"?></h3>
+			<h3><?php if(isset($_REQUEST['c'])&&($_REQUEST['c']=="sent")) 
+				echo"Your Message has been sent"; 
+			     if(isset($_REQUEST['c'])&&($_REQUEST['c']=="invaild")) 
+				echo "invaild email id";
+			      if(isset($_REQUEST['c'])&&($_REQUEST['c']=="notfriend")) 
+				echo "You can send message only to yor friend";  ?></h3>
         </div>
         <div>
             <h4>
@@ -182,21 +272,9 @@
 			  <div class="message_container">
 			<section>
                 <div id="container_buttons">
-					<a href="../controller/mainentrance.php?action=message_sent">click here to see</a>
-							<?php //session_start(); 
-							if(isset($_SESSION['outbox']))
-								{  $a1=$_SESSION['outbox'];
-								$n=count($a1);
-								?><ul>
-							<?php for($i=0;$i<$n;$i++)
-							{?>
-								<li class="toggle">
-									<a href="#six<?php echo $i?>"><?php echo $a1[$i]['first_name'];echo $a1[$i]['last_name'];?></a>
-									<p id="six<?php echo $i?>">
-									<?php echo $a1[$i]['description'];?> <a href=" "><?php echo $a1[$i]['messaging_time'];?></a>
-								</p>
-							</li>
-							<?php } }?></ul>
+                  <div id="messageoutbox">
+
+					</div>
 				</div>
 			</section>
         </div>
