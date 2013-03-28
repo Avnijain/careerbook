@@ -106,6 +106,10 @@
         #SendForm #message {
             margin-left: 115px;
         }
+        #searchresult{
+    	    	/*border: 1px dashed black;*/
+		}
+        
     </style>
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
     <script type="text/javascript">
@@ -247,7 +251,7 @@
                     <label for="to">
                         To:</label>
                     <input type="text" name="uid" id="email"  />
-                    <div id="searchresult"></div>
+                    <div id="searchresult" ></div>
                 </div>
                 <div>
                     <label for="meassage">
