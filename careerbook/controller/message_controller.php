@@ -44,11 +44,15 @@ class MessageController extends Message
 		$this->_user_to = $this->userid;
 	    $result=$this->get_message();
 		$n=count($result);
+		
 		for($i=0;$i<$n;$i++)
 		{
-	     if($result['$i']['status']=='U')
+// 		    echo $result[$i]['status'];
+// 		    die;
+	     if($result[$i]['status']=='U')
 		 {
-			parent::updateStatus($result['$i']['id']);
+
+			parent::updateStatus($result[$i]['id']);
 		 }
 		}
 		return($result);

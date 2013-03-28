@@ -86,7 +86,7 @@ class Message extends DBConnection {
 		$this->From("messaging a,users b");
 		$this->Where1(array("user_to"=>$this->_user_to,"user_from"=>"b.id"));
 		$this->Select();
-		echo $this->lastQuery();
+		//echo $this->lastQuery();
 		return $this->resultArray();
 	
 	}
@@ -172,6 +172,7 @@ class Message extends DBConnection {
 		
 		$this->Update();
 		echo $this->lastQuery();
+		//die;
 		//return $this->resultArray();
 	}
 	function getNewMessage()
