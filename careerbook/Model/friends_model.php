@@ -2,9 +2,6 @@
 ini_set("display_errors", "1");
 require_once 'singleton.php';
 
-
-
-
 class FriendsModel extends model {
     
    
@@ -12,7 +9,6 @@ class FriendsModel extends model {
     {
     	$user_id = $userInfo->getUserIdInfo();
     	$user_id=$user_id['id'];
-        //$user_id=17;
         $this->db->Fields(array('u.id','u.first_name','u.middle_name','u.last_name','u.gender','u.email_primary','u.profile_image','f.status',));
         $this->db->From('users u,friends f');
         
@@ -20,6 +16,30 @@ class FriendsModel extends model {
         $this->db->Select();
 		$result = $this->db->resultArray();
 		return($result);               
+    }
+    
+    public function getFrndsDis($userInfo){
+    	$user_id = $userInfo->getUserIdInfo();
+    	$user_id=$user_id['id'];
+    	
+    	$this->db->Fields ( array (
+    			"user_discussions.id",
+    			"description",
+    			"user_discussions.user_id",
+    			"created_on",
+    			"Likes"
+    	) );
+    	
+    	$this->db->From ( "user_discussions" );
+    	$this->db->Join ( "friends", " user_discussions.user_id = friends.friend_id " );
+    	$this->db->Where ( array (
+    			"user_discussions.user_id IN (SELECT friends_id from". $user_id . " AND user_discussions.status = 'A'"
+    	), true );
+    	
+    	$this->db->Select ();
+    	$this->db->lastQuery();
+    	return $this->db->resultArray ();
+    	
     }
     
     public function getFrndsReqData($userInfo)

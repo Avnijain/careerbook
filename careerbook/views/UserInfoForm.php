@@ -26,7 +26,6 @@ $_SESSION['userData'] = serialize($objUserInfo);
 	type="text/javascript" src="../JavaScript/sliding.form.js"></script>
 
 
-</script>
 <link
 	rel="stylesheet" href="../css/jquery-ui.css" />
 <script

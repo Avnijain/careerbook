@@ -25,6 +25,7 @@ require_once '../controller/userInfo.php';
 require_once '../controller/group_controller.php';
 require_once '../classes/dateManipulation.php';
 require_once '../controller/message_controller.php';
+require_once '../controller/user_discussion_controller.php';
 
 class mainentrance {
 

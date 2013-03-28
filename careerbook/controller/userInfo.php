@@ -24,9 +24,7 @@ require_once '../Model/model.php';
 
 function __autoload($className)
 {
-
 	require('../classes/'.$className.'.php');
-
 }
 
 class user_info_controller

@@ -24,8 +24,12 @@ class MyFriend{
     }
     
     public function start($request,$searchVal="")
-    {
-
+    {	
+    	if($request=='getFrndsDis')
+    	{
+    		$result = $this->getMyFriendsDis();
+    		return $result;
+    	}
         if($request=='myFriends')
            {
             $this->getMyFriends();
@@ -45,6 +49,12 @@ class MyFriend{
         	$this->allUsers($searchVal);
         }
         
+    }
+    
+    private function getMyFriendsDis(){
+    	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
+    	$result=$this->_objFrndModel->getFrndsDis($this->_obj_usrinfo);
+     	return ($result);
     }
     
     private function allUsers($searchVal)

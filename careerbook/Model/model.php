@@ -14,7 +14,6 @@ abstract class model {
 	function __construct() {
 		$this->db = DBConnection::Connect();
 	}
-
 }
 
 class MyClass extends model {
