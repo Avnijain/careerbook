@@ -111,6 +111,7 @@
 		}
         
     </style>
+	<link rel="stylesheet" type="text/css" href="../css/message.css" />
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
     <script type="text/javascript">
         $(function() {
