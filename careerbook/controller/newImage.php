@@ -17,23 +17,26 @@
 
 
 ini_set('display_errors', true);
+//*************************************************require class and model***************************************
 include_once('../classes/myImage.php');
 include_once('../Model/getImageModel.php');
 
 
 
-class mergePicture extends  SimpleImage{
-    private $_frameImage;
-    private $_mainImage;
-    private $_subImage;
-    private $_frm_img_x;
-    private $_frm_img_y;
-    private $_src_img_x;
-    private $_src_img_y;
+class MergePicture extends  SimpleImage{     //claas which create a merge image for friends and group
+    
+    private $_frameImage;		//will store a frame image 
+    private $_mainImage;		//will store a user image
+    private $_subImage;			//will store a array of friends image 
+    private $_frm_img_x;		//will store width of frame image
+    private $_frm_img_y;		//will store height of frame image 
+    private $_src_img_x;		//will store width of merge image
+    private $_src_img_y;		//will store height of merge image
     
     
     public function __construct($userImg,$frndImage)
     {
+	//****************************************set the class variables***************************************
         $this->_frameImage = imagecreatefromjpeg('../images/frame.jpg');
         $this->_frm_img_x=imagesx($this->_frameImage);
         $this->_frm_img_y=imagesy($this->_frameImage);	
@@ -41,9 +44,9 @@ class mergePicture extends  SimpleImage{
         $this->resize(160,130);
         $this->_mainImage=$this->output();
         $this->_subImage=$frndImage;
-	//array('../images/a1.jpg','../images/a2.jpg','../images/a3.jpg','../images/a4.jpg','../images/a5.jpg','../images/a6.jpg','../images/a7.jpg','../images/a8.jpg');
+	
     }
-    
+    //*************************************************main function to generate merge image **************************************
     public function merge()
     {
         $img_x = imagesx($this->_mainImage);
@@ -78,10 +81,12 @@ class mergePicture extends  SimpleImage{
         
     }
     
+    //*********************************return a merge image *********************************************
     public function getMergeImage(){
         return $this->_frameImage;
     }
     
+    //**************************************finds the co-ordinates of new merge image ****************************************
     private function position($num){
         if($num==1)
         {
@@ -130,19 +135,16 @@ class mergePicture extends  SimpleImage{
 }
 
 $objImageModel =new MyImageGet();
-$userImg=$objImageModel->getUserImage($_REQUEST['userId']);
+
+$userImg=$objImageModel->getUserImage($_REQUEST['userId']);	//get user image  
+$frndImage=$objImageModel->getUserFrndsImage($_REQUEST['userId']); //get all my friends image 
 
 
-$frndImage=$objImageModel->getUserFrndsImage($_REQUEST['userId']);
-
-
-$object=new mergePicture($userImg,$frndImage);
+//**********************************************perform merge image ***********************************************************
+$object=new MergePicture($userImg,$frndImage);
 $object->merge();
 $img=$object->getMergeImage();
-
-
 imagegif($img);
-
 imagedestroy($img);
 
 ?>

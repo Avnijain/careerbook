@@ -1,10 +1,21 @@
 <?php
-
+ /*
+    **************************** Creation Log *******************************
+    File Name                   -  getImageModel.php
+    Project Name                -  Careerbook
+    Description                 -  Friends model classes
+    Version                     -  1.0
+    Created by                  -  Mohit K. Singh 
+    Created on                  -  March 08, 2013
+	***************************** Update Log ********************************
+	Sr.NO.		Version		Updated by           Updated on          Description
+    -------------------------------------------------------------------------
+    */
 ini_set("display_errors", "1");
-//include_once '../controller/userInfo.php';
+
 require_once 'singleton.php';
 
-abstract class model {
+abstract class model {		//abstract class to create a instance of singleton DBconnection class
 
 	protected $db = "";
 
@@ -14,21 +25,19 @@ abstract class model {
 
 }
 
-class MyImageGet extends model {
+class MyImageGet extends model {				//class for manipulation image data from 
 
+	/*
 	public function UpdateUser(){
                 $tmpName="../images/a6.jpg";
-                //$fp = fopen($tmpName, 'r');
-                //$data = fread($fp, filesize($tmpName));
-                //$data = addslashes($data);
-                //fclose($fp);
 
 		$this->db->Fields(array("profile_image"=>$data));
 		$this->db->From("users");
 		$this->db->Where(array("id"=>23));
 		$this->db->Update();
 		echo $this->db->lastQuery();
-	}
+	}*/
+	//*************************************************fetch user Image **************************************************
         public function getUserImage($userId)
         {
             $this->db->Fields(array('profile_image'));
@@ -41,6 +50,7 @@ class MyImageGet extends model {
 	    return($uri);
             
         }
+	//***************************************************fetch all my friends image data************************************
         public function getUserFrndsImage($userId)
         {
 		$this->db->Fields(array('u.profile_image'));
@@ -53,14 +63,8 @@ class MyImageGet extends model {
 		foreach($result as $keys=>$values){
 			$uri[]='data:image/png;base64,'.base64_encode($values['profile_image']);
 		}
-		
-		//echo "<pre>";
-		//print_r($uri);
-		return($uri); 
 
-           // $uri = 'data:image/png;base64,'.base64_encode($image[0]['profile_image']);
-	    //return($uri);
-            
+		return($uri); 
         }
 
 }

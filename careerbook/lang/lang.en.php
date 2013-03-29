@@ -11,8 +11,8 @@
 	Sr.NO.		Version		Updated by           Updated on          Description
     -------------------------------------------------------------------------
      1			1.0			Avni Jain			March 09,2013		added constant for userinfo.php
-	 2			1.0			Avni Jain			March 14,2013		added constant for profile.php
-	 3			1.0			Avni Jain			March 17,2013		added constant for resume.php
+     2			1.0			Avni Jain			March 14,2013		added constant for profile.php
+     3			1.0			Avni Jain			March 17,2013		added constant for resume.php
     *************************************************************************
 
 */

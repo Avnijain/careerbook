@@ -3,5 +3,12 @@ include_once("../classes/lang.php");
 
  
 echo $lang->CONFIRMATIONMSG ;?>
-
-<strong><a href='../index.php' >Login</a></strong>
+<b><a href='#' onclick='closeMe();'>Login</a></b>
+<script>
+    
+    function closeMe()
+    {
+       parent.closeIFrame();
+    }
+    
+</script>
