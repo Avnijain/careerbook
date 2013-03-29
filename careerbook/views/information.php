@@ -15,6 +15,7 @@
 include_once("../classes/lang.php");
 $field="it";
 require_once '../controller/userInfo.php';
+require_once '../controller/profile_controller.php';
 $objUserInfo = unserialize($_SESSION['userData']);
 $ob=$objUserInfo->getUserPersonalInfo();
 $ob1=$objUserInfo->getUserAcademicInfo();

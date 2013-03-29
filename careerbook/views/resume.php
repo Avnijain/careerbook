@@ -18,19 +18,74 @@ $(function() {			//for producing the overlay effect
   $("img[rel]").overlay({mask: 'black'});
 });
 </script>
-
+<style>
+			body {
+				background: #D5DED9;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				font-family: Georgia, serif;
+			}
+			h1{
+				font-size:330%;
+				text-shadow:2px 2px 1px white;
+			}
+			p {
+				line-height: 140%;
+				font-size: 90%;
+			}
+			#accordion {
+				margin: 100px;
+			}
+			#accordion article {
+				-webkit-transform: perspective(900px) rotateY(60deg);
+				-webkit-transition: all 0.7s ease-in-out;
+				background: #fff;
+				border: 1px solid #f3f3f3;
+				box-shadow: 0px 5px 15px gray;
+				float: left;
+				height: 420px;
+				margin-left: -180px;
+				padding: 20px;
+				width: 250px;
+			}
+			#accordion article:first-child {
+				margin-left: 0px;
+			}
+			#accordion article img {
+				float: left;
+				padding: 0 10px 5px 0;
+			}
+			#accordion article:hover {
+				-webkit-transform: perspective(0) rotateY(-10deg);
+				margin: 0 140px 0 -60px;
+			}
+		</style>
 <div id="resume_wrapper">
 <h1>
+	<br/>
 	<?php echo $lang->RESUMEBUILDER; ?>
 </h1>
 <h3>
 	<?php echo $lang->CHOOSETEMPLATE; ?>
 </h3>
 <div id="main">
-	<img border=1 px red src="../images/resume1.jpg" width="33%"
-		rel="#mies2" /> <img border=1 px #cccc src="../images/resume3.jpg"
-		width="33%" rel="#mies1" /> <img border=1 px #cccc
-		src="../images/resume2.jpg" width="32%" rel="#mies3" />
+<div id="accordion">
+	<article>
+		<p><h3>Template 1</h3></p>
+	    <img border=1 px red src="../images/resume1.jpg"
+		rel="#mies2" width=200px height=400px/>
+	</article>
+	<article> 
+		<p><h3>Template 2</h3></p>
+		<img border=1 px #cccc src="../images/resume3.jpg"
+		 rel="#mies1" width=200px height=400px /> 
+	</article>
+	<article>
+		<p><h3>Template 3</h3></p>
+		<img border=1 px #cccc src="../images/resume2.jpg" 
+		 rel="#mies3" width=200px height=400px />
+	</article>
 	<form action="word.php" method=post>
 		<div class="simple_overlay" id="mies1">
 			<!-- large image -->
@@ -108,4 +163,5 @@ $(function() {			//for producing the overlay effect
 		<br />
 	</form>
 	</div>
+</div>	
 </div>

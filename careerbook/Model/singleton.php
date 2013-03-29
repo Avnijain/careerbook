@@ -11,7 +11,7 @@ class DBConnection {
 	private static $instance;
 	private static $_host = "localhost";
 	private static $_user = "root";
-	private static $_password = "YES";
+	private static $_password = "root";
 	private static $_database = "careerbook";
 	private $_tableName = "root";
 	private $_join = "";
@@ -317,7 +317,6 @@ class DBConnection {
 		if (count($this->_values) > 0) {
 			$fields = implode(', ', $this->_values);
 		}
-
 
 
 		$table = $this->_tableName;

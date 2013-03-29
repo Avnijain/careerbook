@@ -24,7 +24,38 @@ $ob1=$objUserInfo->getUserAcademicInfo();
 $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
 $UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
 $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
-
+print_r($UserAddressInfoDB);
+print_r($UserProjectInfoDB);
+print(count($UserAddressInfoDB));
+/*if(!count($UserAddressInfoDB))
+{
+ echo "hdhfdhsd";
+ die;
+ }
+if((empty($UserAddressInfoDB))||(empty($UserProjectInfoDB))||(empty($UserProfessionalInfoDB))||(empty($objUserInfo)))
+{
+echo "fill all the information first";
+exit;
+}
+else
+{
+echo "nt";
+die; 
+}
+if (is_array($UserAddressInfoDB) && count($InputVariable) > 0)
+   {
+      foreach ($UserAddressInfoDB as $Value)
+      {
+		if($Value=="empty data")
+         {
+		 $Result = false;
+		 echo "working";
+		  break;
+		  }
+      }
+   }
+   
+*/
 //print_r ($UserProjectInfoDB);
 $n=count($UserProjectInfoDB);
 $fname=$ob['first_name'];
