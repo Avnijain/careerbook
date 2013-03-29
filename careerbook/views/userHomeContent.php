@@ -73,6 +73,9 @@ elseif(isset($_GET['users'])){
 	$objFrndControl->start('myFriends');
 	include_once "./friends.php";
 }
+else if (isset($_GET['Settings'])) {
+	include 'userSettings.php';
+}
 elseif(isset($_GET['Search'])){
 	$objFrndControl->start('allUsers',$_GET['Search']);
 	include_once "./search.php";

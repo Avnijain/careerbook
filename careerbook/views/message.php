@@ -143,12 +143,12 @@
 			$("li.inbox").hover(function(){
 // 				$.post('../controller/mainentrance.php',{'action':'get_message'},function(data,"){
 // 					});
-				$.post('../controller/mainentrance.php',{'action':'message_sent'},function(data,status){
+				$.post('../controller/mainentrance.php',{'action':'get_message'},function(data,status){
 
 					if(status=="success")
 					{
-						$.post('../views/outbox.php',function(data,status){
-							$('#messageoutbox').html(data);
+						$.post('../views/inbox.php',function(data,status){
+							$('#messageinbox').html(data);
 						});
 					}
 					});

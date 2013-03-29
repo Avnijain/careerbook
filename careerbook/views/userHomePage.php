@@ -50,6 +50,7 @@ if(!isset($_SESSION['userData']))
 		<li><span><a href="userHomePage.php?message">messages</a></span></li>
 		<li><span><a href="userHomePage.php?resume">Resume</a></span></li>					
 		<li class="last"><span><a href="userHomePage.php?profile">profile</a></span></li>
+		<li class="last"><span><a href="userHomePage.php?Settings">Settings</a></span></li>
 		</ul>
 	</div>
 </nav>
