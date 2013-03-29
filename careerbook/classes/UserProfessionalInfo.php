@@ -19,7 +19,7 @@ class UserProfessionalInfo {
 //	private $achievement;          //User achievements
 	private $skill_set;            //User skills
 	private $current_position;     //User current position in job
-	private $current_company;      //User current position in company
+	private $current_company;      //User current company
 	private $start_period;         //User current job start period
 
 	public function getinfo($dbDataFlag = "false"){

@@ -241,6 +241,7 @@ class mainentrance {
 
 		//echo "filling user profile";
 		$userProfessionalInfo = array(array("skill_set" => "" ,"current_position" => "","current_company" => "", "start_period" => ""));
+		$userPreviousJobInfo = array(array("position" => "","company" => "", "start_period" => "","end_period" => ""));
 		
 		$userAddressInfo = array(array("address"=>"","city_name"=>"","state_name"=>""));
 		
@@ -263,7 +264,39 @@ class mainentrance {
 		//print_r($_POST);
 		//			foreach($_POST as $key => $value){
 		//			print_r(array_keys($userProfessionalInfo[0]));
+		
+/**************************** User Professional Information ************************/		
 		    $flagData = false;
+			if(isset($_POST['start_periodPREVJOB']) || isset($_POST['end_periodPREVJOB']) ){
+    			if(!empty($_POST['start_periodPREVJOB']) || !empty($_POST['end_periodPREVJOB']) ){
+    				$userPreviousJobInfo[0]['start_period'] = $this->objdate->reverseDate($_POST['start_periodPREVJOB']);
+    				$userPreviousJobInfo[0]['end_period'] = $this->objdate->reverseDate($_POST['end_periodPREVJOB']);    				
+    			}
+			}
+			foreach(array_keys($userPreviousJobInfo[0]) as $key => $value){
+			if("$value" != "start_period" && "$value" != "end_period" ){
+    			    if(isset($_POST[$value])){
+    			        if(!empty($_POST[$value])){
+    			            $userPreviousJobInfo[0][$value] = $_POST[$value];
+    			            $flagData = true;
+    			        }
+    			    }
+    			}
+			}
+// 			echo "<pre/>";
+// 			print_r($userPreviousJobInfo);
+// 			die;			
+			if($flagData){
+			    $this->obj_usrinfo->setUserPreviousJobInfoForm($userPreviousJobInfo);
+//			    echo "inserting professional";
+			}
+/**************************** User Previous Job Info ************************/
+		    $flagData = false;
+			if(isset($_POST['start_period'])){
+			if(!empty($_POST['start_period'])){
+				$_POST['start_period'] = $this->objdate->reverseDate($_POST['start_period']);
+			}
+			}		    
 			foreach(array_keys($userProfessionalInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){
 					if(!empty($_POST[$value])){
@@ -275,11 +308,8 @@ class mainentrance {
 			if($flagData){
 			    $this->obj_usrinfo->setUserProfessionalInfoForm($userProfessionalInfo);
 //			    echo "inserting professional";
-			}
-// 			echo "<pre/>";
-// 			print_r($_FILES);
-// 			die;
-
+			}			
+/**************************** User Profile Image ************************/
 			$flagData = false;
 			foreach(array_keys($userImageInfo[0]) as $key => $value){
 			    if($_FILES[$value]["error"] != "4"){
@@ -295,17 +325,19 @@ class mainentrance {
 			    $this->obj_usrinfo->setUserImageInfoForm($userImageInfo);
 			    //			    echo "inserting professional";
 			}			
-/**************************** user project information ************************/			
+/**************************** User Project Information ************************/			
 			$flagData = false;
 			foreach(array_keys($userProjectInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){				    
-					if(!empty($_POST[$value])){
-					    if(!empty($_POST[$value][0])){
-						$userProjectInfo[0][$value] = $_POST[$value];
-						$flagData = true;
+					if(!empty($_POST[$value])){					    
+					    foreach($_POST[$value] as $inkey => $invalue){
+					        if(!empty($invalue)){
+					            $userProjectInfo[0][$value] = $_POST[$value];
+					            $flagData = true;
+					        }
+					    }
 					}
 				}
-			}
 			}
 // 			echo "<pre/>";
 // 			print_r($userProjectInfo);
@@ -314,7 +346,7 @@ class mainentrance {
 				$this->obj_usrinfo->setUserProjectInfoForm($userProjectInfo);
 //			    echo "inserting professional";
 			}
-/****************************************************/						
+/**************************** User Personal Information ************************/						
 			$flagData = false;
 			if(isset($_POST['date_of_birth'])){
 				if(!empty($_POST['date_of_birth'])){
@@ -334,7 +366,7 @@ class mainentrance {
 //				die;
 				//			    echo "inserting professional";
 			}
-			
+/**************************** User Address Information ************************/			
 			$flagData = false;
 			foreach(array_keys($userAddressInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){
@@ -348,7 +380,7 @@ class mainentrance {
 //			    echo "Inserting professional data";
 			    $this->obj_usrinfo->setUserAddressInfoForm($userAddressInfo);			    
 			}
-			
+/**************************** User Academic Information ************************/			
 			$flagData = false;
 			foreach(array_keys($userAcademicInfo[0]) as $key => $value){
 				if(isset($_POST[$value])){

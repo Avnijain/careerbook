@@ -376,7 +376,7 @@ class DBConnection {
 
 				$val = $this->_values [$i];
 				if (is_string($val)) {
-					$val = " \"$val\" ";
+					$val = "\"$val\"";
 				}
 				$valuesData [] = $val;
 			}
@@ -419,7 +419,7 @@ class DBConnection {
 			for ($i = 0; $i < $countKey; $i++) {
 				$val = $this->_values [$i];
 				if (is_string($val)) {
-					$val = " '$val' ";
+					$val = "\"$val\"";
 				}
 				$data [] = "`" . $this->_keys[$i] . "` = " . $val;
 			}

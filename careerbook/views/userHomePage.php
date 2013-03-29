@@ -22,7 +22,7 @@ if(!isset($_SESSION['userData']))
 <div id="top">
 	<div class="cl">&nbsp;</div>
 	<h1 id="logo"><a href="#">CareerBook</a></h1>
-           <label id="userName">Welcome <?php
+           <label id="header_userName">Welcome <?php
 	   
 					$objUserInfo = unserialize($_SESSION['userData']);
 					$userData=$objUserInfo->getUserPersonalInfo();

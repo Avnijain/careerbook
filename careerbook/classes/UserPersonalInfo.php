@@ -52,6 +52,31 @@ class UserPersonalInfo {
 			//print($this->$key);
 		}
 	}
+	public function addImage($result){
+		$maxsize = 1024000; //set to approx 1 MB
+		$file = $result[0];
+// 		print_r($file);
+// 		die;
+		
+		//check associated error code
+		if($file['user_image']['error']==UPLOAD_ERR_OK) {
+			//check whether file is uploaded with HTTP POST
+			if(is_uploaded_file($file['user_image']['tmp_name'])) {
+				//checks size of uploaded image on server side
+				if( $file['user_image']['size'] < $maxsize) {
+                    $fp = fopen($file['user_image']['tmp_name'], 'r');
+                    $this->profile_image = fread($fp, $file['user_image']['size']);
+                    fclose($fp);
+					//checks whether uploaded file is of image type
+//					$finfo = finfo_open(FILEINFO_MIME_TYPE);
+//					if(strpos(finfo_file($finfo, $file['user_image']['tmp_name']),"image")===0) {
+//						// prepare the image for insertion
+//						$this->profile_image = addslashes (file_get_contents($file['user_image']['tmp_name']));
+//					}
+				}
+			}
+		}
+	}
 	/* FOR TESTING AND GETTING CLASS VARIABLES
 	 public function getdefinedvars(){
 	$arr = get_class_vars(get_class($this));
