@@ -18,7 +18,7 @@ if(isset($_SESSION['userData']))
 	   <!-- The JavaScript -->
 	   
 	   <script src="JavaScript/jquery-1.7.1.js"></script>
-<!-- 	   <script src="JavaScript/jquery.tools.min.js"></script> -->
+
         <script src="JavaScript/modernizr.custom.63321.js"></script>        
 		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 		
@@ -46,7 +46,7 @@ if(isset($_SESSION['userData']))
             <div id="footer">
 		<div class="footer-bottom">
 			<div class="shell">
-				<center><p class="copy">© Copyright 2013<span>|</span>Career Book | All Right Reserved</p></center>
+				<center><p class="copy">ï¿½ Copyright 2013<span>|</span>Career Book | All Right Reserved</p></center>
 			</div>
 		</div>            
             <!--          <center>Career Book|All Right are Reserved|2013</center>-->
@@ -64,11 +64,18 @@ if(isset($_SESSION['userData']))
 	        $("#selectorLogin").trigger("click");
 		    
 		}
+		function forgetPwdOverlay() {
+			url = "views/forgetPasswd.php";
+			$("#selectorLogin").attr("href",url);
+	        $("#selectorLogin").trigger("click");
+		    
+		}
+		
 
 		$(document).ready(function() {
 				$("#selectorLogin").fancybox({
 		        'width'			: '60%',
-		        'height'		: '100%',
+		        'height'		: '80%',
 		        'autoScale'		: false,
 		        'transitionIn'		: 'none',
 		        'transitionOut'		: 'none',

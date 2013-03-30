@@ -172,7 +172,7 @@
                         <label><?php echo $lang->SPECIALIZATION;?></label>
                         <input id="school_10" name="graduation_specialization" type="text" AUTOCOMPLETE="OFF"
                         <?php if (!empty($UserAcademicInfoDB['graduation_specialization'])){?> value="<?php echo $UserAcademicInfoDB['graduation_specialization']; } ?>" /> 
-                        <label><?php echo $lang->COLLEGE;?></label>
+                        <label><?php echo $lang->SCHOOLCOLLEGE;?></label>
                         <input id="school_10" name="graduation_college" type="text" AUTOCOMPLETE="OFF"
                         <?php if(!empty($UserAcademicInfoDB['graduation_college'])){?> value="<?php echo $UserAcademicInfoDB['graduation_college']; } ?>" /> 
                         <label><?php echo $lang->PERCENTAGE;?></label> 
@@ -186,7 +186,7 @@
                         <label><?php echo $lang->SPECIALIZATION;?> </label>
                         <input id="school_10" name="post_graduation_specialization" type="text" AUTOCOMPLETE="OFF" 
                         <?php if (!empty($UserAcademicInfoDB['post_graduation_specialization'])){?> value="<?php echo $UserAcademicInfoDB['post_graduation_specialization']; } ?>"/>
-                        <label><?php echo $lang->COLLEGE;?></label> 
+                        <label><?php echo $lang->SCHOOLCOLLEGE;?></label> 
                         <input id="school_10" name="post_graduation_college" type="text" AUTOCOMPLETE="OFF" 
                         <?php if(!empty($UserAcademicInfoDB['post_graduation_college'])){?> value="<?php echo $UserAcademicInfoDB['post_graduation_college']; } ?>" />
                         <label><?php echo $lang->PERCENTAGE;?></label> 

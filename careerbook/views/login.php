@@ -36,7 +36,7 @@
 		</p>
 		<div class="form-3">
 			<p class="clearfix">
-				<input type="button" name="forgetpassword" value="Forget Password">
+				<input type="button" name="forgetpassword" value="Forget Password" onclick="forgetPwdOverlay()">
 
 				<input type="button" name="signup" id="signup"
 					onclick="testoverlay()" value="Sign Up">

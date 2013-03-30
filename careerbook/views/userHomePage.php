@@ -46,7 +46,7 @@ if(!isset($_SESSION['userData']))
 	<ul>
 		<li class="active first"><span><a href="userHomePage.php">home</a></span></li>
 		<li><span><a href="../controller/mainentrance.php?action=Group">group</a></span></li>
-		<li><span><a href="userHomePage.php?users">users</a></span></li>
+		<li><span><a href="userHomePage.php?Friends">Friends</a></span></li>
 		<li><span><a href="userHomePage.php?message">messages</a></span></li>
 		<li><span><a href="userHomePage.php?resume">Resume</a></span></li>					
 		<li class="last"><span><a href="userHomePage.php?profile">Account</a></span></li>

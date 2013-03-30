@@ -69,7 +69,7 @@ if (isset($_GET['Group'])) {
 } else if (isset($_GET['addUserPost'])) {
 	include 'post_user_discussion.php';
 }
-elseif(isset($_GET['users'])){
+elseif(isset($_GET['Friends'])){
 	$objFrndControl->start('myFriends');
 	include_once "./friends.php";
 }
