@@ -33,7 +33,7 @@ class mainentrance {
 		$this->obj_usrinfo = new user_info_controller ();
 		$this->objdate = new dateManipulation ();
 		
-		$this->_obj_user_discussion_controller = new UserDiscussionController ();
+
 	}
 	public static function getinstance() {
 		if (is_null ( mainentrance::$instance )) {
@@ -210,6 +210,7 @@ class mainentrance {
 			$this->_obj_group_controller->handleSearchGroup ();
 		}
 		if ($_REQUEST ['action'] == "addUserPost") {
+			$this->_obj_user_discussion_controller = new UserDiscussionController ();
 			$this->_obj_user_discussion_controller->handleAddUserPost ();
 		}
 	}

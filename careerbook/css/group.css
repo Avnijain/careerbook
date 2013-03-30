@@ -3,11 +3,9 @@
 	width: 95%;
 	height: auto;
 	padding: 8px;
-	background: #CAECFF;
+	background: #EEEEEE;
 	border: #660065 solid 3px;
-	-webkit-border-radius: 23px;
-	-moz-border-radius: 23px;
-	border-radius: 23px;
+	border-radius: 15px;
 }
 
 .group_button {
@@ -63,15 +61,15 @@ input.group_textbox {
 }
 
 textarea.group_textarea {
-	width: 390px;
-	height: 150px;
+	width: 380px;
+	height: 80px;
 	margin: 0 0 20px 0;
 	background: white;
 	color: #666;
 	font-family: sans-serif;
 	font-size: 16px;
 	border: 1px solid #DDD;
-	border-radius: 5px;
+	border-radius: 1px;
 	box-shadow: 0 0 5px #DDD inset;
 	color: #666;
 	padding: 5px 10px;
@@ -80,13 +78,25 @@ textarea.group_textarea {
 
 .group_image {
 	float: left;
-	width: 20%;
-	height: 15%;
+	width: 80px;
+	height: 80px;
 	padding: 10px;
 }
 
 .group_div {
 	min-width: 90%;
-	min-height: 20%;
+	min-height: 100px;
 }
+
+.group_header {
+	position: relative;
+	width: 95%;
+	height: auto;
+	padding: 8px;
+	background: #05BFFC;
+	color: #fff
+	border: #fff solid 1px;
+	border-radius: 15px;
+}
+
 

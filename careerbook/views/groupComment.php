@@ -3,18 +3,29 @@
 	include_once('../classes/groupClass.php');
 	$groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
 	$groupData = $groupData->getCommentList();
+	
+	$groupData1 = unserialize ( $_SESSION ['groupDiscussionComment'] );
+	$groupData1 = $groupData1->getPostDetail();
+	$uri = 'data:image/png;base64,'.base64_encode($groupData1[0]['profile_image']);
 
 ?>
+<div  class="group_header group_div">
+	<img src="<?php echo $uri;?>" class="group_image">
+		<?php
+		echo "<p>Description : " . $groupData1[0] ['description'] . "</p>";
+		echo "<p>Posted on " . $groupData1[0] ['created_on'] . "</p>";
+		?>
+</div><br/>
 <div id="groupDiscussionComment">
 	<form
 		action="../controller/mainentrance.php?action=addComment&groupDiscussionId=<?php echo $_GET['groupDiscussionId'];?>"
 		method="post">
 		<p>
-			<textarea class="group_textarea" name="group_discussion_comment" rows="6" cols="20"></textarea>
+			<textarea class="group_textarea" name="group_discussion_comment" rows="6" cols="20" placeholder="Post Comment..."></textarea>
 		</p>
 		<input type="submit" value="Post" class="group_button">
 	</form>
-</div>
+</div><br/>
 <div>
 	<?php
 	foreach ( $groupData as $keys => $values ) {

@@ -21,30 +21,20 @@ class GroupHandler extends Group {
 	
 	private $_obj_group_model;
 	private $_obj_user_class;
-	private $_obj_group_list;
-	private $_obj_group_post;
-	private $_obj_group_comment;
-	private $_obj_group_search;
+	private $_obj_group_class;
 	private $userid;
 	
 	function __construct() {
-		//session_start();
 		$this->_obj_group_model = new Group();
 		$this->_obj_user_class = new user_info_controller ();
-		$this->_obj_group_list = new GroupList();
-		$this->_obj_group_post = new GroupPost();
-		$this->_obj_group_comment = new GroupComment();
-		$this->_obj_group_search = new GroupSearch();
+		$this->_obj_group_class = new GroupClass();
+
 		if(isset($_SESSION['userData']))
 		{
 			$this->_obj_user_class = unserialize($_SESSION['userData']);
 			$userData=$this->_obj_user_class->getUserIdInfo();
 			$this->userid = $userData['id'];
-// 			print_r($this->_obj_user_class);
-// 			die;
 		} else {
-// 			echo " i am here ";
-// 			die;
 			header('Location: ../index.php');
 		}
 	}
@@ -111,9 +101,14 @@ class GroupHandler extends Group {
 		$flag = $this->_obj_group_model->is_group_member();
 		if ($flag) {
 			$result = $this->_obj_group_model->get_posts ();
-			$this->_obj_group_post->setPostList($result);
-			$_SESSION ['groupPost'] = serialize ( $this->_obj_group_post );
-			header ( 'Location: ../views/userHomePage.php?groupPost&groupId=' . $this->_group_id );
+			$result1 = $this->_obj_group_model->get_group_detail();
+			
+			$this->_obj_group_class->setGroupDetail($result1);
+			$_SESSION['groupDetail'] = serialize($this->_obj_group_class);
+			
+			$this->_obj_group_class->setPostList($result);
+			$_SESSION ['groupPost'] = serialize ( $this->_obj_group_class);
+			header ( 'Location: ../views/userHomePage.php?groupPost&groupId=' . $this->_obj_group_model->_group_id );
 		} else {
 			header ( 'Location: ../views/userHomePage.php?Group');
 		}
@@ -122,9 +117,13 @@ class GroupHandler extends Group {
 	function handleGetComment() {
 		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['groupDiscussionId']);
 		$result = $this->_obj_group_model->get_comments ();
-		$this->_obj_group_comment->setCommentList($result);
-		$_SESSION ['groupDiscussionComment'] = serialize ( $this->_obj_group_comment );
-		header ( 'Location: ../views/userHomePage.php?groupComment&groupDiscussionId=' . $this->_group_discussion_id );
+		$result1 = $this->_obj_group_model->get_post ();
+		
+		$this->_obj_group_class->setPostDetail($result1);
+		$this->_obj_group_class->setCommentList($result);
+		$_SESSION['postDetail'] = serialize($this->_obj_group_class);
+		$_SESSION ['groupDiscussionComment'] = serialize ( $this->_obj_group_class );
+		header ( 'Location: ../views/userHomePage.php?groupComment&groupDiscussionId=' . $this->_obj_group_model->_group_discussion_id );
 
 	}
 	
@@ -132,8 +131,8 @@ class GroupHandler extends Group {
 		$this->_obj_group_model->_created_by = $this->userid;
 		$result = array ();
 		$result = $this->_obj_group_model->get_group ();
-		$this->_obj_group_list->setGroupList($result);
-		$_SESSION ['groupList'] = serialize ( $this->_obj_group_list );
+		$this->_obj_group_class->setGroupList($result);
+		$_SESSION ['groupList'] = serialize ( $this->_obj_group_class );
 		
 		header ( 'Location: ../views/userHomePage.php?Group' );
 	}
@@ -167,8 +166,8 @@ class GroupHandler extends Group {
 		$this->_obj_group_model->_search_group = $_REQUEST['groupSearch'];
 		
 		$result = $this->_obj_group_model->search_group();
-		$this->_obj_group_search->setGroupSearchList($result);
-		$_SESSION ['groupSearch'] = serialize ( $this->_obj_group_search );
+		$this->_obj_group_class->setGroupSearchList($result);
+		$_SESSION ['groupSearch'] = serialize ( $this->_obj_group_class );
 		header ( 'Location: ../views/userHomePage.php?searchGroup' );
 	}
 }

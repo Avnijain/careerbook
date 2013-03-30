@@ -14,19 +14,17 @@
 	<?php
 	foreach ( $groupData as $keys => $values ) {
 		?>
-	<div class="group_list group_div">
+	<div class="group_header group_div">
 		<img src="../images/default-group.jpg" class="group_image">
 		<?php
-		echo "Title : " . $values ['title'] . "<br />";
-		echo "Description : " . $values ['description'] . "<br />";
+		echo "<p>Title : " . $values ['title'] . "</p>";
+		echo "<p>Description : " . $values ['description'] . "</p>";
 		?>
 		<br />
-		<div>
 			<a class="group_button"
 			href="../controller/mainentrance.php?action=getPost&groupId=<?php echo $values['id'];?>">View</a>
 			<a  class="group_button"
 			href="../controller/mainentrance.php?action=unjoinGroup&groupId=<?php echo $values['id'];?>">Unlink</a>
-		</div>
 	</div><br/>
 	<?php
 	}

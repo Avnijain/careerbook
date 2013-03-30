@@ -98,20 +98,44 @@ class Group {
 	// function to list group post
 	function get_posts() {
 		$this->db->Fields ( array (
-				"id",
+				"group_discussions.id",
 				"description",
-				"created_by",
-				"created_on",
-				"updated_on" 
+				"group_discussions.created_by",
+				"group_discussions.created_on",
+				"group_discussions.updated_on",
+				"profile_image" 
 		) );
 		
 		$this->db->From ( "group_discussions" );
+		$this->db->Join("users","group_discussions.created_by = users.id");
 		$this->db->Where ( array (
 				"group_id" => $this->_group_id 
 		) );
 		
 		$this->db->Select ();
-
+		//echo $this->db->lastQuery();die;
+		return $this->db->resultArray ();
+	}
+	
+	//function to get details of particular post
+	function get_post() {
+		$this->db->Fields ( array (
+				"group_discussions.id",
+				"description",
+				"group_discussions.created_by",
+				"group_discussions.created_on",
+				"group_discussions.updated_on",
+				"profile_image"
+		) );
+	
+		$this->db->From ( "group_discussions" );
+		$this->db->Join("users","group_discussions.created_by = users.id");
+		$this->db->Where ( array (
+				"group_discussions.id" => $this->_group_discussion_id
+		) );
+	
+		$this->db->Select ();
+	
 		return $this->db->resultArray ();
 	}
 	
@@ -121,8 +145,8 @@ class Group {
 				"group_details.id",
 				"title",
 				"description",
-				"created_on" 
-			//  "group_image",
+				"created_on", 
+			    "group_image"
 				) );
 		
 		$this->db->From ( "group_details" );
@@ -135,6 +159,28 @@ class Group {
 		
 		//echo $this->lastQuery();die;
 
+		return $this->db->resultArray ();
+	}
+	
+	function get_group_detail() {
+		$this->db->Fields ( array (
+				"id",
+				"title",
+				"description",
+				"created_on",
+				"group_image",
+		) );
+	
+		$this->db->From ( "group_details" );
+	
+		$this->db->Where ( array (
+				"id = ". $this->_group_id
+		),true );
+	
+		$this->db->Select ();
+	
+		//echo $this->lastQuery();die;
+	
 		return $this->db->resultArray ();
 	}
 	
@@ -216,8 +262,8 @@ class Group {
 		$this->db->Fields ( array (
 				"group_details.id",
 				"title",
-				"description"
-				//  "group_image",
+				"description",
+				"group_image"
 		) );
 		
 		$this->db->From ( "group_details" );
