@@ -1,8 +1,9 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <?php
-// include_once('../classes/groupClass.php');
-$groupData = array ();
-$groupData = unserialize ( $_SESSION ['groupList'] );
+    include_once('../classes/groupClass.php');
+    $groupData=unserialize($_SESSION['groupList']);
+    $groupData= $groupData->getGroupList();
+
 ?>
 <div class="button">
 	<a class="group_button" href="../views/userHomePage.php?addGroup">Add Group</a>

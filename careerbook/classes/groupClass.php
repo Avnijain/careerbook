@@ -1,30 +1,71 @@
-<?php 
+<?php
 
-// class GroupClass {
-// 	private $_groupList;
-// 	private $_postList;
+class GroupList {
+	private $_groupList;
 	
-// 	function __construct() {
+	function setGroupList($groupList) {
+		$this->_groupList = $groupList;
+	}
+	
+	function getGroupList() {
+		return $this->_groupList;
+	}
+	
+	function getGroupDetail($groupList) {
 		
-// 	}
+	}
+	
+	function countGroupList() {
+		return count($this->_groupList);
+	}
+}
 
-// 	public function setGroupList($group) {
-// 		$this->_groupList = $persons;
-// 	}
+class GroupPost {
+	private $_postList;
 	
-// 	public function setPostList($group) {
-// 		$this->_postList = $persons;
-// 	}
+	function setPostList($groupList) {
+		$this->_postList = $groupList;
+	}
 	
-// 	public function getGroupList() {
-// 		return ($this->_groupList);
-// 	}
+	function getPostList() {
+		return $this->_postList;
+	}
 	
-// 	public function getPostList() {
-// 		return ($this->_postList);
-// 	}
-// }
+	function countPostList() {
+		return count($this->_postList);
+	}
+}
 
-// $groupData = new GroupClass();
+class GroupComment {
+	private $_commentList;
+
+	function setCommentList($groupList) {
+		$this->_commentList = $groupList;
+	}
+
+	function getCommentList() {
+		return $this->_commentList;
+	}
+
+	function countCommentList() {
+		return count($this->_commentList);
+	}
+}
+
+class GroupSearch {
+	private $_groupSearchList;
+
+	function setGroupSearchList($groupList) {
+		$this->_groupSearchList = $groupList;
+	}
+
+	function getGroupSearchList() {
+		return $this->_groupSearchList;
+	}
+
+	function countGroupSearchList() {
+		return count($this->_groupSearchList);
+	}
+}
 
 ?>

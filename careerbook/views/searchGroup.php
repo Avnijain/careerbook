@@ -1,11 +1,13 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <?php 
-$groupData = array ();
-if (isset($_SESSION ['groupSearch'])) {
-	$groupData = unserialize ( $_SESSION ['groupSearch'] );
-
-	$searchGroup = count($groupData) . " Result Found";
-}
+	include_once('../classes/groupClass.php');
+	$groupData = array();
+	$noOfResult = 0;
+	if (isset($_SESSION['groupSearch'])) {
+		$groupData = unserialize($_SESSION['groupSearch']);
+		$groupData = $groupData->getGroupSearchList();
+		
+	}
 ?>
 <div id="main">
 	<form action="../controller/mainentrance.php?action=searchGroup"
@@ -20,8 +22,9 @@ if (isset($_SESSION ['groupSearch'])) {
 	<h2>
 		<?php
 		if (isset($_SESSION ['groupSearch'])) {
-			echo $searchGroup;
-		}?>
+			//echo $noOfResult;
+		}
+		?>
 	</h2><br/>
 	<?php 
 	foreach ($groupData as $keys=>$values) {
@@ -39,6 +42,6 @@ if (isset($_SESSION ['groupSearch'])) {
 	<br />
 	<?php
 	}
-	unset($_SESSION['groupSearch']);
+	//unset($_SESSION['groupSearch']);
 	?>
 </div>

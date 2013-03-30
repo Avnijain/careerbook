@@ -32,12 +32,14 @@ class mainentrance {
 	private static $instance;
 	private $obj_usrinfo;
 	private $objdate;
-	private $obj_group;
+	private $_obj_group_controller;
+	private $_obj_user_discussion_controller;
 
 	private function __construct() {
 		$this->obj_usrinfo = new user_info_controller();
 		$this->objdate = new dateManipulation();
-		$objGroup = new GroupHandler();
+		
+		$this->_obj_user_discussion_controller = new UserDiscussionController();
 	}
 
 	public static function getinstance() {
@@ -52,7 +54,6 @@ class mainentrance {
 	  {
 		$ObjModel = new MyClass();
 		$this->obj_usrinfo = unserialize($_SESSION['userData']);
-		
 		$ObjModel->acceptNewFrnd($this->obj_usrinfo,$_POST['id']);
 	   }
 	   private function addFrnd()
@@ -101,8 +102,8 @@ class mainentrance {
 			$this->fillUserProfile();
 		}
 		if($_REQUEST['action']=="add_group"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleAddGroup();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleAddGroup();
 		}
 		if($_REQUEST['action']=="send_message"){
 			$objMessage = new MessageController();
@@ -135,36 +136,39 @@ class mainentrance {
 			//print_r($_SESSION['outbox']);
 		}
 		if($_REQUEST['action']=="Group"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleGetGroup();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleGetGroup();
 		}
 		if($_REQUEST['action']=="getPost"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleGetPost();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleGetPost();
 		}
 		if($_REQUEST['action']=="addPost"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleAddPost();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleAddPost();
 		}
 		if($_REQUEST['action']=="addComment"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleAddComment();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleAddComment();
 		}
 		if($_REQUEST['action']=="getComment"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleGetComment();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleGetComment();
 		}
 		if($_REQUEST['action']=="joinGroup"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleJoinGroup();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleJoinGroup();
 		}
 		if($_REQUEST['action']=="unjoinGroup"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleUnjoinGroup();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleUnjoinGroup();
 		}
 		if($_REQUEST['action']=="searchGroup"){
-			$objGroup = new GroupHandler();
-			$objGroup->handleSearchGroup();
+			$this->_obj_group_controller = new GroupHandler();
+			$this->_obj_group_controller->handleSearchGroup();
+		}
+		if($_REQUEST['action']=="addUserPost"){
+			$this->_obj_user_discussion_controller->handleAddUserPost();
 		}
 		
 	}
@@ -220,6 +224,7 @@ class mainentrance {
 				$this->obj_usrinfo->setUserProfessionalInfoDb($result);
 				
 				$_SESSION['userData']=serialize($this->obj_usrinfo);
+				
 				//	print($obj_usrinfo->getuserinfo('first_name'));
 				header("location:../views/userHomePage.php");
 				//die;

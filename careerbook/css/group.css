@@ -81,12 +81,12 @@ textarea.group_textarea {
 .group_image {
 	float: left;
 	width: 20%;
-	height: 9%;
+	height: 15%;
 	padding: 10px;
 }
 
 .group_div {
 	min-width: 90%;
-	min-height: 25%;
+	min-height: 20%;
 }
 

@@ -1,8 +1,8 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <?php
-// include_once('../classes/groupClass.php');
-$groupData = array ();
-$groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
+	include_once('../classes/groupClass.php');
+	$groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
+	$groupData = $groupData->getCommentList();
 
 ?>
 <div id="groupDiscussionComment">

@@ -1,10 +1,9 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <?php
-// include_once('../classes/groupClass.php');
-$groupData = array ();
-$groupData = unserialize ( $_SESSION ['groupPost'] );
-// $groupList= $groupData->getGroupList();
-// var_dump($groupData);
+	include_once('../classes/groupClass.php');
+	$groupData = unserialize ( $_SESSION ['groupPost'] );
+	$groupData= $groupData->getPostList();
+
 ?>
 <div>
 	

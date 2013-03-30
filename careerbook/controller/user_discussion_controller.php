@@ -7,11 +7,14 @@ class UserDiscussionController extends UserDiscussion {
 	public $userid;
 	
 	function __construct() {
-		if (isset ( $_SESSION ['userData'] )) {
-			$obj = new user_info_controller ();
-			$obj = unserialize ( $_SESSION ['userData'] );
-			$userid = $obj->getUserIdInfo ();
-			$this->userid = ( int ) $userid ['id'];
+		$this->_obj_user_class = new user_info_controller ();
+	if(isset($_SESSION['userData']))
+		{
+			$this->_obj_user_class = unserialize($_SESSION['userData']);
+			$userData=$this->_obj_user_class->getUserIdInfo();
+			$this->userid = $userData['id'];
+		} else {
+			header('Location: ../index.php');
 		}
 	}
 	
