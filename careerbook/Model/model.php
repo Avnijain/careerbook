@@ -20,20 +20,37 @@ class MyClass extends model {
 
     public function FindUsers() {
 
-        $this->db->Where(array("(first_name = '".$_POST['firstname']."' AND
+        $this->db->Where(array("(first_name = '".$_POST['firstname']."' AND status='A' AND
 				middle_name = '".$_POST['middlename']."' AND
 				last_name = '".$_POST['lastname']."' AND
-				date_of_birth = '".$_POST['dob']."') OR email_primary = '".$_POST['email']."'"),true);
+				date_of_birth = '".$_POST['dob']."') OR (email_primary = '".$_POST['email']."' AND status='A')"),true);
         $this->db->From("users");
 
         $this->db->Select();
         return $this->db->resultArray();
-        /*echo $this->db->lastQuery();
-         $result = $this->db->resultArray();
-         echo "<pre/>";
-         print_r($result);*/
+
     }
-    /* Start *********************************************** Professional Information Manipulation ************************************/
+    //****************************************************change user password***************************************************
+    public function passwdChg($userInfo,$newPasswd)
+    {
+    	$user_id = $userInfo->getUserIdInfo();
+    	$user_id=$user_id['id'];
+    	$this->db->Fields(array("password"=>md5($newPasswd)));
+    	$this->db->From("users");
+    	$this->db->Where(array("id=".$user_id),true);
+    	$this->db->Update();
+    }
+    //********************************************************get user password******************************************************
+    public function getUserPwd($userInfo){
+    	$user_id = $userInfo->getUserIdInfo();
+    	$user_id=$user_id['id'];
+    	$this->db->Fields(array("password"=>""));
+    	$this->db->From("users");
+    	$this->db->Where(array("id=".$user_id),true);
+    	$this->db->Select();
+    	return $this->db->resultArray();   	
+    }
+    /************************************************** Start Professional Information Manipulation ************************************/
     public function insertIntoUserProfessional($userInfo) {
         $objProfessionalInfo = $userInfo->getUserProfessionalInfo();
         $user_id = $userInfo->getUserIdInfo();
@@ -391,8 +408,7 @@ public function FindLoginUsers() {
 
     //$this->db->Fields(array("email_primary","password"));
     $this->db->From("users");
-    $this->db->Where(array("email_primary"=>$_POST['userid']));
-
+    $this->db->Where(array("email_primary='".$_POST['userid']."' AND status='A'"),true);
     $this->db->Select();
     return $this->db->resultArray();
     /*echo $this->db->lastQuery();
@@ -436,11 +452,14 @@ public function UpdateUser(){
     $this->db->Update();
     //		echo $this->db->lastQuery();
 }
-public function DeleteUser(){
-    $this->db->From("users");
-    $this->db->Where(array("id"=>42));
-    $this->db->Delete();
-    //		echo $this->db->lastQuery();
+public function DeleteUser($userInfo){
+	
+    	$user_id = $userInfo->getUserIdInfo();
+    	$user_id=$user_id['id'];
+    	$this->db->Fields(array("status"=>"D"));
+    	$this->db->From("users");
+    	$this->db->Where(array("id=".$user_id),true);
+    	$this->db->Update();
 }
 public function startTransaction(){
     $this->db->startTransaction();

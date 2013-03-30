@@ -1,84 +1,132 @@
 <?php
-
 ?>
 
 <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
-<script type="text/javascript" src="../JavaScript/userSetting.js"></script>
-
+<script type="text/javascript" src="../JavaScript/jquery.idTabs.min.js"></script>
+<!-- <script type="text/javascript" src="../JavaScript/userSetting.min.js"></script> -->
 <p id="SettingHead">Settings</p>
 
-<div id="options">
-  <ul>
-        <li onclick='chngPwd();'>Change Password</li>
-        <li onclick='chngEmailID();'>Change Login ID</li>
-        <li onclick='delUser();'>Delete Account</li>
-  </ul>      
+
+<div id='options'>
+	<ul class="idTabs">
+		<li><a href="#jquery">Change Password</a></li>
+		<li><a href="#official">Delete Account</a></li>
+	</ul>
 </div>
 
 <div id="perform">
-    
+	<div id="jquery">
+		<form action="../controller/mainentrance.php?action=chngPwd" method="post" name="cngPWD">
+			<table>
+				<tr>
+					<td><lable class="seting">Current Password</lable></td>
+					<td><input type="password" name="currPwd" id="currentPwd" /></td>
+				</tr>
+				<tr>
+					<p class="seting">Please Enter your Current Password</p>
+				</tr>
+				<tr>
+					<td><lable class="seting">New Password</lable></td>
+					<td><input type="password" name="newPwd" id="newPwd" /></td>
+				</tr>
+				<tr>
+					<td><lable class="seting">Confirm Password</lable></td>
+					<td><input type="password" name="confirmPwd" id="confirmPwd" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit"  />
+						<input type="button" value="Cancel"  />
+						</td>
+				</tr>
+			</table>
+		</form>
 
+	</div>
 
-    
+	<div id="official">
+		<form action="../controller/mainentrance.php?action=delUser" method="post" name="cngPWD">
+			<p class="seting">Are You sure to delete your account</p>
+			<input type="submit" value="Yes" name='yes' />
+			 <input type="button" value="No" name='no' />
+		</form>
+	</div>
+<?php 
+if(isset($_GET['err']))
+{
+	echo "<p class='seting'>You have error in ".$_GET['err']."<p>";
+}
+if(isset($_GET['Success']))
+{
+	echo "<p class='seting'>Password change Successfully<p>";
+}
+?>
 </div>
 
 <style>
-    #SettingHead{
-   
+#SettingHead {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 48px;
+	line-height: 40px;
+	letter-spacing: -1px;
+	color: #444;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	font-weight: 100;
+	text-align: center;
+}
 
-                font-family: times, Times New Roman, times-roman, georgia, serif;
-		font-size: 48px;
-	        line-height: 40px;
-	        letter-spacing: -1px;
-		color: #444;
-		margin: 0 0 0 0;
-		padding: 0 0 0 0;
-                font-weight: 100;
-                text-align: center;
-   
-    }
-    #options{
-        float: left;
-        margin-top: 19px;
-    }
-    #perform{
-        float: left;
-        margin-top: 20px;
-       border: 3px black  double;
-    }
-    #options > ul > li{
-                border: groove 2px black;
-                background-color: #239CC5;
-                list-style-type: none;
-                font-family: times, Times New Roman, times-roman, georgia, serif;
-		font-size: 15px;
-	        line-height: 20px;
-	        letter-spacing: 0px;
-		color: #444;
-                width: 97%;
-                height: 5%;
-		margin: 3 0 0 1;
-		padding: 15 0 0 0;
-                cursor: pointer;
-                font-weight: 100;
-    }
-        .seting{
-               
-                
-                
-               font-family: times, Times New Roman, times-roman, georgia, serif;
-		font-size: 16px;
-	        line-height: 20px;
-	        letter-spacing: 0px;
-		color: #444;
-		margin: 0 5 0 9;
-		padding: 2 0 0 0;
-                font-weight: 100;
-    }
+#options a {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 20px;
+	line-height: 20px;
+	letter-spacing: 0px;
+	color: #444;
+	margin: 3 0 0 1;
+	padding: 15 0 0 0;
+	cursor: pointer;
+	font-weight: 100;
+}
 
-        #options ul li:hover{
-               
-                background-color: #23922D;
-  
-    }   
+#options {
+	float: left;
+	margin-top: 19px;
+}
+
+#perform {
+	float: left;
+	margin-top: 20px;
+	border: 3px black double;
+}
+
+#options>ul {
+	margin: 10 0 0 1;
+}
+
+#options>ul>li {
+	border: groove 2px black;
+	display: inline;
+	background-color: #239CC5;
+	list-style-type: none;
+	width: 97%;
+	height: 5%;
+	margin: 3 0 0 1;
+	padding: 15 0 0 0;
+	cursor: pointer;
+	font-weight: 100;
+}
+
+.seting {
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	font-size: 16px;
+	line-height: 20px;
+	letter-spacing: 0px;
+	color: #444;
+	margin: 0 5 0 9;
+	padding: 2 0 0 0;
+	font-weight: 100;
+}
+
+#options ul li:hover {
+	background-color: #23922D;
+}
 </style>
