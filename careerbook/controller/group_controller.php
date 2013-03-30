@@ -19,7 +19,6 @@ include_once '../classes/groupClass.php';
 
 class GroupHandler extends Group {
 	
-	//private static $instance;
 	private $_obj_group_model;
 	private $_obj_user_class;
 	private $_obj_group_list;
@@ -29,7 +28,7 @@ class GroupHandler extends Group {
 	private $userid;
 	
 	function __construct() {
-		session_start();
+		//session_start();
 		$this->_obj_group_model = new Group();
 		$this->_obj_user_class = new user_info_controller ();
 		$this->_obj_group_list = new GroupList();
