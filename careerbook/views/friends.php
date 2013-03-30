@@ -4,7 +4,7 @@ $friendsData = unserialize ( $_SESSION ['myFriends'] );
 $myfrnd = $friendsData->getMyFriendsNetwork ();
 // echo $lang->KEY;
 
-// $encrypted = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $lang->KEY, 17, MCRYPT_MODE_ECB);
+// $encrypted = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $lang->KEY, '17', MCRYPT_MODE_ECB);
 // echo $encrypted;
 ?>
 <center>

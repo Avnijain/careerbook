@@ -29,6 +29,9 @@ $(function() {			//for producing the overlay effect
 <h3>
 	<?php echo $lang->CHOOSETEMPLATE; ?>
 </h3>
+<br/>
+<?php  if(isset($_REQUEST['c'])&&($_REQUEST['c']=="invalid")) {?> 
+				<h2>Please fill all your Information first to genrate your resume<h2/> <?php }?>
 <div id="main">
 <div id="accordion">
 	<article>
@@ -46,6 +49,8 @@ $(function() {			//for producing the overlay effect
 		<img border=1 px #cccc src="../images/resume2.jpg" 
 		 rel="#mies3" width=200px height=400px />
 	</article>
+	
+	
 	<form action="word.php" method=post>
 		<div class="simple_overlay" id="mies1">
 			<!-- large image -->

@@ -49,7 +49,8 @@ if(!isset($_SESSION['userData']))
 		<li><span><a href="userHomePage.php?users">users</a></span></li>
 		<li><span><a href="userHomePage.php?message">messages</a></span></li>
 		<li><span><a href="userHomePage.php?resume">Resume</a></span></li>					
-		<li class="last"><span><a href="userHomePage.php?profile">profile</a></span></li>
+		<li class="last"><span><a href="userHomePage.php?profile">Account</a></span></li>
+		<li class="last"><span><a href="userHomePage.php?information">Profile</a></span></li>
 		<li class="last"><span><a href="userHomePage.php?Settings">Settings</a></span></li>
 		</ul>
 	</div>
@@ -69,7 +70,11 @@ else if(isset($_GET['logOut'])){
 } 
 else if (isset($_GET['message'])) {
 	include 'message.php'; 
-}  else{
+}
+else if (isset($_GET['information'])) {
+	include 'information.php';
+}
+  else{
    include 'userHomeContent.php';
 }
 ?>

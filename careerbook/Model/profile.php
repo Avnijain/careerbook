@@ -23,7 +23,7 @@ require_once 'singleton.php';
 class Profile extends DBConnection {
 	
 	
-	public $userid;
+	protected $userid;
 	
 
 	
@@ -36,7 +36,7 @@ class Profile extends DBConnection {
 		$this->Where(array("user_id"=>$this->userid));
 		$this->Select();
 		return $this->resultArray();
-		//echo $this->lastQuery();
+		echo $this->lastQuery();die;
 		//echo (mysql_error());
 
 	}
@@ -103,16 +103,17 @@ class Profile extends DBConnection {
 				"last_name",
 				"email_primary",
 				"phone_no",
-				"gender"
+				"gender","profile_image"
 		)
 		);
 	
 		$this->From("users");
 		//$a="b.id";
+		
 		$this->Where1(array("id"=>$this->userid));
 	
 		$this->Select();
-		echo $this->lastQuery();
+		//echo $this->lastQuery();
 		return $this->resultArray();
 	
 	}

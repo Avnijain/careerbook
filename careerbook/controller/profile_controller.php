@@ -18,33 +18,39 @@ include_once '../Model/profile.php';
 class ProfileController extends Profile
 {
 
-
+  
 	
 	function __construct() {
-		if(isset($_SESSION['userData']))
+		/*if(isset($_SESSION['userData']))
 		{
 			$obj = new user_info_controller();
 			$obj = unserialize($_SESSION['userData']);
 			$userid = $obj->getUserIdInfo();
 			$this->userid = $userid['id'];
-		}
+		}*/
 	}
-	function setId(($id) {
-		$userid=$id;
+	function setId($id) {
+		$this->userid=$id;
+		
 	}
 	function handlePersonalInfo() {
 		$result=parent::get_info();
-		print_r($result);
+		//print_r($result);
 		return($result);
 	}
 	function handleAcademicInfo() {
 	
 	
 	    $result=parent::get_academic_info();
-		print_r($result);
+		//print_r($result);
 		return($result);
 	
 	
+	}
+	function handleProjectInfo(){
+		$result=parent::get_project_info();
+		//print_r($result);
+		return($result);
 	}
 	function handlePreviousJobInfo() {
 		$count=parent::get_previous_job_info();
@@ -58,7 +64,7 @@ class ProfileController extends Profile
 	}
 	
 	}
-	$ob=new ProfileController();
+	$obj=new ProfileController();
 
 ?>
 

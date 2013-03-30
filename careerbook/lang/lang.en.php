@@ -31,7 +31,7 @@
                                            'DEGREE'=>"Graduation Degree",
                                            'POST_DEGREE'=>"Post Graduation Degree",
                                            'SPECIALIZATION'=>"Specialization",
-                                           'COLLEGE'=>"College",
+                                           'SCHOOLCOLLEGE'=>"School/College",
                                            'PERCENTAGE'=>"Percentage%",
                                            'ADDMORE'=>"Add More",
                                            'ADDRESS'=>"Address",

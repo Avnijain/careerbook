@@ -82,7 +82,7 @@
             z-index: 9;
             -moz-border-radius: 20px;
         }
-        #vtab > div > h4 {
+        #vtab > div > h4,h3 {
             color: #800;
             font-size: 1.2em;
             border-bottom: 1px dotted #800;
@@ -243,9 +243,10 @@
         </div>
         </div>
         <div>
-            <h4>
-                Compose Message</h4>
+            <h3>
+                Compose Message</h3>
             <form id="SendForm" action="../controller/mainentrance.php?action=send_message" method="post">
+            <br/>
             <fieldset>
                 <legend>Add Message</legend>
                 <div>
@@ -257,7 +258,7 @@
                 <div>
                     <label for="meassage">
                         message:</label>
-						<textarea name="descripition"></textarea>
+						<textarea name="descripition" rows="8" cols="40"></textarea>
                 </div>
                 <div>
                     <input id="message" type="submit" value="Send" />

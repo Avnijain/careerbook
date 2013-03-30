@@ -24,10 +24,9 @@ $ob1=$objUserInfo->getUserAcademicInfo();
 $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
 $UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
 $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
-print_r($UserAddressInfoDB);
-print_r($UserProjectInfoDB);
-print(count($UserAddressInfoDB));
-/*if(!count($UserAddressInfoDB))
+
+/*print(count($UserAddressInfoDB));
+if(!count($UserAddressInfoDB))
 {
  echo "hdhfdhsd";
  die;
@@ -36,26 +35,30 @@ if((empty($UserAddressInfoDB))||(empty($UserProjectInfoDB))||(empty($UserProfess
 {
 echo "fill all the information first";
 exit;
-}
-else
+}*/
+$Result=true;
+$arrayOb[]=array($UserAddressInfoDB,$UserProjectInfoDB,$UserProfessionalInfoDB);
+$n=count($arrayOb);
+for($i=0;$i<$n;$i++)
 {
-echo "nt";
-die; 
-}
-if (is_array($UserAddressInfoDB) && count($InputVariable) > 0)
+  if (is_array($arrayOb[$i]) && count($arrayOb[$i]) > 0)
    {
-      foreach ($UserAddressInfoDB as $Value)
+      foreach ($arrayOb[$i] as $key => $Value)
       {
-		if($Value=="empty data")
+		if($key == "empty data")
          {
 		 $Result = false;
-		 echo "working";
 		  break;
-		  }
+		 }
       }
    }
+}   
    
-*/
+ if(!$Result) 
+ {
+ 	header('location: ../views/userHomePage.php?resume&c=invalid');
+ } 
+
 //print_r ($UserProjectInfoDB);
 $n=count($UserProjectInfoDB);
 $fname=$ob['first_name'];
