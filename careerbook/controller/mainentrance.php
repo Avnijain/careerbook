@@ -348,6 +348,13 @@ class mainentrance {
 						"duration" => "" 
 				) 
 		);
+		$userCertificationInfo = array (
+				array (
+						"name" => "",
+						"description" => "",						
+						"duration" => ""
+				) 
+		);		
 		
 		// echo "<pre/>";
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
@@ -481,6 +488,22 @@ class mainentrance {
 		if ($flagData) {
 			// echo "Inserting professional data";
 			$this->obj_usrinfo->setUserAddressInfoForm ( $userAddressInfo );
+		}
+		/**
+		 * ************************** User Certification Information ***********************
+		 */
+		$flagData = false;
+		foreach ( array_keys ( $userCertificationInfo [0] ) as $key => $value ) {
+			if (isset ( $_POST ["certification_".$value] )) {
+				if (! empty ( $_POST ["certification_".$value] )) {
+					$userAcademicInfo [0] [$value] = $_POST ["certification_".$value];
+					$flagData = true;
+				}
+			}
+		}
+		if ($flagData) {
+			//$this->obj_usrinfo->setUserCertificationInfoForm ( $userCertificationInfo);
+			// echo "inserting Academic";
 		}
 		/**
 		 * ************************** User Academic Information ***********************

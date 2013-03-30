@@ -258,11 +258,11 @@
                     <legend> <?php echo $lang->OTHER; ?></legend>
                     <p>
                         <label><?php echo $lang->CERTIFICATENAME;?> </label> 
-                        <input id="certificatename" name="certificatename" type="text" AUTOCOMPLETE="OFF" /> 
+                        <input id="certificatename" name="certificate_name" type="text" AUTOCOMPLETE="OFF" /> 
                         <label><?php echo $lang->DESCRIPITION;?></label>
-                        <input id="certificatedescription" name="certificatedescription" type="text" AUTOCOMPLETE="OFF" /> 
+                        <input id="certificatedescription" name="certificate_description" type="text" AUTOCOMPLETE="OFF" /> 
                         <label><?php echo $lang->DATEDAT;?></label> 
-                        <input id="datedat" name="datedat" type="text" AUTOCOMPLETE="OFF" />
+                        <input id="datedat" name="certificate_duration" type="text" AUTOCOMPLETE="OFF" />
                     </p>
                     <p>
                         <label><?php echo $lang->EXTRACIRCULAR;?> </label> 
