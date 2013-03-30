@@ -34,24 +34,92 @@ class FriendsModel extends model {		//class to get all data of friends from data
     public function getFrndsDis($userInfo){
     	$user_id = $userInfo->getUserIdInfo();
     	$user_id=$user_id['id'];
+
+// select b.description discussion,d.first_name,a.description comment
+// FROM user_discussions b
+// JOIN
+// users d
+// on
+// d.id = '21'
+// LEFT OUTER JOIN
+// user_discussions_comments a
+// ON
+// a.user_discussions_id = b.id
+// where b.user_id = '21';    
+
+    	$this->db->Fields ( array (
+    			"a.description comments",
+    			"b.description discussion",
+    	        "d.first_name",
+    	        "b.id"
+    	    
+    	));
+ 
+    	$this->db->From ( "user_discussions b" );
+    	$this->db->Join ( "users d", " d.id = $user_id " );
+    	$this->db->Join ( "user_discussions_comments a", " a.user_discussions_id = b.id ","LEFT OUTER" );
+    	$this->db->Where (array ("b.user_id" => "$user_id"));
+    	$this->db->Select ();
+//     	echo $this->db->lastQuery();
+//     	die;
+
+    	$result = array($this->db->resultArray ());
+// select a.description comments,b.description discussion,d.first_name, b.id
+// FROM user_discussions b
+// JOIN
+// friends c
+// ON
+// c.user_id = '21'
+// JOIN
+// user_discussions_comments a
+// ON
+// a.user_discussions_id = b.id AND b.user_id = c.friend_id
+// JOIN
+// users d
+// on
+// d.id = c.friend_id;
     	
     	$this->db->Fields ( array (
-    			"user_discussions.id",
-    			"description",
-    			"user_discussions.user_id",
-    			"created_on",
-    			"Likes"
-    	) );
+    	    "a.description comments",
+    	    "b.description discussion",
+    	    "d.first_name",
+    	    "b.id"
+    	));
     	
-    	$this->db->From ( "user_discussions" );
-    	$this->db->Join ( "friends", " user_discussions.user_id = friends.friend_id " );
-    	$this->db->Where ( array (
-    			"user_discussions.user_id IN (SELECT friends_id from". $user_id . " AND user_discussions.status = 'A'"
-    	), true );
-    	
+    	$this->db->From ( "user_discussions b" );
+    	$this->db->Join ( "friends c", " c.user_id = $user_id " );
+    	$this->db->Join ( "user_discussions_comments a", " a.user_discussions_id = b.id AND b.user_id = c.friend_id " );
+    	$this->db->Join ( "users d", " d.id = c.friend_id " );
     	$this->db->Select ();
-    	$this->db->lastQuery();
-    	return $this->db->resultArray ();
+
+    	$result[] = $this->db->resultArray ();
+    	
+//     	echo"<pre/>";
+//     	print_r($result);
+//     	die;
+    	
+//    	echo $this->db->lastQuery();
+//     	echo "<pre/>";
+//     	print_r ( $this->db->resultArray () );
+//     	die;	
+    	
+//     	$this->db->Fields ( array (
+//     			"user_discussions.id",
+//     			"description",
+//     			"user_discussions.user_id",
+//     			"created_on",
+//     			"Likes"
+//     	) );
+    	
+//     	$this->db->From ( "user_discussions" );
+//     	$this->db->Join ( "friends", " user_discussions.user_id = friends.friend_id " );
+//     	$this->db->Where ( array (
+//     			"user_discussions.user_id IN (SELECT friends_id from". $user_id . " AND user_discussions.status = 'A'"
+//     	), true );
+    	
+//     	$this->db->Select ();
+//     	$this->db->lastQuery();
+    	return $result;
     	
     }
     //*******************************fetch all my freinds request data*****************************************************

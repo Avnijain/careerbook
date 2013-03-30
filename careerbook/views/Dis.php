@@ -2,7 +2,7 @@
 <?php
 include_once 'call.php';
 ?>
-<head>
+
 <!--<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>-->
 <script type="text/javascript" src="../JavaScript/jquery.tools.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/call.css" />
@@ -62,8 +62,7 @@ $(function() {
 });
 </script>
 
-</head>
-<body>
+
 	<div id="discussMain" class="dis">
 
 		<div id="addPost">
@@ -78,11 +77,17 @@ $cal = 0; // check odd even div
 <div>
 <?php 
 foreach ( $frndDisData as $keys => $values ) {
+foreach ( $values as $inkeys => $invalues ){
+
+
 	?>
 	<div class="group_list group_div">
 		<img src="../images/default-group.jpg" class="group_image">
 		<?php
-		echo "Description : " . $values ['description'] . "<br />";
+//  		print_r($values);
+//  		die;
+		echo "Description : " . $invalues['discussion'] . "<br />";
+		echo "Comments : " . $invalues['comments'] . "<br />";
 		?>
 		<br />
 		<div>
@@ -93,6 +98,7 @@ foreach ( $frndDisData as $keys => $values ) {
 		</div>
 	</div><br/>
 	<?php
+	}
 	}
 ?>
 </div>
