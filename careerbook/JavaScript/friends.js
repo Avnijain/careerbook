@@ -23,3 +23,9 @@ function frndDelete(frndId)
         });
     
 }
+function viewFrnd(frndId)
+{
+
+	 window.location="information.php?user_id="+frndId;
+    
+}
