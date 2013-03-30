@@ -45,6 +45,7 @@ $professionalInfo=$obj->handleProfessionalInfo();
 //print_r($projectInfo);
 ?>
 <link rel="stylesheet" type="text/css" href="../css/information.css" />
+
 <body>
 <div id="main">
 	<h2></h2>
@@ -61,28 +62,28 @@ $professionalInfo=$obj->handleProfessionalInfo();
 	<h4>Primary Email : <?php echo $personalInfo['0']['email_primary'];?></h4>
 	<h4>Gender : <?php echo $personalInfo['0']['gender'];?></h4>
 	<h4>Phone : <?php echo $personalInfo['0']['phone_no']; }?></h4>
-	<?php if(!empty($professionalInfo)) { ?>
+	<?php if(!empty($professionalInfo['0']['current_company'])) { ?>
 	<h4>Currenty Working in <?php echo $professionalInfo['0']['current_company'];?> As <?php echo $professionalInfo['0']['current_position'];?></h4>
 		<?php }?></div>
 		<br/><br/><br/><br/>
 		<?php if(!empty($acdemicInfo)) { ?>
 		<div id="Education">
-			<p><?php echo $lang->EDUCATION?></p>
+			<heading><?php echo $lang->EDUCATION?></heading>
 			<table cellspacing="10" cellpadding="5";>
-			<tr><td><?php echo $lang->STD?></td><td><?php echo $lang->BOARD?></td><td><?php echo $lang->SCHOOLCOLLEGE?></td></tr>
-			<tr><td><?php echo $lang->TENTH?></td><td><?php if(!empty($acdemicInfo['0']['board_10']))echo $acdemicInfo['0']['board_10']?></td><td><?php echo $acdemicInfo['0']['school_10']?></td></tr>
-			<tr><td><?php if(!empty($acdemicInfo['0']['board_12']))echo $lang->TWELETH ?></td><td><?php echo $acdemicInfo['0']['board_12']?></td><td><?php echo $acdemicInfo['0']['school_12']?></td></tr>
+			<tr><td><?php echo $lang->STD?></td><?php if((!empty($acdemicInfo['0']['board_10']))||(!empty($acdemicInfo['0']['board_12']))) {?><td><?php echo $lang->BOARD ?><?php }?></td><td><?php echo $lang->SCHOOLCOLLEGE?></td></tr>
+			<tr><td><?php if((!empty($acdemicInfo['0']['board_10']))||(!empty($acdemicInfo['0']['school_10'])))echo $lang->TENTH ?></td><td><?php if(!empty($acdemicInfo['0']['board_10']))echo $acdemicInfo['0']['board_10']?></td><td><?php echo $acdemicInfo['0']['school_10']?></td></tr>
+			<tr><td><?php if((!empty($acdemicInfo['0']['board_12']))||(!empty($acdemicInfo['0']['school_12'])))echo $lang->TWELETH ?></td><?php if(!empty($acdemicInfo['0']['board_12'])) {?><td><?php  echo $acdemicInfo['0']['board_12']?></td><?php }?><td><?php echo $acdemicInfo['0']['school_12']?></td></tr>
 			<tr><td><?php echo $acdemicInfo['0']['graduation_degree']?></td><td><?php echo $acdemicInfo['0']['graduation_specialization']?></td><td><?php echo $acdemicInfo['0']['graduation_college']?></td></tr>
 			<tr><td><?php echo $acdemicInfo['0']['post_graduation_degree']?></td><td><?php echo $acdemicInfo['0']['post_graduation_specialization']?></td><td><?php echo $acdemicInfo['0']['post_graduation_college']?></td></tr>
 			</table>
 		</div>
 		<?php }?>
 		<?php if(!empty($professionalInfo)) { ?>
-		<div id="Skills"><p><?php echo $lang->SKILLS?></p></div>
+		<div id="Skills"><heading><?php echo $lang->SKILLS?></heading></div><br/>
 		<?php echo $professionalInfo['0']['skill_set'];?>
 			<?php }?>
 			<?php if(!empty($jobInfo)) { ?>
-		<div id="Industrial Experience"><p><?php echo $lang->INDUSTRIALEXPERIENCE?></p></div>
+		<div id="Industrial Experience"><heading><?php echo $lang->INDUSTRIALEXPERIENCE?></heading></div>
 			<table cellspacing="10" cellpadding="5";>
 			<tr><td><?php echo $lang->COMPANYNAME?></td><td><?php echo $jobInfo['0']['company'] ?></td></tr>
 			<tr><td><?php echo $lang->DESIGNATION?></td><td><?php echo $jobInfo['0']['position'] ?></td></tr>

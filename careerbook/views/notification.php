@@ -13,7 +13,7 @@
 						
 					</p>
 				    	<div class="image">
-				    		<a href="#"><img src="../images/message.jpg" alt="" width="90%"></a>
+				    		<a href="userHomePage.php?message"><img src="../images/message.jpg" alt="" width="90%"></a>
 				    	</div>
 				    	<div class="data">
 				    		<p>User Messages</p>

@@ -26,6 +26,9 @@ function frndDelete(frndId)
 function viewFrnd(frndId)
 {
 
-	 window.location="information.php?user_id="+frndId;
+	 window.location="userHomePage.php?information&user_id="+frndId;
+	//window.open('http://google.com','_newtab');
+	
+	 //window.open('information.php?user_id='+frndId, '_newtab');
     
 }
