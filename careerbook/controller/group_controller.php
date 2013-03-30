@@ -53,11 +53,10 @@ class GroupHandler extends Group {
 				// checks size of uploaded image on server side
 				if ($_FILES ['group_image'] ['size'] < $maxsize) {
 					// checks whether uploaded file is of image type
-					$finfo = finfo_open ( FILEINFO_MIME_TYPE );
-					if (strpos ( finfo_file ( $finfo, $_FILES ['group_image'] ['tmp_name'] ), "image" ) === 0) {
-						// prepare the image for insertion
-						$this->_obj_group_model->_group_image = addslashes ( file_get_contents ( $_FILES ['group_image'] ['tmp_name'] ) );
-					}
+					$fp = fopen(( $_FILES ['group_image'] ['tmp_name'] ), 'r');
+    				$imageData = fread($fp, filesize(( $_FILES ['group_image'] ['tmp_name'] )));
+    				$this->_obj_group_model->_group_image = addslashes($imageData);
+    				fclose($fp);
 				}
 			}
 		}

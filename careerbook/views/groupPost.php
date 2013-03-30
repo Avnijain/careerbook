@@ -4,15 +4,23 @@
 	if(isset($_SESSION ['groupPost'])) {
 		$groupData = unserialize ( $_SESSION ['groupPost'] );
 		$groupData= $groupData->getPostList();
-		//print_r($groupData);
-		$uri = 'data:image/png;base64,'.base64_encode($groupData[0]['profile_image']);
+		
+	}
+	if ($_SESSION['groupDetail']) {
+		$groupData1=unserialize($_SESSION['groupDetail']);
+		$groupData1= $groupData1->getGroupDetail();
+		
+		if (($groupData1[0]['group_image']) == NULL) {
+			$uri1 = "../images/default-group.jpg";
+		} else {
+			$uri1 = 'data:image/png;base64,'.base64_encode($groupData1[0]['group_image']);
+		}
 	}
 	
-	$groupData1=unserialize($_SESSION['groupDetail']);
-	$groupData1= $groupData1->getGroupDetail();
+	$uri1 = 'data:image/png;base64,'.base64_encode($groupData1[0]['group_image']);
 ?>
 <div class="group_header group_div">
-	<img src="../images/default-group.jpg" class="group_image">
+	<img src="<?php echo $uri1;?>" class="group_image">
 		<?php
 		echo "<p>Description : " . $groupData1[0] ['title'] . "</p>";
 		echo "<p>Posted on " . $groupData1[0] ['description'] . "</p>";
@@ -31,6 +39,7 @@
 <div>
 	<?php
 	foreach ( $groupData as $keys => $values ) {
+	$uri = 'data:image/png;base64,'.base64_encode($groupData[$keys]['profile_image']);
 		?>
 	<div class="group_post group_div">
 		<img src="<?php echo $uri;?>" class="group_image">

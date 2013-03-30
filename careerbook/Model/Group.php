@@ -84,7 +84,7 @@ class Group {
 		
 		$this->db->From ( "group_details" );
 		$this->db->Insert ();
-
+		//echo $this->db->lastQuery();die;
 		$gid = $this->db->lastInsertId ();
 		
 		$this->db->Fields ( array (
@@ -93,6 +93,7 @@ class Group {
 		) );
 		$this->db->From ( "group_members" );
 		$this->db->Insert ();
+		
 	}
 	
 	// function to list group post
@@ -157,7 +158,7 @@ class Group {
 		
 		$this->db->Select ();
 		
-		//echo $this->lastQuery();die;
+		//echo $this->db->lastQuery();die;
 
 		return $this->db->resultArray ();
 	}
@@ -200,20 +201,22 @@ class Group {
 	
 	function get_comments() {
 		$this->db->Fields ( array (
-				"discussion_id",
+				"group_discussion_comments.discussion_id",
 				"description",
-				"created_by",
-				"created_on",
-				"updated_on" 
+				"group_discussion_comments.created_by",
+				"group_discussion_comments.created_on",
+				"group_discussion_comments.updated_on",
+				"profile_image" 
 		) );
 		
 		$this->db->From ( "group_discussion_comments" );
+		$this->db->Join("users","group_discussion_comments.created_by = users.id");
 		$this->db->Where ( array (
-				"discussion_id" => $this->_group_discussion_id 
+				"group_discussion_comments.discussion_id" => $this->_group_discussion_id 
 		) );
 		
 		$this->db->Select ();
-
+		//echo $this->db->lastQuery();die;
 		return $this->db->resultArray ();
 	}
 	

@@ -29,8 +29,15 @@
 	<?php 
 	foreach ($groupData as $keys=>$values) {
 		?>
-	<div class="group_list group_div">
-		<img src="../images/default-group.jpg" class="group_image">
+		<div class="group_list group_div">
+		<?php 
+		if (($groupData[$keys]['group_image']) == NULL) {
+			$uri = "../images/default-group.jpg";
+		} else {
+			$uri = 'data:image/png;base64,'.base64_encode($groupData[$keys]['group_image']);
+		}
+		?>
+		<img src="<?php echo $uri; ?>" class="group_image">
 		<?php
 		echo "Title : " .$values['title'] . "<br/>";
 		echo "Description : " .$values['description'] . "<br/>";

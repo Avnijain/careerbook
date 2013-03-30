@@ -3,7 +3,6 @@
     include_once('../classes/groupClass.php');
     $groupData=unserialize($_SESSION['groupList']);
     $groupData= $groupData->getGroupList();
-
 ?>
 <div class="button">
 	<a class="group_button" href="../views/userHomePage.php?addGroup">Add Group</a>
@@ -15,7 +14,15 @@
 	foreach ( $groupData as $keys => $values ) {
 		?>
 	<div class="group_header group_div">
-		<img src="../images/default-group.jpg" class="group_image">
+	<?php
+	if (($groupData[$keys]['group_image']) == NULL) {
+		$uri = "../images/default-group.jpg";
+	} else {
+		$uri = 'data:image/png;base64,'.base64_encode($groupData[$keys]['group_image']);
+	}
+	
+	?>
+		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
 		echo "<p>Title : " . $values ['title'] . "</p>";
 		echo "<p>Description : " . $values ['description'] . "</p>";

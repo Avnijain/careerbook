@@ -39,10 +39,12 @@
 	float: left;
 	padding: 0 25px;
 	text-shadow: rgba(255, 255, 255, 0.8) 0px 1px 0px;
+	text-decoration: none;
 }
 
 .top-nav ul li span {
 	float: left;
+	
 }
 
 .top-nav ul li a:hover,.top-nav ul li.active a {

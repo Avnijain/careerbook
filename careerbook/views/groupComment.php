@@ -3,14 +3,15 @@
 	include_once('../classes/groupClass.php');
 	$groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
 	$groupData = $groupData->getCommentList();
+	$uri = 'data:image/png;base64,'.base64_encode($groupData[0]['profile_image']);
 	
 	$groupData1 = unserialize ( $_SESSION ['groupDiscussionComment'] );
 	$groupData1 = $groupData1->getPostDetail();
-	$uri = 'data:image/png;base64,'.base64_encode($groupData1[0]['profile_image']);
+	$uri1 = 'data:image/png;base64,'.base64_encode($groupData1[0]['profile_image']);
 
 ?>
 <div  class="group_header group_div">
-	<img src="<?php echo $uri;?>" class="group_image">
+	<img src="<?php echo $uri1;?>" class="group_image">
 		<?php
 		echo "<p>Description : " . $groupData1[0] ['description'] . "</p>";
 		echo "<p>Posted on " . $groupData1[0] ['created_on'] . "</p>";
@@ -31,7 +32,7 @@
 	foreach ( $groupData as $keys => $values ) {
 		?>
 	<div class="group_comment group_div">
-		<img src="../images/default-group.jpg" class="group_image">
+		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
 		echo "Description : " . $values ['description'] . "<br />";
 		echo "Posted on " . $values ['created_on'] . "<br/>";
