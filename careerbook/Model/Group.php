@@ -100,11 +100,14 @@ class Group {
 	function get_posts() {
 		$this->db->Fields ( array (
 				"group_discussions.id",
-				"description",
+				"group_discussions.description",
 				"group_discussions.created_by",
 				"group_discussions.created_on",
 				"group_discussions.updated_on",
-				"profile_image" 
+				"users.first_name",
+				"users.middle_name",
+				"users.last_name",
+				"users.profile_image" 
 		) );
 		
 		$this->db->From ( "group_discussions" );
@@ -122,11 +125,14 @@ class Group {
 	function get_post() {
 		$this->db->Fields ( array (
 				"group_discussions.id",
-				"description",
+				"group_discussions.description",
 				"group_discussions.created_by",
 				"group_discussions.created_on",
 				"group_discussions.updated_on",
-				"profile_image"
+				"users.first_name",
+				"users.middle_name",
+				"users.last_name",
+				"users.profile_image" 
 		) );
 	
 		$this->db->From ( "group_discussions" );
@@ -206,6 +212,9 @@ class Group {
 				"group_discussion_comments.created_by",
 				"group_discussion_comments.created_on",
 				"group_discussion_comments.updated_on",
+				"users.first_name",
+				"users.middle_name",
+				"users.last_name",
 				"profile_image" 
 		) );
 		

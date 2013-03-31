@@ -97,16 +97,19 @@ class GroupHandler extends Group {
 	function handleGetPost() {
 		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_created_by = $this->userid;
+		
 		$flag = $this->_obj_group_model->is_group_member();
+		
 		if ($flag) {
 			$result = $this->_obj_group_model->get_posts ();
-			$result1 = $this->_obj_group_model->get_group_detail();
+			$this->_obj_group_class->setPostList($result);
+			$_SESSION ['groupPost'] = serialize ( $this->_obj_group_class);
 			
+			$result1 = $this->_obj_group_model->get_group_detail();
 			$this->_obj_group_class->setGroupDetail($result1);
 			$_SESSION['groupDetail'] = serialize($this->_obj_group_class);
 			
-			$this->_obj_group_class->setPostList($result);
-			$_SESSION ['groupPost'] = serialize ( $this->_obj_group_class);
+			
 			header ( 'Location: ../views/userHomePage.php?groupPost&groupId=' . $this->_obj_group_model->_group_id );
 		} else {
 			header ( 'Location: ../views/userHomePage.php?Group');
@@ -115,20 +118,22 @@ class GroupHandler extends Group {
 	
 	function handleGetComment() {
 		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['groupDiscussionId']);
-		$result = $this->_obj_group_model->get_comments ();
-		$result1 = $this->_obj_group_model->get_post ();
 		
-		$this->_obj_group_class->setPostDetail($result1);
+		$result = $this->_obj_group_model->get_comments ();
 		$this->_obj_group_class->setCommentList($result);
-		$_SESSION['postDetail'] = serialize($this->_obj_group_class);
 		$_SESSION ['groupDiscussionComment'] = serialize ( $this->_obj_group_class );
+		
+		$result1 = $this->_obj_group_model->get_post();
+		$this->_obj_group_class->setPostDetail($result1);
+		$_SESSION['postDetail'] = serialize($this->_obj_group_class);
+		
 		header ( 'Location: ../views/userHomePage.php?groupComment&groupDiscussionId=' . $this->_obj_group_model->_group_discussion_id );
 
 	}
 	
 	function handleGetGroup() {
 		$this->_obj_group_model->_created_by = $this->userid;
-		$result = array ();
+
 		$result = $this->_obj_group_model->get_group ();
 		$this->_obj_group_class->setGroupList($result);
 		$_SESSION ['groupList'] = serialize ( $this->_obj_group_class );
