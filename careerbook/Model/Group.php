@@ -272,19 +272,70 @@ class Group {
 	
 	function search_group() {
 		$this->db->Fields ( array (
-				"group_details.id",
-				"title",
-				"description",
-				"group_image"
+				"gd.id",
+				"gd.title",
+				"gd.description",
+				"gd.group_image",
+				"gm.member_id",
+				"gd.status",
+				"gm.status"
 		) );
 		
-		$this->db->From ( "group_details" );
-		$this->db->Like (
-				"title",
-				$this->_search_group
-		 );
+		$this->db->From ('group_details gd, group_members gm');
+		$this->db->Where(array(
+						"gm.member_id = " .$this->_created_by . " AND gd.status = 'A' AND 
+						(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' )
+					"),true);
 		$this->db->Select ();
-		return $this->db->resultArray ();
+		$result1 = $this->db->resultArray ();
+		
+		$this->db->unsetValues();
+		
+		$this->db->Fields ( array (
+				"gd.id"
+		) );
+		
+		$this->db->From ('group_details gd, group_members gm');
+		$this->db->Where(array(
+				"	gm.member_id = " .$this->_created_by . " AND gd.status = 'A' AND
+					(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' )
+				"),true);
+		$this->db->Select ();
+		$result2 = $this->db->resultArray ();
+		
+		$myStr="";
+		foreach($result2 as $keys=>$values){
+			foreach ($values as $key=>$value)
+			{
+				$myStr.=$value.",";
+			}
+		}
+			
+		$myStr=substr($myStr,0,-1);
+		
+		$this->db->unsetValues();
+		
+		$this->db->Fields ( array (
+				"gd.id",
+				"gd.title",
+				"gd.description",
+				"gd.group_image",
+				"gm.member_id",
+				"gd.status",
+				"gm.status"
+		) );
+		
+		$this->db->From ('group_details gd, group_members gm');
+		$this->db->Where(array(
+				" 	gd.status = 'A' AND
+					(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' ) AND
+					gd.id NOT IN (".$myStr.")
+				"),true);
+		$this->db->Select ();
+		$result3 = $this->db->resultArray ();
+		
+		$result=array_merge($result1,$result3);
+		return($result);
 	}
 	
 	function is_group_member() {
