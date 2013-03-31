@@ -7,6 +7,7 @@
     $UserAcademicInfoDB = $objUserInfo->getUserAcademicInfoDB();
     $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();    
     $UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
+    $UserCertificateInfoDB =  $objUserInfo->getUserCertificateInfoDB();
     $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
     $UserPreviousJobInfoDB =  $objUserInfo->getUserPreviousJobInfoDB();
     $_SESSION['userData'] = serialize($objUserInfo);
@@ -42,10 +43,12 @@
 		 changeMonth: true,
 		 changeYear: true
 		 });
-     $( "#datedat" ).datepicker({
-    	 changeMonth: true,
-    	 changeYear: true
-    	 });
+     $( ".certificate" ).click(function(){
+         $(this).datepicker({
+    		 changeMonth: true,
+    		 changeYear: true
+    		 });
+     });
 	 $( "#start_period" ).datepicker({
 		 changeMonth: true,
 		 changeYear: true
@@ -70,11 +73,11 @@
     function addMore()
     {
         var $text1="<p><label ><?php echo $lang->CERTIFICATENAME;?> </label>";
-        var $text2="<input id=\"certificatename\" name=\"certificatename\" type=\"text\" AUTOCOMPLETE=OFF />";
+        var $text2="<input id=\"certificatename\" name=\"certificate_name[]\" type=\"text\" AUTOCOMPLETE=OFF />";
         var $text3="<label ><?php echo $lang->DESCRIPITION;?></label>";
-        var $text4="<input id=\"certificatedescription\" name=\"certificatedescription\" type=\"text\" AUTOCOMPLETE=OFF />";
+        var $text4="<input id=\"certificatedescription\" name=\"certificate_description[]\" type=\"text\" AUTOCOMPLETE=OFF />";
         var $text5="<label ><?php echo $lang->DATEDAT;?></label>";
-        var $text6="<input id=\"datedat\" name=\"datedat\" type=\"text\" AUTOCOMPLETE=OFF />";                  
+        var $text6="<input id=\"datedat\" name=\"certificate_duration[]\" type=\"text\" AUTOCOMPLETE=OFF />";                  
         $("#other").append($text1+$text2+$text3+$text4+$text5+$text6);
     }
 </script>
@@ -256,14 +259,18 @@
                 </fieldset>
                 <fieldset class="step" id="other">
                     <legend> <?php echo $lang->OTHER; ?></legend>
-                    <p>
-                        <label><?php echo $lang->CERTIFICATENAME;?> </label> 
-                        <input id="certificatename" name="certificate_name" type="text" AUTOCOMPLETE="OFF" /> 
-                        <label><?php echo $lang->DESCRIPITION;?></label>
-                        <input id="certificatedescription" name="certificate_description" type="text" AUTOCOMPLETE="OFF" /> 
-                        <label><?php echo $lang->DATEDAT;?></label> 
-                        <input id="datedat" name="certificate_duration" type="text" AUTOCOMPLETE="OFF" />
-                    </p>
+                    <?php foreach($UserCertificateInfoDB as $key => $value){ ?>
+                        <p>
+                            <label><?php echo $lang->CERTIFICATENAME;?> </label><input id="certificatename" name="certificate_name[]" type="text" AUTOCOMPLETE="OFF"
+                            <?php if (!empty($value['name'])){?> value="<?php echo $value['name']; } ?>" />
+                            <label><?php echo $lang->DESCRIPITION;?></label>
+                            <input id="certificatedescription" name="certificate_description[]" type="text" AUTOCOMPLETE="OFF"
+                            <?php if (!empty($value['description'])){?> value="<?php echo $value['description']; } ?>" /> 
+                            <label><?php echo $lang->DATEDAT;?></label>
+                            <input id="datedat<?php if(!empty($value['id'])){ echo $value['id']; }else{echo 0;} ?>" class="certificate" name="certificate_duration[]" type="text" AUTOCOMPLETE="OFF"
+                            <?php if(!empty($value['duration'])){?> value="<?php echo $value['duration']; } ?>"/> 
+                        </p>
+                    <?php } ?>
                     <p>
                         <label><?php echo $lang->EXTRACIRCULAR;?> </label> 
                         <input id="extracircular" name="extracircular" type="number" AUTOCOMPLETE="OFF" />

@@ -287,9 +287,9 @@ class mainentrance {
 		}
 	}
 	private function fillUserProfile() {
-		// echo "<pre/>";
-		// print_r($_POST);
-		// die;
+// echo "<pre/>";
+// print_r($_POST);
+// die;
 		
 		// echo "filling user profile";
 		$userProfessionalInfo = array (
@@ -376,9 +376,8 @@ class mainentrance {
 		// print_r($_POST);
 		// foreach($_POST as $key => $value){
 		// print_r(array_keys($userProfessionalInfo[0]));
-		
 		/**
-		 * ************************** User Professional Information ***********************
+		 * ************************** User Previous Job Info ***********************
 		 */
 		$flagData = false;
 		if (isset ( $_POST ['start_periodPREVJOB'] ) || isset ( $_POST ['end_periodPREVJOB'] )) {
@@ -400,13 +399,14 @@ class mainentrance {
 		// echo "<pre/>";
 		// print_r($userPreviousJobInfo);
 		// die;
+		/**
+		 * ************************** User Professional Information ***********************
+		 */		
 		if ($flagData) {
 			$this->obj_usrinfo->setUserPreviousJobInfoForm ( $userPreviousJobInfo );
 			// echo "inserting professional";
 		}
-		/**
-		 * ************************** User Previous Job Info ***********************
-		 */
+
 		$flagData = false;
 		if (isset ( $_POST ['start_period'] )) {
 			if (! empty ( $_POST ['start_period'] )) {
@@ -509,15 +509,22 @@ class mainentrance {
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userCertificationInfo [0] ) as $key => $value ) {
-			if (isset ( $_POST ["certification_".$value] )) {
-				if (! empty ( $_POST ["certification_".$value] )) {
-					$userAcademicInfo [0] [$value] = $_POST ["certification_".$value];
-					$flagData = true;
+			if (isset ( $_POST ["certificate_".$value] )) {
+				if (! empty ( $_POST ["certificate_".$value] )) {
+					foreach ( $_POST ["certificate_".$value] as $inkey => $invalue ) {
+						if (! empty ( $invalue )) {
+							$userCertificationInfo [0] [$value] = $_POST ["certificate_".$value];
+							$flagData = true;
+						}
+					}
 				}
 			}
 		}
+// echo "<pre/>";
+// print_r($userCertificationInfo);
+// die;
 		if ($flagData) {
-			//$this->obj_usrinfo->setUserCertificationInfoForm ( $userCertificationInfo);
+			$this->obj_usrinfo->setUserCertificateInfoForm ( $userCertificationInfo);
 			// echo "inserting Academic";
 		}
 		/**
