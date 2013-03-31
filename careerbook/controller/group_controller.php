@@ -2,35 +2,34 @@
 
 /*
  * *************************** Creation Log ******************************* 
- * File Name - group_controller.php 
- * Project Name - Careerbook 
- * Description - Class file for start Version - 1.0 
- * Created by - Manish Ranjan 
- * Created on - March 10, 2013 
+ * File Name 	- 	group_controller.php 
+ * Project Name - 	Careerbook 
+ * Description 	-	Class file for start Version - 1.0 
+ * Created by	- 	Manish Ranjan 
+ * Created on 	- 	March 10, 2013 
  * **************************** Update Log ******************************** 
  * Sr.NO.		Version		Updated by Updated on Description 
  * ------------------------------------------------------------------------- 
  * ------------------------------------------------------------------------- 
  * ************************************************************************
  */
-include_once '../Model/Group.php';
-include_once '../controller/userInfo.php';
-include_once '../classes/groupClass.php';
+include_once '../Model/Group.php';	//Model Class	---	Performs all business related logic
+include_once '../controller/userInfo.php';	//User Class	---	Used to get user information
+include_once '../classes/groupClass.php';	//Group Class	---	Used to get and set group information
 
 class GroupHandler extends Group {
 	
-	private $_obj_group_model;
-	private $_obj_user_class;
-	private $_obj_group_class;
-	private $userid;
+	private $_obj_group_model;	//Object reference - Group Model Class
+	private $_obj_user_class;	//Object reference - User Info Controller Class
+	private $_obj_group_class;	//Object reference - Group Class to set and get group information
+	private $userid;			//Class variable used to store logged user id
 	
 	function __construct() {
-		$this->_obj_group_model = new Group();
-		$this->_obj_user_class = new user_info_controller ();
-		$this->_obj_group_class = new GroupClass();
+		$this->_obj_group_model = new Group();	//Object Creation - Group Model Class
+		$this->_obj_user_class = new user_info_controller ();	//Object Creation - User Info Controller Class
+		$this->_obj_group_class = new GroupClass();	//Object Creation - Group Class to set and get group information
 
-		if(isset($_SESSION['userData']))
-		{
+		if(isset($_SESSION['userData'])) {
 			$this->_obj_user_class = unserialize($_SESSION['userData']);
 			$userData=$this->_obj_user_class->getUserIdInfo();
 			$this->userid = $userData['id'];
@@ -40,7 +39,9 @@ class GroupHandler extends Group {
 	}
 	
 	function handleAddGroup() {
+		$this->_obj_group_model->_group_title = htmlentities(( $_POST ['title']), ENT_COMPAT, 'UTF-8');
 		$this->_obj_group_model->_group_title = mysql_real_escape_string ( $_POST ['title'] );
+		$this->_obj_group_model->_group_description = htmlentities ( $_POST ['description'], ENT_COMPAT, 'UTF-8');
 		$this->_obj_group_model->_group_description = mysql_real_escape_string ( $_POST ['description'] );
 		$this->_obj_group_model->_created_by = $this->userid;
 		$this->_obj_group_model->_created_on = date ( 'Y-m-d H:i:s' );
@@ -68,6 +69,7 @@ class GroupHandler extends Group {
 	
 	function handleAddPost() {
 		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
+		$this->_obj_group_model->_group_discussion_description = htmlentities( $_POST ['group_discussion_description'], ENT_COMPAT, 'UTF-8' );
 		$this->_obj_group_model->_group_discussion_description = mysql_real_escape_string ( $_POST ['group_discussion_description'] );
 		$this->_obj_group_model->_created_by = $this->userid;
 		$this->_obj_group_model->_created_on = date ( 'Y-m-d H:i:s' );
@@ -84,6 +86,7 @@ class GroupHandler extends Group {
 	}
 	function handleEditPost() {
 		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['group_id']);
+		$this->_obj_group_model->_group_discussion_description = htmlentities ( $_POST ['group_discussion_description'], ENT_COMPAT, 'UTF-8' );
 		$this->_obj_group_model->_group_discussion_description = mysql_real_escape_string ( $_POST ['group_discussion_description'] );
 		
 		$this->_obj_group_model->edit_post ();
@@ -143,6 +146,7 @@ class GroupHandler extends Group {
 	
 	function handleAddComment() {
 		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['groupDiscussionId']);
+		$this->_obj_group_model->_group_discussion_comment = htmlentities ( $_POST ['group_discussion_comment'], ENT_COMPAT, 'UTF-8' );
 		$this->_obj_group_model->_group_discussion_comment = mysql_real_escape_string ( $_POST ['group_discussion_comment'] );
 		$this->_obj_group_model->_created_by = $this->userid;
 		$this->_obj_group_model->_created_on = date ( 'Y-m-d H:i:s' );
@@ -167,7 +171,7 @@ class GroupHandler extends Group {
 		$this->handleGetGroup();
 	}
 	function handleSearchGroup() {
-		$this->_obj_group_model->_search_group = $_REQUEST['groupSearch'];
+		$this->_obj_group_model->_search_group = mysql_real_escape_string($_REQUEST['groupSearch']);
 		
 		$result = $this->_obj_group_model->search_group();
 		$this->_obj_group_class->setGroupSearchList($result);
