@@ -65,10 +65,21 @@ $(function() {
 
 	<div id="discussMain" class="dis">
 
-		<div id="addPost">
-			<a href="../views/userHomePage.php?addUserPost" class="group_button">ADD
-				POST</a>
+		
+<div id="post_user_discussion">
+	<form id="form"
+		action="../controller/mainentrance.php?action=addUserPost" method="post">
+		<h2>Whats in Your Mind...</h2>
+		<div>
+			<textarea class="group_textarea" name="description" cols="25"
+				rows="06" placeholder="Description"></textarea>
 		</div>
+		<div>
+			<input class="group_button" type="submit" value="POST"
+				name="btnsubmit" />
+		</div>
+	</form>
+</div><br/>
 <?php
 $cal = 0; // check odd even div
 
@@ -86,15 +97,13 @@ foreach ( $values as $inkeys => $invalues ){
 		<?php
 //  		print_r($values);
 //  		die;
-		echo "Description : " . $invalues['discussion'] . "<br />";
-		echo "Comments : " . $invalues['comments'] . "<br />";
+		echo "Description : " . nl2br($invalues['discussion']) . "<br />";
+		//echo "Comments : " . $invalues['comments'] . "<br />";
 		?>
 		<br />
 		<div>
 			<a class="group_button"
-			href="../controller/mainentrance.php?action=getPost&groupId=<?php echo $values['id'];?>">View</a>
-			<a  class="group_button"
-			href="../controller/mainentrance.php?action=unjoinGroup&groupId=<?php echo $values['id'];?>">Unlink</a>
+			href="#">View Comments</a>
 		</div>
 	</div><br/>
 	<?php

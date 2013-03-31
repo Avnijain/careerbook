@@ -20,8 +20,8 @@
 <div class="group_header group_div">
 	<img src="<?php echo $uri1;?>" class="group_image">
 		<?php
-		echo "<p>Description : " . $groupData1[0] ['title'] . "</p>";
-		echo "<p> on " . $groupData1[0] ['description'] . "</p>";
+		echo "<p>" . nl2br($groupData1[0] ['title']) . "</p>";
+		echo "<p>" . nl2br($groupData1[0] ['description']) . "</p>";
 		?>
 </div>
 <div id="groupComment">
@@ -42,8 +42,8 @@
 	<div class="group_post group_div">
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
-		echo "Description : " . $values ['description'] . "<br />";
-		echo "Posted by " . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name'];
+		echo nl2br($values ['description']) . "<br />";
+		echo "Posted by <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a>";
 		echo " on " . $values ['created_on'] . "<br/>";
 		?>
 		<a class="group_button"

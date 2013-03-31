@@ -39,8 +39,11 @@ class GroupHandler extends Group {
 	}
 	
 	function handleAddGroup() {
+		$this->_obj_group_model->_group_title = trim ( $_POST ['title'] );
 		$this->_obj_group_model->_group_title = htmlentities(( $_POST ['title']), ENT_COMPAT, 'UTF-8');
 		$this->_obj_group_model->_group_title = mysql_real_escape_string ( $_POST ['title'] );
+		
+		$this->_obj_group_model->_group_description = trim ( $_POST ['description'] );
 		$this->_obj_group_model->_group_description = htmlentities ( $_POST ['description'], ENT_COMPAT, 'UTF-8');
 		$this->_obj_group_model->_group_description = mysql_real_escape_string ( $_POST ['description'] );
 		$this->_obj_group_model->_created_by = $this->userid;
@@ -69,6 +72,7 @@ class GroupHandler extends Group {
 	
 	function handleAddPost() {
 		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
+		$this->_obj_group_model->_group_discussion_description = trim ( $_POST ['group_discussion_description'] );
 		$this->_obj_group_model->_group_discussion_description = htmlentities( $_POST ['group_discussion_description'], ENT_COMPAT, 'UTF-8' );
 		$this->_obj_group_model->_group_discussion_description = mysql_real_escape_string ( $_POST ['group_discussion_description'] );
 		$this->_obj_group_model->_created_by = $this->userid;
@@ -86,6 +90,7 @@ class GroupHandler extends Group {
 	}
 	function handleEditPost() {
 		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['group_id']);
+		$this->_obj_group_model->_group_discussion_description = trim ( $_POST ['group_discussion_description'] );
 		$this->_obj_group_model->_group_discussion_description = htmlentities ( $_POST ['group_discussion_description'], ENT_COMPAT, 'UTF-8' );
 		$this->_obj_group_model->_group_discussion_description = mysql_real_escape_string ( $_POST ['group_discussion_description'] );
 		
@@ -146,6 +151,7 @@ class GroupHandler extends Group {
 	
 	function handleAddComment() {
 		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['groupDiscussionId']);
+		$this->_obj_group_model->_group_discussion_comment = trim ( $_POST ['group_discussion_comment'] );
 		$this->_obj_group_model->_group_discussion_comment = htmlentities ( $_POST ['group_discussion_comment'], ENT_COMPAT, 'UTF-8' );
 		$this->_obj_group_model->_group_discussion_comment = mysql_real_escape_string ( $_POST ['group_discussion_comment'] );
 		$this->_obj_group_model->_created_by = $this->userid;
@@ -171,6 +177,7 @@ class GroupHandler extends Group {
 		$this->handleGetGroup();
 	}
 	function handleSearchGroup() {
+		$this->_obj_group_model->_search_group = trim($_REQUEST['groupSearch']);
 		$this->_obj_group_model->_search_group = mysql_real_escape_string($_REQUEST['groupSearch']);
 		
 		$result = $this->_obj_group_model->search_group();

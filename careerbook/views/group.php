@@ -24,8 +24,8 @@
 	?>
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
-		echo "<p>Title : " . $values ['title'] . "</p>";
-		echo "<p>Description : " . $values ['description'] . "</p>";
+		echo "<p>Title : " . nl2br($values ['title']) . "</p>";
+		echo "<p>" . nl2br($values ['description']) . "</p>";
 		?>
 		<br />
 			<a class="group_button"

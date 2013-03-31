@@ -1,6 +1,8 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
+<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../JavaScript/group.js"> </script>
 <div id="add_group">
-	<form id="form" enctype="multipart/form-data"
+	<form id="add_group_form" enctype="multipart/form-data"
 		action="../controller/mainentrance.php?action=add_group" method="post">
 		<h2>Create Group</h2>
 		<div>
@@ -17,7 +19,7 @@
 		<div>
 			<label>Group Image</label><br /> <input type="file"
 				name="group_image" id="group_image" />
-		</div>
+		</div><br/>
 		<div>
 			<input class="group_button" type="submit" value="Create Group"
 				name="btnsubmit" /> <input class="group_button" type="button"

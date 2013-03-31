@@ -13,8 +13,8 @@
 <div  class="group_header group_div">
 	<img src="<?php echo $uri1;?>" class="group_image">
 		<?php
-		echo "<p>Description : " . $groupData1[0] ['description'] . "</p>";
-		echo "Posted by " . $groupData1[0] ['first_name'] . " " . $groupData1[0]['middle_name'] . " " . $groupData1[0]['last_name'];
+		echo "<p>Description : " . nl2br($groupData1[0] ['description']) . "</p>";
+		echo "Posted by<a href=\"#\"> " . $groupData1[0] ['first_name'] . " " . $groupData1[0]['middle_name'] . " " . $groupData1[0]['last_name']."</a>";
 		echo " by " . $groupData1[0] ['created_on'] . "";
 		?>
 </div><br/>
@@ -35,8 +35,8 @@
 	<div class="group_comment group_div">
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
-		echo "Description : " . $values ['description'] . "<br />";
-		echo "Posted by " . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name'];
+		echo "" . nl2br($values ['description']) . "<br />";
+		echo "Posted by <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a>";
 		echo " on " . $values ['created_on'] . "<br/>";
 		?>
 		
