@@ -8,7 +8,7 @@ echo $lang->CONFIRMATIONMSG ;?>
     
     function closeMe()
     {
-       parent.closeIFrame();
+       parent.$.fancybox.close();
     }
     
 </script>

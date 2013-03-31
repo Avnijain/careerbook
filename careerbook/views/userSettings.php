@@ -35,7 +35,7 @@
 				</tr>
 				<tr>
 					<td><input type="submit" value="Submit"  />
-						<input type="button" value="Cancel"  />
+						<input type="button" value="Cancel" href="#" />
 						</td>
 				</tr>
 			</table>
@@ -91,6 +91,8 @@ if(isset($_GET['Success']))
 	float: left;
 	margin-top: 19px;
 }
+
+
 
 #perform {
 	float: left;

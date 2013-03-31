@@ -4,14 +4,13 @@
 if(!isset($_GET['code'])){
 ?>	
 
-<b><p onclick='closeMe();'>Login</p></b>
+<b><a href="" onclick='closeMe();'>Login</a></b>
 	   <script src="../JavaScript/jquery.tools.min.js"></script>
 <script>
     
     function closeMe()
     {
-        alert("hello");
-        parent.fancybox.close();
+        parent.$.fancybox.close();
 
     }
     
