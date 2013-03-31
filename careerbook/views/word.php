@@ -13,196 +13,323 @@ include_once("../classes/lang.php");
     Created on                  -  March 07, 2013
 */
 
-/*header("Content-type: application/vnd.ms-word");
 
-header("Content-Disposition: attachment;Filename=document_name.doc");*/
 require_once '../controller/userInfo.php';
 $objUserInfo = unserialize($_SESSION['userData']);
- //print_r ($objUserInfo->getUserPersonalInfo());
-$ob=$objUserInfo->getUserPersonalInfo();
-$ob1=$objUserInfo->getUserAcademicInfo();
-$UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
-$UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
+
+$UserPersonalInfoDB = $objUserInfo->getUserPersonalInfo();
+$UserAcademicInfoDB = $objUserInfo->getUserAcademicInfo();
+$UserAddressInfoDB  = $objUserInfo->getUserAddressInfoDB();
+$UserProjectInfoDB  = $objUserInfo->getUserProjectInfoDB();
 $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
+$UserAddressInfoDB  = $objUserInfo->getUserAddressInfo();
+$UserPreviousJobInfo = $objUserInfo->getUserPreviousJobInfo();
 
-/*print(count($UserAddressInfoDB));
-if(!count($UserAddressInfoDB))
-{
- echo "hdhfdhsd";
- die;
- }
-if((empty($UserAddressInfoDB))||(empty($UserProjectInfoDB))||(empty($UserProfessionalInfoDB))||(empty($objUserInfo)))
-{
-echo "fill all the information first";
-exit;
-}*/
-$Result=true;
-$arrayOb[]=array($UserAddressInfoDB,$UserProjectInfoDB,$UserProfessionalInfoDB);
-$n=count($arrayOb);
-for($i=0;$i<$n;$i++)
-{
-  if (is_array($arrayOb[$i]) && count($arrayOb[$i]) > 0)
-   {
-      foreach ($arrayOb[$i] as $key => $Value)
-      {
-		if($key == "empty data")
-         {
-		 $Result = false;
-		  break;
-		 }
-      }
-   }
-}   
-   
- if(!$Result) 
- {
- 	header('location: ../views/userHomePage.php?resume&c=invalid');
- } 
 
-//print_r ($UserProjectInfoDB);
-$n=count($UserProjectInfoDB);
-$fname=$ob['first_name'];
-$lname=$ob['last_name'];
-$dob=$ob['date_of_birth'];
-$email=$ob['email_primary'];
-$ph=$ob['phone_no'];
-$gender=$ob['gender'];
-$board10=$ob1[board_10]; 
-$school10=$ob1[school_10]; 
-$marks10=$ob1[percentage_GPA_10];
-$board12=$ob1[board_12]; 
-$scholl12=$ob1[school_12];
-$marks12=$ob1[percentage_12]; 
-$grad=$ob1[graduation_degree]; 
-$grads=$ob1[graduation_specialization]; 
-$gradclg=$ob1[graduation_college]; 
-$marksg=$ob1[graduation_percentage]; 
-//$fname=$ob['first_name'];
 
-if((isset($_POST['template1']))&&($_POST['template1']=="use this template"))
+$projectCount=count($UserProjectInfoDB); // to get the number of projects
+
+$first_name=$UserPersonalInfoDB['first_name']; // getting first name
+
+if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // When first template is selected by user
 {	
 	echo "template1";
 	header("Content-type: application/vnd.ms-word");
-	header("Content-Disposition: attachment;Filename=$fname.doc");
+	header("Content-Disposition: attachment;Filename=$first_name.doc");
 	echo "<html>";
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
-	echo "<b><center><h1>$fname $lname</h1></center></b>";  //name
-	echo "<b><h3>$lang->CONTACTINFO<h3></b>";
-	echo "<table><tr><td>$lang->ADDRESS</td>";
-	echo "<td></td></tr>";
-	echo "<tr><td>$lang->CONTACTNUMBER</td>";
-	echo "<td>$ph</td></tr>";
-	echo "<tr><td>$lang->EMAILADDRESS</td>";
-	echo "<td>$email</td></tr></table>";
-	echo "<b><h3>$lang->PERSONALINFORMATION</h3></b>";
-	echo "<table><tr><td>$lang->DOB</td>";
-	echo "<td>$dob</td></tr>";
-	echo "<tr><td>$lang->GENDER</td>";
-	echo "<td>$gender</td></tr>";
-	echo "<tr><td>$lang->LANGUAGEPROFICENCY</td>";
-	echo "<td>$email</td></tr></table>";
-	echo "<b><h3>$lang->EDUCATIONINFORMATION</h3></b>";
-	echo "<table>";
-	echo "<tr><td>$lang->STD</td><td>$lang->BOARD</td><td>$lang->CPI</td></tr>";
-	echo "<tr><td>$lang->TENTH</td><td>$board10</td><td>$marks10</td></tr>";
-	echo "<tr><td>$lang->TWELETH</td><td>$board12</td><td>$marks12</td></tr>";
-	echo "<tr><td>$lang->GRADUATION</td><td>$grad</td><td>$marksg</td></tr></table>";
-	echo "<b><h3>$lang->STRENGHTSKILLS</h3></b>";
-	echo $UserProfessionalInfoDB['skill_set'];
-	echo "<b><h3>$lang->PROJECT</h3></b>";
-	echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
-	for($i=0;$i<$n-1;$i++)
-	{
-		echo "<tr><td>";
-		echo $UserProjectInfoDB[$i]['title'];
-		echo "</td><td>";
-		echo $UserProjectInfoDB[$i]['project_description'];
-		echo "</td><td>";
-		echo $UserProjectInfoDB[$i]['technology_used'];
-		echo "</td><td>";
-		echo $UserProjectInfoDB[$i]['duration'];
-		echo "</td></tr>";
+	echo "<b><center><h1>";
+	echo $UserPersonalInfoDB['first_name']." " ;
+	echo $UserPersonalInfoDB['last_name'];
+	echo "</h1></center></b>";  
+	 if(isset($UserPersonalInfoDB['profile_image'])) { 
+		$uri = 'data:image/png;base64,'.base64_encode($UserPersonalInfoDB['profile_image']);
+	?>
+	<img src="<?php echo $uri;?>" height=20% width=15%/> <img src="../images/addFriends.jpg" alt="" ><?php }
+	
+	if(!empty($UserAddressInfoDB)) {
+	    echo "<b><h3><u>$lang->CONTACTINFO</u><h3></b>";
+		echo "<table>";
+	    if(!empty($UserAddressInfoDB['address'])) { 
+			echo "<tr><td>$lang->ADDRESS</td>";
+			echo "<td>";
+			echo $UserAddressInfoDB['address'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAddressInfoDB['phone_no'])) { 
+			echo "<tr><td>$lang->CONTACTNUMBER</td>";
+			echo "<td>";
+			echo $UserAddressInfoDB['phone_no'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAddressInfoDB['email_primary'])) {
+			echo "<tr><td>$lang->EMAILADDRESS</td>";
+			echo "<td>";
+			echo $UserAddressInfoDB['email_primary'];
+			echo "</td></tr>";
+		}
+		echo "</table>";
+	}	
+	if(!empty($UserPersonalInfoDB)) {
+		echo "<b><h3><u>$lang->PERSONALINFORMATION</u></h3></b>";
+		echo "<table>";
+		if(!empty($UserPersonalInfoDB['date_of_birth'])) {
+			echo "<tr><td>$lang->DOB</td>";
+			echo "<td>";
+			echo $UserPersonalInfoDB['date_of_birth'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserPersonalInfoDB['gender'])) {
+			echo "<tr><td>$lang->GENDER</td>";
+			echo "<td>";
+			echo $UserPersonalInfoDB['gender'];
+			echo "</td></tr>";
+		}
+		echo "</table>";
 	}
-	echo "</table>";
-	echo "<b><h3>$lang->EMPLOYMENTINFORMATION</h3></b>";
-	echo "<table><tr><td>$lang->COMPANYNAME</td><td>";
-	echo  $UserProfessionalInfoDB['current_company'];
-	echo "</td></tr>";
-	echo "<tr><td>$lang->DESIGNATION</td><td>";
-	echo  $UserProfessionalInfoDB['current_position'];
-	echo "</td></tr>";
-	echo "<tr><td>$lang->DURATION</td><td>";
-	echo  $UserProfessionalInfoDB['start_period'];
-	echo "</td></tr>";
-	echo "</table>";
+	//echo "<tr><td>$lang->LANGUAGEPROFICENCY</td>";
+	//echo "<td>$email</td></tr></table>";
+	if(!empty($UserAcademicInfoDB)) {
+		echo "<b><h3><u>$lang->EDUCATIONINFORMATION</u></h3></b>";
+		echo "<table>";
+		echo "<tr><td>$lang->STD</td><td>$lang->BOARD</td><td>$lang->SCHOOLCOLLEGE</td><td>$lang->CPI</td></tr>";
+		if(!empty($UserAcademicInfoDB['board_10'])) {
+			echo "<tr><td>$lang->TENTH</td><td>";
+			echo $UserAcademicInfoDB['board_10'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['school_10'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['percentage_GPA_10'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['board_12'])) {  
+			
+			echo "<tr><td>$lang->TWELETH</td><td>";
+			echo $UserAcademicInfoDB['board_12'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['school_12'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['percentage_12'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['graduation_degree'])) {  
+			echo "<tr><td>$lang->GRADUATION</td><td>";
+			echo $UserAcademicInfoDB['graduation_specialization'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['graduation_college'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['graduation_percentage']; 
+			echo "</td></tr>";
+		}
+		echo "</table>";
+	}
+	if(!empty($UserProfessionalInfoDB['skill_set'])) { 
+		echo "<b><h3><u>$lang->STRENGHTSKILLS</u></h3></b>";
+		echo $UserProfessionalInfoDB['skill_set'];
+	}
+	if($projectCount>1) {
+		echo "<b><h3><u>$lang->PROJECT</u></h3></b>";
+		echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
+		for($i=0;$i<$projectCount;$i++)
+		{
+			echo "<tr><td>";
+			echo $UserProjectInfoDB[$i]['title'];
+			echo "</td><td>";
+			echo $UserProjectInfoDB[$i]['project_description'];
+			echo "</td><td>";
+			echo $UserProjectInfoDB[$i]['technology_used'];
+			echo "</td><td>";
+			echo $UserProjectInfoDB[$i]['duration'];
+			echo "</td></tr>";
+		}
+		echo "</table>";
+	}
+	//print_r($UserProfessionalInfoDB);
+	if(!empty($UserProfessionalInfoDB['current_company'])) { 
+		echo "<b><h3><u>$lang->EMPLOYMENTINFORMATION</u></h3></b>";
+		echo "<table><tr><td>$lang->COMPANYNAME</td><td>";
+		echo  $UserProfessionalInfoDB['current_company'];
+		echo "</td></tr>";
+		echo "<tr><td>$lang->DESIGNATION</td><td>";
+		echo  $UserProfessionalInfoDB['current_position'];
+		echo "</td></tr>";
+		echo "<tr><td>$lang->DURATION</td><td>";
+		echo  $UserProfessionalInfoDB['start_period'];
+		echo "</td></tr>";
+		echo "</table>";
+	}
 	echo "</body>";
 	echo "</html>";
 }
-else if((isset($_POST['template2']))&&($_POST['template2']=="use this template"))
+
+else if((isset($_POST['template2']))&&($_POST['template2']=="use this template"))	// When second template is selected by user
 {
 	//print_r ($objUserInfo->getUserPersonalInfo());
 	//echo "template2";
 	header("Content-type: application/vnd.ms-word");
-	header("Content-Disposition: attachment;Filename=$fname.doc");
+	header("Content-Disposition: attachment;Filename=$first_name.doc");
 	echo "<html>";
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
-	echo "<b><center><h1>$fname $lname</h1></center></b>";  //name
-	echo "<b><center><h4>$lang->ADDRESS</h4></center></b>";
-	echo "<b><center><h4>$email</h4></center></b>";
-	echo "<b><center><h4>$ph</h4></center></b>";
-	echo "<b><h3>$lang->SNAPSHOT</h3></b>";
-	echo "hhshsadjsjdj";
-	echo "<b><h3>$lang->EDUCATION</h3></b>";
-	echo "<table><tr><td>$lang->QUALIFICATION</td><td>$lang->INSTITUTEBOARD</td><td>$lang->YEAR</td></tr><tr></tr><tr></tr>";
-	echo "<tr><td>$lang->TENTH</td><td>$board10</td><td>$marks10</td></tr>";
-	echo "<tr><td>$lang->TWELETH</td><td>$board12</td><td>$marks12</td></tr>";
-	echo "<tr><td>$lang->GRADUATION</td><td>$grad</td><td>$marksg</td></tr></table>";
-	echo "<b><h3>$lang->OTHERCOURSES</h3></b>";
-	echo "hhshsadjsjdj";
-	echo "<b><h3> $lang->TECHNICALSKILLS</h3></b>";
-	echo $UserProfessionalInfoDB['skill_set'];
-	echo "<b><h3>$lang->ACADEMICPROJECT</h3></b>";
-	echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
-	for($j=0;$j<$n;$j++)
-	{
-		echo "<tr><td>";
-		echo $UserProjectInfoDB[$j]['title'];
-		echo "</td><td>";
-		echo $UserProjectInfoDB[$j]['project_description'];
-		echo "</td><td>";
-		echo $UserProjectInfoDB[$j]['technology_used'];
-		echo "</td><td>";
-		echo $UserProjectInfoDB[$j]['duration'];
-		echo "</td></tr>";
+	echo "<b><center><h1>";
+	echo $UserPersonalInfoDB['first_name']." " ;
+	echo $UserPersonalInfoDB['last_name'];
+	echo "</h1></center></b>";  
+	if(!empty($UserAddressInfoDB['address'])) { 
+		echo "<b><center><h4>";
+		echo $UserAddressInfoDB['address'];
+		echo "</h4></center></b>";
+	}	
+	if(!empty($UserAddressInfoDB['phone_no'])) { 
+		echo "<b><center><h4>";
+		echo $UserAddressInfoDB['phone_no'];
+		echo "</h4></center></b>";
+		}
+	if(!empty($UserAddressInfoDB['email_primary'])) {
+		echo "<b><center><h4>";
+		echo $UserAddressInfoDB['email_primary'];
+		echo "</h4></center></b>";
 	}
-	echo "</body>";
-	echo "</html>";
-}
-else if($_POST['template3']=="use this template")
+	echo "<hr noshade size=4 width=50%>";
+	echo "<b><h3>$lang->SNAPSHOT</h3></b>";
+	echo "<hr noshade >";
+	if(!empty($UserProfessionalInfoDB['current_company'])) { 
+		echo "Working in ";
+		echo $UserProfessionalInfoDB['current_company'];
+		echo "as a";
+		echo $UserProfessionalInfoDB['current_position'];
+	}
+	if(!empty($UserAcademicInfoDB)) {
+	echo "<b><h3>$lang->EDUCATION</h3></b>";
+	echo "<hr noshade size=3>";
+	echo "<table><tr><td>$lang->QUALIFICATION</td><td>$lang->INSTITUTEBOARD</td><td>$lang->SCHOOLCOLLEGE</td><td>$lang->CPI</td></tr>";
+		if(!empty($UserAcademicInfoDB['board_10'])) {
+			echo "<tr><td>$lang->TENTH</td><td>";
+			echo $UserAcademicInfoDB['board_10'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['school_10'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['percentage_GPA_10'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['board_12'])) {  
+			
+			echo "<tr><td>$lang->TWELETH</td><td>";
+			echo $UserAcademicInfoDB['board_12'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['school_12'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['percentage_12'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['graduation_degree'])) {  
+			echo "<tr><td>$lang->GRADUATION</td><td>";
+			echo $UserAcademicInfoDB['graduation_specialization'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['graduation_college'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['graduation_percentage']; 
+			echo "</td></tr>";
+		}
+		echo "</table>";
+	}	
+	
+	if(!empty($UserProfessionalInfoDB['skill_set'])) {
+		echo "<b><h3> $lang->TECHNICALSKILLS</h3></b>";
+		echo "<hr noshade size=3>";
+		echo $UserProfessionalInfoDB['skill_set'];
+	}
+	if($projectCount>1) {
+		echo "<b><h3>$lang->ACADEMICPROJECT</h3></b>";
+		echo "<hr noshade size=3>";
+		echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
+		for($j=0;$j<$projectCount;$j++) {
+			echo "<tr><td>";
+			echo $UserProjectInfoDB[$j]['title'];
+			echo "</td><td>";
+			echo $UserProjectInfoDB[$j]['project_description'];
+			echo "</td><td>";
+			echo $UserProjectInfoDB[$j]['technology_used'];
+			echo "</td><td>";
+			echo $UserProjectInfoDB[$j]['duration'];
+			echo "</td></tr>";
+		}
+		echo "</body>";
+		echo "</html>";
+	}
+}	
+else if($_POST['template3']=="use this template")	// When third template is selected by user
 {
 	
     header("Content-type: application/vnd.ms-word");
-	header("Content-Disposition: attachment;Filename=$fname.doc");
+	header("Content-Disposition: attachment;Filename=$first_name.doc");
 	echo "<html>";
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
-	echo "<b><h1>$fname $lname</h1></b>";  //name
-	echo "<b><h4>$ph</h4></b>";
-	echo "<b><h4>$email</h4></b>"; 
+	echo "<b><h1>";
+	echo $UserPersonalInfoDB['first_name']." " ;
+	echo $UserPersonalInfoDB['last_name'];
+	echo "</h1></b>";  
+	if(!empty($UserAddressInfoDB['address'])) { 
+		echo "<b><h4>";
+		echo $UserAddressInfoDB['address'];
+		echo "</h4></b>";
+	}	
+	if(!empty($UserAddressInfoDB['phone_no'])) { 
+		echo "<b><h4>";
+		echo $UserAddressInfoDB['phone_no'];
+		echo "</h4></b>";
+		}
+	if(!empty($UserAddressInfoDB['email_primary'])) {
+		echo "<b><h4>";
+		echo $UserAddressInfoDB['email_primary'];
+		echo "</h4></b>";
+	}
+	echo "<hr noshade size=4 >";
 	echo "<b><h3>$lang->OBJECTIVE</h3></b>";
 	echo "$lang->OBJECTIVE1";
-	echo "<b><h3>$lang->EDUCATION</h3></b>";
-	echo "<table>";
-	echo "<tr><td>$lang->STD</td><td>$lang->BOARD</td><td>$lang->CPI</td></tr>";
-	echo "<tr><td>$lang->TENTH</td><td>$board10</td><td>$marks10</td></tr>";
-	echo "<tr><td>$lang->TWELETH</td><td>$board12</td><td>$marks12</td></tr>";
-	echo "<tr><td>$lang->GRADUATION</td><td>$grad</td><td>$marksg</td></tr></table>";
-	echo "<b><h3>$lang->STRENGHT</h3></b>";
+
+	if(!empty($UserAcademicInfoDB)) {
+		echo "<b><h3>$lang->EDUCATION</h3></b>";
+		echo "<table>";
+		echo "<tr><td>$lang->STD</td><td>$lang->BOARD</td><td>$lang->SCHOOLCOLLEGE</td><td>$lang->CPI</td></tr>";
+		if(!empty($UserAcademicInfoDB['board_10'])) {
+			echo "<tr><td>$lang->TENTH</td><td>";
+			echo $UserAcademicInfoDB['board_10'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['school_10'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['percentage_GPA_10'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['board_12'])) {  
+		
+			echo "<tr><td>$lang->TWELETH</td><td>";
+			echo $UserAcademicInfoDB['board_12'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['school_12'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['percentage_12'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['graduation_degree'])) {  
+			echo "<tr><td>$lang->GRADUATION</td><td>";
+			echo $UserAcademicInfoDB['graduation_specialization'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['graduation_college'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['graduation_percentage']; 
+			echo "</td></tr>";
+		}
+		echo "</table>";
+	}
+	/*echo "<b><h3>$lang->STRENGHT</h3></b>";
 	echo "hhshsadjsjdj";
 	echo "<b><h3>$lang->CAREERGRAPH</h3></b>";
-	echo "hhshsadjsjdj";
+	echo "hhshsadjsjdj";*/
+	
+	if(!empty($UserProfessionalInfoDB['current_company'])) { 
 	echo "<b><h3>$lang->CURRENTCOMPANY</h3></b>";
 	echo "<table><tr><td>$lang->COMPANYNAME</td><td>";
 	echo  $UserProfessionalInfoDB['current_company'];
@@ -214,8 +341,24 @@ else if($_POST['template3']=="use this template")
 	echo  $UserProfessionalInfoDB['start_period'];
 	echo "</td></tr>";
 	echo "</table>";
+	}
 	echo "<b><h3>$lang->WORKEXPERIENCE</h3></b>";
-	echo "hhshsadjsjdj";
+	if(!empty($UserPreviousJobInfo['company'])) {
+		echo "worked in <b>";
+		echo $UserPreviousJobInfo['company']. " ";
+		echo "</b>";
+	}	
+	if(!empty($UserPreviousJobInfo['position'])) {
+		echo "As a  <b>";
+		echo $UserPreviousJobInfo['position'];
+		echo "</b>";
+	}
+	if((!empty($UserPreviousJobInfo['start_period']))&&(!empty($UserPreviousJobInfo['end_period']))) {
+		echo "from  ";
+		echo $UserPreviousJobInfo['start_period'];
+		echo " to  ";
+		echo $UserPreviousJobInfo['end_period'];
+	}	
 	echo "</body>";
 	echo "</html>";
 	
