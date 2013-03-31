@@ -163,9 +163,9 @@
 											'OBJECTIVE1'=>"To obtain a position that will enable me to use my strong organizational 
 											     skills, educational background, and ability to work well with people",
 											'KEY'=>"ImSoRrYHaCkEr",
-											''=>"",
-									 		''=>"",
-									 		''=>"",
+											'PRIMARYEMAIL'=>"Primary Email  ",
+									 		'CURRENTLYWORKINGIN'=>"Currenty Working in ",
+									 		'AS'=>"As",
 									 		''=>"",
 									 		''=>"",
 									 		''=>"",

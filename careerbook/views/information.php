@@ -24,25 +24,22 @@ if(isset($_SESSION['userData']))
 	$userid = $ob1->getUserIdInfo();
 	$idd = $userid['id'];
 }
-if(isset($_REQUEST['user_id']))
+if(isset($_REQUEST['user_id'])) //if viewing friend's profile 
 {
-$ob1=$objUserInfo->getUserAcademicInfo();
 $id=$_GET['user_id'];
 }
-else {
+else {							//viewing own profile
 	$id=$idd;
 }
-$obj->setId($id);
+
+$obj->setId($id);				 //setting the id of the user in profile class through profile controller function
+
+/***********Getting All user information from profile model class through profile controller functions******************/
 $acdemicInfo=$obj->handleAcademicInfo();
 $personalInfo=$obj->handlePersonalInfo();
 $projectInfo=$obj->handleProjectInfo();
 $jobInfo=$obj->handlePreviousJobInfo();
 $professionalInfo=$obj->handleProfessionalInfo();
-//print_r ($personalInfo);
-//print_r($acdemicInfo);
-//print_r($professionalInfo);
-//print_r($jobInfo);
-//print_r($projectInfo);
 ?>
 <link rel="stylesheet" type="text/css" href="../css/information.css" />
 
@@ -54,16 +51,17 @@ $professionalInfo=$obj->handleProfessionalInfo();
 	<h1><?php echo $personalInfo['0']['first_name']." ";echo $personalInfo['0']['middle_name']." ";echo $personalInfo['0']['last_name'];?></h1>
 	<br/>
 	<?php if(isset($personalInfo['0']['profile_image'])) { 
-		$uri = 'data:image/png;base64,'.base64_encode($personalInfo['0']['profile_image']);
+			$uri = 'data:image/png;base64,'.base64_encode($personalInfo['0']['profile_image']);
 		?>
-	<img src="<?php echo $uri;?>" height=20% width=15%/><?php }?>
+			<img src="<?php echo $uri;?>" height=20% width=15%/>
+		<?php } ?>
 	<div id="left">
 	
-	<h4>Primary Email : <?php echo $personalInfo['0']['email_primary'];?></h4>
-	<h4>Gender : <?php echo $personalInfo['0']['gender'];?></h4>
-	<h4>Phone : <?php echo $personalInfo['0']['phone_no']; }?></h4>
+	<h4><?php echo $lang->PRIMARYEMAIL.": "; echo $personalInfo['0']['email_primary'];?></h4>
+	<h4><?php echo $lang->GENDER.": "; echo $personalInfo['0']['gender'];?></h4>
+	<h4><?php echo $lang->PHONENUMBER.": ";echo $personalInfo['0']['phone_no']; }?></h4>
 	<?php if(!empty($professionalInfo['0']['current_company'])) { ?>
-	<h4>Currenty Working in <?php echo $professionalInfo['0']['current_company'];?> As <?php echo $professionalInfo['0']['current_position'];?></h4>
+	<h4><?php echo $lang->CURRENTLYWORKINGIN ." "; echo $professionalInfo['0']['current_company'];?> <?php echo $lang->AS." ";echo $professionalInfo['0']['current_position'];?></h4>
 		<?php }?></div>
 		<br/><br/><br/><br/>
 		<?php if(!empty($acdemicInfo)) { ?>
@@ -79,10 +77,21 @@ $professionalInfo=$obj->handleProfessionalInfo();
 		</div>
 		<?php }?>
 		<?php if(!empty($professionalInfo)) { ?>
-		<div id="Skills"><heading><?php echo $lang->SKILLS?></heading></div><br/>
-		<?php echo $professionalInfo['0']['skill_set'];?>
-			<?php }?>
-			<?php if(!empty($jobInfo)) { ?>
+			<div id="Skills"><heading><?php echo $lang->SKILLS?></heading></div><br/>
+			<?php $skillSet=$professionalInfo['0']['skill_set'];
+			$skillArray=explode(',',$skillSet);
+			$skillCount=count($skillArray);
+			?>
+		    <table cellspacing="10" cellpadding="5";>
+		    <?php for($i=0;$i<$skillCount;$i++) {
+				echo "<td>";
+				echo $skillArray[$i];
+				echo "</td>"; 
+				}
+			echo "</tr></table>";
+			?>
+		<?php }?>
+		<?php if(!empty($jobInfo)) { ?>
 		<div id="Industrial Experience"><heading><?php echo $lang->INDUSTRIALEXPERIENCE?></heading></div>
 			<table cellspacing="10" cellpadding="5";>
 			<tr><td><?php echo $lang->COMPANYNAME?></td><td><?php echo $jobInfo['0']['company'] ?></td></tr>
