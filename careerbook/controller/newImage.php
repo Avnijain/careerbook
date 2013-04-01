@@ -143,8 +143,8 @@ $frndImage=$objImageModel->getUserFrndsImage($_REQUEST['userId']); //get all my 
 elseif(isset($_GET['group'])){
 	$frndImage=$objImageModel->getUserGroupImage($_REQUEST['userId']); //get all my group image
 }
- 
-
+ print_r($frndImage);
+die;
 
 //**********************************************perform merge image ***********************************************************
 $object=new MergePicture($userImg,$frndImage);

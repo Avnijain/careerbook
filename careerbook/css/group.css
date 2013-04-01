@@ -3,9 +3,12 @@
 	width: 95%;
 	height: auto;
 	padding: 8px;
-	background: #EEEEEE;
-	border: #660065 solid 1px;
+	background: #D0D0D0;
+	border: #660065 solid 0px;
 	border-radius: 15px;
+	margin-left: 5%;
+	overflow: auto;
+	
 }
 
 .group_button {

@@ -6,7 +6,7 @@
 	if (isset($_SESSION['groupSearch'])) {
 		$groupData = unserialize($_SESSION['groupSearch']);
 		$groupData = $groupData->getGroupSearchList();
-		
+
 	}
 ?>
 <div id="main">
@@ -18,6 +18,10 @@
 	</form>
 </div>
 <br />
+<?php 
+echo "<pre>";
+print_r($groupData);
+?>
 <div id="searchGroupResult">
 	<h2>
 		<?php

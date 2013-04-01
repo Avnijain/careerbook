@@ -287,7 +287,8 @@ class Group {
 						(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' )
 					"),true);
 		$this->db->Select ();
-		$result1 = $this->db->resultArray ();
+		echo $this->db->lastQuery();die;
+		return $result1 = $this->db->resultArray ();die;
 		
 		$this->db->unsetValues();
 		

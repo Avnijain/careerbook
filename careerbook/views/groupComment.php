@@ -3,7 +3,7 @@
 	include_once('../classes/groupClass.php');
 	$groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
 	$groupData = $groupData->getCommentList();
-	$uri = 'data:image/png;base64,'.base64_encode($groupData[0]['profile_image']);
+	
 	
 	$groupData1 = unserialize ( $_SESSION ['postDetail'] );
 	$groupData1 = $groupData1->getPostDetail();
@@ -28,9 +28,10 @@
 		<input type="submit" value="Post" class="group_button">
 	</form>
 </div><br/>
-<div>
+<div class="group_comment group_div">
 	<?php
 	foreach ( $groupData as $keys => $values ) {
+		$uri = 'data:image/png;base64,'.base64_encode($groupData[$keys]['profile_image']);
 		?>
 	<div class="group_comment group_div">
 		<img src="<?php echo $uri;?>" class="group_image">
@@ -40,7 +41,7 @@
 		echo " on " . $values ['created_on'] . "<br/>";
 		?>
 		
-	</div><br />
+	</div>
 	<?php
 	}
 	?>

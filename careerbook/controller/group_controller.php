@@ -177,6 +177,7 @@ class GroupHandler extends Group {
 		$this->handleGetGroup();
 	}
 	function handleSearchGroup() {
+		$this->_obj_group_model->_created_by = $this->userid;
 		$this->_obj_group_model->_search_group = trim($_REQUEST['groupSearch']);
 		$this->_obj_group_model->_search_group = mysql_real_escape_string($_REQUEST['groupSearch']);
 		
