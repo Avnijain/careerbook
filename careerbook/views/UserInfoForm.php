@@ -31,11 +31,7 @@
 <script src="../JavaScript/jquery-ui.js"></script>
 <script>
  $(function() {					//to display calendar
-	 $( "#datepicker" ).datepicker({
-		 changeMonth: true,
-		 changeYear: true,
-		 dateFormat: 'dd/mm/yy'
-		 });
+
 	 $( "#start_periodPREVJOB" ).datepicker({
 		 changeMonth: true,
 		 changeYear: true
@@ -50,6 +46,12 @@
     		 changeYear: true
     		 });
      });
+     $("#datepicker").datepicker({
+  	   changeYear: true,
+  	   dateFormat: 'yy/mm/dd',
+  	   minDate: new Date('1960/01/01'),
+  	   maxDate: '-1d'
+  	});     
 	 $( "#start_period" ).datepicker({
 		 changeMonth: true,
 		 changeYear: true

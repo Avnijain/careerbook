@@ -396,16 +396,17 @@ class mainentrance {
 				}
 			}
 		}
+		if ($flagData) {
+		    $this->obj_usrinfo->setUserPreviousJobInfoForm ( $userPreviousJobInfo );
+		    // echo "inserting professional";
+		}
 		// echo "<pre/>";
 		// print_r($userPreviousJobInfo);
 		// die;
 		/**
 		 * ************************** User Professional Information ***********************
 		 */		
-		if ($flagData) {
-			$this->obj_usrinfo->setUserPreviousJobInfoForm ( $userPreviousJobInfo );
-			// echo "inserting professional";
-		}
+
 
 		$flagData = false;
 		if (isset ( $_POST ['start_period'] )) {

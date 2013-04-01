@@ -17,6 +17,11 @@ p
 {
 background-color:#668099;
 }
+#skill
+{
+	overflow : auto;
+	width:700px;
+}
 #left
 {
 	float:right;

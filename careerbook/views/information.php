@@ -82,6 +82,7 @@ $professionalInfo=$obj->handleProfessionalInfo();
 			$skillArray=explode(',',$skillSet);
 			$skillCount=count($skillArray);
 			?>
+			<p id ="skill">
 		    <table cellspacing="10" cellpadding="5";>
 		    <?php for($i=0;$i<$skillCount;$i++) {
 				echo "<td>";
@@ -91,6 +92,7 @@ $professionalInfo=$obj->handleProfessionalInfo();
 			echo "</tr></table>";
 			?>
 		<?php }?>
+		</p>
 		<?php if(!empty($jobInfo)) { ?>
 		<div id="Industrial Experience"><heading><?php echo $lang->INDUSTRIALEXPERIENCE?></heading></div>
 			<table cellspacing="10" cellpadding="5";>
