@@ -56,6 +56,6 @@
 	<br />
 	<?php
 	}
-	//unset($_SESSION['groupSearch']);
+	unset($_SESSION['groupSearch']);
 	?>
 </div>
