@@ -19,8 +19,8 @@
 </div>
 <br />
 <?php 
-echo "<pre>";
-print_r($groupData);
+//echo "<pre>";
+//print_r($groupData);
 ?>
 <div id="searchGroupResult">
 	<h2>
@@ -45,10 +45,13 @@ print_r($groupData);
 		<?php
 		echo "Title : " .$values['title'] . "<br/>";
 		echo "Description : " .$values['description'] . "<br/>";
+		if($values['status'] == 'A') {
+			echo "<a class='group_button' href=\"../controller/mainentrance.php?action=getPost&groupId={$values['id']}\">View</a>";
+		} else {
+			echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=joinGroup&groupId={$values['id']}\">Join Group</a>";
+		}
 		?>
-		<a class="group_button"
-			href="../controller/mainentrance.php?action=joinGroup&groupId=<?php echo $values['id'];?>">Join
-			Group</a>
+		
 	</div>
 	<br />
 	<?php

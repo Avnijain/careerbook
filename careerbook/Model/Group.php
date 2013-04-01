@@ -277,18 +277,18 @@ class Group {
 				"gd.description",
 				"gd.group_image",
 				"gm.member_id",
-				"gd.status",
 				"gm.status"
 		) );
 		
-		$this->db->From ('group_details gd, group_members gm');
+		$this->db->From ('group_details gd');
+		$this->db->Join('group_members gm', 'gd.id = gm.group_id');
 		$this->db->Where(array(
-						"gm.member_id = " .$this->_created_by . " AND gd.status = 'A' AND 
+						"( gd.status = 'A' AND gm.member_id = ".$this->_created_by.") AND (gm.status = 'A' OR gm.status = 'D') AND
 						(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' )
 					"),true);
 		$this->db->Select ();
-		echo $this->db->lastQuery();die;
-		return $result1 = $this->db->resultArray ();die;
+		echo $this->db->lastQuery();
+		$result1 = $this->db->resultArray ();
 		
 		$this->db->unsetValues();
 		
@@ -298,8 +298,8 @@ class Group {
 		
 		$this->db->From ('group_details gd, group_members gm');
 		$this->db->Where(array(
-				"	gm.member_id = " .$this->_created_by . " AND gd.status = 'A' AND
-					(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' )
+						"( gd.status = 'A' AND gm.member_id = ".$this->_created_by.") AND (gm.status = 'A' OR gm.status = 'D') AND
+						(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' )
 				"),true);
 		$this->db->Select ();
 		$result2 = $this->db->resultArray ();
@@ -322,7 +322,6 @@ class Group {
 				"gd.description",
 				"gd.group_image",
 				"gm.member_id",
-				"gd.status",
 				"gm.status"
 		) );
 		
