@@ -33,7 +33,8 @@
  $(function() {					//to display calendar
 	 $( "#datepicker" ).datepicker({
 		 changeMonth: true,
-		 changeYear: true
+		 changeYear: true,
+		 dateFormat: 'dd/mm/yy'
 		 });
 	 $( "#start_periodPREVJOB" ).datepicker({
 		 changeMonth: true,

@@ -137,7 +137,13 @@ class MergePicture extends  SimpleImage{     //claas which create a merge image 
 $objImageModel =new MyImageGet();
 
 $userImg=$objImageModel->getUserImage($_REQUEST['userId']);	//get user image  
-$frndImage=$objImageModel->getUserFrndsImage($_REQUEST['userId']); //get all my friends image 
+if(isset($_GET['friends'])){
+$frndImage=$objImageModel->getUserFrndsImage($_REQUEST['userId']); //get all my friends image
+}
+elseif(isset($_GET['group'])){
+	$frndImage=$objImageModel->getUserGroupImage($_REQUEST['userId']); //get all my group image
+}
+ 
 
 
 //**********************************************perform merge image ***********************************************************
