@@ -8,6 +8,7 @@ Version                     -  1.0
 Created by                  -  Avni Jain
 Created on                  -  March 07, 2013
 */
+
 include_once("../classes/lang.php");
 ?>
 <script	type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
@@ -110,8 +111,7 @@ include_once("../classes/lang.php");
 							<ol>
 								<li><?php echo $lang->OBJECTIVE; ?></li>
 								<li><?php echo $lang->EDUCATION; ?></li>
-								<li><?php echo $lang->STRENGHT; ?></li>
-								<li><?php echo $lang->CAREERGRAPH; ?></li>
+								<li><?php echo $lang->CERTIFICATION; ?></li>
 								<li><?php echo $lang->CURRENTCOMPANY; ?></li>
 								<li><?php echo $lang->WORKEXPERIENCE; ?></li>
 							</ol>

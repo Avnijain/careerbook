@@ -26,16 +26,18 @@ $UserProjectInfoDB  = $objUserInfo->getUserProjectInfoDB();
 $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
 $UserAddressInfoDB  = $objUserInfo->getUserAddressInfo();
 $UserPreviousJobInfo = $objUserInfo->getUserPreviousJobInfo();
-
-$projectCount=count($UserProjectInfoDB); // to get the number of projects
-
-$first_name=$UserPersonalInfoDB['first_name']; // getting first name
+$UserExtraCurricularobInfoDB = $objUserInfo->getUserExtraCurricularInfoDB();
+$UserCertificateInfoDB=$objUserInfo->getUserCertificateInfoDB();
+$projectCount=count($UserProjectInfoDB);                                    // to get the number of projects
+$certificateCount=count($UserCertificateInfoDB);							//to get the total number of certifiactes
+$extraCurricularCount=count($UserExtraCurricularobInfoDB);					//to get the count of Extra Curricular Activities
+$first_name=$UserPersonalInfoDB['first_name']; 								// getting first name
 
 if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // When first template is selected by user
 {	
 	echo "template1";
-	header("Content-type: application/vnd.ms-word");    // to open a word file
-	header("Content-Disposition: attachment;Filename=$first_name.doc"); //word file of user's first name
+	header("Content-type: application/vnd.ms-word");    					// to open a word file
+	header("Content-Disposition: attachment;Filename=$first_name.doc"); 	//word file of user's first name
 	
 	/*********************Displaying all the user information in selected first template format************************************/
 	echo "<html>";
@@ -83,10 +85,20 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 			echo $UserPersonalInfoDB['gender'];
 			echo "</td></tr>";
 		}
+		if(!empty($UserExtraCurricularobInfoDB[0]['activity'])) {
+			echo "<tr><td>$lang->EXTRACURRICULAR</td>";
+			if($extraCurricularCount>=1) {
+				for($i=0;$i<$extraCurricularCount;$i++) {
+					echo "<td>";
+					echo $UserExtraCurricularobInfoDB[$i]['activity'];
+					echo "</td>";
+				}
+			}
+			echo "</tr>";
+		}	
 		echo "</table>";
 	}
-	//echo "<tr><td>$lang->LANGUAGEPROFICENCY</td>";
-	//echo "<td>$email</td></tr></table>";
+	
 	if(!empty($UserAcademicInfoDB)) {
 		echo "<b><h3><u>$lang->EDUCATIONINFORMATION</u></h3></b>";
 		echo "<table>";
@@ -128,8 +140,7 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 	if($projectCount>1) {
 		echo "<b><h3><u>$lang->PROJECT</u></h3></b>";
 		echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
-		for($i=0;$i<$projectCount;$i++)
-		{
+		for($i=0;$i<$projectCount;$i++) {
 			echo "<tr><td>";
 			echo $UserProjectInfoDB[$i]['title'];
 			echo "</td><td>";
@@ -142,7 +153,7 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 		}
 		echo "</table>";
 	}
-	//print_r($UserProfessionalInfoDB);
+	
 	if(!empty($UserProfessionalInfoDB['current_company'])) { 
 		echo "<b><h3><u>$lang->EMPLOYMENTINFORMATION</u></h3></b>";
 		echo "<table><tr><td>$lang->COMPANYNAME</td><td>";
@@ -190,12 +201,24 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 	}
 	echo "<hr noshade size=4 width=50%>";
 	echo "<b><h3>$lang->SNAPSHOT</h3></b>";
-	echo "<hr noshade >";
+	echo "<hr noshade>";
 	if(!empty($UserProfessionalInfoDB['current_company'])) { 
 		echo "$lang->CURRENTLYWORKINGIN"." ";
 		echo $UserProfessionalInfoDB['current_company'];
 		echo "$lang->AS"." ";
 		echo $UserProfessionalInfoDB['current_position'];
+		echo "<br/>";
+	}
+	if(($certificateCount>=1)&&!empty($UserCertificateInfoDB[0]['name'])) {
+		for($i=0;$i<$certificateCount;$i++) {
+			echo $UserCertificateInfoDB[$i]['name']." ";
+			echo "$lang->CERTIFIED"." ";
+			if(!empty( $UserCertificateInfoDB[$i]['duration'])) {
+				echo "$lang->DATED"." ";
+				echo $UserCertificateInfoDB[$i]['duration'];
+			echo "</br>";	
+			}
+		}
 	}
 	if(!empty($UserAcademicInfoDB)) {
 	echo "<b><h3>$lang->EDUCATION</h3></b>";
@@ -237,7 +260,7 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 		echo "<hr noshade size=3>";
 		echo $UserProfessionalInfoDB['skill_set'];
 	}
-	if($projectCount>1) {
+	if(($projectCount>=1)&&!empty($UserProjectInfoDB[0]['title'])){
 		echo "<b><h3>$lang->ACADEMICPROJECT</h3></b>";
 		echo "<hr noshade size=3>";
 		echo "<table><tr><td>$lang->TITLE</td><td>$lang->DESCRIPTION</td><td>$lang->TECHNOLOGYUSED</td><td>$lang->DURATION</td></td>";
@@ -322,10 +345,25 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 		}
 		echo "</table>";
 	}
-	/*echo "<b><h3>$lang->STRENGHT</h3></b>";
-	echo "hhshsadjsjdj";
-	echo "<b><h3>$lang->CAREERGRAPH</h3></b>";
-	echo "hhshsadjsjdj";*/
+	if(($certificateCount>=1)&&!empty($UserCertificateInfoDB[0]['name'])) {
+		echo "<b><h3>$lang->CERTIFICATION</h3></b>";
+		echo "<table>";
+		echo "<tr><td>$lang->NAME</td><td>$lang->CERTIFICATEDESCRIPTION</td><td>$lang->DATED</td></tr>";
+		for($i=0;$i<$certificateCount;$i++) {
+			echo "<tr><td>";
+			echo $UserCertificateInfoDB[$i]['name'];
+			echo "</td><td>";
+			echo $UserCertificateInfoDB[$i]['description']; 
+			echo "</td>";
+			if(!empty( $UserCertificateInfoDB[$i]['duration'])) {
+			echo "<td>";
+			echo $UserCertificateInfoDB[$i]['duration'];
+			echo "</td>";
+			}
+			echo "</tr>";
+		}
+		echo "</table>";
+	}
 	
 	if(!empty($UserProfessionalInfoDB['current_company'])) { 
 	echo "<b><h3>$lang->CURRENTCOMPANY</h3></b>";

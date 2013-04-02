@@ -117,7 +117,23 @@ class Profile extends DBConnection {
 		return $this->resultArray();
 	
 	}
+	function get_certificate_info() {
+		$this->Fields(array(
+				"name",
+				"description",
+				"duration"
+		)
+		);
 	
+		$this->From("user_certification_info");
+		//$a="b.id";
+		
+		$this->Where1(array("user_id"=>$this->userid));
+	
+		$this->Select();
+		//echo $this->lastQuery();
+		return $this->resultArray();
+	}
 }
 
 ?>

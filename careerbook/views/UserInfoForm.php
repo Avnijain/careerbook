@@ -99,7 +99,7 @@
     }
     function addMoreExtraCurricular()
     {
-        var $text1="<p><label ><?php echo $lang->EXTRACIRCULAR;?> </label>";
+        var $text1="<p><label ><?php echo $lang->EXTRACURRICULAR;?> </label>";
         var $text2="<input id=\"extracurricular\" name=\"extracurricular_activity[]\" type=\"text\" AUTOCOMPLETE=OFF />";
         $("#otherCertificate").append($text1+$text2);
     }
@@ -297,7 +297,7 @@
                     <?php } ?>
                     <?php foreach($UserExtraCurricularInfoDB as $key => $value){ ?>
                         <p>
-                            <label><?php echo $lang->EXTRACIRCULAR;?> </label>
+                            <label><?php echo $lang->EXTRACURRICULAR?> </label>
                             <input id="extracurricular" name="extracurricular_activity[]" type="text" AUTOCOMPLETE="OFF"
                             <?php if(!empty($value['activity'])){?> value="<?php echo $value['activity']; } ?>"/> 
                         </p>

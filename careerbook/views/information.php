@@ -40,6 +40,8 @@ $personalInfo=$obj->handlePersonalInfo();
 $projectInfo=$obj->handleProjectInfo();
 $jobInfo=$obj->handlePreviousJobInfo();
 $professionalInfo=$obj->handleProfessionalInfo();
+$certificateInfo=$obj->handleCertificateInfo();
+
 ?>
 <link rel="stylesheet" type="text/css" href="../css/information.css" />
 <body>
@@ -76,8 +78,31 @@ $professionalInfo=$obj->handleProfessionalInfo();
 			<tr><td><?php echo $acdemicInfo['0']['post_graduation_degree']?></td><td><?php echo $acdemicInfo['0']['post_graduation_specialization']?></td><td><?php echo $acdemicInfo['0']['post_graduation_college']?></td></tr>
 			</table>
 		</div>
-		<?php }?>
-		<?php if(!empty($professionalInfo)) { ?>
+		<?php }?><br/><br/>
+		<?php if(!empty($certificateInfo[0]['name'])) {
+		$certificateCount=count($certificateInfo);
+		if(($certificateCount>=1)) {?>
+		<heading><?php echo $lang->CERTIFICATION;?></heading>
+		<table>
+		<tr><td><?php echo $lang->NAME?></td><td><?php echo $lang->CERTIFICATEDESCRIPTION?></td><td><?php echo $lang->DATED?></td></tr>
+		<?php for($i=0;$i<$certificateCount;$i++) {?>
+			<tr><td>
+			<?php echo $certificateInfo[$i]['name'];?>
+			</td><td>
+			<?php echo $certificateInfo[$i]['description'];?> 
+			</td>
+			<?php if(!empty( $certificateInfo[$i]['duration'])) {?>
+			<td>
+			<?php echo $certificateInfo[$i]['duration']; ?>
+			</td>
+			<?php }?>
+			</tr>
+		<?php } ?>
+		</table>
+	<?php } }?><br/><br/><br/>
+	 
+		
+		<?php if(!empty($professionalInfo['0']['skill_set'])) { ?>
 			<div id="Skills"><heading><?php echo $lang->SKILLS?></heading></div><br/>
 			<?php $skillSet=$professionalInfo['0']['skill_set'];
 			$skillArray=explode(',',$skillSet);
@@ -93,7 +118,8 @@ $professionalInfo=$obj->handleProfessionalInfo();
 			echo "</tr></table>";
 			?>
 		<?php }?>
-		</span><br/></br>
+		</span><br/></br><br/>
+		
 		<?php if(!empty($jobInfo)) { ?>
 		<div id="Industrial Experience"><heading><?php echo $lang->INDUSTRIALEXPERIENCE?></heading></div>
 			<table cellspacing="10" cellpadding="5";>

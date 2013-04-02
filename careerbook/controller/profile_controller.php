@@ -62,7 +62,11 @@ class ProfileController extends Profile
 // 		print_r($result);
 		return($result);
 	}
-	
+	function handleCertificateInfo() {
+		$result=parent::get_certificate_info();
+		//print_r($result); 
+		return($result);
+	}
 	}
 	$obj=new ProfileController();
 
