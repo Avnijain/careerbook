@@ -1,3 +1,6 @@
+<?php
+include_once("../classes/lang.php");
+?>
 <center><div id="float-left">
 	<?php
 		$objUserInfo = unserialize($_SESSION['userData']);
@@ -11,9 +14,9 @@
 	<?php
 
 					
-	       echo "<b>User Name:</b>    ".$userData['first_name']." ".$userData['last_name']."<br>";
-	       echo "<b>Gender:</b>       ".$userData['gender']."<br>";
-	       echo "<b>Date of Birth:</b>".$userData['date_of_birth'];
+	       echo "<b>$lang->USERNAME</b>    ".$userData['first_name']." ".$userData['last_name']."<br>";
+	       echo "<b>$lang->GENDER</b>       ".$userData['gender']."<br>";
+	       echo "<b>$lang->DOB</b>".$userData['date_of_birth'];
 						       
 
 	?>

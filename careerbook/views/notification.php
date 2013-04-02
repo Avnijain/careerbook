@@ -1,5 +1,5 @@
 <?php
-
+include_once("../classes/lang.php");
 ?>
 <div class="post">
 					<p>
@@ -16,7 +16,7 @@
 				    		<a href="userHomePage.php?message"><img src="../images/message.jpg" alt="" width="90%"></a>
 				    	</div>
 				    	<div class="data">
-				    		<p>User Messages</p>
+				    		<p><?php echo $lang->USERMESSAGES?></p>
 							<?php
 								
 								require_once '../controller/message_controller.php';
@@ -33,7 +33,7 @@
 				    		<a href="userHomePage.php?FriendsRequest"><img src="../images/addFriends.jpg" alt="" width="90%"></a>
 				    	</div>
 				    	<div class="data">
-				    		<p>User Friend Request</p>
+				    		<p><?php echo $lang->USERFRIENDREQUEST?></p>
                                                 
                                                 <?php
                                                     

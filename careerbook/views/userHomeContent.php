@@ -1,11 +1,11 @@
 <?php 
 
-
+include_once("../classes/lang.php");
 ?>
 <div id="contentSide">
 			<!-- Box -->
 			<div class="box">
-				<h2><span>Notifications</span></h2>
+				<h2><span><?php echo $lang->NOTIFICATIONS ?></span></h2>
 				<div class="cl">&nbsp;</div>				
 				<div class="posts">
 					<!-- Post -->
@@ -17,7 +17,7 @@
 			<!-- /Box -->
 			<!-- Box -->
 			<div class="box">
-				<h2><span>Activity Report</span></h2>
+				<h2><span><?php echo $lang->ACTIVITYREPORT?></span></h2>
 				<div class="cl">&nbsp;</div>				
 				<div class="posts">
 					<!-- Post -->
@@ -110,7 +110,7 @@ else{
 
 			<!-- Box -->
 			<div class="box">
-				<h2><span>User Profile</span></h2>
+				<h2><span><?php echo $lang->USERPROFILE?></span></h2>
 				<div class="cl">&nbsp;</div>				
 				<div class="posts">
 					<!-- Post -->
@@ -127,7 +127,7 @@ else{
 			<!-- /Box -->
 			<!-- Box -->
 			<div class="box">
-				<h2><span>Friends</span></h2>
+				<h2><span><?php echo  $lang->FRIENDS?></span></h2>
 				<div class="cl">&nbsp;</div>				
 				<div class="posts">
 					<!-- Post -->
@@ -139,7 +139,7 @@ else{
 			<!-- /Box -->
 			
 			<div class="box">
-				<h2><span>Group</span></h2>
+				<h2><span><?php echo $lang->GROUP?></span></h2>
 				<div class="cl">&nbsp;</div>				
 				<div class="posts">
 					<!-- Post -->
