@@ -10,6 +10,7 @@
     $UserCertificateInfoDB =  $objUserInfo->getUserCertificateInfoDB();
     $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
     $UserPreviousJobInfoDB =  $objUserInfo->getUserPreviousJobInfoDB();
+    $UserExtraCurricularInfoDB =  $objUserInfo->getUserExtraCurricularInfoDB();
     $_SESSION['userData'] = serialize($objUserInfo);
 ?>
 
@@ -33,28 +34,41 @@
  $(function() {					//to display calendar
 
 	 $( "#start_periodPREVJOB" ).datepicker({
-		 changeMonth: true,
-		 changeYear: true
+	  	   changeYear: true,
+	  	   changeMonth: true,
+	  	   dateFormat: 'yy/mm/dd',
+	  	   minDate: new Date('1975/01/01'),
+	  	   maxDate: '-1d'
 		 });
 	 $( "#end_periodPREVJOB" ).datepicker({
-		 changeMonth: true,
-		 changeYear: true
-		 });
+	  	   changeYear: true,
+	  	   changeMonth: true,
+	  	   dateFormat: 'yy/mm/dd',
+	  	   minDate: new Date('1975/01/01'),
+	  	   maxDate: '-1d'
+		});
      $( ".certificate" ).click(function(){
          $(this).datepicker({
-    		 changeMonth: true,
-    		 changeYear: true
-    		 });
+        	   changeYear: true,
+          	   changeMonth: true,
+          	   dateFormat: 'yy/mm/dd',
+          	   minDate: new Date('1975/01/01'),
+          	   maxDate: '-1d'
+		});
      });
      $("#datepicker").datepicker({
   	   changeYear: true,
+  	   changeMonth: true,
   	   dateFormat: 'yy/mm/dd',
-  	   minDate: new Date('1960/01/01'),
+  	   minDate: new Date('1975/01/01'),
   	   maxDate: '-1d'
   	});     
 	 $( "#start_period" ).datepicker({
-		 changeMonth: true,
-		 changeYear: true
+	  	   changeYear: true,
+	  	   changeMonth: true,
+	  	   dateFormat: 'yy/mm/dd',
+	  	   minDate: new Date('1975/01/01'),
+	  	   maxDate: '-1d'
 		 });
      $("#deleteMessage.selectMessage").click(function(){
          //alert("hieee" + $(this).attr('name') );
@@ -73,7 +87,7 @@
         var $text8="<input id=\"duration\" name=\"duration[]\" type=\"number\" AUTOCOMPLETE=OFF /></p>";                  
         $("#otherDegree").append($text1+$text2+$text3+$text4+$text5+$text6+$text7+$text8);
     }
-    function addMore()
+    function addMoreCertificate()
     {
         var $text1="<p><label ><?php echo $lang->CERTIFICATENAME;?> </label>";
         var $text2="<input id=\"certificatename\" name=\"certificate_name[]\" type=\"text\" AUTOCOMPLETE=OFF />";
@@ -81,7 +95,13 @@
         var $text4="<input id=\"certificatedescription\" name=\"certificate_description[]\" type=\"text\" AUTOCOMPLETE=OFF />";
         var $text5="<label ><?php echo $lang->DATEDAT;?></label>";
         var $text6="<input id=\"datedat\" name=\"certificate_duration[]\" type=\"text\" AUTOCOMPLETE=OFF />";                  
-        $("#other").append($text1+$text2+$text3+$text4+$text5+$text6);
+        $("#otherCertificate").append($text1+$text2+$text3+$text4+$text5+$text6);
+    }
+    function addMoreExtraCurricular()
+    {
+        var $text1="<p><label ><?php echo $lang->EXTRACIRCULAR;?> </label>";
+        var $text2="<input id=\"extracurricular\" name=\"extracurricular_activity[]\" type=\"text\" AUTOCOMPLETE=OFF />";
+        $("#otherCertificate").append($text1+$text2);
     }
 </script>
 <div id="mainWrapper">
@@ -260,11 +280,12 @@
                         <?php if(!empty($UserPreviousJobInfoDB['end_period'])){?> value="<?php echo $UserPreviousJobInfoDB['end_period']; } ?>"/>
                     </p>
                 </fieldset>
-                <fieldset class="step" id="other">
+                <fieldset class="step" id="otherCertificate">
                     <legend> <?php echo $lang->OTHER; ?></legend>
                     <?php foreach($UserCertificateInfoDB as $key => $value){ ?>
                         <p>
-                            <label><?php echo $lang->CERTIFICATENAME;?> </label><input id="certificatename" name="certificate_name[]" type="text" AUTOCOMPLETE="OFF"
+                            <label><?php echo $lang->CERTIFICATENAME;?> </label>
+                            <input id="certificatename" name="certificate_name[]" type="text" AUTOCOMPLETE="OFF"
                             <?php if (!empty($value['name'])){?> value="<?php echo $value['name']; } ?>" />
                             <label><?php echo $lang->DESCRIPITION;?></label>
                             <input id="certificatedescription" name="certificate_description[]" type="text" AUTOCOMPLETE="OFF"
@@ -274,13 +295,17 @@
                             <?php if(!empty($value['duration'])){?> value="<?php echo $value['duration']; } ?>"/> 
                         </p>
                     <?php } ?>
+                    <?php foreach($UserExtraCurricularInfoDB as $key => $value){ ?>
+                        <p>
+                            <label><?php echo $lang->EXTRACIRCULAR;?> </label>
+                            <input id="extracurricular" name="extracurricular_activity[]" type="text" AUTOCOMPLETE="OFF"
+                            <?php if(!empty($value['activity'])){?> value="<?php echo $value['activity']; } ?>"/> 
+                        </p>
+                    <?php } ?>
                     <p>
-                        <label><?php echo $lang->EXTRACIRCULAR;?> </label> 
-                        <input id="extracircular" name="extracircular" type="number" AUTOCOMPLETE="OFF" />
-                    </p>
-                    <p>
-                    	<input type="button" value="<?php echo $lang->ADDMORE;?>" onclick="addMore();">
-                    </p>
+                    	<input type="button" value="<?php echo $lang->ADDMORE . " Certificate";?>" onclick="addMoreCertificate();">
+                    	<input type="button" value="<?php echo $lang->ADDMORE . " Extra Curricular";?>" onclick="addMoreExtraCurricular();">
+                    </p>                    
                 </fieldset>
                 <fieldset class="step">
                     <legend> <?php echo $lang->CONFIRM; ?></legend>

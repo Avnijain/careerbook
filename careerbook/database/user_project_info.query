@@ -1,6 +1,6 @@
 create table user_project_info (
 
-id bigint(11) PRIMARY KEY AUTO_INCREMENT COMMENT 'THIS WILL BE AUTO GENERATED UNIQUE ID',
+id bigint(11) unsigned PRIMARY KEY AUTO_INCREMENT COMMENT 'THIS WILL BE AUTO GENERATED UNIQUE ID',
 user_id bigint(11) unsigned NOT NULL COMMENT 'THIS WILL BE USER ID OF USER TABLE',
 title varchar(40) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'TITLE OF PROJECT',
 project_description text CHARSET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'DESCRIPTION OF PROJECT',
@@ -14,7 +14,7 @@ alter table user_project_info ADD FOREIGN KEY (user_id) REFERENCES user(id);
 
 create table user_certification_info (
 
-id bigint(11) PRIMARY KEY AUTO_INCREMENT COMMENT 'THIS WILL BE AUTO GENERATED UNIQUE ID',
+id bigint(11) unsigned PRIMARY KEY AUTO_INCREMENT COMMENT 'THIS WILL BE AUTO GENERATED UNIQUE ID',
 user_id bigint(11) unsigned NOT NULL COMMENT 'THIS WILL BE USER ID OF USER TABLE',
 name varchar(40) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'NAME OF CERTIFICATION',
 description text CHARSET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'DESCRIPTION OF CERTIFICATION',
@@ -23,3 +23,13 @@ duration varchar(20) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '
 ) ENGINE = INNODB AUTO_INCREMENT = 1;
 
 alter table user_certification_info ADD FOREIGN KEY (user_id) REFERENCES users(id);
+
+create table user_extracurricular_info (
+
+id bigint(11) unsigned PRIMARY KEY AUTO_INCREMENT COMMENT 'THIS WILL BE AUTO GENERATED UNIQUE ID',
+user_id bigint(11) unsigned NOT NULL COMMENT 'THIS WILL BE USER ID OF USER TABLE',
+activity varchar(80) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Extra Curricular Activity OF User'
+
+) ENGINE = INNODB AUTO_INCREMENT = 1;
+
+alter table user_extracurricular_info ADD FOREIGN KEY (user_id) REFERENCES users(id);

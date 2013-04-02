@@ -85,31 +85,31 @@ class UserInfoModel extends model {
     public function insertIntoUserCertificateInfo($userInfo,$certificateCountDB,$certificateCountForm) {
         $objUserCertificateInfo = $userInfo->getUserCertificateInfo();
         $user_id = $userInfo->getUserIdInfo();
-//echo "<pre/>";
-//print_r($objUserCertificateInfo);
-//die;
+        //echo "<pre/>";
+        //print_r($objUserCertificateInfo);
+        //die;
         for($i = $certificateCountDB ; $i < $certificateCountForm ; $i++){
             //foreach($objProjectInfo as $key => $value){
 
             $objUserCertificateInfo[$i]['user_id'] = $user_id['id'];
             //$value['user_id'] = $user_id['id'];
-            //echo "<pre/>";
-            //print_r($objProjectInfo);
-            //die;
-            //print_r($objProfessionalInfo);  // For Testing Display Array Data
+//            echo "<pre/>";
+//            print_r($objUserCertificateInfo);
+//            die;
+//print_r($objProfessionalInfo);  // For Testing Display Array Data
              
             $this->db->Fields($objUserCertificateInfo[$i]);
             $this->db->From("user_certification_info");
             $this->db->Insert();
-//echo $this->db->lastQuery();
-//die;
+            //echo $this->db->lastQuery();
+            //die;
             //}
         }
     }
     public function updateUserCertificateInfo($userInfo,$certificateCountDB) {
         $objUserCertificateInfo = $userInfo->getUserCertificateInfo();
         $user_id = $userInfo->getUserIdInfo();
-//	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+        //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
         for($i = 0 ; $i < $certificateCountDB ; $i++){
             //foreach($objProjectInfo as $key => $value){
              
@@ -120,7 +120,7 @@ class UserInfoModel extends model {
             //die;
             //print_r($objProfessionalInfo);  // For Testing Display Array Data
 
-        
+
             $this->db->Fields($objUserCertificateInfo[$i]);
             $this->db->From("user_certification_info");
             $this->db->Where(array("user_id"=>$user_id['id'],"id"=>$objUserCertificateInfo[$i]['id']));
@@ -137,7 +137,7 @@ class UserInfoModel extends model {
         $this->db->Select();
         //		echo $this->db->lastQuery();
         return $this->db->resultArray();
-    }    
+    }
     /* Start *********************************************** Project Information Manipulation ************************************/
     public function fetchUserProjectInfo($userInfo){
         $user_id = $userInfo->getUserIdInfo();
@@ -203,6 +203,75 @@ class UserInfoModel extends model {
         // 		echo $this->db->lastQuery();
         // 		die;
     }
+    /* Start *********************************************** Extra Curricular Info Information Manipulation ************************************/
+    public function fetchUserExtraCurricularInfo($userInfo){
+        $user_id = $userInfo->getUserIdInfo();
+        $this->db->From("user_extracurricular_info");
+        $this->db->Where(array("user_id"=>$user_id['id']));
+        $this->db->Select();
+        //		echo $this->db->lastQuery();
+        return $this->db->resultArray();
+    }
+    public function updateUserExtraCurricularInfo($userInfo,$extraCurricularCountDB){
+        $objExtraCurricularInfo = $userInfo->getUserExtraCurricularInfo();
+        $user_id = $userInfo->getUserIdInfo();
+//            echo "<pre/>";
+//            print_r($objExtraCurricularInfo);
+//            die;
+        
+        for($i = 0 ; $i < $extraCurricularCountDB ; $i++){
+            //foreach($objProjectInfo as $key => $value){
+             
+            $objExtraCurricularInfo[$i]['user_id'] = $user_id['id'];
+            //$value['user_id'] = $user_id['id'];
+//            echo "<pre/>";
+//            print_r($objExtraCurricularInfo[$i]);
+//            die;
+            //print_r($objProfessionalInfo);  // For Testing Display Array Data
+
+            $this->db->Fields($objExtraCurricularInfo[$i]);
+            $this->db->From("user_extracurricular_info");
+            $this->db->Where(array("user_id"=>$user_id['id'],"id"=>$objExtraCurricularInfo[$i]['id']));
+            $this->db->Update();
+//            echo $this->db->lastQuery() . "<br>";
+//            die;
+            //}
+        }
+       //      die;
+    }
+    public function insertIntoUserExtraCurricularInfo($userInfo,$extraCurricularCountDB,$extraCurricularCountForm) {
+        $objExtraCurricularInfo = $userInfo->getUserExtraCurricularInfo();
+        $user_id = $userInfo->getUserIdInfo();
+        //echo "<pre/>";
+        //print_r($objProjectInfo);
+        //die;
+        for($i = $extraCurricularCountDB ; $i < $extraCurricularCountForm ; $i++){
+            //foreach($objProjectInfo as $key => $value){
+
+            $objExtraCurricularInfo[$i]['user_id'] = $user_id['id'];
+            //$value['user_id'] = $user_id['id'];
+            //echo "<pre/>";
+            //print_r($objProjectInfo);
+            //die;
+            //print_r($objProfessionalInfo);  // For Testing Display Array Data
+             
+            $this->db->Fields($objExtraCurricularInfo[$i]);
+            $this->db->From("user_extracurricular_info");
+            $this->db->Insert();
+            //echo $this->db->lastQuery();
+            //die;
+            //}
+        }
+        // 	    $objProjectInfo['user_id'] = $user_id['id'];
+
+        // 	    //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
+
+        // 	    $this->db->Fields($objProjectInfo);
+        // 	    $this->db->From("user_academic_info");
+        // 	    $this->db->Insert();
+        // 		echo $this->db->lastQuery();
+        // 		die;
+    }    
     /* Start *********************************************** Address Information Manipulation ************************************/
     public function fetchUserAddressInfo($userInfo){
         $this->db->From("user_personal_info");

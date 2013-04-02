@@ -14,9 +14,9 @@ Sr.NO.		Version		Updated by           Updated on          Description
 */
 class UserCertificationInfo {
     private $id;                     //Database certification ID 
-	private $name;                   //User Project Title
-	private $description;            //User Project Description	
-	private $duration;               //User Project Duration Period
+	private $name;                   //User certification Title
+	private $description;            //User certification Description	
+	private $duration;               //User certification Duration Period
 
 	//get the value of specified variable
 	public function getinfo($dbDataFlag = "false"){

@@ -435,7 +435,12 @@ class mainentrance {
 						"description" => "",						
 						"duration" => ""
 				) 
-		);		
+		);
+		$userExtraCurricularInfo = array (
+				array (
+						"activity" => ""
+				) 
+		);
 		
 		// echo "<pre/>";
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
@@ -448,8 +453,8 @@ class mainentrance {
 		$flagData = false;
 		if (isset ( $_POST ['start_periodPREVJOB'] ) || isset ( $_POST ['end_periodPREVJOB'] )) {
 			if (! empty ( $_POST ['start_periodPREVJOB'] ) || ! empty ( $_POST ['end_periodPREVJOB'] )) {
-				$userPreviousJobInfo [0] ['start_period'] = $this->objdate->reverseDate ( $_POST ['start_periodPREVJOB'] );
-				$userPreviousJobInfo [0] ['end_period'] = $this->objdate->reverseDate ( $_POST ['end_periodPREVJOB'] );
+				$userPreviousJobInfo [0] ['start_period'] = $_POST ['start_periodPREVJOB'];
+				$userPreviousJobInfo [0] ['end_period'] = $_POST ['end_periodPREVJOB'];
 			}
 		}
 		foreach ( array_keys ( $userPreviousJobInfo [0] ) as $key => $value ) {
@@ -475,11 +480,11 @@ class mainentrance {
 
 
 		$flagData = false;
-		if (isset ( $_POST ['start_period'] )) {
-			if (! empty ( $_POST ['start_period'] )) {
-				$_POST ['start_period'] = $this->objdate->reverseDate ( $_POST ['start_period'] );
-			}
-		}
+//		if (isset ( $_POST ['start_period'] )) {
+//			if (! empty ( $_POST ['start_period'] )) {
+//				$_POST ['start_period'] = $this->objdate->reverseDate ( $_POST ['start_period'] );
+//			}
+//		}
 		foreach ( array_keys ( $userProfessionalInfo [0] ) as $key => $value ) {
 			if (isset ( $_POST [$value] )) {
 				if (! empty ( $_POST [$value] )) {
@@ -534,14 +539,37 @@ class mainentrance {
 			// echo "inserting professional";
 		}
 		/**
+		 * ************************** User Extra Curricular Information ***********************
+		 */
+		$flagData = false;
+		foreach ( array_keys ( $userExtraCurricularInfo [0] ) as $key => $value ) {
+			if (isset ( $_POST ["extracurricular_".$value] )) {
+				if (! empty ( $_POST ["extracurricular_".$value] )) {
+					foreach ( $_POST ["extracurricular_".$value] as $inkey => $invalue ) {
+						if (! empty ( $invalue )) {
+							$userExtraCurricularInfo [0] [$value] = $_POST ["extracurricular_".$value];
+							$flagData = true;
+						}
+					}
+				}
+			}
+		}
+// echo "<pre/>";
+// print_r($userExtraCurricularInfo);
+// die;
+		if ($flagData) {
+			$this->obj_usrinfo->setUserExtraCurricularInfoForm( $userExtraCurricularInfo );
+			// echo "inserting professional";
+		}		
+		/**
 		 * ************************** User Personal Information ***********************
 		 */
 		$flagData = false;
-		if (isset ( $_POST ['date_of_birth'] )) {
-			if (! empty ( $_POST ['date_of_birth'] )) {
-				$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
-			}
-		}
+//		if (isset ( $_POST ['date_of_birth'] )) {
+//			if (! empty ( $_POST ['date_of_birth'] )) {
+//				$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
+//			}
+//		}
 		foreach ( array_keys ( $userPersonalInfo [0] ) as $key => $value ) {
 			if (isset ( $_POST [$value] )) {
 				if (! empty ( $_POST [$value] )) {

@@ -46,8 +46,11 @@ class user_info_controller
 	private $projectCountForm;
 	private $certificateCountDB;
 	private $certificateCountForm;	
+	private $extraCurricularCountDB;
+	private $extraCurricularCountForm;		
 	private $objPreviousJobInfo;
 	private $objCertificateInfo;
+	private $objExtraCurricularInfo;
 
 	public function __construct()
 	{
@@ -60,6 +63,7 @@ class user_info_controller
 		$this->objProjectInfo[] = new UserProjectInfo();
 		$this->objPreviousJobInfo = new UserPreviousJobInfo();
 		$this->objCertificateInfo[] = new UserCertificationInfo();
+		$this->objExtraCurricularInfo[] = new UserExtraCurricularInfo();
 	}
 /*************************************** User Personal Information ****************************************************/
 	public function setUserPersonalInfoForm($result){
@@ -188,63 +192,22 @@ class user_info_controller
 
         if($nwProject > 0){
 	        $this->ObjUserModel->insertIntoUserCertificateInfo($this,$this->certificateCountDB,$this->certificateCountForm);
-        }	    
-	    
-//	    $this->objCertificateInfo->setinfo($result);
-//	    $resultDB = $this->ObjUserModel->fetchUserCertificateInfo($this);
-//	    
-//	    if(count($resultDB) > 0 ){
-//	        $this->ObjUserModel->updateUserCertificateInfo($this);
-//	    }
-//	    else{
-//	        $this->ObjUserModel->insertIntoUserCertificateInfo($this) or die(mysql_error());
-//	    }	    
+        }
 	}
 	private function setDatainCertificate($result){
-	    $maxCertificate = 0;
-	    foreach($result[0] as $key => $value){
-	        foreach ($value as $inkey => $invalue){
-	            if(!empty($invalue))
-	              $maxCertificate++;
-	        }
-	        break;
-	    }
-//        print($maxCertificate);
-//        die;	    
-	    for($i = 0; $i < $maxCertificate ; $i++){
-	        $tempuserCertificateInfo = array(array("name"=>"","description"=>"","duration"=>""));
-	        foreach($result[0] as $key => $value){
-	            $id = $key;
-	            //print($id);
-	            if(!empty($result[0][$id][$i])){
-	                $tempuserCertificateInfo[0][$id] = $result[0][$id][$i];
-	            }
-	            }
-	            $this->objCertificateInfo[$i]->setinfo($tempuserCertificateInfo);
-	            if($i+1 == $maxCertificate){
-	                break;
-	            }
-	            if(!isset($this->objCertificateInfo[$i+1])){
-	                $this->objCertificateInfo[] = new UserCertificationInfo();
-	            }            
-	        }
-	        $this->certificateCountForm = $maxCertificate;
-	        if(isset($this->certificateCountDB)){
-	            if(empty($this->certificateCountDB)){
-	                $this->certificateCountDB = 0;
-	            }
-	        }
-//echo "<pre/>";
-//print_r($this->objCertificateInfo);
-//die;	        
-//print($this->certificateCountForm);
-//print($this->certificateCountDB);
-//die;
+	    $this->setDatainFormsArray($result, $this->objCertificateInfo,
+	    	    	    array(array("name"=>"","description"=>"","duration"=>"")),
+	    	    	    $this->certificateCountForm,
+	    	    	    $this->certificateCountDB
+	    	    	    );
+	}
+	private function setDatainCertificateDB($result){
+	    $this->setDatainDBArray($result, 
+                                $this->objCertificateInfo,
+    	    	                array(array("name"=>"","description"=>"","duration"=>"","id"=>"")),	    	    	    
+    	    	                $this->certificateCountDB
+	    	    	           );
 	}	
-// 	private function serializedata($userInfo){
-// 		session_start();
-// 		$_SESSION['userData'] = serialize($userInfo);
-// 	}
 	public function setUserCertificateInfoDb(){
 		$result = $this->ObjUserModel->fetchUserCertificateInfo($this);
 		if(count($result) > 0 ){
@@ -256,42 +219,6 @@ class user_info_controller
 	    $this->certificateCountDB = 0;		
 		return false;
 	}
-	private function setDatainCertificateDB($result){
-	    $maxCertificate = 0;
-	    foreach($result as $key => $value){
-	        $maxCertificate++;
-	    }
-        //print($maxProjct);
-        //die;
-        //echo "<pre/>";
-        //print_r($this->objProjectInfo);
-        //die;
-        foreach($result as $key => $value){
-            $i = $key;
-            $tempuserCertificateInfo = array(array("name"=>"","description"=>"","duration"=>""));
-            foreach($value as $inkey => $invalue){
-            $id = $inkey;
-            //print($id);
-            //	        foreach ($key as $inkey => $invalue){
-            $tempuserCertificateInfo[0][$id] = $result[$i][$id];
-             
-            //	        }
-            }
-            $this->objCertificateInfo[$i]->setinfo($tempuserCertificateInfo);
-            if($i+1 == $maxCertificate){
-                break;
-            }
-            if(!isset($this->objCertificateInfo[$i+1])){
-                $this->objCertificateInfo[] = new UserCertificationInfo();
-            }
-        }
-
-	        $this->certificateCountDB = $maxCertificate;
-    //print($this->projectCountDB);
-    //echo "<pre/>";
-    //print_r($this->objProjectInfo);
-    //die;
-	}	
 	public function getUserCertificateInfo($flag = "true")
 	{
 	    $allproject = array();
@@ -304,7 +231,150 @@ class user_info_controller
 	{
 	    $flag = $this->setUserCertificateInfoDb();
 	    return $this->getUserCertificateInfo($flag);
+	}
+/************************* Generic Data in Forms and DB Inertion Function for Array Objects ******************/	
+	private function setDatainFormsArray($result, &$ojbtoUpdate, $arrayFormat, &$countForm, &$countDB ){
+	    $max = 0;
+	    foreach($result[0] as $key => $value){
+	        foreach ($value as $inkey => $invalue){
+	            if(!empty($invalue))
+	              $max++;
+	        }
+	        break;
+	    }
+//        print($max);
+//        die;	    
+	    for($i = 0; $i < $max ; $i++){
+	        $tempArray = $arrayFormat;
+	        foreach($result[0] as $key => $value){
+	            $id = $key;
+	            //print($id);
+	            if(!empty($result[0][$id][$i])){
+	                $tempArray[0][$id] = $result[0][$id][$i];
+	            }
+	            }
+	            $ojbtoUpdate[$i]->setinfo($tempArray);
+	            if($i+1 == $max){
+	                break;
+	            }
+	            if(!isset($ojbtoUpdate[$i+1])){
+	                if(get_class($ojbtoUpdate[0])){
+	                    $tmpClass = get_class($ojbtoUpdate[0]);
+	                    $ojbtoUpdate[] = new $tmpClass; 
+	                }
+	                //UserCertificationInfo();
+	            }            
+	        }
+	        $countForm = $max;
+	        if(isset($countDB)){
+	            if(empty($countDB)){
+	                $countDB = 0;
+	            }
+	        }
+//echo "<pre/>";
+//print_r($ojbtoUpdate);
+//print($countForm);
+//print($countDB);
+//die;	    
+	}
+	private function setDatainDBArray($result, &$ojbtoUpdate, $arrayFormat, &$countDB ){
+	    $max = 0;
+	    foreach($result as $key => $value){
+	        $max++;
+	    }
+        //print($max);
+        //die;
+        //echo "<pre/>";
+        //print_r($ojbtoUpdate);
+        //die;
+        foreach($result as $key => $value){
+            $i = $key;
+            $tempuser = $arrayFormat;
+            foreach($value as $inkey => $invalue){
+            $id = $inkey;
+            //print($id);
+            //foreach ($key as $inkey => $invalue){
+            $tempuser[0][$id] = $result[$i][$id];
+             
+            //}
+            }
+            $ojbtoUpdate[$i]->setinfo($tempuser);
+            if($i+1 == $max){
+                break;
+            }
+            if(!isset($ojbtoUpdate[$i+1])){
+                if(get_class($ojbtoUpdate[0])){
+                    $tmpClass = get_class($ojbtoUpdate[0]);
+                    $ojbtoUpdate[] = new $tmpClass;
+                }
+            }
+        }
+        $countDB = $max;
+    //print($countDB);
+    //echo "<pre/>";
+    //print_r($ojbtoUpdate);
+    //die;
 	}	
+
+/***************************************** User Extra Curricular Information **************************************************/
+	public function setUserExtraCurricularInfoForm($result){
+	    
+	    $this->setDatainExtraCurricular($result);
+	    
+	    $nwProject = intval($this->extraCurricularCountForm) - intval($this->extraCurricularCountDB);
+//	    }
+	    if($this->extraCurricularCountDB > 0 ){
+	        $this->ObjUserModel->updateUserExtraCurricularInfo($this,$this->extraCurricularCountDB);
+	    }
+
+        if($nwProject > 0){
+	        $this->ObjUserModel->insertIntoUserExtraCurricularInfo($this,$this->extraCurricularCountDB,$this->extraCurricularCountForm);
+        }
+	}
+	private function setDatainExtraCurricular($result){
+	    $this->setDatainFormsArray($result, 
+	                               $this->objExtraCurricularInfo, 
+	                               array(array("name"=>"")), 
+	                               $this->extraCurricularCountForm, 
+	                               $this->extraCurricularCountDB
+	                               );
+// 	    echo "<pre/>";
+// 	    print_r($this->objExtraCurricularInfo);
+// 	    print($this->extraCurricularCountForm);
+// 	    print($this->extraCurricularCountDB);
+// 	    die;
+	}
+	public function setUserExtraCurricularInfoDb(){
+		$result = $this->ObjUserModel->fetchUserExtraCurricularInfo($this);
+		if(count($result) > 0 ){
+			$this->setDatainExtraCurricularDB($result);
+			return true;
+		}
+	    unset($this->objExtraCurricularInfo);
+	    $this->objExtraCurricularInfo[] = new UserExtraCurricularInfo();
+	    $this->extraCurricularCountDB = 0;		
+		return false;
+	}
+	private function setDatainExtraCurricularDB($result){
+	    $this->setDatainDBArray($result, 
+	                            $this->objExtraCurricularInfo, 
+	                            array(array("name"=>"")),	                                
+	                            $this->extraCurricularCountDB
+	                           );
+	}
+	public function getUserExtraCurricularInfo($flag = "true")
+	{
+	    $allproject = array();
+	    foreach ($this->objExtraCurricularInfo as $key => $value){
+	        $allproject[] = $this->objExtraCurricularInfo[$key]->getinfo($flag);
+	    }
+	    return $allproject;
+	}
+	public function getUserExtraCurricularInfoDB()
+	{
+	    $flag = $this->setUserExtraCurricularInfoDb();
+	    return $this->getUserExtraCurricularInfo($flag);
+	}
 /***************************************** User Project Information **************************************************/	
 	public function setUserProjectInfoForm($result){
 // 	    echo "<pre/>";
@@ -323,81 +393,17 @@ class user_info_controller
         }
 	}
 	private function setDatainProject($result){
-	    $maxProjct = 0;
-	    foreach($result[0] as $key => $value){
-	        foreach ($value as $inkey => $invalue){
-	            if(!empty($invalue))
-	              $maxProjct++;
-	        }
-	        break;
-	    }
-//        print($maxProjct);
-//        die;	    
-	    for($i = 0; $i < $maxProjct ; $i++){
-	        $tempuserProjectInfo = array(array("title"=>"","description"=>"","technology"=>"","duration"=>""));
-	        foreach($result[0] as $key => $value){
-	            $id = $key;
-	            //print($id);
-	            if(!empty($result[0][$id][$i])){
-	                $tempuserProjectInfo[0][$id] = $result[0][$id][$i];
-	            }
-	            }
-	            $this->objProjectInfo[$i]->setinfo($tempuserProjectInfo);
-	            if($i+1 == $maxProjct){
-	                break;
-	            }
-	            if(!isset($this->objProjectInfo[$i+1])){
-	                $this->objProjectInfo[] = new UserProjectInfo();
-	            }            
-	        }
-	        $this->projectCountForm = $maxProjct;
-	        if(isset($this->projectCountDB)){
-	            if(empty($this->projectCountDB)){
-	                $this->projectCountDB = 0;
-	            }
-	        }
-//echo "<pre/>";
-//print_r($this->objProjectInfo);
-//die;	        
-//print($this->projectCountForm);
-//print($this->projectCountDB);
-//die;
+	    $this->setDatainFormsArray($result, $this->objProjectInfo,
+	                  array(array("title"=>"","description"=>"","technology"=>"","duration"=>"")),
+	                  $this->projectCountForm,
+	                  $this->projectCountDB 
+	                  );
 	}
-	private function setDatainProjectDB($result){
-	    $maxProjct = 0;
-	    foreach($result as $key => $value){
-	        $maxProjct++;
-	    }
-        //print($maxProjct);
-        //die;
-        //echo "<pre/>";
-        //print_r($this->objProjectInfo);
-        //die;
-        foreach($result as $key => $value){
-            $i = $key;
-            $tempuserProjectInfo = array(array("title"=>"","description"=>"","technology"=>"","duration"=>"","id"=>""));
-            foreach($value as $inkey => $invalue){
-            $id = $inkey;
-            //print($id);
-            //	        foreach ($key as $inkey => $invalue){
-            $tempuserProjectInfo[0][$id] = $result[$i][$id];
-             
-            //	        }
-            }
-            $this->objProjectInfo[$i]->setinfo($tempuserProjectInfo);
-            if($i+1 == $maxProjct){
-                break;
-            }
-            if(!isset($this->objProjectInfo[$i+1])){
-                $this->objProjectInfo[] = new UserProjectInfo();
-            }
-        }
-
-	        $this->projectCountDB = $maxProjct;
-    //print($this->projectCountDB);
-    //echo "<pre/>";
-    //print_r($this->objProjectInfo);
-    //die;
+	private function setDatainProjectDB($result){	    
+	    $this->setDatainDBArray($result, $this->objProjectInfo,
+	                  array(array("title"=>"","description"=>"","technology"=>"","duration"=>"","id"=>"")),	                  
+	                  $this->projectCountDB 
+	                  );
 	}
 	public function getUserProjectInfo($flag = "true")
 	{
@@ -440,9 +446,9 @@ class user_info_controller
 		//$result=$ObjUserModel->insertIntoUserProfessional($userInfo);
 		//print_r($this->objIdentityInfo->getinfo());
 		//		$this->obj->getdefinedvars();
-		// 		echo "<pre/>";
-		// 		print_r ($result);
-		
+//		echo "<pre/>";
+// 		print_r ($result);
+// 		die;
 	}
 	public function setUserProfessionalInfoDb(){
 		$result = $this->ObjUserModel->fetchUserProfessionalInfo($this);
