@@ -66,7 +66,7 @@ class MyImageGet extends model { // class for manipulation image data from
 		$result = $this->db->resultArray ();
 		$uri = "";
 		foreach ( $result as $keys => $values ) {
-			$uri [] = 'data:image/png;base64,' . base64_encode ( $values ['profile_image'] );
+			$uri [] = 'data:image/png;base64,' . base64_encode ( $values ['group_image'] );
 		}
 		
 		return ($uri);

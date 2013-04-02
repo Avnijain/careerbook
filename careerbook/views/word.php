@@ -36,8 +36,9 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 	echo "template1";
 	header("Content-type: application/vnd.ms-word");
 	header("Content-Disposition: attachment;Filename=$first_name.doc");
+	header('Content-Transfer-Encoding: binary');
 	echo "<html>";
-	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
+	//echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
 	echo "<b><center><h1>";
 	echo $UserPersonalInfoDB['first_name']." " ;
@@ -46,7 +47,7 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 	 if(isset($UserPersonalInfoDB['profile_image'])) { 
 		$uri = 'data:image/png;base64,'.base64_encode($UserPersonalInfoDB['profile_image']);
 	?>
-	<img src="<?php echo $uri;?>" height=20% width=15%/> <img src="../images/addFriends.jpg" alt="" ><?php }
+	<img src="<?php echo $uri;?>" height=20% width=15%/> <?php }
 	
 	if(!empty($UserAddressInfoDB)) {
 	    echo "<b><h3><u>$lang->CONTACTINFO</u><h3></b>";
@@ -167,8 +168,8 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 {
 	//print_r ($objUserInfo->getUserPersonalInfo());
 	//echo "template2";
-	header("Content-type: application/vnd.ms-word");
-	header("Content-Disposition: attachment;Filename=$first_name.doc");
+	//header("Content-type: application/vnd.ms-word");
+	//header("Content-Disposition: attachment;Filename=$first_name.doc");
 	echo "<html>";
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
@@ -262,8 +263,8 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 else if($_POST['template3']=="use this template")	// When third template is selected by user
 {
 	
-    header("Content-type: application/vnd.ms-word");
-	header("Content-Disposition: attachment;Filename=$first_name.doc");
+    //header("Content-type: application/vnd.ms-word");
+	//header("Content-Disposition: attachment;Filename=$first_name.doc");
 	echo "<html>";
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";

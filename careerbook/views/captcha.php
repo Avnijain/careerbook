@@ -33,8 +33,8 @@ $(document).ready(function() {
 			<img src="get_captcha.php" alt="" id="captcha" />
 		</div>
 		<div class="text-box" style="height: 40px;">
-			<label>Type the two words:</label>
-			<input name="captcha-code" type="text" id="captcha-code" style="width: 120px; height: 10px; margin-left: 2% ">
+			<label>Type the number here:</label>
+			<input name="captcha-code" type="text" id="captcha-code" style="width: 80%; height: 50%; margin-left: 2% ">
 		</div>
 		<div class="captcha-action">
 			<img src="../images/refresh.jpg"  alt="" id="captcha-refresh" width="20px"/>

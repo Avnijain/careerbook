@@ -1,4 +1,4 @@
-<div id="float-left">
+<center><div id="float-left">
 	<?php
 		$objUserInfo = unserialize($_SESSION['userData']);
 		$userData=$objUserInfo->getUserPersonalInfo();
@@ -6,7 +6,7 @@
 	?>
 	
 	<img id="profile-pic" alt="user" src="<?php echo $uri;?>" width="140" height="150">
-</div>
+</div></center>
 <div id="float-left">
 	<?php
 
