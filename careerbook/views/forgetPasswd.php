@@ -3,11 +3,6 @@
 <?php
 if (! isset ( $_GET ['code'] )) {
 	?>
-
-
-
-
-
 <style>
 
 #myBox {
@@ -46,16 +41,7 @@ if (! isset ( $_GET ['code'] )) {
 
 <?php
 } else {
-	
-	// *********************************************send mail here
-	// **********************************
-	//
-	//
-	// set session variable 'userMailCode'
-	//
-	//
-	// **************************************************END******************************************
-	
+		
 	?>
 	
 <script src="../JavaScript/jquery.tools.min.js"></script>	

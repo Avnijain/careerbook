@@ -284,7 +284,14 @@ class mainentrance {
 	
 	// function to register a user and validate the feilds
 	private function userRegistration() {
-		// print("yes I am hereeeeee");
+		
+		if($_POST['captcha-code'] != $_SESSION['secure'])
+		{
+			header ( "location:../views/NewRegistration.php?err=7" );
+			die ();
+		}
+		
+		
 		$this->validationCheck ();
 		$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
 		$ObjModel = new MyClass ();

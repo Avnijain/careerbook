@@ -75,7 +75,7 @@ if(isset($_SESSION['userData']))
 		$(document).ready(function() {
 				$("#selectorLogin").fancybox({
 		        'width'			: '60%',
-		        'height'		: '96%',
+		        'height'		: '103%',
 		        'autoScale'		: false,
 		        'transitionIn'		: 'none',
 		        'transitionOut'		: 'none',

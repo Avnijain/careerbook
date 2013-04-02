@@ -21,6 +21,7 @@ include_once("../classes/lang.php");
         $(function() {
 	 $( "#datepicker" ).datepicker({
 		 changeMonth: true,
+		 dateFormat: 'yy/mm/dd',
 		 changeYear: true
 		 });
 		 });
@@ -46,9 +47,18 @@ include_once("../classes/lang.php");
             color:#000;
             
         }
+        h3{
+        	color:#444;
+			}
 
     </style>
      <body>
+                         
+                    <?php 
+                    if(isset($_GET['err'])){
+                    	echo "<h3>You Have Error No:".$_GET['err']."</h3>";
+                    }
+                    ?> 
         <div>
             <span class="reference">
                 
@@ -59,8 +69,9 @@ include_once("../classes/lang.php");
             <div id="wrapper">
                 <div id="steps">
                     
+
                     
-                    <?php //include_once("./regForm.html")?>
+                    
                     <form id="formElem" name="formElem" action="../controller/mainentrance.php?action=Registration" method="post">
                         <fieldset class="step">
                             <legend>Account</legend>
@@ -120,11 +131,7 @@ include_once("../classes/lang.php");
                             </p>
                             
                         </fieldset>
-                    </form>
-                    
-                    
-                    
-                    
+                    </form>                    
                 </div>
                 <div id="navigation" style="display:none;">
                     <ul>
