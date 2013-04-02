@@ -1,6 +1,6 @@
 RewriteEngine on
 #Deny from all
-Options -Indexes +FollowSymLinks -MultiViews
+Options +Indexes +FollowSymLinks -MultiViews
 #IndexIgnore *
 #RewriteBase /var/www/websites/careerbook/01042013/careerbook.git/trunk/careerbook
 #RewriteRule ^home$ views/userHomePage.php [PT]

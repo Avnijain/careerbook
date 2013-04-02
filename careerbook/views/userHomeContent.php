@@ -18,9 +18,9 @@ include_once("../classes/lang.php");
 			<!-- Box -->
 			<div class="box">
 				<h2><span><?php echo $lang->ACTIVITYREPORT?></span></h2>
-				<div class="cl">&nbsp;</div>				
+				<div class="cl">&nbsp;</div>
 				<div class="posts">
-					<!-- Post -->
+					<!-- Post 
 				    <div class="post">
 				    	<div class="image">
 				    		<a href="#"><img src="css/images/post-1.jpg" alt=""></a>
@@ -30,8 +30,8 @@ include_once("../classes/lang.php");
 				    		<p>Maecenas sodales auctor urna cursus facilisis. Cras rutrum justo id mi bibendum luctus. </p>
 				    	</div>
 				    </div>
-				    <!-- /Post -->
-					<!-- Post -->
+				     /Post -->
+					<!-- Post 
 				   <div class="post last">
 				    	<div class="image">
 				    		<a href="#"><img src="css/images/post-2.jpg" alt=""></a>
@@ -40,6 +40,9 @@ include_once("../classes/lang.php");
 				    		<h4><a href="#">Maecenas scelerisque sapien </a></h4>
 				    		<p>Maecenas sodales auctor urna cursus facilisis. Cras rutrum justo id mi bibendum luctus. </p>
 				    	</div>
+				    </div>-->
+				    <div id="activityReport">
+				    	<img id="activityReportIMG" alt="userActivityReport" src="activityReport.php" width="250" height="250">
 				    </div>
 				    <div class="cl">&nbsp;</div>
 				</div>
