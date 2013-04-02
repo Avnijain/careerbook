@@ -1,4 +1,5 @@
 <?php
+include_once("../classes/lang.php");
 include_once ('../classes/friendsClass.php');
 $friendsData = unserialize ( $_SESSION ['myFriends'] );
 $myfrnd = $friendsData->getMyFriendsNetwork ();
@@ -8,7 +9,7 @@ $myfrnd = $friendsData->getMyFriendsNetwork ();
 // echo $encrypted;
 ?>
 <center>
-	<h1>You Have <?php echo $friendsData->countMyFriends();?> Friends</h1>
+	<h1><?php echo $lang->YOUHAVE ; echo $friendsData->countMyFriends(); echo " "; echo $lang->FRIENDS;?></h1>
 	<table id="frnd">
     <?php
 				foreach ( $myfrnd as $keys => $values ) {

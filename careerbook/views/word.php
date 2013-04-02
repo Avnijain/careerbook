@@ -15,6 +15,8 @@ include_once("../classes/lang.php");
 
 
 require_once '../controller/userInfo.php';
+
+/****************************Getting the user information *************************************************/ 
 $objUserInfo = unserialize($_SESSION['userData']);
 
 $UserPersonalInfoDB = $objUserInfo->getUserPersonalInfo();
@@ -25,8 +27,6 @@ $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
 $UserAddressInfoDB  = $objUserInfo->getUserAddressInfo();
 $UserPreviousJobInfo = $objUserInfo->getUserPreviousJobInfo();
 
-
-
 $projectCount=count($UserProjectInfoDB); // to get the number of projects
 
 $first_name=$UserPersonalInfoDB['first_name']; // getting first name
@@ -34,20 +34,16 @@ $first_name=$UserPersonalInfoDB['first_name']; // getting first name
 if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // When first template is selected by user
 {	
 	echo "template1";
-	header("Content-type: application/vnd.ms-word");
-	header("Content-Disposition: attachment;Filename=$first_name.doc");
-	header('Content-Transfer-Encoding: binary');
+	header("Content-type: application/vnd.ms-word");    // to open a word file
+	header("Content-Disposition: attachment;Filename=$first_name.doc"); //word file of user's first name
+	
+	/*********************Displaying all the user information in selected first template format************************************/
 	echo "<html>";
-	//echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
 	echo "<b><center><h1>";
 	echo $UserPersonalInfoDB['first_name']." " ;
 	echo $UserPersonalInfoDB['last_name'];
 	echo "</h1></center></b>";  
-	 if(isset($UserPersonalInfoDB['profile_image'])) { 
-		$uri = 'data:image/png;base64,'.base64_encode($UserPersonalInfoDB['profile_image']);
-	?>
-	<img src="<?php echo $uri;?>" height=20% width=15%/> <?php }
 	
 	if(!empty($UserAddressInfoDB)) {
 	    echo "<b><h3><u>$lang->CONTACTINFO</u><h3></b>";
@@ -166,10 +162,10 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 
 else if((isset($_POST['template2']))&&($_POST['template2']=="use this template"))	// When second template is selected by user
 {
-	//print_r ($objUserInfo->getUserPersonalInfo());
-	//echo "template2";
-	//header("Content-type: application/vnd.ms-word");
-	//header("Content-Disposition: attachment;Filename=$first_name.doc");
+	header("Content-type: application/vnd.ms-word");
+	header("Content-Disposition: attachment;Filename=$first_name.doc");
+	
+	/*********************Displaying all the user information in selected second template format************************************/
 	echo "<html>";
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
@@ -196,9 +192,9 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 	echo "<b><h3>$lang->SNAPSHOT</h3></b>";
 	echo "<hr noshade >";
 	if(!empty($UserProfessionalInfoDB['current_company'])) { 
-		echo "Working in ";
+		echo "$lang->CURRENTLYWORKINGIN"." ";
 		echo $UserProfessionalInfoDB['current_company'];
-		echo "as a";
+		echo "$lang->AS"." ";
 		echo $UserProfessionalInfoDB['current_position'];
 	}
 	if(!empty($UserAcademicInfoDB)) {
@@ -263,8 +259,9 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 else if($_POST['template3']=="use this template")	// When third template is selected by user
 {
 	
-    //header("Content-type: application/vnd.ms-word");
-	//header("Content-Disposition: attachment;Filename=$first_name.doc");
+    header("Content-type: application/vnd.ms-word");
+	header("Content-Disposition: attachment;Filename=$first_name.doc");
+	/*********************Displaying all the user information in third template format************************************/
 	echo "<html>";
 	echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=Windows-1252\">";
 	echo "<body>";
@@ -345,19 +342,19 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 	}
 	echo "<b><h3>$lang->WORKEXPERIENCE</h3></b>";
 	if(!empty($UserPreviousJobInfo['company'])) {
-		echo "worked in <b>";
+		echo "$lang->WORKEDIN<b>"."  ";
 		echo $UserPreviousJobInfo['company']. " ";
 		echo "</b>";
 	}	
 	if(!empty($UserPreviousJobInfo['position'])) {
-		echo "As a  <b>";
+		echo "$lang->AS<b>"." ";
 		echo $UserPreviousJobInfo['position'];
 		echo "</b>";
 	}
 	if((!empty($UserPreviousJobInfo['start_period']))&&(!empty($UserPreviousJobInfo['end_period']))) {
-		echo "from  ";
-		echo $UserPreviousJobInfo['start_period'];
-		echo " to  ";
+		echo "$lang->FROM"." ";
+		echo $UserPreviousJobInfo['start_period']." ";
+		echo "$lang->TO"." ";
 		echo $UserPreviousJobInfo['end_period'];
 	}	
 	echo "</body>";
@@ -366,7 +363,7 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 }
 else
 {
-	echo "no button selected";
+	echo "$lang->WORDERROR";
 }
 
 ?>

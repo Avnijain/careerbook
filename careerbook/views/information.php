@@ -42,28 +42,29 @@ $jobInfo=$obj->handlePreviousJobInfo();
 $professionalInfo=$obj->handleProfessionalInfo();
 ?>
 <link rel="stylesheet" type="text/css" href="../css/information.css" />
-
 <body>
 <div id="main">
 	<h2></h2>
 	<div id="mainframe">
-	<?php if(isset($personalInfo)) {?>
-	<h1><?php echo $personalInfo['0']['first_name']." ";echo $personalInfo['0']['middle_name']." ";echo $personalInfo['0']['last_name'];?></h1>
-	<br/>
-	<?php if(isset($personalInfo['0']['profile_image'])) { 
-			$uri = 'data:image/png;base64,'.base64_encode($personalInfo['0']['profile_image']);
-		?>
-			<img src="<?php echo $uri;?>" height=20% width=15%/>
-		<?php } ?>
-	<div id="left">
-	
-	<h4><?php echo $lang->PRIMARYEMAIL.": "; echo $personalInfo['0']['email_primary'];?></h4>
-	<h4><?php echo $lang->GENDER.": "; echo $personalInfo['0']['gender'];?></h4>
-	<h4><?php echo $lang->PHONENUMBER.": ";echo $personalInfo['0']['phone_no']; }?></h4>
-	<?php if(!empty($professionalInfo['0']['current_company'])) { ?>
-	<h4><?php echo $lang->CURRENTLYWORKINGIN ." "; echo $professionalInfo['0']['current_company'];?> <?php echo $lang->AS." ";echo $professionalInfo['0']['current_position'];?></h4>
-		<?php }?></div>
+		<?php if(isset($personalInfo)) {?>
+		<h1><?php echo $personalInfo['0']['first_name']." ";echo $personalInfo['0']['middle_name']." ";echo $personalInfo['0']['last_name'];?></h1>
+		<br/>
+		<?php if(isset($personalInfo['0']['profile_image'])) { 
+				$uri = 'data:image/png;base64,'.base64_encode($personalInfo['0']['profile_image']);
+			?>
+				<img src="<?php echo $uri;?>" height=20% width=15%/>
+			<?php } ?>
+		<div id="left">
+		
+		<h4><?php echo $lang->PRIMARYEMAIL.": "; echo $personalInfo['0']['email_primary'];?></h4>
+		<h4><?php echo $lang->GENDER.": "; echo $personalInfo['0']['gender'];?></h4>
+		<h4><?php echo $lang->PHONENUMBER.": ";echo $personalInfo['0']['phone_no']; }?></h4>
+		<?php if(!empty($professionalInfo['0']['current_company'])) { ?>
+		<h4><?php echo $lang->CURRENTLYWORKINGIN ." "; echo $professionalInfo['0']['current_company'];?> <?php echo $lang->AS." ";echo $professionalInfo['0']['current_position'];?></h4>
+			<?php }?>
+		</div>
 		<br/><br/><br/><br/>
+			
 		<?php if(!empty($acdemicInfo)) { ?>
 		<div id="Education">
 			<heading><?php echo $lang->EDUCATION?></heading>
@@ -82,9 +83,9 @@ $professionalInfo=$obj->handleProfessionalInfo();
 			$skillArray=explode(',',$skillSet);
 			$skillCount=count($skillArray);
 			?>
-			<p id ="skill">
-		    <table cellspacing="10" cellpadding="5";>
-		    <?php for($i=0;$i<$skillCount;$i++) {
+			<span id ="skill">
+			<table cellspacing="10" cellpadding="5";>
+			<?php for($i=0;$i<$skillCount;$i++) {
 				echo "<td>";
 				echo $skillArray[$i];
 				echo "</td>"; 
@@ -92,7 +93,7 @@ $professionalInfo=$obj->handleProfessionalInfo();
 			echo "</tr></table>";
 			?>
 		<?php }?>
-		</p>
+		</span><br/></br>
 		<?php if(!empty($jobInfo)) { ?>
 		<div id="Industrial Experience"><heading><?php echo $lang->INDUSTRIALEXPERIENCE?></heading></div>
 			<table cellspacing="10" cellpadding="5";>
@@ -100,12 +101,12 @@ $professionalInfo=$obj->handleProfessionalInfo();
 			<tr><td><?php echo $lang->DESIGNATION?></td><td><?php echo $jobInfo['0']['position'] ?></td></tr>
 			</table>
 			<?php }?>
-		<!-- <div id="Achievements"><p><?php echo $lang->ACHIEVEMENTS?></p>
-			<table cellspacing="10" cellpadding="5";>
-			<tr><td><?php echo $lang->ACADEMIC?></td></tr>
-			<tr><td><?php echo $lang->COCIRCULAR?></td></tr>
-			</table>
-		</div>  -->
+			<!-- <div id="Achievements"><p><?php echo $lang->ACHIEVEMENTS?></p>
+				<table cellspacing="10" cellpadding="5";>
+				<tr><td><?php echo $lang->ACADEMIC?></td></tr>
+				<tr><td><?php echo $lang->COCIRCULAR?></td></tr>
+				</table>
+			</div>  -->
 	</div>
 </div>
 </body>

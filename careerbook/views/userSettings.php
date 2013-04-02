@@ -1,16 +1,17 @@
 <?php
+include_once("../classes/lang.php");
 ?>
 
 <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
 <script type="text/javascript" src="../JavaScript/jquery.idTabs.min.js"></script>
 <!-- <script type="text/javascript" src="../JavaScript/userSetting.min.js"></script> -->
-<p id="SettingHead">Settings</p>
+<p id="SettingHead"><?php echo $lang->SETTINGS?></p>
 
 
 <div id='options'>
 	<ul class="idTabs">
-		<li><a href="#jquery">Change Password</a></li>
-		<li><a href="#official">Delete Account</a></li>
+		<li><a href="#jquery"><?php echo $lang->CHANGEPASSWORD?></a></li>
+		<li><a href="#official"><?php echo $lang->DELETEACCOUNT?></a></li>
 	</ul>
 </div>
 
@@ -19,18 +20,18 @@
 		<form action="../controller/mainentrance.php?action=chngPwd" method="post" name="cngPWD">
 			<table>
 				<tr>
-					<td><lable class="seting">Current Password</lable></td>
+					<td><lable class="seting"><?php echo $lang->CURRENTPASSWORD?></lable></td>
 					<td><input type="password" name="currPwd" id="currentPwd" /></td>
 				</tr>
 				<tr>
-					<p class="seting">Please Enter your Current Password</p>
+					<p class="seting"><?php echo $lang->ENTERPASSWORDMSG?></p>
 				</tr>
 				<tr>
-					<td><lable class="seting">New Password</lable></td>
+					<td><lable class="seting"><?php echo $lang->NEWPASSWORD?></lable></td>
 					<td><input type="password" name="newPwd" id="newPwd" /></td>
 				</tr>
 				<tr>
-					<td><lable class="seting">Confirm Password</lable></td>
+					<td><lable class="seting"><?php echo $lang->CONFIRMPASSWORD?></lable></td>
 					<td><input type="password" name="confirmPwd" id="confirmPwd" /></td>
 				</tr>
 				<tr>
@@ -45,7 +46,7 @@
 
 	<div id="official">
 		<form action="../controller/mainentrance.php?action=delUser" method="post" name="cngPWD">
-			<p class="seting">Are You sure to delete your account</p>
+			<p class="seting"><?php echo $lang->CONFIRMDELETION?></p>
 			<input type="submit" value="Yes" name='yes' />
 			 <input type="button" value="No" name='no' />
 		</form>
@@ -53,11 +54,11 @@
 <?php 
 if(isset($_GET['err']))
 {
-	echo "<p class='seting'>You have error in ".$_GET['err']."<p>";
+	echo "<p class='seting'>$lang->SEETINGERROR".$_GET['err']."<p>";
 }
 if(isset($_GET['Success']))
 {
-	echo "<p class='seting'>Password change Successfully<p>";
+	echo "<p class='seting'>$lang->SUCESSMSG<p>";
 }
 ?>
 </div>
