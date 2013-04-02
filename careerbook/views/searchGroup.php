@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <?php 
+	 include_once("../classes/lang.php"); 
 	include_once('../classes/groupClass.php');
 	$groupData = array();
 	$noOfResult = 0;
@@ -43,8 +44,8 @@
 		?>
 		<img src="<?php echo $uri; ?>" class="group_image">
 		<?php
-		echo "Title : " .$values['title'] . "<br/>";
-		echo "Description : " .$values['description'] . "<br/>";
+		echo "$lang->TITLE"." ".$values['title'] . "<br/>";
+		echo "$lang->GROUPDESCRIPTION"," ".$values['description'] . "<br/>";
 		if (isset($values['status'])) {
 			if($values['status'] == 'A') {
 				echo "<a class='group_button' href=\"../controller/mainentrance.php?action=getPost&groupId={$values['id']}\">View</a>";

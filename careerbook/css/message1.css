@@ -1,0 +1,95 @@
+ <style type="text/css">
+/*         body { */
+/*             background: #fff; */
+/*             font-family: verdana; */
+/*             padding-top: 50px; */
+/*         } */
+        #vtab {
+            margin: auto;
+            width: 800px;
+            height: 100%;
+        }
+        #vtab > ul > li {
+            width: 110px;
+            height: 110px;
+            background-color: #fff !important;
+            list-style-type: none;
+            display: block;
+            text-align: center;
+            margin: auto;
+            padding-bottom: 10px;
+            border: 1px solid #fff;
+            position: relative;
+            border-right: none;
+            opacity: .3;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+        }
+        #vtab > ul > li.Inbox {
+            background: url('../images/inbox.jpg') no-repeat center center;
+        }
+        #vtab > ul > li.Compose {
+            background: url('../images/compose.jpg') no-repeat center center;
+        }
+        #vtab > ul > li.Outbox {
+            background: url('../images/outbox.jpg') no-repeat center center;
+        }
+        #vtab > ul > li.selected {
+            opacity: 1;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+            border: 1px solid #ddd;
+            border-right: none;
+            z-index: 10;
+            background-color: #fafafa !important;
+            position: relative;
+        }
+        #vtab > ul {
+            float: left;
+            width: 110px;
+            text-align: left;
+            display: block;
+            margin: auto 0;
+            padding: 0;
+            position: relative;
+            top: 30px;
+        }
+        #vtab > div {
+            background-color: #fafafa;
+            margin-left: 110px;
+            border: 1px solid #ddd;
+            min-height: 500px;
+            padding: 12px;
+            position: relative;
+            z-index: 9;
+            -moz-border-radius: 20px;
+        }
+        #vtab > div > h4,h3 {
+            color: #800;
+            font-size: 1.2em;
+            border-bottom: 1px dotted #800;
+            padding-top: 5px;
+            margin-top: 0;
+        }
+        #SendForm label {
+            float: left;
+            width: 100px;
+            text-align: right;
+            clear: left;
+            margin-right: 15px;
+        }
+        #SendForm fieldset {
+            border: none;
+        }
+        #SendForm fieldset > div {
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+        #SendForm #message {
+            margin-left: 115px;
+        }
+        #searchresult{
+    	    	/*border: 1px dashed black;*/
+		}
+        
+    </style>
