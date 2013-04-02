@@ -45,9 +45,14 @@
 		<?php
 		echo "Title : " .$values['title'] . "<br/>";
 		echo "Description : " .$values['description'] . "<br/>";
-		if($values['status'] == 'A') {
-			echo "<a class='group_button' href=\"../controller/mainentrance.php?action=getPost&groupId={$values['id']}\">View</a>";
-		} else {
+		if (isset($values['status'])) {
+			if($values['status'] == 'A') {
+				echo "<a class='group_button' href=\"../controller/mainentrance.php?action=getPost&groupId={$values['id']}\">View</a>";
+			} else if($values['status'] == 'D'){
+				echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=joinGroup&groupId={$values['id']}\">Join Group</a>";
+			}
+		}
+		 if(!isset($values['status'])) {
 			echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=joinGroup&groupId={$values['id']}\">Join Group</a>";
 		}
 		?>

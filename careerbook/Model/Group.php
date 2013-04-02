@@ -152,6 +152,7 @@ class Group {
 				"group_details.id",
 				"title",
 				"description",
+				"created_by",
 				"created_on", 
 			    "group_image"
 				) );
@@ -296,7 +297,8 @@ class Group {
 				"gd.id"
 		) );
 		
-		$this->db->From ('group_details gd, group_members gm');
+		$this->db->From ('group_details gd');
+		$this->db->Join('group_members gm', 'gd.id = gm.group_id');
 		$this->db->Where(array(
 						"( gd.status = 'A' AND gm.member_id = ".$this->_created_by.") AND (gm.status = 'A' OR gm.status = 'D') AND
 						(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' )
@@ -321,11 +323,9 @@ class Group {
 				"gd.title",
 				"gd.description",
 				"gd.group_image",
-				"gm.member_id",
-				"gm.status"
 		) );
 		
-		$this->db->From ('group_details gd, group_members gm');
+		$this->db->From ('group_details gd');
 		$this->db->Where(array(
 				" 	gd.status = 'A' AND
 					(gd.title LIKE '%" .$this->_search_group. "%' OR gd.description LIKE '%" . $this->_search_group ."%' ) AND
