@@ -108,20 +108,29 @@ class mainentrance {
 		$ObjModel->DeleteUser($this->obj_usrinfo);
 		session_destroy();
 	} 
-	private function forgetPasswd(){
-		header ( 'location: ../views/forgetPasswd.php?code' );
-	}
+	
 	public function start() {
 		
-
+		//************code to prevent session hijacking************************//
+		
+		ini_set('session.cookie_httponly',true);
+		
+		session_start ();
+		
+		if (isset($_SESSION['last_ip']) == false) {
+			$_SESSION['last_ip'] = $_SERVER['REMOTE_ADDR'];
+		}
+		
+		if ($_SESSION['last_ip'] != $_SERVER['REMOTE_ADDR']) {
+			session_unset();
+			session_destroy();
+		}
+		
+		//**************End to session Hijacking Code***************************//
 		
 		if ($_REQUEST ['action'] == "delUser") {
 				
 			$this->delUser ();
-		}
-		if ($_REQUEST ['action'] == "forgetPasswd") {
-		
-			$this->forgetPasswd ();
 		}
 		if ($_REQUEST ['action'] == "acceptFrnd") {
 			
