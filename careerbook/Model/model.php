@@ -16,13 +16,29 @@ class MyClass extends model {
         $this->db->Where(array("(first_name = '".$_POST['firstname']."' AND status='A' AND
 				middle_name = '".$_POST['middlename']."' AND
 				last_name = '".$_POST['lastname']."' AND
-				date_of_birth = '".$_POST['dob']."') OR (email_primary = '".$_POST['email']."' AND status='A')"),true);
+				date_of_birth = '".$_POST['dob']."') OR (email_primary = '".$_POST['email']."' AND (status='A' OR status='I'))"),true);
         $this->db->From("users");
 
         $this->db->Select();
         return $this->db->resultArray();
 
     }
+    //**********************************************change forget user password******************************************
+    public function frogetUserPasswdChg($userId,$newPasswd)
+    {
+       	$this->db->Fields(array("password"=>md5($newPasswd)));
+    	$this->db->From("users");
+    	$this->db->Where(array("id=".$userId),true);
+    	$this->db->Update();
+    }
+    public function UpadteUserSattus($userId)
+    {
+    	$this->db->Fields(array("status"=>"A"));
+    	$this->db->From("users");
+    	$this->db->Where(array("id=".$userId),true);
+    	$this->db->Update();
+    }
+    
     //****************************************************change user password***************************************************
     public function passwdChg($userInfo,$newPasswd)
     {
@@ -94,15 +110,12 @@ public function acceptNewFrnd($userInfo,$frndId)
 
 public function FindLoginUsers() {
 
-    //$this->db->Fields(array("email_primary","password"));
+
     $this->db->From("users");
-    $this->db->Where(array("email_primary='".$_POST['userid']."' AND status='A'"),true);
+    $this->db->Where(array("email_primary='".$_POST['userid']."' AND (status='A' OR status='I')" ),true);
     $this->db->Select();
     return $this->db->resultArray();
-    /*echo $this->db->lastQuery();
-     $result = $this->db->resultArray();
-     echo "<pre/>";
-     print_r($result);*/
+
 }
 
 public function AddUser(){
@@ -117,7 +130,9 @@ public function AddUser(){
     $imageData = fread($fp, filesize($tmpName));
     $imageData = addslashes($imageData);
     fclose($fp);
-
+	
+    $_SESSION['userDefaultPwd'] = rand(100000,999999);
+    
     $this->db->Fields(array("first_name"=>$_POST['first_name'],
 				"middle_name"=>$_POST['middle_name'],
 				"last_name"=>$_POST['last_name'],
@@ -126,8 +141,9 @@ public function AddUser(){
 				" phone_no"=>$_POST['phone_no'],
 				" gender"=>$_POST['gender'],
 				"profile_image"=>$imageData,
-				"password"=>md5("12345"),
-				"created_on"=>date('Y-m-d h:i:s', time())));
+    			"status"=>"I",
+				"password"=>md5("12345"),  
+				"created_on"=>date('Y-m-d h:i:s', time())));		//md5($_SESSION['userDefaultPwd']);
     $this->db->From("users");
     $this->db->Insert();
     //		echo $this->db->lastQuery();

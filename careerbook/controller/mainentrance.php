@@ -108,26 +108,78 @@ class mainentrance {
 		$ObjModel->DeleteUser($this->obj_usrinfo);
 		session_destroy();
 	} 
+	//***************************************************sent a forget password link*******************************************
+	private function forgetPasswd()
+	{
+		if($_SESSION['secure'] != $_POST['captcha-code'])
+		{
+			header ( 'location: ../views/forgetPasswd.php?err=1' );
+		}
+		else{
+
+			$ObjModel = new MyClass ();
+			$result = $ObjModel->FindLoginUsers ();
+
+			if(!count($result))
+			{
+				header ( 'location: ../views/forgetPasswd.php?err=2' );
+			}
+			else{
+
+				 /*
+				 * sent link here
+				 */
+				
+// 				$str= date('ymd')+1;
+// 				$time=strtotime($str);
+// 				$hash=md5($time."ImSoRrYHaCkEr".$result[0]['id']);
+// 				$link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/views/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;
+				
+				/*
+				 *
+				* mail here
+				*/
+				
+			header ( 'location: ../views/forgetPasswd.php?code' );
+			}
+		}
+		
+	}
+	//******************************************************change user forget password***************************************************
+	private function forgetChngPwd()
+	{
+		if($_POST['userId'] !=" " && $_POST['newPwd'] !="" && $_POST['confirmPwd'] !="")
+		{
+			if($_POST['newPwd'] == $_POST['confirmPwd'])
+			{
+				$ObjModel = new MyClass ();
+				$ObjModel->frogetUserPasswdChg ($_POST['userId'],$_POST['newPwd']);
+				header ( 'location: ../index.php' );
+			}
+			else
+			{
+				header ( 'location: ../views/error.php' );
+			}
+		}
+		else 
+		{
+			header ( 'location: ../views/error.php' );
+		}
+	}
+	
 	
 	public function start() {
-		
-		//************code to prevent session hijacking************************//
-		
-		ini_set('session.cookie_httponly',true);
-		
 		session_start ();
 		
-		if (isset($_SESSION['last_ip']) == false) {
-			$_SESSION['last_ip'] = $_SERVER['REMOTE_ADDR'];
+		
+		if ($_REQUEST ['action'] == "forgetChngPwd") {
+		
+			$this->forgetChngPwd ();
 		}
+		if ($_REQUEST ['action'] == "forgetPasswd") {
 		
-		if ($_SESSION['last_ip'] != $_SERVER['REMOTE_ADDR']) {
-			session_unset();
-			session_destroy();
+			$this->forgetPasswd ();
 		}
-		
-		//**************End to session Hijacking Code***************************//
-		
 		if ($_REQUEST ['action'] == "delUser") {
 				
 			$this->delUser ();
@@ -255,18 +307,25 @@ class mainentrance {
 			if (! filter_var ( $_POST ['userid'], FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_SANITIZE_MAGIC_QUOTES )) {
 				
 				header ( "location:../index.php?err=AuthenticationFailed" );
-				die ();
+				//die ();
 			}
 			$ObjModel = new MyClass ();
 			$result = $ObjModel->FindLoginUsers ();
-			
-			if (! count ( $result )) {
-				// echo "here No result from DB";
+// 			echo "kshdfk";
+			if (count ( $result )==0) {
+				
 				// die;
 				header ( "location:../index.php?err=AuthenticationFailed" );
 				die ();
 			}
 			if (md5 ( $_POST ['password'] ) == $result [0] ['password']) {
+				
+				if($result[0]['status']=='I')
+				{
+					$ObjModel->UpadteUserSattus($result[0]['id']);		//user login first time
+				}
+				
+				
 				// $_SESSION['userData']=$result;
 				$this->obj_usrinfo->setUserPersonalInfo ( $result );
 				$this->obj_usrinfo->setUserIdInfo ( $result );
@@ -283,7 +342,7 @@ class mainentrance {
 		} else {
 			
 			header ( "location:../index.php?err=AuthenticationFailed" );
-			die ();
+			//die ();
 		}
 	}
 	private function fillUserProfile() {
@@ -577,7 +636,7 @@ class mainentrance {
 				Verification of your email address is pending.
 				Your Email Careerbook
 				User Name : " . $_POST ['email'] . "
-				Password  : 1234
+				Password  : ".$_SESSION['userDefaultPwd']."
 				Kindly login with this user name and password to complete verification of your email.
 				http://www.careerbook.com/
 

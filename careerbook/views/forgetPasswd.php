@@ -11,7 +11,7 @@ if (! isset ( $_GET ['code'] )) {
 <style>
 
 #myBox {
-	margin: 19%;
+	margin: 15%;
 }
 </style>
 
@@ -36,6 +36,12 @@ if (! isset ( $_GET ['code'] )) {
 				</tr>
 			</table>
 		</form>
+		<?php 
+		if(isset($_GET['err']))
+		{
+		echo "You have error no:".$_GET['err'];
+		}
+		?>
 	</div>
 
 <?php
