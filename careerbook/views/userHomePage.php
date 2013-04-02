@@ -1,17 +1,19 @@
 
 <?php 
 ini_set('session.cookie_httponly',true);
-
+//suhosin.session.encrypt=Off
+ini_set("suhosin.session.encrypt",true);
 //session_start ();
+//echo "dshfjkfs";
+// $time = time();
+// $date = $today = date("Ymd");
+// $id = $time + $date;
 
-if (isset($_SESSION['last_ip']) == false) {
-	$_SESSION['last_ip'] = $_SERVER['REMOTE_ADDR'];
-}
+// $a=session_id($id);
+// session_regenerate_id(true);
+// echo $a;
+// echo $_COOKIE["PHPSESSID"];
 
-if ($_SESSION['last_ip'] != $_SERVER['REMOTE_ADDR']) {
-	session_unset();
-	session_destroy();
-}
 
 ?>
 <?php

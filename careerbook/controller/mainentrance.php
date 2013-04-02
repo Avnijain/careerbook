@@ -1,16 +1,14 @@
 <?php
 /*
- * *************************** Creation Log ******************************* 
- * File Name - mainentrance.php Project 
- * Name - Careerbook 
- * Description - Class file for start Version - 1.0 
- * Created by - Prateek Saini 
- * Created on - March 03, 2013 
- * **************************** Update Log ******************************** 
+ * *************************** Creation Log ******************************* File
+ * Name - mainentrance.php Project Name - Careerbook Description - Class file
+ * for start Version - 1.0 Created by - Prateek Saini Created on - March 03,
+ * 2013 **************************** Update Log ********************************
  * Sr.NO.		Version		Updated by Updated on Description
- *  ------------------------------------------------------------------------- 
- *  1 1.0 Mohit K. Singh March 03, 2013 writen function for sending mail and validation check 
- *  ************************************************************************
+ * ------------------------------------------------------------------------- 1
+ * 1.0 Mohit K. Singh March 03, 2013 writen function for sending mail and
+ * validation check
+ * ************************************************************************
  */
 ini_set ( "display_errors", "1" );
 
@@ -32,8 +30,7 @@ class mainentrance {
 	private function __construct() {
 		$this->obj_usrinfo = new user_info_controller ();
 		$this->objdate = new dateManipulation ();
-		
-
+	
 	}
 	public static function getinstance() {
 		if (is_null ( mainentrance::$instance )) {
@@ -41,147 +38,125 @@ class mainentrance {
 		}
 		return self::$instance;
 	}
-	//*********************************************accept a friends request*******************************************
+	// *********************************************accept a friends
+	// request*******************************************
 	private function acceptFrnd() {
 		$ObjModel = new MyClass ();
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
 		$ObjModel->acceptNewFrnd ( $this->obj_usrinfo, $_POST ['id'] );
 	}
-	//******************************************************add a new friend*******************************************
+	// ******************************************************add a new
+	// friend*******************************************
 	private function addFrnd() {
 		$ObjModel = new MyClass ();
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
 		$ObjModel->addNewFrnd ( $this->obj_usrinfo, $_POST ['id'] );
 	}
-	//******************************************************delete a friend*****************************************
+	// ******************************************************delete a
+	// friend*****************************************
 	private function delFrnd() {
 		$ObjModel = new MyClass ();
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
 		$ObjModel->delMyFrnd ( $this->obj_usrinfo, $_POST ['id'] );
 	}
-	//*************************************************change a users password*************************************
-	private function chngPwd()
-	{
+	// *************************************************change a users
+	// password*************************************
+	private function chngPwd() {
 		
-		if($_POST['currPwd'] !=" " && $_POST['newPwd'] !="" && $_POST['confirmPwd'] !="")
-		{
-			if($_POST['newPwd'] == $_POST['confirmPwd'])
-			{
+		if ($_POST ['currPwd'] != " " && $_POST ['newPwd'] != "" && $_POST ['confirmPwd'] != "") {
+			if ($_POST ['newPwd'] == $_POST ['confirmPwd']) {
 				$ObjModel = new MyClass ();
 				$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
-				$result = $ObjModel->getUserPwd ($this->obj_usrinfo);
-				if(md5 ( $_POST ['currPwd'] ) == $result [0] ['password'])
-				{
-					if(strlen($_POST['newPwd']) < 8 || strlen($_POST['newPwd']) > 15)
-					{
-						header ( 'location: ../views/userHomePage.php?Settings&err=4');
-						
+				$result = $ObjModel->getUserPwd ( $this->obj_usrinfo );
+				if (md5 ( $_POST ['currPwd'] ) == $result [0] ['password']) {
+					if (strlen ( $_POST ['newPwd'] ) < 8 || strlen ( $_POST ['newPwd'] ) > 15) {
+						header ( 'location: ../views/userHomePage.php?Settings&err=4' );
+					
+					} elseif ($_POST ['newPwd'] == $_POST ['currPwd']) {
+						header ( 'location: ../views/userHomePage.php?Settings&err=5' );
+					} else {
+						$ObjModel->passwdChg ( $this->obj_usrinfo, $_POST ['newPwd'] );
+						header ( 'location: ../views/userHomePage.php?Settings&Success' );
 					}
-					elseif($_POST['newPwd']==$_POST['currPwd'])
-					{
-						header ( 'location: ../views/userHomePage.php?Settings&err=5');
-					}
-					else
-					{
-						$ObjModel->passwdChg ($this->obj_usrinfo,$_POST['newPwd']);
-						header ( 'location: ../views/userHomePage.php?Settings&Success');
-					}
+				} else {
+					header ( 'location: ../views/userHomePage.php?Settings&err=3' );
 				}
-				else 
-				{
-					header ( 'location: ../views/userHomePage.php?Settings&err=3');
-				}
-			}
-			else {
+			} else {
 				header ( 'location: ../views/userHomePage.php?Settings&err=2' );
 			}
-		}
-		else {
+		} else {
 			header ( 'location: ../views/userHomePage.php?Settings&err=1' );
 		}
 	}
-	//*****************************************delete an account********************************************************
-	private function delUser()
-	{
+	// *****************************************delete an
+	// account********************************************************
+	private function delUser() {
 		$ObjModel = new MyClass ();
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
-		$ObjModel->DeleteUser($this->obj_usrinfo);
-		session_destroy();
-	} 
-	//***************************************************sent a forget password link*******************************************
-	private function forgetPasswd()
-	{
-		if($_SESSION['secure'] != $_POST['captcha-code'])
-		{
+		$ObjModel->DeleteUser ( $this->obj_usrinfo );
+		session_destroy ();
+	}
+	// ***************************************************sent a forget password
+	// link*******************************************
+	private function forgetPasswd() {
+		if ($_SESSION ['secure'] != $_POST ['captcha-code']) {
 			header ( 'location: ../views/forgetPasswd.php?err=1' );
-		}
-		else{
-
+		} else {
+			
 			$ObjModel = new MyClass ();
 			$result = $ObjModel->FindLoginUsers ();
-
-			if(!count($result))
-			{
+			
+			if (! count ( $result )) {
 				header ( 'location: ../views/forgetPasswd.php?err=2' );
-			}
-			else{
-
-				 /*
+			} else {
+				
+				/*
 				 * sent link here
 				 */
 				
-// 				$str= date('ymd')+1;
-// 				$time=strtotime($str);
-// 				$hash=md5($time."ImSoRrYHaCkEr".$result[0]['id']);
-// 				$link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/views/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;
+				// $str= date('ymd')+1;
+				// $time=strtotime($str);
+				// $hash=md5($time."ImSoRrYHaCkEr".$result[0]['id']);
+				// $link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/views/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;
 				
 				/*
-				 *
-				* mail here
-				*/
+				 * mail here
+				 */
 				
-			header ( 'location: ../views/forgetPasswd.php?code' );
+				header ( 'location: ../views/forgetPasswd.php?code' );
 			}
 		}
-		
+	
 	}
-	//******************************************************change user forget password***************************************************
-	private function forgetChngPwd()
-	{
-		if($_POST['userId'] !=" " && $_POST['newPwd'] !="" && $_POST['confirmPwd'] !="")
-		{
-			if($_POST['newPwd'] == $_POST['confirmPwd'])
-			{
+	// ******************************************************change user forget
+	// password***************************************************
+	private function forgetChngPwd() {
+		if ($_POST ['userId'] != " " && $_POST ['newPwd'] != "" && $_POST ['confirmPwd'] != "") {
+			if ($_POST ['newPwd'] == $_POST ['confirmPwd']) {
 				$ObjModel = new MyClass ();
-				$ObjModel->frogetUserPasswdChg ($_POST['userId'],$_POST['newPwd']);
+				$ObjModel->frogetUserPasswdChg ( $_POST ['userId'], $_POST ['newPwd'] );
 				header ( 'location: ../index.php' );
-			}
-			else
-			{
+			} else {
 				header ( 'location: ../views/error.php' );
 			}
-		}
-		else 
-		{
+		} else {
 			header ( 'location: ../views/error.php' );
 		}
 	}
 	
-	
 	public function start() {
 		session_start ();
 		
-		
 		if ($_REQUEST ['action'] == "forgetChngPwd") {
-		
+			
 			$this->forgetChngPwd ();
 		}
 		if ($_REQUEST ['action'] == "forgetPasswd") {
-		
+			
 			$this->forgetPasswd ();
 		}
 		if ($_REQUEST ['action'] == "delUser") {
-				
+			
 			$this->delUser ();
 		}
 		if ($_REQUEST ['action'] == "acceptFrnd") {
@@ -285,12 +260,10 @@ class mainentrance {
 	// function to register a user and validate the feilds
 	private function userRegistration() {
 		
-		if($_POST['captcha-code'] != $_SESSION['secure'])
-		{
+		if ($_POST ['captcha-code'] != $_SESSION ['secure']) {
 			header ( "location:../views/NewRegistration.php?err=7" );
 			die ();
 		}
-		
 		
 		$this->validationCheck ();
 		$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
@@ -314,24 +287,24 @@ class mainentrance {
 			if (! filter_var ( $_POST ['userid'], FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_SANITIZE_MAGIC_QUOTES )) {
 				
 				header ( "location:../index.php?err=AuthenticationFailed" );
-				//die ();
+				// die ();
 			}
 			$ObjModel = new MyClass ();
 			$result = $ObjModel->FindLoginUsers ();
-// 			echo "kshdfk";
-			if (count ( $result )==0) {
+			// echo "kshdfk";
+			if (count ( $result ) == 0) {
 				
 				// die;
 				header ( "location:../index.php?err=AuthenticationFailed" );
 				die ();
 			}
-			if (md5 ( $_POST ['password'] ) == $result [0] ['password']) {
+			if (md5 ( $_POST ['password'] ) == $result [0] ['password'])
+			 {
 				
-				if($result[0]['status']=='I')
-				{
-					$ObjModel->UpadteUserSattus($result[0]['id']);		//user login first time
+				if ($result [0] ['status'] == 'I') {
+					$ObjModel->UpadteUserSattus ( $result [0] ['id'] ); // user login
+					                                               // first time
 				}
-				
 				
 				// $_SESSION['userData']=$result;
 				$this->obj_usrinfo->setUserPersonalInfo ( $result );
@@ -346,16 +319,22 @@ class mainentrance {
 				header ( "location:../views/userHomePage.php" );
 				// die;
 			}
-		} else {
+			else
+			{
+				header ( "location:../index.php?err=AuthenticationFailed" );
+			}
+		} 
+		else 
+		{
 			
 			header ( "location:../index.php?err=AuthenticationFailed" );
-			//die ();
+			// die ();
 		}
 	}
 	private function fillUserProfile() {
-// echo "<pre/>";
-// print_r($_POST);
-// die;
+		// echo "<pre/>";
+		// print_r($_POST);
+		// die;
 		
 		// echo "filling user profile";
 		$userProfessionalInfo = array (
@@ -432,8 +411,8 @@ class mainentrance {
 		$userCertificationInfo = array (
 				array (
 						"name" => "",
-						"description" => "",						
-						"duration" => ""
+						"description" => "",
+						"duration" => "" 
 				) 
 		);
 		$userExtraCurricularInfo = array (
@@ -448,7 +427,8 @@ class mainentrance {
 		// foreach($_POST as $key => $value){
 		// print_r(array_keys($userProfessionalInfo[0]));
 		/**
-		 * ************************** User Previous Job Info ***********************
+		 * ************************** User Previous Job Info
+		 * ***********************
 		 */
 		$flagData = false;
 		if (isset ( $_POST ['start_periodPREVJOB'] ) || isset ( $_POST ['end_periodPREVJOB'] )) {
@@ -468,17 +448,17 @@ class mainentrance {
 			}
 		}
 		if ($flagData) {
-		    $this->obj_usrinfo->setUserPreviousJobInfoForm ( $userPreviousJobInfo );
-		    // echo "inserting professional";
+			$this->obj_usrinfo->setUserPreviousJobInfoForm ( $userPreviousJobInfo );
+			// echo "inserting professional";
 		}
 		// echo "<pre/>";
 		// print_r($userPreviousJobInfo);
 		// die;
 		/**
-		 * ************************** User Professional Information ***********************
-		 */		
-
-
+		 * ************************** User Professional Information
+		 * ***********************
+		 */
+		
 		$flagData = false;
 //		if (isset ( $_POST ['start_period'] )) {
 //			if (! empty ( $_POST ['start_period'] )) {
@@ -516,7 +496,8 @@ class mainentrance {
 			// echo "inserting professional";
 		}
 		/**
-		 * ************************** User Project Information ***********************
+		 * ************************** User Project Information
+		 * ***********************
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userProjectInfo [0] ) as $key => $value ) {
@@ -584,7 +565,8 @@ class mainentrance {
 			// echo "inserting professional";
 		}
 		/**
-		 * ************************** User Address Information ***********************
+		 * ************************** User Address Information
+		 * ***********************
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userAddressInfo [0] ) as $key => $value ) {
@@ -600,30 +582,32 @@ class mainentrance {
 			$this->obj_usrinfo->setUserAddressInfoForm ( $userAddressInfo );
 		}
 		/**
-		 * ************************** User Certification Information ***********************
+		 * ************************** User Certification Information
+		 * ***********************
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userCertificationInfo [0] ) as $key => $value ) {
-			if (isset ( $_POST ["certificate_".$value] )) {
-				if (! empty ( $_POST ["certificate_".$value] )) {
-					foreach ( $_POST ["certificate_".$value] as $inkey => $invalue ) {
+			if (isset ( $_POST ["certificate_" . $value] )) {
+				if (! empty ( $_POST ["certificate_" . $value] )) {
+					foreach ( $_POST ["certificate_" . $value] as $inkey => $invalue ) {
 						if (! empty ( $invalue )) {
-							$userCertificationInfo [0] [$value] = $_POST ["certificate_".$value];
+							$userCertificationInfo [0] [$value] = $_POST ["certificate_" . $value];
 							$flagData = true;
 						}
 					}
 				}
 			}
 		}
-// echo "<pre/>";
-// print_r($userCertificationInfo);
-// die;
+		// echo "<pre/>";
+		// print_r($userCertificationInfo);
+		// die;
 		if ($flagData) {
-			$this->obj_usrinfo->setUserCertificateInfoForm ( $userCertificationInfo);
+			$this->obj_usrinfo->setUserCertificateInfoForm ( $userCertificationInfo );
 			// echo "inserting Academic";
 		}
 		/**
-		 * ************************** User Academic Information ***********************
+		 * ************************** User Academic Information
+		 * ***********************
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userAcademicInfo [0] ) as $key => $value ) {
@@ -671,7 +655,7 @@ class mainentrance {
 				Verification of your email address is pending.
 				Your Email Careerbook
 				User Name : " . $_POST ['email'] . "
-				Password  : ".$_SESSION['userDefaultPwd']."
+				Password  : " . $_SESSION ['userDefaultPwd'] . "
 				Kindly login with this user name and password to complete verification of your email.
 				http://www.careerbook.com/
 

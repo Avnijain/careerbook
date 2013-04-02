@@ -131,35 +131,8 @@
      <script>
 		$(document).ready(function () {
 		//$("p").text("The DOM is now loaded and can be manipulated.");
-			$("#email").keyup(function(){
-					//$("#searchresult").html("kdmsfmsmfcmds");
-					$.post('../controller/mainentrance.php',{'action':'get_friend'},function(data,status){
 
-						if(status=="success")
-						{
-							$.post('../views/friendemail.php',function(data,status){
-								$('#searchresult').html(data);
-								
-							});
-						}
-						});
-					
-				});
-				$("#abc").keyup(function(){
-					//$("#searchresult").html("kdmsfmsmfcmds");
-					$.post('../controller/mainentrance.php',{'action':'get_friend'},function(data,status){
 
-						if(status=="success")
-						{
-							$.post('../views/friendemail.php',function(data,status){
-								$( "#abc" ).autocomplete({
-								source: data
-								});
-							});
-						}
-						});
-					
-				});
 			$("li.inbox").hover(function(){
 // 				$.post('../controller/mainentrance.php',{'action':'get_message'},function(data,"){
 // 					});
@@ -172,32 +145,7 @@
 						});
 					}
 					});
-// 		 		   $.ajax({ 
-// 	 		     type: "POST",
-// 	 		     url: '../controller/mainentrance.php?action=get_message',                  //the script to call to get data          
 
-// 	 		       success: function(){    	   
-// 	 		    	//   $('#messageinbox').html(data);
-// 		 		    	  $.ajax({ 
-// 			 		 		     type: "POST",
-// 			 		 		     url: '../views/inbox.php',                  //the script to call to get data          
-// 			 		 		       success: function(data){    	   
-// 			 		 		    	   $('#messageinbox').html(data);
-
-			 				    	   
-// 			 		 		       },
-
-// 			 		 		   });
-
-			    	   
-// 	 		       }
-// 	//		        complete: function () {
-			           
-// 	//		        },
-// 	//		        error: function(){
-			           
-// 	//		        }
-// 	 		   });
 			});
 			$("li.outbox").hover(function(){
 				$.post('../controller/mainentrance.php',{'action':'message_sent'},function(data,status){
@@ -209,32 +157,7 @@
 						});
 					}
 					});
-// 		 		   $.ajax({ 
-// 	 		     type: "POST",
-// 	 		     url: '../controller/mainentrance.php?action=message_sent',                  //the script to call to get data          
 
-// 	 		       success: function(){    	   
-// 	 		    	//   $('#messageinbox').html(data);
-// 		 		    	  $.ajax({ 
-// 			 		 		     type: "POST",
-// 			 		 		     url: '../views/outbox.php',                  //the script to call to get data          
-// 			 		 		       success: function(data){    	   
-// 			 		 		    	   $('#messageoutbox').html(data);
-
-			 				    	   
-// 			 		 		       },
-
-// 			 		 		   });
-
-			    	   
-// 	 		       }
-	//		        complete: function () {
-			           
-	//		        },
-	//		        error: function(){
-			           
-	//		        }
-// 	 		   });
 			});
 		});
 		
@@ -243,44 +166,22 @@
 	</script>
 	 <script>
 $(function() {
-var availableTags = [
-"ActionScript",
-"AppleScript",
-"Asp",
-"BASIC",
-"C",
-"C++",
-"Clojure",
-"COBOL",
-"ColdFusion",
-"Erlang",
-"Fortran",
-"Groovy",
-"Haskell",
-"Java",
-"JavaScript",
-"Lisp",
-"Perl",
-"PHP",
-"Python",
-"Ruby",
-"Scala",
-"Scheme"
-];
+
 $.post('../controller/mainentrance.php',{'action':'get_friend'},function(data,status){
 
 						if(status=="success")
 						{
 							$.post('../views/friendemail.php',function(data,status){
-								$( "#abc" ).autocomplete({
-								source: data
-								});
+
+								var myEmail=data.substring(0,(data.length)-1);
+								var myArr= myEmail.split(',');
+								$( "#tags" ).autocomplete({
+									source: myArr
+									});
 							});
 						}
 						});
-$( "#tags" ).autocomplete({
-source: availableTags
-});
+
 });
 </script>
 
@@ -313,9 +214,9 @@ source: availableTags
                 <div>
                     <label for="to">
                         To:</label>
-                    <input type="text" name="uid" id="email"  />
-                    <input id="tags"  />
-					<input id="abc"  />
+<!--                     <input type="text" name="uid" id="email"  /> -->
+                    <input id="tags"  name="uid" type="text"/>
+<!-- 					<input id="abc"  /> -->
                     <div id="searchresult" ></div>
                 </div>
                 <div>

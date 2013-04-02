@@ -5,11 +5,7 @@ $friendemail=($_SESSION['emailid']);
 $i=0;
 foreach ($friendemail as $keys=>$values){
 	echo $friendemail[$i]['email_primary'];
-	echo "<br/>"; 
+	echo ","; 
 	$i++;
 }
-// $n=count($friendemail);
-// for ($i=0;$i<n;$i++) {
-// 	echo $friendemail[$i]['email_primary'];
-// 	echo "<br/>"; }
 ?>
