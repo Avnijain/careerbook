@@ -113,6 +113,9 @@
     </style>
 	<link rel="stylesheet" type="text/css" href="../css/message.css" />
 	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	 <script src="message.js"></script>
+	<script src="message1.js"></script>
+	<link rel="stylesheet" href="message2.css" />
     <script type="text/javascript">
         $(function() {
             var $items = $('#vtab>ul>li');
@@ -136,6 +139,22 @@
 						{
 							$.post('../views/friendemail.php',function(data,status){
 								$('#searchresult').html(data);
+								
+							});
+						}
+						});
+					
+				});
+				$("#abc").keyup(function(){
+					//$("#searchresult").html("kdmsfmsmfcmds");
+					$.post('../controller/mainentrance.php',{'action':'get_friend'},function(data,status){
+
+						if(status=="success")
+						{
+							$.post('../views/friendemail.php',function(data,status){
+								$( "#abc" ).autocomplete({
+								source: data
+								});
 							});
 						}
 						});
@@ -222,6 +241,48 @@
 			
 
 	</script>
+	 <script>
+$(function() {
+var availableTags = [
+"ActionScript",
+"AppleScript",
+"Asp",
+"BASIC",
+"C",
+"C++",
+"Clojure",
+"COBOL",
+"ColdFusion",
+"Erlang",
+"Fortran",
+"Groovy",
+"Haskell",
+"Java",
+"JavaScript",
+"Lisp",
+"Perl",
+"PHP",
+"Python",
+"Ruby",
+"Scala",
+"Scheme"
+];
+$.post('../controller/mainentrance.php',{'action':'get_friend'},function(data,status){
+
+						if(status=="success")
+						{
+							$.post('../views/friendemail.php',function(data,status){
+								$( "#abc" ).autocomplete({
+								source: data
+								});
+							});
+						}
+						});
+$( "#tags" ).autocomplete({
+source: availableTags
+});
+});
+</script>
 
     <div id="vtab">
         <ul>
@@ -253,6 +314,8 @@
                     <label for="to">
                         To:</label>
                     <input type="text" name="uid" id="email"  />
+                    <input id="tags"  />
+					<input id="abc"  />
                     <div id="searchresult" ></div>
                 </div>
                 <div>

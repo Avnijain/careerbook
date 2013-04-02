@@ -87,7 +87,7 @@ $(function() {			//for producing the overlay effect
 					<?php echo $lang->TEMPLATE1 ?>
 				</h3>
 				<h4>
-					<?php echo $lang->WITHPHOTO; ?>
+					<?php echo $lang->STANDARD; ?>
 				</h4>
 				<h3>
 					<ol>
