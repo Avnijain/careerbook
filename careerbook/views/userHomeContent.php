@@ -71,6 +71,10 @@ if (isset($_GET['Group'])) {
 	include 'searchGroup.php';
 } else if (isset($_GET['addUserPost'])) {
 	include 'post_user_discussion.php';
+} else if (isset($_GET['editGroup'])) {
+	include 'edit_group.php';
+} else if (isset($_GET['editPost'])) {
+	include 'edit_post.php';
 }
 elseif(isset($_GET['Friends'])){
 	$objFrndControl->start('myFriends');

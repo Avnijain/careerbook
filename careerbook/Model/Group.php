@@ -52,7 +52,7 @@ class Group {
 	}
 	
 	// function to edit user post
-	function edit_post($group_discussion_id, $description) {
+	function edit_post() {
 		$this->db->Fields ( array (
 				"description" => $this->_group_discussion_description 
 		) );
@@ -61,15 +61,31 @@ class Group {
 				"id" => $this->_group_discussion_id 
 		) );
 		$this->db->Update ();
+		
 	}
 	
 	// function to delete user post
-	function delete() {
-		$this->db->From ( "group_discussions" );
-		$this->db->Where ( array (
-				"id" => $this->_group_discussion_id 
+	function delete_group() {
+		$this->db->Fields ( array (
+				"status" => 'D' 
 		) );
-		$this->db->Delete ();
+		$this->db->From ( "group_details" );
+		$this->db->Where ( array (
+				"id" => $this->_group_id 
+		) );
+		$this->db->Update ();
+	}
+	
+	function delete_comment() {
+		$this->db->Fields ( array (
+				"status" => 'D'
+		) );
+		$this->db->From ( "	group_discussion_comments" );
+		$this->db->Where ( array (
+				"id" => $this->_group_discussion_comment_id
+		) );
+		$this->db->Update ();
+		
 	}
 	
 	// function to add new group
@@ -94,6 +110,24 @@ class Group {
 		$this->db->From ( "group_members" );
 		$this->db->Insert ();
 		
+	}
+	
+	// function to edit group
+	function edit_group() {
+		$this->db->Fields ( array (
+				"title" => $this->_group_title,
+				"description" => $this->_group_description,
+				"group_image" => $this->_group_image
+		) );
+	
+		$this->db->From ( "group_details" );
+		$this->db->Where ( array (
+				"id" => $this->_group_id
+		) );
+		$this->db->Update ();
+		//echo $this->db->lastQuery();die;
+		
+	
 	}
 	
 	// function to list group post
@@ -160,7 +194,7 @@ class Group {
 		$this->db->From ( "group_details" );
 		$this->db->Join ( "group_members", " group_details.id = group_members.group_id " );
 		$this->db->Where ( array (
-				"group_members.member_id = " .$this->_created_by . " AND group_members.status = 'A'"
+				"group_members.member_id = " .$this->_created_by . " AND group_details.status = 'A' AND group_members.status = 'A'"
 		),true );
 		
 		$this->db->Select ();
@@ -208,6 +242,7 @@ class Group {
 	
 	function get_comments() {
 		$this->db->Fields ( array (
+				"group_discussion_comments.id",
 				"group_discussion_comments.discussion_id",
 				"description",
 				"group_discussion_comments.created_by",
@@ -222,8 +257,8 @@ class Group {
 		$this->db->From ( "group_discussion_comments" );
 		$this->db->Join("users","group_discussion_comments.created_by = users.id");
 		$this->db->Where ( array (
-				"group_discussion_comments.discussion_id" => $this->_group_discussion_id 
-		) );
+				"group_discussion_comments.discussion_id =" . $this->_group_discussion_id . " AND group_discussion_comments.status = 'A' " 
+		), True );
 		
 		$this->db->Select ();
 		//echo $this->db->lastQuery();die;

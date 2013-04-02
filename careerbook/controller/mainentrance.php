@@ -190,6 +190,10 @@ class mainentrance {
 			$this->_obj_group_controller = new GroupHandler ();
 			$this->_obj_group_controller->handleAddGroup ();
 		}
+		if ($_REQUEST ['action'] == "edit_group") {
+			$this->_obj_group_controller = new GroupHandler ();
+			$this->_obj_group_controller->handleEditGroup ();
+		}
 		if ($_REQUEST ['action'] == "send_message") {
 			$objMessage = new MessageController ();
 			$objMessage->handleSendMessage ();
@@ -223,6 +227,30 @@ class mainentrance {
 			$this->_obj_group_controller = new GroupHandler ();
 			$this->_obj_group_controller->handleGetGroup ();
 		}
+		if ($_REQUEST ['action'] == "add_group") {
+			$this->_obj_group_controller = new GroupHandler ();
+			$this->_obj_group_controller->handleAddGroup ();
+		}
+		if ($_REQUEST ['action'] == "process_edit_group") {
+			$this->_obj_group_controller = new GroupHandler ();
+			$this->_obj_group_controller->handleProcessEditGroup ();
+		}
+		if ($_REQUEST ['action'] == "process_edit_post") {
+			$this->_obj_group_controller = new GroupHandler ();
+			$this->_obj_group_controller->handleProcessEditPost ();
+		}
+		if ($_REQUEST ['action'] == "edit_group") {
+			$this->_obj_group_controller = new GroupHandler ();
+			$this->_obj_group_controller->handleEditGroup();
+		}
+		if ($_REQUEST ['action'] == "edit_post") {
+			$this->_obj_group_controller = new GroupHandler ();
+			$this->_obj_group_controller->handleEditPost();
+		}
+		if ($_REQUEST ['action'] == "delete_group") {
+			$this->_obj_group_controller = new GroupHandler ();
+			$this->_obj_group_controller->handleDeleteGroup();
+		}
 		if ($_REQUEST ['action'] == "getPost") {
 			$this->_obj_group_controller = new GroupHandler ();
 			$this->_obj_group_controller->handleGetPost ();
@@ -234,6 +262,10 @@ class mainentrance {
 		if ($_REQUEST ['action'] == "addComment") {
 			$this->_obj_group_controller = new GroupHandler ();
 			$this->_obj_group_controller->handleAddComment ();
+		}
+		if ($_REQUEST ['action'] == "delete_comment") {
+			$this->_obj_group_controller = new GroupHandler ();
+			$this->_obj_group_controller->handleDeleteComment ();
 		}
 		if ($_REQUEST ['action'] == "getComment") {
 			$this->_obj_group_controller = new GroupHandler ();
