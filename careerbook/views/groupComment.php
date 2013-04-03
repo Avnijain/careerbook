@@ -1,4 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
+<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../JavaScript/group.js"> </script>
 <?php
 	include_once('../classes/groupClass.php');
 	
@@ -7,7 +9,7 @@
 	$userId = $userData['id'];
 	
 	$groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
-	$groupData = $groupData->getCommentList();
+	$groupData = ($groupData->getCommentList());
 	
 	
 	$groupData1 = unserialize ( $_SESSION ['postDetail'] );
@@ -24,17 +26,18 @@
 		?>
 </div><br/>
 <div id="groupDiscussionComment">
-	<form
+	<form id="groupDiscussionComment_form"
 		action="../controller/mainentrance.php?action=addComment&groupDiscussionId=<?php echo $_GET['groupDiscussionId'];?>"
 		method="post">
 		<p>
-			<textarea class="group_textarea" name="group_discussion_comment" rows="6" cols="20" placeholder="Post Comment..."></textarea>
+			<textarea class="group_textarea" id="group_discussion_comment" name="group_discussion_comment" rows="6" cols="20" placeholder="Post Comment..."></textarea>
 		</p>
 		<input type="submit" value="Post" class="group_button">
 	</form>
 </div><br/>
 <div class="group_comment group_div">
 	<?php
+	rsort($groupData);
 	foreach ( $groupData as $keys => $values ) {
 		$uri = 'data:image/png;base64,'.base64_encode($groupData[$keys]['profile_image']);
 		?>

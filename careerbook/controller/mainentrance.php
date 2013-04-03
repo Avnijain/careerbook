@@ -192,10 +192,6 @@ class mainentrance {
 
 			$this->fillUserProfile ();
 		}
-		if ($_REQUEST ['action'] == "add_group") {
-			$this->_obj_group_controller = new GroupHandler ();
-			$this->_obj_group_controller->handleAddGroup ();
-		}
 		if ($_REQUEST ['action'] == "edit_group") {
 			$this->_obj_group_controller = new GroupHandler ();
 			$this->_obj_group_controller->handleEditGroup ();

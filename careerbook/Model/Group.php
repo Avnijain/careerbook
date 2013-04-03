@@ -90,6 +90,22 @@ class Group {
 	
 	// function to add new group
 	function add_group() {
+		$maxsize = 1024000; // set to approx 1 MB
+		
+		if($_FILES ['group_image'] ['tmp_name'] == NULL) {
+			
+			$tmpName="../images/default-group.jpg";
+			$fp = fopen($tmpName, 'r');
+			$imageData = fread($fp, filesize($tmpName));
+			$this->_group_image = addslashes($imageData);
+			fclose($fp);
+		} else {
+			$fp = fopen(( $_FILES ['group_image'] ['tmp_name'] ), 'r');
+			$imageData = fread($fp, filesize(( $_FILES ['group_image'] ['tmp_name'] )));
+			$this->_group_image = addslashes($imageData);
+			fclose($fp);
+		}
+		
 		$this->db->Fields ( array (
 				"title" => $this->_group_title,
 				"description" => $this->_group_description,

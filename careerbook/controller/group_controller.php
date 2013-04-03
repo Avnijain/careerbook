@@ -48,23 +48,8 @@ class GroupHandler extends Group {
 		$this->_obj_group_model->_group_description = mysql_real_escape_string ( $_POST ['description'] );
 		$this->_obj_group_model->_created_by = $this->userid;
 		$this->_obj_group_model->_created_on = date ( 'Y-m-d H:i:s' );
-		$maxsize = 1024000; // set to approx 1 MB
-		                    
-		// check associated error code
-		if ($_FILES ['group_image'] ['error'] == UPLOAD_ERR_OK) {
-			// check whether file is uploaded with HTTP POST
-			if (is_uploaded_file ( $_FILES ['group_image'] ['tmp_name'] )) {
-				// checks size of uploaded image on server side
-				if ($_FILES ['group_image'] ['size'] < $maxsize) {
-					// checks whether uploaded file is of image type
-					$fp = fopen(( $_FILES ['group_image'] ['tmp_name'] ), 'r');
-    				$imageData = fread($fp, filesize(( $_FILES ['group_image'] ['tmp_name'] )));
-    				$this->_obj_group_model->_group_image = addslashes($imageData);
-    				fclose($fp);
-				}
-			}
-		}
 		
+		//echo $_FILES ['group_image'] ['tmp_name'];die;
 		$this->_obj_group_model->add_group ();
 		
 		$this->handleGetGroup();

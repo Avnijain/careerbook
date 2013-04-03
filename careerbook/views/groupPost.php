@@ -1,4 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
+<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../JavaScript/group.js"> </script>
 <?php
 	include_once('../classes/groupClass.php');
 	
@@ -20,7 +22,7 @@
 			$uri1 = 'data:image/png;base64,'.base64_encode($groupData1[0]['group_image']);
 		}
 	}
-	
+	//print_r($groupData);
 ?>
 <div class="group_header group_div">
 	<img src="<?php echo $uri1;?>" class="group_image">
@@ -30,11 +32,11 @@
 		?>
 </div>
 <div id="groupPost">
-	<form
+	<form id="group_post_form"
 		action="../controller/mainentrance.php?action=addPost&groupId=<?php echo $_GET['groupId'];?>"
 		method="post">
 		<br/>
-			<textarea class="group_textarea" name="group_discussion_description" rows="6" cols="20" placeholder="Post Your Message ..."></textarea>
+			<textarea class="group_textarea" id="group_discussion_description" name="group_discussion_description" rows="6" cols="20" placeholder="Post Your Message ..."></textarea>
 		<br/>
 		<input class="group_button" type="submit" value="Post">
 	</form>
@@ -47,8 +49,13 @@
 	<div class="group_post group_div">
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
-		echo nl2br(htmlspecialchars($values ['description'])) . "<br />";
-		echo "Posted by <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a>";
+		if (strlen($values ['description']) > 10) {
+			echo "<p id=\"".$values ['id'] ."\" onclick=expand(" .$values ['id'] ."," .$values ['description'] .");>". nl2br(htmlspecialchars(substr($values ['description'],0,10))) .'...' . "<a onclick=expand(" .$values ['id'] .");>View more</a></p>";
+		} else {
+			echo "<p>". $values ['description'] . "</p>";
+		}
+	
+		echo "<br/>Posted by <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a>";
 		echo " on " . $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {
 			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=process_edit_post&postId={$values['id']}\">Edit Post</a>";
@@ -61,3 +68,8 @@
 	}
 	?>
 </div>
+<script type="text/javascript">
+function expand(id,description) {
+	$("#"+id).html("<p>"+description+"</p>");
+}
+</script>
