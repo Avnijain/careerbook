@@ -26,7 +26,10 @@ function frndDelete(frndId)
 function viewFrnd(frndId)
 {
 
-	 window.location="userHomePage.php?information&user_id="+frndId;
+	
+	var key=$("#hash_code"+frndId).val();
+	
+	 window.location="userHomePage.php?information&user_id="+frndId+"&hash="+key;
 	//window.open('http://google.com','_newtab');
 	
 	 //window.open('information.php?user_id='+frndId, '_newtab');

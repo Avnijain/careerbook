@@ -23,6 +23,11 @@ $myfrnd = $friendsData->getMyFriendsNetwork ();
 					echo "<li>" . $values ['gender'] . "</li>";
 					echo "<li>" . $values ['email_primary'] . "</li>";
 					echo "</ul></td>";
+					$str= date('ymd');
+					$time=strtotime($str);
+					$hash=md5($time.$lang->KEY.$values ['id']);
+					
+					echo "<input type='hidden' value=".$hash." id='hash_code".$values ['id']."'>";
 					echo "<td id='aid" . $values ['id'] . "'><input type='button' value='View' onClick='viewFrnd(" . $values ['id'] . ");'></td>";
 					echo "<td id='cid" . $values ['id'] . "'><input type='button' value='Delete' onClick='frndDelete(" . $values ['id'] . ");'></td>";
 					?>

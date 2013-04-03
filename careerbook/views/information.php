@@ -24,11 +24,23 @@ if(isset($_SESSION['userData']))
 	$userid = $ob1->getUserIdInfo();
 	$idd = $userid['id'];
 }
-if(isset($_REQUEST['user_id'])) //if viewing friend's profile 
+if (isset($_REQUEST['user_id']) && isset($_REQUEST['hash'])) //if viewing friend's profile 
 {
-$id=$_GET['user_id'];
+	//echo $_REQUEST['hash'];
+	$str= date('ymd');
+	$time=strtotime($str);
+	$hash=md5($time.$lang->KEY.$_REQUEST['user_id']);
+
+	if($_REQUEST['hash']==$hash) {
+
+		$id=$_GET['user_id'];
+	}
+	else {
+		$id=$idd;
+	}
 }
 else {							//viewing own profile
+
 	$id=$idd;
 }
 
