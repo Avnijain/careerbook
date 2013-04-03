@@ -95,6 +95,7 @@ class mainentrance {
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
 		$ObjModel->DeleteUser ( $this->obj_usrinfo );
 		session_destroy ();
+		header ( "location:../index.php" );
 	}
 	// ***************************************************sent a forget password
 	// link*******************************************
@@ -129,7 +130,7 @@ class mainentrance {
 	
 	}
 	// ******************************************************change user forget
-	// password***************************************************
+	//********************************************************* password********
 	private function forgetChngPwd() {
 		if ($_POST ['userId'] != " " && $_POST ['newPwd'] != "" && $_POST ['confirmPwd'] != "") {
 			if ($_POST ['newPwd'] == $_POST ['confirmPwd']) {
@@ -175,15 +176,15 @@ class mainentrance {
 			$this->delFrnd ();
 		}
 		if ($_REQUEST ['action'] == "Registration") {
-			// print("yes I am here");
+
 			$this->userRegistration ();
 		}
 		if ($_REQUEST ['action'] == "login") {
-			// echo "login";
+
 			$this->userLogin ();
 		}
 		if ($_REQUEST ['action'] == "profileinfo") {
-			// echo "Filling profile information # ";
+
 			$this->fillUserProfile ();
 		}
 		if ($_REQUEST ['action'] == "add_group") {
@@ -198,30 +199,30 @@ class mainentrance {
 			$objMessage = new MessageController ();
 			$objMessage->handleSendMessage ();
 			header ( 'location: ../views/userHomePage.php?message&c=sent' );
-			// header('message1.php?c=sent');
+
 		}
 		if ($_REQUEST ['action'] == "get_message") {
 			$objMessage1 = new MessageController ();
 			$_SESSION ['myinbox'] = $objMessage1->handleRecieveMessage ();
 			rsort ( $_SESSION ['myinbox'] );
 			print_r ( $_SESSION ['myinbox'] );
-			// header('location: ../views/userHomePage.php?message');
+
 		}
 		if ($_REQUEST ['action'] == "message_sent") {
 			
 			$objMessage2 = new MessageController ();
-			// session_start();
+
 			$_SESSION ['outbox'] = $objMessage2->handleSentMessage ();
-			// print_r($_SESSION['outbox']);
+
 			rsort ( $_SESSION ['outbox'] );
 			header ( 'location: ../views/userHomePage.php?message' );
 		}
 		if ($_REQUEST ['action'] == "get_friend") {
 			
 			$objMessage2 = new MessageController ();
-			// session_start();
+
 			$_SESSION ['emailid'] = $objMessage2->handleGetFriend ();
-			// print_r($_SESSION['outbox']);
+
 		}
 		if ($_REQUEST ['action'] == "Group") {
 			$this->_obj_group_controller = new GroupHandler ();
@@ -297,7 +298,12 @@ class mainentrance {
 			die ();
 		}
 		
-		$this->validationCheck ();
+		$error=$this->validationCheck ();
+		if($error !=0)
+		{
+			header ( "location:../views/NewRegistration.php?err=".$error );
+			die ();
+		}
 		$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
 		$ObjModel = new MyClass ();
 		$result = $ObjModel->FindUsers ();
@@ -319,14 +325,14 @@ class mainentrance {
 			if (! filter_var ( $_POST ['userid'], FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_SANITIZE_MAGIC_QUOTES )) {
 				
 				header ( "location:../index.php?err=AuthenticationFailed" );
-				// die ();
+
 			}
 			$ObjModel = new MyClass ();
 			$result = $ObjModel->FindLoginUsers ();
-			// echo "kshdfk";
+
 			if (count ( $result ) == 0) {
 				
-				// die;
+
 				header ( "location:../index.php?err=AuthenticationFailed" );
 				die ();
 			}
@@ -338,7 +344,7 @@ class mainentrance {
 					                                               // first time
 				}
 				
-				// $_SESSION['userData']=$result;
+
 				$this->obj_usrinfo->setUserPersonalInfo ( $result );
 				$this->obj_usrinfo->setUserIdInfo ( $result );
 				$this->obj_usrinfo->setUserAddressInfoDb ( $result );
@@ -347,9 +353,9 @@ class mainentrance {
 				
 				$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
 				
-				// print($obj_usrinfo->getuserinfo('first_name'));
+
 				header ( "location:../views/userHomePage.php" );
-				// die;
+
 			}
 			else
 			{
@@ -360,15 +366,12 @@ class mainentrance {
 		{
 			
 			header ( "location:../index.php?err=AuthenticationFailed" );
-			// die ();
+
 		}
 	}
+	//******************************************************************************************************
 	private function fillUserProfile() {
-		// echo "<pre/>";
-		// print_r($_POST);
-		// die;
-		
-		// echo "filling user profile";
+
 		$userProfessionalInfo = array (
 				array (
 						"skill_set" => "",
@@ -453,11 +456,9 @@ class mainentrance {
 				) 
 		);
 		
-		// echo "<pre/>";
+
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
-		// print_r($_POST);
-		// foreach($_POST as $key => $value){
-		// print_r(array_keys($userProfessionalInfo[0]));
+
 		/**
 		 * ************************** User Previous Job Info
 		 * ***********************
@@ -481,22 +482,16 @@ class mainentrance {
 		}
 		if ($flagData) {
 			$this->obj_usrinfo->setUserPreviousJobInfoForm ( $userPreviousJobInfo );
-			// echo "inserting professional";
+
 		}
-		// echo "<pre/>";
-		// print_r($userPreviousJobInfo);
-		// die;
+
 		/**
 		 * ************************** User Professional Information
 		 * ***********************
 		 */
 		
 		$flagData = false;
-//		if (isset ( $_POST ['start_period'] )) {
-//			if (! empty ( $_POST ['start_period'] )) {
-//				$_POST ['start_period'] = $this->objdate->reverseDate ( $_POST ['start_period'] );
-//			}
-//		}
+
 		foreach ( array_keys ( $userProfessionalInfo [0] ) as $key => $value ) {
 			if (isset ( $_POST [$value] )) {
 				if (! empty ( $_POST [$value] )) {
@@ -507,7 +502,7 @@ class mainentrance {
 		}
 		if ($flagData) {
 			$this->obj_usrinfo->setUserProfessionalInfoForm ( $userProfessionalInfo );
-			// echo "inserting professional";
+			
 		}
 		/**
 		 * ************************** User Profile Image ***********************
@@ -525,7 +520,7 @@ class mainentrance {
 		}
 		if ($flagData) {
 			$this->obj_usrinfo->setUserImageInfoForm ( $userImageInfo );
-			// echo "inserting professional";
+	
 		}
 		/**
 		 * ************************** User Project Information
@@ -544,12 +539,10 @@ class mainentrance {
 				}
 			}
 		}
-		// echo "<pre/>";
-		// print_r($userProjectInfo);
-		// die;
+
 		if ($flagData) {
 			$this->obj_usrinfo->setUserProjectInfoForm ( $userProjectInfo );
-			// echo "inserting professional";
+			
 		}
 		/**
 		 * ************************** User Extra Curricular Information ***********************
@@ -567,22 +560,16 @@ class mainentrance {
 				}
 			}
 		}
-// echo "<pre/>";
-// print_r($userExtraCurricularInfo);
-// die;
+
 		if ($flagData) {
 			$this->obj_usrinfo->setUserExtraCurricularInfoForm( $userExtraCurricularInfo );
-			// echo "inserting professional";
+		
 		}		
 		/**
 		 * ************************** User Personal Information ***********************
 		 */
 		$flagData = false;
-//		if (isset ( $_POST ['date_of_birth'] )) {
-//			if (! empty ( $_POST ['date_of_birth'] )) {
-//				$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
-//			}
-//		}
+
 		foreach ( array_keys ( $userPersonalInfo [0] ) as $key => $value ) {
 			if (isset ( $_POST [$value] )) {
 				if (! empty ( $_POST [$value] )) {
@@ -652,34 +639,21 @@ class mainentrance {
 		}
 		if ($flagData) {
 			$this->obj_usrinfo->setUserAcademicInfoForm ( $userAcademicInfo );
-			// echo "inserting Academic";
+
 		}
-		// echo "<pre/>";
-		// print_r($this->obj_usrinfo->getUserProfessionalInfo());
-		// print_r($userAcademicInfo);
-		// die;
-		// print_r($userAddressInfo);
-		// print_r($userProfessionalInfo);
-		// if(isset($_POST[$key])){
-		// if(!empty($_POST[$key])){
-		
-		// }
-		// // }
-		// $result = array(array("skill_set" => $_POST['skill_set'],
-		// "current_position" => $_POST['current_position'],
-		// "current_company" => $_POST['current_company'],
-		// "start_period" => $_POST['start_period']));
-		
-		// //print_r($result);
+
 		$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
 		header ( "location:../views/userHomePage.php" );
-		// die;
+
 	}
+	//***********************************************all server side validation********************************************
 	private function validationCheck() {
 		//echo "validation funnnn";
-		$validdob = new validation ();
-		$validdob->validate ( $_POST );
+		$validdob = new UserDataValidation ();
+		$error=$validdob->validate ( $_POST );
+		return $error;
 	}
+	//**********************************************send mail to register user***********************************************
 	private function sendMail() {
 		$to = $_POST ['email'];
 		$subject = "Registration in careerbook";
@@ -698,7 +672,7 @@ class mainentrance {
 		mail ( $to, $subject, $message, $headers );
 		echo "Mail Sent.";
 	}
-}
+} //***********************************************End of class*****************************
 
 $obj = mainentrance::getinstance ();
 $obj->start ();

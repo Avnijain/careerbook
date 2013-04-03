@@ -126,12 +126,21 @@ class UserDataValidation
 	
 	public function __construct()
 	{
-		$this->_intgerType=array();
-		$this->_floatType=array();
-		$this->_stringType=array();
-		$this->_emailType=array();
-		$this->_imageType=array();
-		$this->_quotes=array();	
+			$this->_intgerType=array("phone_no");
+			$this->_floatType=array();
+			$this->_stringType=array("first_name",
+										"middle_name",
+										"last_name"
+										
+										);
+			$this->_emailType=array("email_primary");
+			$this->_imageType=array();
+			$this->_dateType=array("date_of_birth");
+			$this->_quotes=array("first_name",
+										"middle_name",
+										"last_name",
+										"email_primary"
+										);	
 	}
 //*******************************************************Function to validate User data	**************************************************************
 	public function validate($userData)
@@ -147,6 +156,14 @@ class UserDataValidation
 					break;
 				}
 			   }
+			   if(in_array($keys,$this->_dateType))
+			   {
+			   	$error=$this->validateDate($values);
+			   	if($error!=0)
+			   	{
+			   		break;
+			   	}
+			   }			   
 			if(in_array($keys,$this->_floatType))
 			   {
 				$error=$this->validateFloat($values);
@@ -197,7 +214,7 @@ class UserDataValidation
 		{
 			return 0;
 		}
-		if(!is_int($value))
+		if(!filter_var($value, FILTER_VALIDATE_INT))
 		{
 			return 1;
 		}
@@ -228,13 +245,15 @@ class UserDataValidation
 		{
 			return 0;
 		}
+
 		$singleQuotesPos = strrpos($value, "'");
 		$doubleQuotesPos = strrpos($value, '"');
 		$backwordQuotesPos = strrpos($value, '`');
-		if($singleQuotesPos===false || $doubleQuotesPos ===false || $backwordQuotesPos ===false) {
-			return 3;
-		} else {
+
+		if($singleQuotesPos===false && $doubleQuotesPos ===false && $backwordQuotesPos ===false) {
 			return 0;
+		} else {
+			return 3;
 		}
 		
 	}
@@ -280,56 +299,25 @@ class UserDataValidation
 		
 		if (($_FILES["file"]["size"] < 800 || $_FILES["file"]["size"] > 5242880) && !(in_array($_FILES["file"]["type"], $allowedExts)) && $_FILES["file"]["error"] > 0)
 		{
-			return 6;
+			return 8;
 		}
 		else {
 			return 0;
 		}
-	}		
+	}
+	//*******************************************************validate date type data***********************************************
+	private function validateDate($value)
+	{
+		if($value=="")
+		{
+			return 0;
+		}
+		if(!(preg_match("/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/", $value)))
+		{
+			return 9;
+		}
+		else {
+			return 0;
+		}
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
