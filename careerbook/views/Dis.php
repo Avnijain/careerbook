@@ -59,6 +59,13 @@ $(function() {
         }
  
     });
+    $(".group_button").click(function(){
+//         alert("My Comments + " + $(this).attr("id"));
+//     	,function(data){
+            $.post("../controller/mainentrance.php",{"action":"getComments"},function(data){
+                alert(data);
+            });        
+    });
 });
 </script>
 
@@ -89,21 +96,34 @@ $cal = 0; // check odd even div
 <?php 
 foreach ( $frndDisData as $keys => $values ) {
 foreach ( $values as $inkeys => $invalues ){
-
+    if(isset($invalues['profile_image'])){
+        if(!empty($invalues['profile_image'])){
+            $uri = 'data:image/png;base64,'.base64_encode($invalues['profile_image']);
+        }
+    }
 
 	?>
 	<div class="group_list group_div">
-		<img src="../images/default-group.jpg" class="group_image">
+		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
 //  		print_r($values);
 //  		die;
-		echo "Description : " . nl2br($invalues['discussion']) . "<br />";
+		if(isset($invalues['discussion'])){
+		    if(!empty($invalues['discussion'])){		
+		        echo "Description : " . nl2br($invalues['discussion']) . "<br />";
+		    }
+		}
 		//echo "Comments : " . $invalues['comments'] . "<br />";
 		?>
 		<br />
 		<div>
-			<a class="group_button"
-			href="#">View Comments</a>
+		    <input type="button" id="<?php 
+		    if(isset($invalues['id'])){
+		        if(!empty($invalues['id'])){
+		            echo $invalues['id'];
+		        }
+		    }
+		    ?>" class="group_button" value="View Comments"/>
 		</div>
 	</div><br/>
 	<?php

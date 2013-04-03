@@ -9,6 +9,7 @@
     Created on                  -  March 20, 2013
 	***************************** Update Log ********************************
 	Sr.NO.		Version		Updated by           Updated on          Description
+	1            1.0        Prateek Saini        April 04, 2013      Modified getFrndsDis($userInfo) 
     -------------------------------------------------------------------------
     */
  
@@ -34,74 +35,72 @@ class FriendsModel extends model {		//class to get all data of friends from data
     public function getFrndsDis($userInfo){
     	$user_id = $userInfo->getUserIdInfo();
     	$user_id=$user_id['id'];
-
-// select b.description discussion,d.first_name,a.description comment
-// FROM user_discussions b
-// JOIN
-// users d
-// on
-// d.id = '21'
-// LEFT OUTER JOIN
-// user_discussions_comments a
-// ON
-// a.user_discussions_id = b.id
-// where b.user_id = '21';    
-
+/* This Code will fetch all the User Post on their profile home page */
     	$this->db->Fields ( array (
-    			"a.description comments",
-    			"b.description discussion",
-    	        "d.first_name",
-    	        "b.id"
-    	    
-    	));
- 
-    	$this->db->From ( "user_discussions b" );
-    	$this->db->Join ( "users d", " d.id = $user_id " );
-    	$this->db->Join ( "user_discussions_comments a", " a.user_discussions_id = b.id ","LEFT OUTER" );
-    	$this->db->Where (array ("b.user_id" => "$user_id"));
-    	$this->db->Select ();
-//     	echo $this->db->lastQuery();
-//     	die;
-
-    	$result = array($this->db->resultArray ());
-// select a.description comments,b.description discussion,d.first_name, b.id
-// FROM user_discussions b
-// JOIN
-// friends c
-// ON
-// c.user_id = '21'
-// JOIN
-// user_discussions_comments a
-// ON
-// a.user_discussions_id = b.id AND b.user_id = c.friend_id
-// JOIN
-// users d
-// on
-// d.id = c.friend_id;
-    	
-    	$this->db->Fields ( array (
-    	    "a.description comments",
     	    "b.description discussion",
-    	    "d.first_name",
+    	    "d.profile_image",
     	    "b.id"
     	));
     	
     	$this->db->From ( "user_discussions b" );
-    	$this->db->Join ( "friends c", " c.user_id = $user_id " );
-    	$this->db->Join ( "user_discussions_comments a", " a.user_discussions_id = b.id AND b.user_id = c.friend_id " );
-    	$this->db->Join ( "users d", " d.id = c.friend_id " );
+    	$this->db->Join ( "users d", " d.id = $user_id " );
+    	$this->db->Where (array ("b.user_id" => "$user_id"));
+    	$this->db->OrderBy("b.created_on desc");
     	$this->db->Select ();
+    	//       echo $this->db->lastQuery();
+    	//       print_r($this->db->resultArray ());
+    	//       die;
+    	
+    	$tempData = $this->db->resultArray();
+    	
+    	if(!empty($tempData)){
+    	    $result[] = $tempData;
+    	}
+/* This Code will fetch all the User Friends Post on their profile home page */
+    	$this->db->Fields ( array (
+    	    "b.description discussion",
+    	    "d.profile_image",
+    	    "b.id"
+    	));
+    	 
+    	$this->db->From ( "user_discussions b" );
+    	$this->db->Join ( "friends c", " c.user_id = $user_id " );
+    	$this->db->Join ( "users d", " d.id = c.friend_id " );
+    	$this->db->Where (array ("b.user_id" => "c.friend_id"));
+    	$this->db->OrderBy("b.created_on desc");
+    	$this->db->Select ();
+    	//     	echo $this->db->lastQuery();
+    	//     	die;
+    	$tempData = $this->db->resultArray();
+    	if(!empty($tempData)){
+    	    $result[] = $tempData;
+    	}    	
+/* This Code will fetch all the Admin Post from User Discussions Table */    	
+    	$this->db->Fields ( array (    	    
+    	    "b.description discussion",
+    	    "d.profile_image",
+    	    "b.id"
+    	));
+    	
+    	$this->db->From ( "user_discussions b" );
+    	$this->db->Join ( "users d", " d.id = 1" );
+    	$this->db->Where (array ("b.user_id" => "1"));
+    	$this->db->Select ();    	
+        
+    	$tempData = $this->db->resultArray();
 
-    	$result[] = $this->db->resultArray ();
+    	if(!empty($tempData)){
+    	    $result[] = $tempData;
+    	}
     	
 //     	echo"<pre/>";
 //     	print_r($result);
 //     	die;
     	
-//    	echo $this->db->lastQuery();
+
 //     	echo "<pre/>";
 //     	print_r ( $this->db->resultArray () );
-//     	die;	
+	
     	
 //     	$this->db->Fields ( array (
 //     			"user_discussions.id",

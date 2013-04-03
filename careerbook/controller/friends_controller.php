@@ -69,8 +69,6 @@ class MyFriend{			//class to control all my friends needs
         }
         
     }
-    
-    //
     private function getMyFriendsDis(){
     	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
     	$result=$this->_objFrndModel->getFrndsDis($this->_obj_usrinfo);

@@ -33,3 +33,9 @@ activity varchar(80) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '
 ) ENGINE = INNODB AUTO_INCREMENT = 1;
 
 alter table user_extracurricular_info ADD FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+mysql> alter table user_discussions modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+mysql> alter table user_discussions_comments modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+
