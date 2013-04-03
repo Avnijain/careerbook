@@ -11,6 +11,7 @@ class validation
 
 				if(!filter_var($value, FILTER_SANITIZE_EMAIL))
 				{
+
 					if($_POST['action']=="registration")
 					{
 					header("location:../views/UserInfoForm.php?err=3");
@@ -39,22 +40,22 @@ class validation
 						}
 				}
 			}
-			else if(($key=="date_of_birth")||($key=="startperiod"))
-			{
-				if(!(preg_match("/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/", $value)))
-				{
-					if($_POST['action']=="registration")
-						{
-						header("location:../views/UserInfoForm.php?err=3");
-						exit;
-						}
-						else
-						{
-							header("location:../views/NewRegistration.php?err=3");
-							exit;
-						}
-				}
-			}
+// 			else if(($key=="date_of_birth")||($key=="startperiod"))
+// 			{
+// 				if(!(preg_match("/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/", $value)))
+// 				{
+// 					if($_POST['action']=="registration")
+// 						{
+// 						header("location:../views/UserInfoForm.php?err=3");
+// 						exit;
+// 						}
+// 						else
+// 						{
+// 							header("location:../views/NewRegistration.php?err=3");
+// 							exit;
+// 						}
+// 				}
+// 			}
 			else if(($key=="image"))
 			{
 				$allowedExts = array("jpg", "jpeg", "gif", "png");

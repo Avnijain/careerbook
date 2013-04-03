@@ -676,7 +676,7 @@ class mainentrance {
 		// die;
 	}
 	private function validationCheck() {
-		echo "validation funnnn";
+		//echo "validation funnnn";
 		$validdob = new validation ();
 		$validdob->validate ( $_POST );
 	}

@@ -59,7 +59,7 @@ class MyImageGet extends model { // class for manipulation image data from
 		$this->db->From ( "group_details" );
 		$this->db->Join ( "group_members", " group_details.id = group_members.group_id " );
 		$this->db->Where ( array (
-				"group_members.member_id = " . $userId . " AND group_members.status = 'A'" 
+				"group_members.member_id = " . $userId . " AND group_members.status = 'A' AND group_details.status='A'" 
 		), true );
 		
 		$this->db->Select ();
