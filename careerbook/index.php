@@ -5,6 +5,10 @@ if(isset($_SESSION['userData']))
     header("location:./views/userHomePage.php");
     die;
 }
+
+
+include_once("./classes/lang.php");
+
 ?>
 <html>
     <head>
@@ -43,7 +47,7 @@ if(isset($_SESSION['userData']))
             <div id="footer">
 		<div class="footer-bottom">
 			<div class="shell">
-				<center><p class="copy">� Copyright 2013<span>|</span>Career Book | All Right Reserved</p></center>
+				<center><p class="copy"><?php echo $lang->COPYRIGHT?><span></span><?php echo $lang->INDEXMSG?></p></center>
 			</div>
 		</div>            
             <!--          <center>Career Book|All Right are Reserved|2013</center>-->

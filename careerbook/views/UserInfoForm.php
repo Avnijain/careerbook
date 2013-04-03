@@ -313,7 +313,7 @@
                         <?php echo $lang->CONFIRMMSG; ?>
                     </p>
                 	<p class="submit">
-                	<button id="registerButton" type="submit">Register</button>
+                	<button id="registerButton" type="submit"><?php echo $lang->REGISTER?></button>
                 	</p>
                 </fieldset>
 			</form>

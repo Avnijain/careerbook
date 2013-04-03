@@ -36,9 +36,16 @@ else
 {
 	$selectedLang='en';
 }
-
-include_once '../lang/lang.'.$selectedLang.".php";
-
+$s=getcwd();
+$a=explode('/', $s);
+$n=count($a);
+if(($a[$n-1])=="careerbook"){
+	include_once './lang/lang.'.$selectedLang.".php";
+}
+else 
+{
+	include_once '../lang/lang.'.$selectedLang.".php";
+}
 $lang= new language($langArr);
 
 ?>

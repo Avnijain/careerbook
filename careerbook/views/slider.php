@@ -1,6 +1,4 @@
-    <?php
-	include_once("../classes/lang.php");
-	?>
+<?php include_once("./classes/lang.php");?>
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html>
 	<head>
@@ -48,38 +46,38 @@
 		<div class="rotator">
 		    <ul id="rotmenu">
 			<li>
-			    <a href="rot1">About Us</a>
+			    <a href="rot1"><?php echo $lang->ABOUTUS;?></a>
 			    <div style="display:none;">
 				<div class="info_image">../images/career.jpg</div>
-				<div class="info_heading">Our Works</div>
+				<div class="info_heading"><?php echo $lang->OURWORK;?></div>
 				<div class="info_description">
 				    <ul>
-				    <li id="reconnect">Stay informed about your contacts and industry</li>
-				    <li id="answers">Find the people &amp; knowledge you need to achieve your goals</li>
-				    <li id="power">Control your professional identity online</li>
+				    <li id="reconnect"><?php echo $lang->SLIDERMSG1;?></li>
+				    <li id="answers"><?php echo $lang->SLIDERMSG2;?></li>
+				    <li id="power"><?php echo $lang->SLIDERMSG3;?></li>
 				    </ul>
 				</div>
 			    </div>
 			</li>
 			<li>
-			    <a href="rot2">Services</a>
+			    <a href="rot2"><?php echo $lang->SERVICES;?></a>
 			    <div style="display:none;">
 				<div class="info_image">../images/2.jpg</div>
-				<div class="info_heading">We serve</div>
+				<div class="info_heading"><?php echo $lang->WESERVE;?></div>
 				<div class="info_description">
 				    <ul>
-					<li>Resume Building...Build a professional look</li>
-					<li>Career Guidance...</li>
-					<li>Counsultancy...</li>
+					<li><?php echo $lang->SLIDERMSG4;?></li>
+					<li><?php echo $lang->CAREERGUIDANCE;?></li>
+					<li><?php echo $lang->COUNSULTANCY;?></li>
 				    </ul>
 				</div>
 			    </div>
 			</li>
 			<li>
-			    <a href="rot3">Contact</a>
+			    <a href="rot3"><?php echo $lang->CONTACT;?></a>
 			    <div style="display:none;">
 				<div class="info_image">../images/3.jpg</div>
-				<div class="info_heading">Get in touch</div>
+				<div class="info_heading"><?php echo $lang->GETINTOUCH;?></div>
 				<div class="info_description">
 				    <?php require_once 'contactus.php'?>
 				</div>

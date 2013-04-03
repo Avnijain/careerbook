@@ -1,10 +1,11 @@
 <?php
     include_once('../classes/friendsClass.php');
+    include_once("../classes/lang.php");
     $friendsReqData=unserialize($_SESSION['FrndReq']);
     $myfrnd= $friendsReqData->getRequestedFriends();
 
 ?>
-<center><h1>You Have <?php echo $friendsReqData->countReqFrnds();?> Friends Request</h1>
+<center><h1><?php echo $lang->YOUHAVE;echo $friendsReqData->countReqFrnds();echo $lang->FRIENDSREQUEST;?> </h1>
 <table id="frnd">
     <?php
     foreach($myfrnd as $keys=>$values){

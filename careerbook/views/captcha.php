@@ -1,4 +1,7 @@
+<?php 
 
+include_once '../classes/lang.php';
+?>
 
 <link href="../css/captchastyle.css" rel="stylesheet" type="text/css">
 
@@ -28,12 +31,12 @@ $(document).ready(function() {
 	
 	<!-- Captcha HTML Code -->
 	
-	<div id="captcha-wrap">captcha
+	<div id="captcha-wrap"><?php echo $lang->CAPTCHA ?>captcha
 		<div class="captcha-box">
 			<img src="get_captcha.php" alt="" id="captcha" />
 		</div>
 		<div class="text-box" style="height: 40px;">
-			<label>Type the number here:</label>
+			<label><?php echo $lang->CAPTCHAMSG ?></label>
 			<input name="captcha-code" type="text" id="captcha-code" style="width: 80%; height: 50%; margin-left: 2% ">
 		</div>
 		<div class="captcha-action">

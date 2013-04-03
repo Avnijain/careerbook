@@ -1,4 +1,4 @@
-<?php
+ <?php
 /*
     **************************** Creation Log *******************************
     File Name                   -  lang.en.php
@@ -216,18 +216,55 @@
 				'TITLE'=>"Title",
 				'GROUPDESCRIPTION'=>"Description",
 				'GROUPIMAGE'=>"Group Image",
-				''=>"About Us",
-				''=>"Our Works",
-				''=>"Stay informed about your contacts and industry",
-				''=>"Find the people &amp; knowledge you need to achieve your goals",
- 				''=>"Control your professional identity online",
-		 		''=>"Services",
-		 		''=>"We serve",
-		 		''=>"Resume Building...Build a professional look",
-		 		''=>"Career Guidance...",
-		 		''=>"Counsultancy...",
-		 		''=>"Contact",
-		 		''=>"Get in touch",
+				'ABOUTUS'=>"About Us",
+				'OURWORK'=>"Our Work",
+				'SLIDERMSG1'=>"Stay informed about your contacts and industry",
+				'SLIDERMSG2'=>"Find the people &amp; knowledge you need to achieve your goals",
+ 				'SLIDERMSG3'=>"Control your professional identity online",
+		 		'SERVICES'=>"Services",
+		 		'WESERVE'=>"We serve",
+		 		'SLIDERMSG4'=>"Resume Building...Build a professional look",
+		 		'CAREERGUIDANCE'=>"Career Guidance...",
+		 		'COUNSULTANCY'=>"Counsultancy...",
+		 		'CONTACT'=>"Contact",
+		 		'GETINTOUCH'=>"Get in touch",
+		 		'INDEXMSG'=>"Career Book | All Right Reserved",
+		 		'COPYRIGHT'=>"&#64 Copyright 2013",
+		 		'REGISTER'=>"Register",
+		 		'NEWREGISTRATIONMSG'=>"Everything in the form was correctly filled 
+					if all the steps have a green checkmark icon.
+					A red checkmark icon indicates that some field 
+					is missing or filled out with invalid data. In this
+					last step the user can confirm the submission of
+					the form.",
+		 		'REGISTAR'=>"Registar",
+		 		'USERREGISTRATIONFORM'=>"User Registration Form",
+		 		'REGISTRATIONERROR'=>"You Have Error No:",
+		 		'LOGIN'=>"Login Form",
+		 		'REMEMBER'=>"Remember",
+		 		'CONTACTUS'=>"Contact Us",
+		 		'FRIENDSREQUEST'=>"Friends Request",
+		 		'FORGETPWDMSG1'=>"Please enter your primary email ID",
+		 		'EMAILID'=>"Email ID",
+		 		'FORGETPWDMSG2'=>"We sent you a change password link to your mail <br>please change your password and ",
+		 		'FORGETPWDMSG3'=>"",
+		 		'FORGETPWDLOGIN'=>"Login",
+ 				'CHANGEPWDMSG'=>"Please Enter your New Password",
+		 		'NEWPASSWORD'=>"New Password",
+		 		'CONFIRMPASSWORD'=>"Confirm Password",
+		 		'CAPTCHA'=>"captcha",
+		 		'CAPTCHAMSG'=>"Type the number here:",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
 		 		''=>"",
 		 		''=>"",
 		 		''=>"",
@@ -236,6 +273,7 @@
 		 		''=>"",
 		 		''=>"",
 		 		''=>""
+ 		
                 );
 
 

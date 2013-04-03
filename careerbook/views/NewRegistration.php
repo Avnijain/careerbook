@@ -6,7 +6,7 @@ include_once("../classes/lang.php");
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>User Registration Form</title>
+        <title><?php echo $lang->USERREGISTRATIONFORM?></title>
 
         <link rel="stylesheet" href="../css/NewRegistration.css" type="text/css" media="screen"/>
     <script type="text/javascript" src="../JavaScript/jquery.min.js"></script>
@@ -56,7 +56,7 @@ include_once("../classes/lang.php");
                          
                     <?php 
                     if(isset($_GET['err'])){
-                    	echo "<h3>You Have Error No:".$_GET['err']."</h3>";
+                    	echo "<h3>$lang->REGISTRATIONERROR".$_GET['err']."</h3>";
                     }
                     ?> 
         <div>
@@ -74,7 +74,7 @@ include_once("../classes/lang.php");
                     
                     <form id="formElem" name="formElem" action="../controller/mainentrance.php?action=Registration" method="post">
                         <fieldset class="step">
-                            <legend>Account</legend>
+                            <legend><?php echo $lang->ACCOUNT?></legend>
                             
                             <p>
                                 <label ><?php echo $lang->EMAIL;?></label>
@@ -83,7 +83,7 @@ include_once("../classes/lang.php");
 
                         </fieldset>
                         <fieldset class="step">
-                            <legend>Personal Details</legend>
+                            <legend><?php echo $lang->PERSONALDETAILS?></legend>
                             <p>
                                 <label ><?php echo $lang->FIRSTNAME;?></label>
                                 <input id="username" name="first_name" />
@@ -112,22 +112,18 @@ include_once("../classes/lang.php");
                             </fieldset>
 
 			<fieldset class="step">
-                            <legend>Confirm</legend>
+                            <legend><?php echo $lang->CONFIRM?></legend>
                             
                             <?php include_once 'captcha.php'; ?>
                                                       
                             
 							<p>
-								Everything in the form was correctly filled 
-								if all the steps have a green checkmark icon.
-								A red checkmark icon indicates that some field 
-								is missing or filled out with invalid data. In this
-								last step the user can confirm the submission of
-								the form.
+								<?php echo $lang->NEWREGISTRATIONMSG?>
+								
 							</p>
                             
                             <p class="submit">
-                                <button id="registerButton" type="submit">Register</button>
+                                <button id="registerButton" type="submit"><?php echo $lang->REGISTAR?></button>
                             </p>
                             
                         </fieldset>
@@ -136,14 +132,14 @@ include_once("../classes/lang.php");
                 <div id="navigation" style="display:none;">
                     <ul>
                         <li class="selected">
-                            <a href="#">Account</a>
+                            <a href="#"><?php echo $lang->ACCOUNT?></a>
                         </li>
                         <li>
-                            <a href="#">Personal Details</a>
+                            <a href="#"><?php echo $lang->PERSONALDETAILS?></a>
                         </li>
 
-			<li>
-                            <a href="#">Confirm</a>
+						<li>
+                            <a href="#"><?php echo $lang->CONFIRM?></a>
                         </li>
                     </ul>
                 </div>

@@ -1,3 +1,5 @@
+<?php include_once("../classes/lang.php");?>
+
 <html lang="en">
     <head>
 	<meta charset="utf-8">
@@ -11,13 +13,13 @@
     </head>
     <body>
         <div class="login-form">
-            <h1>Login Form</h1>
+            <h1><?php echo $lang->LOGIN?></h1>
             <form action="#">
                 <input type="text" name="username" placeholder="username">   
                 <input type="password" name="password" placeholder="password">  
                 <span>
                     <input type="checkbox" name="checkbox">
-                    <label for="checkbox">remember</label>
+                    <label for="checkbox"><?php echo $lang->REMEMBER?></label>
                 </span>
                 <input type="submit" value="log in">
             </form>

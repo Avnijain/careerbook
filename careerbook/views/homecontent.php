@@ -1,3 +1,8 @@
+<?php
+include_once("../classes/lang.php");
+?>
+
+
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="./css/mainpage.css" />
@@ -34,9 +39,9 @@ $(document).ready(function(){
 	<div id="tabs_wrapper">
             <div id="tabs_container">
                 <ul id="tabs">
-                    <li class="active"><a href="#tab1">Home</a></li>
-                    <li><a class="icon_accept" href="#tab2">About Us</a></li>
-                    <li><a href="#tab3">Contact Us</a></li>
+                    <li class="active"><a href="#tab1"><?php echo $lang->HOME?></a></li>
+                    <li><a class="icon_accept" href="#tab2"><?php echo $lang->ABOUTUS?></a></li>
+                    <li><a href="#tab3"><?php echo $lang->CONTACTUS?></a></li>
                 </ul>
             </div>
             <div id="tabs_content_container">

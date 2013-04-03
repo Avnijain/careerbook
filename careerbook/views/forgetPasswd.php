@@ -1,6 +1,7 @@
 	
 	
 <?php
+include_once("../classes/lang.php");
 if (! isset ( $_GET ['code'] )) {
 	?>
 <style>
@@ -12,7 +13,7 @@ if (! isset ( $_GET ['code'] )) {
 
 
 	<div id="myBox">
-		<p>Please enter your primary email ID</p>
+		<p><?php echo $lang->FORGETPWDMSG1?></p>
 		<form action="../controller/mainentrance.php?action=forgetPasswd" method="post">
 		
 			<?php
@@ -23,7 +24,7 @@ if (! isset ( $_GET ['code'] )) {
 			<br/>
 			<table>
 				<tr>
-					<td><label class="text-label">Email ID</label></td>
+					<td><label class="text-label"><?php echo $lang->EMAILID?></label></td>
 					<td><input id="text-feild" type="text" name=userid></td>
 				</tr>
 				<tr>
@@ -56,7 +57,7 @@ if (! isset ( $_GET ['code'] )) {
 </script>
 
 <div id="myBox">
-	<p>We sent you a change password link to your mail <br>please change your password and <a href="#" onclick='closeMe();'>Login</a></p>
+	<p><?php echo $lang->FORGETPWDMSG2?><a href="#" onclick='closeMe();'><?php echo $lang->FORGETPWDLOGIN?></a></p>
 	</div>
 <?php
 }

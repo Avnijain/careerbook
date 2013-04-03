@@ -40,17 +40,17 @@ if(isset($_GET['id']) && isset($_GET['time']) && isset($_GET['hash']))
 			?>
 			
 			<form action="../controller/mainentrance.php?action=forgetChngPwd" method="post" name="cngPWD">
-			<p class="seting">Please Enter your New Password</p>
+			<p class="seting"><?php echo $lang->CHANGEPWDMSG;?></p>
 			<table>
 				<tr>
 					<td><input type="hidden" name="userId" id="userId" value="<?php echo $_GET['id'];?>" /></td>
 				</tr>
 				<tr>
-					<td><lable class="seting">New Password</lable></td>
+					<td><lable class="seting"><?php echo $lang->NEWPASSWORD?></lable></td>
 					<td><input type="password" name="newPwd" id="newPwd" /></td>
 				</tr>
 				<tr>
-					<td><lable class="seting">Confirm Password</lable></td>
+					<td><lable class="seting"><?php echo $lang->CONFIRMPASSWORD?></lable></td>
 					<td><input type="password" name="confirmPwd" id="confirmPwd" /></td>
 				</tr>
 				<tr>
