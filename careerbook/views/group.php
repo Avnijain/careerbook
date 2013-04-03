@@ -28,8 +28,8 @@
 	?>
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
-		echo "<p>Title : " . nl2br($values ['title']) . "</p>";
-		echo "<p>" . nl2br($values ['description']) . "</p>";
+		echo "<p>Title : " . nl2br(htmlspecialchars($values ['title'])) . "</p>";
+		echo "<p>" . nl2br(htmlspecialchars($values ['description'])) . "</p>";
 		if ($values ['created_by'] == $userId) {
 			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=process_edit_group&groupId={$values['id']}\">Edit Group</a>";
 			echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=delete_group&groupId={$values['id']}\">Delete</a>";

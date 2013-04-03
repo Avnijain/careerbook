@@ -104,7 +104,7 @@ class GroupHandler extends Group {
 	}
 	
 	function handleAddPost() {
-		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
+		$this->_obj_group_model->_group_id = ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_group_discussion_description = trim ( $_POST ['group_discussion_description'] );
 		$this->_obj_group_model->_group_discussion_description = htmlentities( $_POST ['group_discussion_description'], ENT_COMPAT, 'UTF-8' );
 		$this->_obj_group_model->_group_discussion_description = mysql_real_escape_string ( $_POST ['group_discussion_description'] );
@@ -123,7 +123,7 @@ class GroupHandler extends Group {
 	}
 	
 	function handleEditPost() {
-		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['postId']);
+		$this->_obj_group_model->_group_discussion_id =  ($_REQUEST ['postId']);
 		$this->_obj_group_model->_group_discussion_description = trim ( $_POST ['group_discussion_description'] );
 		$this->_obj_group_model->_group_discussion_description = htmlentities ( $_POST ['group_discussion_description'], ENT_COMPAT, 'UTF-8' );
 		$this->_obj_group_model->_group_discussion_description = mysql_real_escape_string ( $_POST ['group_discussion_description'] );
@@ -134,7 +134,7 @@ class GroupHandler extends Group {
 	}
 	
 	function handleProcessEditGroup() {
-		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
+		$this->_obj_group_model->_group_id = ($_REQUEST ['groupId']);
 		
 		$result = $this->_obj_group_model->get_group_detail();
 		$this->_obj_group_class->setGroupDetail($result);
@@ -145,7 +145,7 @@ class GroupHandler extends Group {
 	}
 	
 	function handleProcessEditPost() {
-		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['postId']);
+		$this->_obj_group_model->_group_discussion_id =  ($_REQUEST ['postId']);
 		
 		$result = $this->_obj_group_model->get_post();
 		$this->_obj_group_class->setPostDetail($result);
@@ -156,14 +156,14 @@ class GroupHandler extends Group {
 	}
 	
 	function handleDeleteGroup() {
-		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
+		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		
 		$this->_obj_group_model->delete_group ();
 		$this->handleGetGroup();
 	}
 	
 	function handleGetPost() {
-		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
+		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_created_by = $this->userid;
 		
 		$flag = $this->_obj_group_model->is_group_member();
@@ -185,7 +185,7 @@ class GroupHandler extends Group {
 	}
 	
 	function handleGetComment() {
-		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['groupDiscussionId']);
+		$this->_obj_group_model->_group_discussion_id =  ($_REQUEST ['groupDiscussionId']);
 		
 		$result = $this->_obj_group_model->get_comments ();
 		$this->_obj_group_class->setCommentList($result);
@@ -222,14 +222,14 @@ class GroupHandler extends Group {
 	}
 	
 	function handleDeleteComment() {
-		$this->_obj_group_model->_group_discussion_comment_id = ( int ) ($_REQUEST ['commentId']);
+		$this->_obj_group_model->_group_discussion_comment_id =  ($_REQUEST ['commentId']);
 	
 		$this->_obj_group_model->delete_comment ();
 		$this->handleGetGroup();
 	}
 	
 	function handleJoinGroup() {
-		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
+		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_created_by = $this->userid;
 		
 		$this->_obj_group_model->join_group();
@@ -237,7 +237,7 @@ class GroupHandler extends Group {
 	}
 	
 	function handleUnjoinGroup() {
-		$this->_obj_group_model->_group_id = ( int ) ($_REQUEST ['groupId']);
+		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_created_by = $this->userid;
 	
 		$this->_obj_group_model->unjoin_group();

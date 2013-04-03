@@ -216,11 +216,26 @@
 				'TITLE'=>"Title",
 				'GROUPDESCRIPTION'=>"Description",
 				'GROUPIMAGE'=>"Group Image",
-				''=>"",
-				''=>"",
-				''=>"",
-				''=>""
-											
+				''=>"About Us",
+				''=>"Our Works",
+				''=>"Stay informed about your contacts and industry",
+				''=>"Find the people &amp; knowledge you need to achieve your goals",
+ 				''=>"Control your professional identity online",
+		 		''=>"Services",
+		 		''=>"We serve",
+		 		''=>"Resume Building...Build a professional look",
+		 		''=>"Career Guidance...",
+		 		''=>"Counsultancy...",
+		 		''=>"Contact",
+		 		''=>"Get in touch",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>"",
+		 		''=>""
                 );
 
 

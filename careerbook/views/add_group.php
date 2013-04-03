@@ -14,7 +14,7 @@
 		<br /> <br />
 		<div>
 			<label><?php echo $lang->GROUPDESCRIPTION;?></label><br />
-			<textarea class="group_textarea" name="description" cols="25"
+			<textarea class="group_textarea" name="description" id="description" cols="25"
 				rows="06" placeholder="Group Description"></textarea>
 		</div>
 		<div>

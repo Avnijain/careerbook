@@ -25,8 +25,8 @@
 <div class="group_header group_div">
 	<img src="<?php echo $uri1;?>" class="group_image">
 		<?php
-		echo "<p>" . nl2br($groupData1[0] ['title']) . "</p>";
-		echo "<p>" . nl2br($groupData1[0] ['description']) . "</p>";
+		echo "<p>" . nl2br(htmlspecialchars($groupData1[0] ['title'])) . "</p>";
+		echo "<p>" . nl2br(htmlspecialchars($groupData1[0] ['description'])) . "</p>";
 		?>
 </div>
 <div id="groupPost">
@@ -47,7 +47,7 @@
 	<div class="group_post group_div">
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
-		echo nl2br($values ['description']) . "<br />";
+		echo nl2br(htmlspecialchars($values ['description'])) . "<br />";
 		echo "Posted by <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a>";
 		echo " on " . $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {

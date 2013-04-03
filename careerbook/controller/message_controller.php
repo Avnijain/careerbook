@@ -98,6 +98,3 @@ class MessageController extends Message
 	
 	}
 	$ob=new MessageController();
-
-?>
-
