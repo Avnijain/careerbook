@@ -6,8 +6,9 @@
 	$noOfResult = 0;
 	if (isset($_SESSION['groupSearch'])) {
 		$groupData = unserialize($_SESSION['groupSearch']);
+		$count = $groupData->countGroupSearchList();
 		$groupData = $groupData->getGroupSearchList();
-
+		
 	}
 ?>
 <div id="main">
@@ -27,7 +28,9 @@
 	<h2>
 		<?php
 		if (isset($_SESSION ['groupSearch'])) {
-			//echo $noOfResult;
+			?>
+			<strong><?php echo $count;?> Records Found</strong>
+			<?php
 		}
 		?>
 	</h2><br/>

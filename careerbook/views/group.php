@@ -32,7 +32,7 @@
 		echo "<p>" . nl2br($values ['description']) . "</p>";
 		if ($values ['created_by'] == $userId) {
 			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=process_edit_group&groupId={$values['id']}\">Edit Group</a>";
-			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=delete_group&groupId={$values['id']}\">Delete</a>";
+			echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=delete_group&groupId={$values['id']}\">Delete</a>";
 		}
 		?>
 			<a class="group_button"

@@ -89,6 +89,11 @@ textarea.group_textarea {
 .group_div {
 	min-width: 90%;
 	min-height: 100px;
+	overflow: hidden;
+	word-wrap: break-word;
+	margin: 10px;
+	text-align: left;
+	float: left;
 }
 
 .group_header {
