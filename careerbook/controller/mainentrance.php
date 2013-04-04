@@ -206,7 +206,7 @@ class mainentrance {
 			$objMessage1 = new MessageController ();
 			$_SESSION ['myinbox'] = $objMessage1->handleRecieveMessage ();
 			rsort ( $_SESSION ['myinbox'] );
-			print_r ( $_SESSION ['myinbox'] );
+			//print_r ( $_SESSION ['myinbox'] );
 
 		}
 		if ($_REQUEST ['action'] == "message_sent") {
