@@ -38,6 +38,7 @@ class GroupHandler extends Group {
 		}
 	}
 	
+	//*********************function to handle add group request**************************************//
 	function handleAddGroup() {
 		$this->_obj_group_model->_group_title = trim ( $_POST ['title'] );
 		$this->_obj_group_model->_group_title = htmlentities(( $_POST ['title']), ENT_COMPAT, 'UTF-8');
@@ -49,12 +50,21 @@ class GroupHandler extends Group {
 		$this->_obj_group_model->_created_by = $this->userid;
 		$this->_obj_group_model->_created_on = date ( 'Y-m-d H:i:s' );
 		
-		//echo $_FILES ['group_image'] ['tmp_name'];die;
-		$this->_obj_group_model->add_group ();
+		$validdob = new UserDataValidation ();
+		$error=$validdob->validate ( $_POST );
 		
+		if ($error == 0) {
+			echo "SUCCESS"; die;
+		} else {
+			echo "error"; die;
+		}
+		
+		$this->_obj_group_model->add_group ();
 		$this->handleGetGroup();
 	}
 	
+	
+	//*********************************function to handle edit group Request**********************************//
 	function handleEditGroup() {
 		$this->_obj_group_model->_group_id = $_REQUEST['groupId'];
 		
@@ -88,6 +98,7 @@ class GroupHandler extends Group {
 		$this->handleGetGroup();
 	}
 	
+	//*******************************function to handle add post request**********************************************//
 	function handleAddPost() {
 		$this->_obj_group_model->_group_id = ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_group_discussion_description = trim ( $_POST ['group_discussion_description'] );
@@ -107,6 +118,7 @@ class GroupHandler extends Group {
 		
 	}
 	
+	//********************************function to handle edit post request******************************************//
 	function handleEditPost() {
 		$this->_obj_group_model->_group_discussion_id =  ($_REQUEST ['postId']);
 		$this->_obj_group_model->_group_discussion_description = trim ( $_POST ['group_discussion_description'] );
@@ -118,6 +130,7 @@ class GroupHandler extends Group {
 		$this->handleGetPost();
 	}
 	
+	//*********************************function to orocess edit group request**********************************//
 	function handleProcessEditGroup() {
 		$this->_obj_group_model->_group_id = ($_REQUEST ['groupId']);
 		
@@ -129,6 +142,7 @@ class GroupHandler extends Group {
 		
 	}
 	
+	//*****************************function to orocess edit post request**********************************//
 	function handleProcessEditPost() {
 		$this->_obj_group_model->_group_discussion_id =  ($_REQUEST ['postId']);
 		
@@ -140,6 +154,7 @@ class GroupHandler extends Group {
 	
 	}
 	
+	//***************************function to handle delete group request*********************************// 
 	function handleDeleteGroup() {
 		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		
@@ -147,6 +162,7 @@ class GroupHandler extends Group {
 		$this->handleGetGroup();
 	}
 	
+	//***************************function to get post request*************************************//
 	function handleGetPost() {
 		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_created_by = $this->userid;
@@ -169,6 +185,7 @@ class GroupHandler extends Group {
 		}
 	}
 	
+	//***************************************function to get comment request*******************************************//
 	function handleGetComment() {
 		$this->_obj_group_model->_group_discussion_id =  ($_REQUEST ['groupDiscussionId']);
 		
@@ -184,6 +201,7 @@ class GroupHandler extends Group {
 
 	}
 	
+	//***************************************function to get group list request*********************************************//
 	function handleGetGroup() {
 		$this->_obj_group_model->_created_by = $this->userid;
 
@@ -194,6 +212,7 @@ class GroupHandler extends Group {
 		header ( 'Location: ../views/userHomePage.php?Group' );
 	}
 	
+	//***************************************function to add comment request***************************************//
 	function handleAddComment() {
 		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['groupDiscussionId']);
 		$this->_obj_group_model->_group_discussion_comment = trim ( $_POST ['group_discussion_comment'] );
@@ -206,6 +225,7 @@ class GroupHandler extends Group {
 		$this->handleGetComment();
 	}
 	
+	//*******************************************function to delete comment request*********************************//
 	function handleDeleteComment() {
 		$this->_obj_group_model->_group_discussion_comment_id =  ($_REQUEST ['commentId']);
 	
@@ -213,6 +233,7 @@ class GroupHandler extends Group {
 		$this->handleGetGroup();
 	}
 	
+	//*******************************************function to handle group join request******************************//
 	function handleJoinGroup() {
 		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_created_by = $this->userid;
@@ -221,6 +242,7 @@ class GroupHandler extends Group {
 		$this->handleGetGroup();
 	}
 	
+	//********************************************function to handle group unjoin request*************************//
 	function handleUnjoinGroup() {
 		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_created_by = $this->userid;
@@ -228,6 +250,8 @@ class GroupHandler extends Group {
 		$this->_obj_group_model->unjoin_group();
 		$this->handleGetGroup();
 	}
+	
+	//*******************************************function to search group request*******************************//
 	function handleSearchGroup() {
 		$this->_obj_group_model->_created_by = $this->userid;
 		$this->_obj_group_model->_search_group = trim($_REQUEST['groupSearch']);
@@ -239,5 +263,3 @@ class GroupHandler extends Group {
 		header ( 'Location: ../views/userHomePage.php?searchGroup' );
 	}
 }
-
-?>

@@ -1,4 +1,9 @@
-<?php include_once("../classes/lang.php"); ?>
+<?php
+include_once("../classes/lang.php"); 
+
+
+?>
+
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="../JavaScript/group.js"> </script>
@@ -14,7 +19,7 @@
 		<br /> <br />
 		<div>
 			<label><?php echo $lang->GROUPDESCRIPTION;?></label><br />
-			<textarea class="group_textarea" name="	" id="description" cols="25"
+			<textarea class="group_textarea" name="description" id="description" cols="25"
 				rows="06" placeholder="Group Description"></textarea>
 		</div>
 		<div>

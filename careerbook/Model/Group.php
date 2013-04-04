@@ -3,11 +3,11 @@
 
 /*
  * *************************** Creation Log ******************************* 
- * File Name - group.php 
- * Project Name - Careerbook 
- * Description - Class file for start Version - 1.0 
- * Created by - Manish Ranjan 
- * Created on - March 10, 2013 
+ * File Name	 					-				group.php 
+ * Project Name		 				- 				Careerbook 
+ * Description 						- 				Class file for start Version - 1.0 
+ * Created by						-				Manish Ranjan 
+ * Created on						- 				March 10, 2013 
  * **************************** Update Log ******************************** 
  * Sr.NO.		Version		Updated by Updated on Description 
  * ------------------------------------------------------------------------- 
@@ -19,26 +19,33 @@ require_once 'singleton.php';
 // Model for group class
 class Group {
 	
-	protected $db = "";
-	protected $_group_image;
-	protected $_group_title;
-	protected $_group_description;
-	protected $_group_id;
-	protected $_group_discussion_description;
-	protected $_group_discussion_id;
-	protected $_group_discussion_comment;
-	protected $_group_discussion_comment_id;
-	protected $_group_member_group_id;
-	protected $_group_member_user_id;
-	protected $_created_on;
-	protected $_created_by;
-	protected $_search_group;
+	protected $db = "";							//Singleton class db inatance
+	protected $_group_image;					//used to store group image
+	protected $_group_title;					//used to store group title
+	protected $_group_description;				//used to store group description
+	protected $_group_id;						//used to store group id
+	protected $_group_discussion_description;	//used to store description of the post in a particular group
+	protected $_group_discussion_id;			//used to store id of the post in a particular group
+	protected $_group_discussion_comment;		//used to store description of the comment in a particular post
+	protected $_group_discussion_comment_id;	//used to store id of the comment in a particular post
+	protected $_group_member_group_id;			//used to store group id related to specific user
+	protected $_group_member_user_id;			//used to store user id related to specific group
+	protected $_created_on;						//store current date
+	protected $_created_by;						//store current id of logged user
+	protected $_search_group;					//store group search keyword
+	
+	
+	
+	//****************************DB Class Instance**************************************//
 	
 	function __construct() {
 			$this->db = DBConnection::Connect();
 	}
 	
-	// function to add user post
+
+	
+	
+	//***************************function to add user post********************************//
 	function add_post() {
 		$this->db->Fields ( array (
 				"group_id" => $this->_group_id,
@@ -50,8 +57,10 @@ class Group {
 		$this->db->From ( "group_discussions" );
 		$this->db->Insert ();
 	}
+
 	
-	// function to edit user post
+	
+	//***************************function to edit user post******************************//
 	function edit_post() {
 		$this->db->Fields ( array (
 				"description" => $this->_group_discussion_description 
@@ -64,7 +73,9 @@ class Group {
 		
 	}
 	
-	// function to delete user post
+	
+	
+	//**************************function to delete user post*****************************//
 	function delete_group() {
 		$this->db->Fields ( array (
 				"status" => 'D' 
@@ -76,6 +87,9 @@ class Group {
 		$this->db->Update ();
 	}
 	
+	
+	
+	//***************************function to delete user comment***********************//
 	function delete_comment() {
 		$this->db->Fields ( array (
 				"status" => 'D'
@@ -88,7 +102,7 @@ class Group {
 		
 	}
 	
-	// function to add new group
+	//**************************function to add new group*****************************//
 	function add_group() {
 		$maxsize = 1024000; // set to approx 1 MB
 		
@@ -116,7 +130,7 @@ class Group {
 		
 		$this->db->From ( "group_details" );
 		$this->db->Insert ();
-		//echo $this->db->lastQuery();die;
+		
 		$gid = $this->db->lastInsertId ();
 		
 		$this->db->Fields ( array (
@@ -128,7 +142,8 @@ class Group {
 		
 	}
 	
-	// function to edit group
+	
+	//******************************function to edit group******************************//
 	function edit_group() {
 		$this->db->Fields ( array (
 				"title" => $this->_group_title,
@@ -146,7 +161,7 @@ class Group {
 	
 	}
 	
-	// function to list group post
+	//*********************************function to list group post***************************//
 	function get_posts() {
 		$this->db->Fields ( array (
 				"group_discussions.id",
@@ -167,11 +182,12 @@ class Group {
 		) );
 		
 		$this->db->Select ();
-		//echo $this->db->lastQuery();die;
+
 		return $this->db->resultArray ();
 	}
 	
-	//function to get details of particular post
+	
+	//*********************************function to get details of particular post*********************//
 	function get_post() {
 		$this->db->Fields ( array (
 				"group_discussions.id",
@@ -196,7 +212,8 @@ class Group {
 		return $this->db->resultArray ();
 	}
 	
-	// function to list group details
+	
+	//***************************************function to list group details***************************//
 	function get_group() {
 		$this->db->Fields ( array (
 				"group_details.id",
@@ -214,12 +231,12 @@ class Group {
 		),true );
 		
 		$this->db->Select ();
-		
-		//echo $this->db->lastQuery();die;
 
 		return $this->db->resultArray ();
 	}
 	
+	
+	//*************************************function to get particular group details************************//
 	function get_group_detail() {
 		$this->db->Fields ( array (
 				"id",
@@ -237,12 +254,11 @@ class Group {
 	
 		$this->db->Select ();
 	
-		//echo $this->lastQuery();die;
-	
 		return $this->db->resultArray ();
 	}
 	
-	// function to add comments
+	
+	//****************************************function to add comments****************************************//
 	function add_comment() {
 		$this->db->Fields ( array (
 				"discussion_id" => $this->_group_discussion_id,
@@ -256,6 +272,8 @@ class Group {
 		
 	}
 	
+	
+	//****************************************function to retrieve comments************************************//
 	function get_comments() {
 		$this->db->Fields ( array (
 				"group_discussion_comments.id",
@@ -277,10 +295,12 @@ class Group {
 		), True );
 		
 		$this->db->Select ();
-		//echo $this->db->lastQuery();die;
+		
 		return $this->db->resultArray ();
 	}
 	
+	
+	//********************************************function to join group*******************************************//
 	function join_group() {
 		
 		$this->db->Fields ( array (
@@ -311,6 +331,8 @@ class Group {
 		}
 	}
 	
+	
+	//**********************************************function to unjoin group***************************//
 	function unjoin_group() {
 		$this->db->Fields ( array (
 				"status" => 'D' 
@@ -322,6 +344,8 @@ class Group {
 		$this->db->Update ();
 	}
 	
+	
+	//***********************************************function to search group***************************//
 	function search_group() {
 		$this->db->Fields ( array (
 				"gd.id",
@@ -357,7 +381,7 @@ class Group {
 		$this->db->Select ();
 		$result2 = $this->db->resultArray ();
 		
-		$myStr="";
+		$myStr="0,";
 		foreach($result2 as $keys=>$values){
 			foreach ($values as $key=>$value)
 			{
@@ -384,11 +408,13 @@ class Group {
 				"),true);
 		$this->db->Select ();
 		$result3 = $this->db->resultArray ();
-		
+	
 		$result=array_merge($result1,$result3);
 		return($result);
 	}
 	
+	
+	//**************************************function to check wheather member belong to group or not**************************//
 	function is_group_member() {
 		$this->db->Fields ( array (
 				"group_id" => $this->_group_id,
@@ -409,5 +435,3 @@ class Group {
 		}
 	}
 }
-
-?>
