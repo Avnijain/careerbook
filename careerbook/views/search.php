@@ -29,11 +29,11 @@
             		}
             		elseif($values['status']=='R')
             		{
-            			echo "<p class='RequestStatus'>$lang->REQUESTPENDING</p>";
+            			echo "<p class='RequestStatus'>$lang->REQUESTSENT</p>";
             		}
             		elseif($values['status']=='W')
             		{
-            			echo "<p class='ReqSentstatus'>$lang->REQUESTSENT</p>";
+            			echo "<p class='ReqSentstatus'>$lang->REQUESTPENDING</p>";
             		}            		
             		elseif($values['status']=='A')
             		{

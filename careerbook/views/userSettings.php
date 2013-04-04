@@ -4,7 +4,7 @@ include_once("../classes/lang.php");
 
 <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
 <script type="text/javascript" src="../JavaScript/jquery.idTabs.min.js"></script>
-<!-- <script type="text/javascript" src="../JavaScript/userSetting.min.js"></script> -->
+<script type="text/javascript" src="../JavaScript/friends.js"></script>
 <p id="SettingHead"><?php echo $lang->SETTINGS?></p>
 
 
@@ -36,7 +36,7 @@ include_once("../classes/lang.php");
 				</tr>
 				<tr>
 					<td><center><input type="submit" class="btn blue" value="Submit"  />
-						<input type="button" class="btn blue" value="Cancel" href="#" /></center>
+						<input type="button" class="btn blue" value="Cancel" onclick="cancle();" /></center>
 						</td>
 				</tr>
 			</table>
@@ -48,7 +48,7 @@ include_once("../classes/lang.php");
 		<form action="../controller/mainentrance.php?action=delUser" method="post" name="cngPWD">
 			<p class="seting"><?php echo $lang->CONFIRMDELETION?></p>
 			<input type="submit" class="btn blue" value="Yes" name='yes' />
-			 <input type="button" class="btn blue" value="No" name='no' />
+			 <input type="button" class="btn blue" value="No" name='no' onclick="cancle();" />
 		</form>
 	</div>
 <?php 

@@ -13,15 +13,24 @@ function frndAccept(frndId)
 
 function frndDelete(frndId)
 {
+    var chk=window.confirm("Are You Sure");
+    if(chk==true)
+    	{
+
+	    $.post('../controller/mainentrance.php',{'action':'delFrnd','id':frndId},function(){
+	    	$("#aid"+frndId).html("<p class='ReqSentstatus'>Not Intrested</p>");
+	    	$("#cid"+frndId).html(" ");
+	        });
+    	}
+    else
+    	{
+    	
+    	}
     
-    $.post('../controller/mainentrance.php',{'action':'delFrnd','id':frndId},function(){
-        
-        
-        
-    	$("#aid"+frndId).html("<p class='ReqSentstatus'>Not Intrested</p>");
-    	$("#cid"+frndId).html(" ");
-        });
-    
+}
+function cancle()
+{	
+	 window.location="userHomePage.php";
 }
 function viewFrnd(frndId)
 {
