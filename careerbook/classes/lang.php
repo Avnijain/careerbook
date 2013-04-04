@@ -37,9 +37,15 @@ else
 	$selectedLang='en';
 }
 $s=getcwd();
+$file = basename($s);         // $file is set to "index.php"
+$file = basename($s, ".php"); 
+/*echo $file;die;
 $a=explode('/', $s);
+print_r($a);
 $n=count($a);
-if(($a[$n-1])=="careerbook"){
+echo $n;die;*/
+if($file=="careerbook"){
+	
 	include_once './lang/lang.'.$selectedLang.".php";
 }
 else 
