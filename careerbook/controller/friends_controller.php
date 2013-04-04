@@ -21,6 +21,7 @@ require_once '../Model/friends_model.php';
 require_once '../Model/model.php';
 require_once'../classes/friendsClass.php';
 require_once '../controller/userInfo.php';
+require_once '../Model/validation.php';
 
 class MyFriend{			//class to control all my friends needs
     
@@ -28,7 +29,7 @@ class MyFriend{			//class to control all my friends needs
     private $_objFrndModel;	//friendModel Object
     private $_objModel;		//model object
     private $_obj_usrinfo;	//user_info_controller object
-    
+    private $_objValidation; //Validation class objest
     
     public function __construct()
     {
@@ -39,6 +40,7 @@ class MyFriend{			//class to control all my friends needs
         $this->_objAllUsers=new AllUsersClass();
         $this->_objFrndModel=new FriendsModel();
         $this->_obj_usrinfo=new user_info_controller();
+        $this->_objValidation =new UserDataValidation();
     }
     
     //************************************************takes all request from users*****************************************************
@@ -78,10 +80,20 @@ class MyFriend{			//class to control all my friends needs
     //**************************************************************find all users**********************************************************
     private function allUsers($searchVal)
     {
+    	$error=$this->_objValidation->validate(array("search"=>$searchVal));
+    	if($error !=0)
+    	{
+    		$this->_obj_usrinfo=unserialize($_SESSION['userData']);
+    		$result=$this->_objFrndModel->getAllUsersData($this->_obj_usrinfo,"#");
+    		$this->_objAllUsers->setAllUsers($result);
+    		$_SESSION['allUsers']=serialize($this->_objAllUsers);
+    	}
+    	else{
     	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
     	$result=$this->_objFrndModel->getAllUsersData($this->_obj_usrinfo,$searchVal);
     	$this->_objAllUsers->setAllUsers($result);
     	$_SESSION['allUsers']=serialize($this->_objAllUsers);
+    	}
     }
     //*********************************************************find all my friends request***************************************************
     private function getFrndReq()
