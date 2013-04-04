@@ -68,7 +68,7 @@ include_once("../classes/lang.php");
 							<li><?php echo $lang->PROJECT; ?></li>
 						</ol>
 						</p>
-						<br /> <Input Type=Submit value="use this template" name="template2" />
+						<br /> <Input Type=Submit class="btn blue" value="use this template" name="template2" />
 					</div>
 				</div>
 				<!----------------------------------------------------second overlay-------------------------------------------------->
@@ -92,7 +92,7 @@ include_once("../classes/lang.php");
 								<li><?php echo $lang->EMPLOYMENTINFO; ?></li>
 							</ol>
 						</h3>
-						<br /> <Input Type=Submit value="use this template" name="template1" />
+						<br /> <Input Type=Submit class="btn blue" value="use this template" name="template1" />
 					</div>
 				</div>
 				
@@ -116,7 +116,7 @@ include_once("../classes/lang.php");
 								<li><?php echo $lang->WORKEXPERIENCE; ?></li>
 							</ol>
 						</h3>
-						<br/> <Input Type=Submit value="use this template" name="template3" />
+						<br/> <Input Type=Submit class="btn blue" value="use this template" name="template3" />
 					</div>
 				</div>
 				<br/>

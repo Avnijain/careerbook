@@ -28,8 +28,8 @@ $myfrnd = $friendsData->getMyFriendsNetwork ();
 					$hash=md5($time.$lang->KEY.$values ['id']);
 					
 					echo "<input type='hidden' value=".$hash." id='hash_code".$values ['id']."'>";
-					echo "<td id='aid" . $values ['id'] . "'><input type='button' value='View' onClick='viewFrnd(" . $values ['id'] . ");'></td>";
-					echo "<td id='cid" . $values ['id'] . "'><input type='button' value='Delete' onClick='frndDelete(" . $values ['id'] . ");'></td>";
+					echo "<td id='aid" . $values ['id'] . "'><input type='button' class='btn blue' value='View' onClick='viewFrnd(" . $values ['id'] . ");'></td>";
+					echo "<td id='cid" . $values ['id'] . "'><input type='button' class='btn blue' value='Delete' onClick='frndDelete(" . $values ['id'] . ");'></td>";
 					?>
         </tr>
         <?php
@@ -45,7 +45,7 @@ $myfrnd = $friendsData->getMyFriendsNetwork ();
 
 <style>
 #frnd td {
-	border-top: 1px solid red;
-	border-bottom: solid 1px red;
+	border-top: 1px solid blue;
+	border-bottom: solid 1px blue;
 }
 </style>

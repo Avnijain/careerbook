@@ -53,7 +53,7 @@ include_once ("../classes/lang.php");
 				
 				echo $userData ['first_name'] . " " . $userData ['last_name'];
 				?></label> <a href="./userHomePage.php?logOut"
-					class="small magenta awesome"><?Php echo $lang->LOGOUT?></a><br>
+					class="btn blue"><?Php echo $lang->LOGOUT?></a><br>
 				<br>
 
 				<form action="userHomePage.php" method="get" id="search">
@@ -77,7 +77,6 @@ include_once ("../classes/lang.php");
 						<li><span><a href="userHomePage.php?resume"><?php echo $lang->RESUME?></a></span></li>
 						<li class="last"><span><a href="userHomePage.php?profile"><?php echo $lang->ACCOUNT?></a></span></li>
 						<li class="last"><span><a href="userHomePage.php?information"><?php echo $lang->PROFILE?></a></span></li>
-						
 						<li class="last"><span><a href="userHomePage.php?Settings"><?php echo $lang->SETTINGS?></a></span></li>
 					</ul>
 				</div>

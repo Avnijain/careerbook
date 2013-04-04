@@ -35,8 +35,8 @@ include_once("../classes/lang.php");
 					<td><input type="password" name="confirmPwd" id="confirmPwd" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Submit"  />
-						<input type="button" value="Cancel" href="#" />
+					<td><center><input type="submit" class="btn blue" value="Submit"  />
+						<input type="button" class="btn blue" value="Cancel" href="#" /></center>
 						</td>
 				</tr>
 			</table>
@@ -47,8 +47,8 @@ include_once("../classes/lang.php");
 	<div id="official">
 		<form action="../controller/mainentrance.php?action=delUser" method="post" name="cngPWD">
 			<p class="seting"><?php echo $lang->CONFIRMDELETION?></p>
-			<input type="submit" value="Yes" name='yes' />
-			 <input type="button" value="No" name='no' />
+			<input type="submit" class="btn blue" value="Yes" name='yes' />
+			 <input type="button" class="btn blue" value="No" name='no' />
 		</form>
 	</div>
 <?php 

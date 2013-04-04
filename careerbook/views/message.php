@@ -135,7 +135,7 @@ include_once("../classes/lang.php");
 					<textarea name="descripition" rows="8" cols="40"></textarea>
 			</div>
 			<div>
-				<input id="message" type="submit" value="Send" />
+				<input id="message" class="btn blue" type="submit" value="Send" />
 			</div>
 		</fieldset>
 		</form>

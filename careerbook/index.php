@@ -12,7 +12,7 @@ include_once("./classes/lang.php");
 ?>
 <html>
     <head>
-        <title>Career Book : Home</title>
+        <title><?php echo $lang->CAREERBOOKHOME?></title>
         <link rel="stylesheet" type="text/css" href="css/mainpage.css" ></link>
 <!--         <link rel="stylesheet" type="text/css" href="JavaScript/fancybox/jquery.fancybox.css" ></link> -->
         <link rel="stylesheet" href="css/login-form.css" media="screen"></link>
