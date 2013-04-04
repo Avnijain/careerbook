@@ -9,8 +9,8 @@
     $userId = $userData['id'];
 ?>
 <div class="button">
-	<a class="group_button" href="../views/userHomePage.php?addGroup">Add Group</a>
-	<a class="group_button" href="../views/userHomePage.php?searchGroup">Search Group</a>
+	<a class="group_button" href="../views/userHomePage.php?addGroup"><?php echo $lang->ADDGROUP;?></a>
+	<a class="group_button" href="../views/userHomePage.php?searchGroup"><?php echo $lang->SEARCHGROUP;?></a>
 </div>
 <br/>
 <div>
@@ -31,14 +31,14 @@
 		echo "<p>Title : " . nl2br(htmlspecialchars($values ['title'])) . "</p>";
 		echo "<p>" . nl2br(htmlspecialchars($values ['description'])) . "</p>";
 		if ($values ['created_by'] == $userId) {
-			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=process_edit_group&groupId={$values['id']}\">Edit Group</a>";
-			echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=delete_group&groupId={$values['id']}\">Delete</a>";
+			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=process_edit_group&groupId={$values['id']}\"> $lang->EDITGROUP</a>";
+			echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=delete_group&groupId={$values['id']}\">$lang->DELETE</a>";
 		}
 		?>
 			<a class="group_button"
-			href="../controller/mainentrance.php?action=getPost&groupId=<?php echo $values['id'];?>">View</a>
+			href="../controller/mainentrance.php?action=getPost&groupId=<?php echo $values['id'];?>"><?php echo $lang->VIEW;?></a>
 			<a  class="group_button"
-			href="../controller/mainentrance.php?action=unjoinGroup&groupId=<?php echo $values['id'];?>">Unlink</a>
+			href="../controller/mainentrance.php?action=unjoinGroup&groupId=<?php echo $values['id'];?>"><?php echo $lang->UNLINK;?></a>
 	</div><br/>
 	<?php
 	}

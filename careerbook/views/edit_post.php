@@ -9,7 +9,7 @@ $groupData= $groupData->getPostDetail();
 	<form
 		action="../controller/mainentrance.php?action=edit_post&postId=<?php echo $groupData[0]['id'];?>;?>"
 		method="post">
-		<h2>Edit Post</h2><br/>
+		<h2><?php echo $lang->EDITPOST;?></h2><br/>
 		<textarea class="group_textarea" name="group_discussion_description" rows="6" cols="20"><?php echo nl2br($groupData[0]['description']);?></textarea>
 		<br/>
 		<input class="group_button" type="submit" value="Post">

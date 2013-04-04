@@ -10,20 +10,20 @@ $groupData= $groupData->getGroupDetail();
 <div id="add_group">
 	<form id="edit_group_form" enctype="multipart/form-data"
 		action="../controller/mainentrance.php?action=edit_group&groupId=<?php echo $groupData[0]['id'];?>" method="post">
-		<h2>Edit Group</h2>
+		<h2><?php echo $lang->EDITGROUP?></h2>
 		<div>
-			<label>Title</label><br />
+			<label><?php echo $lang->TITLE;?></label><br />
 			<input class="group_textbox" type="text" placeholder="Group Title"
 				value="<?php echo $groupData[0]['title'];?>" name="title" id="title" />
 		</div>
 		<br /> <br />
 		<div>
-			<label>Description</label><br />
+			<label><?php echo $lang->GROUPDESCRIPTION;?></label><br />
 			<textarea class="group_textarea" name="description" cols="25"
 				rows="06"><?php echo nl2br($groupData[0]['description']);?></textarea>
 		</div>
 		<div>
-			<label>Group Image</label><br /> <input type="file"
+			<label><?php echo $lang->GROUPIMAGE;?></label><br /> <input type="file"
 				name="group_image" id="group_image" />
 		</div><br/>
 		<div>

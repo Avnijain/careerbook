@@ -50,19 +50,19 @@
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
 		if (strlen($values ['description']) > 10) {
-			echo "<p id=\"".$values ['id'] ."\" onclick=expand(" .$values ['id'] ."," .$values ['description'] .");>". nl2br(htmlspecialchars(substr($values ['description'],0,10))) .'...' . "<a onclick=expand(" .$values ['id'] .");>View more</a></p>";
+			echo "<p id=\"".$values ['id'] ."\" onclick=expand(" .$values ['id'] ."," .$values ['description'] .");>". nl2br(htmlspecialchars(substr($values ['description'],0,10))) .'...' . "<a onclick=expand(" .$values ['id'] .");>.$lang->VIEWMORE.</a></p>";
 		} else {
 			echo "<p>". $values ['description'] . "</p>";
 		}
 	
-		echo "<br/>Posted by <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a>";
-		echo " on " . $values ['created_on'] . "<br/>";
+		echo "<br/> ".$lang->POSTEDBY. "<a href=\"#\"> " . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a> ";
+		echo $lang->ON ." ". $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {
-			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=process_edit_post&postId={$values['id']}\">Edit Post</a>";
+			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=process_edit_post&postId={$values['id']}\">$lang->EDITPOST </a>";
 		}
 		?>
 		<a class="group_button"
-			href="../controller/mainentrance.php?action=getComment&groupDiscussionId=<?php echo $values['id'];?>">View Comments</a><br />
+			href="../controller/mainentrance.php?action=getComment&groupDiscussionId=<?php echo $values['id'];?>"><?php echo $lang->VIEWCOMMENT; ?></a><br />
 	</div><br/>
 	<?php
 	}

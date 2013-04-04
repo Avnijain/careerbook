@@ -20,9 +20,9 @@
 <div  class="group_header group_div">
 	<img src="<?php echo $uri1;?>" class="group_image">
 		<?php
-		echo "<p>Description : " . nl2br(htmlspecialchars($groupData1[0] ['description'])) . "</p>";
-		echo "Posted by<a href=\"#\"> " . $groupData1[0] ['first_name'] . " " . $groupData1[0]['middle_name'] . " " . $groupData1[0]['last_name']."</a>";
-		echo " by " . $groupData1[0] ['created_on'] . "";
+		echo "<p>" . $lang->GROUPDESCRIPTION .": " . nl2br(htmlspecialchars($groupData1[0] ['description'])) . "</p>";
+		echo $lang->POSTEDBY . " <a href=\"#\"> " . $groupData1[0] ['first_name'] . " " . $groupData1[0]['middle_name'] . " " . $groupData1[0]['last_name']." </a>";
+		echo $lang->ON ." " . $groupData1[0] ['created_on'] . "";
 		?>
 </div><br/>
 <div id="groupDiscussionComment">
@@ -44,11 +44,11 @@
 	<div class="group_comment group_div">
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
-		echo "" . nl2br(htmlspecialchars($values ['description'])) . "<br />";
-		echo "Posted by <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a>";
-		echo " on " . $values ['created_on'] . "<br/>";
+		echo "" . nl2br(htmlspecialchars($values ['description'])) . " <br />";
+		echo $lang->POSTEDBY . " <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. " </a>";
+		echo $lang->ON ." " . $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {
-			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=delete_comment&commentId={$values['id']}\">Delete</a>";
+			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=delete_comment&commentId={$values['id']}\">$lang->DELETE</a>";
 		}
 		?>
 		
