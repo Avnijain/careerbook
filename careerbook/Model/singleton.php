@@ -262,7 +262,6 @@ class DBConnection {
 
 	public function Limit($val1,$val2="0")
 	{
-
 		if(!empty($val1))
 		{
 			if($val2 != "0")
@@ -352,6 +351,7 @@ class DBConnection {
 		}
 		$this->_where = "";
 		$this->_join = "";
+		$this->_orderBy = "";
 		$this->_keys = array();
 		$this->_values = array();
 		return $bool;

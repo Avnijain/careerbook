@@ -9,7 +9,8 @@
     Created on                  -  March 20, 2013
 	***************************** Update Log ********************************
 	Sr.NO.		Version		Updated by           Updated on          Description
-	1            1.0        Prateek Saini        April 04, 2013      Modified getFrndsDis($userInfo) 
+	1            1.0        Prateek Saini        April 04, 2013      Modified getFrndsDis($userInfo)
+	1            1.0        Prateek Saini        April 05, 2013      Added getFrndsComnt($userInfo) 
     -------------------------------------------------------------------------
     */
  
@@ -31,7 +32,7 @@ class FriendsModel extends model {		//class to get all data of friends from data
 		$result = $this->db->resultArray();
 		return($result);               
     }
-    
+   //******************************************** fetch all user and his friends Discussions ***************************************    
     public function getFrndsDis($userInfo){
     	$user_id = $userInfo->getUserIdInfo();
     	$user_id=$user_id['id'];

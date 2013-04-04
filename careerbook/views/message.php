@@ -9,12 +9,9 @@ Created by                  -  Avni Jain
 Created on                  -  March 18, 2013
 */
 
-
 include_once '../controller/message_controller.php'; $a="false";
 include_once("../classes/lang.php");
-?>
-
-   
+?>   
 <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
 <!--[if IE 7]>
 <style type="text/css">
@@ -30,8 +27,6 @@ include_once("../classes/lang.php");
 	}
 </style>
 <![endif]-->
-<link rel="stylesheet" type="text/css" href="../css/message1.css" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
 <link rel="stylesheet" href="../css/message2.css" />
 <script src="../JavaScript/message.js"></script>
 <script src="../JavaScript/message1.js"></script>

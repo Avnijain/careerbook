@@ -1,5 +1,6 @@
 @CHARSET "ISO-8859-1";
 
+/* navigation bar */
 .shell {
 	width: 980px;
 	margin: 0 auto;
@@ -119,6 +120,7 @@
 	background-color: #FFFFFF;
 }
 
+/* web site logo */
 #logo {
 	float: left;
 	display: inline;
@@ -133,7 +135,32 @@
 	text-indent: -4000px;
 	background: url(../images/careerbooklogo.png);
 }
-
+/* header css */
+#header_left {	
+    float: left;
+}
+#header_right{
+    float: left;
+    width: 74%;
+}
+#header_userName{
+    float: left;
+    width: 88%;
+    padding-right: 5px;
+}
+/* user name in header */
+#header_userNameLabel {
+	float: right;
+	font-family: Calibri, Arial, sans-serif;
+	font-size: 18px;
+}
+#header_logout{
+    float: left;
+}
+#header_right_search{
+    float: right;
+}
+/* search */
 #search {
 	float: right;
 	display: inline;
@@ -172,11 +199,7 @@
 	border: 0;
 }
 
-#header_userName {
-	margin-left: 45%;
-	font-family: Calibri, Arial, sans-serif;
-	font-size: 18px;
-}
+
 
 .small {
 	float: right;

@@ -100,7 +100,7 @@ else{
     if(isset($_SESSION['userData']))
     {
 
-	include_once './Dis.php';
+	include_once './discussion.php';
 
     }
     else

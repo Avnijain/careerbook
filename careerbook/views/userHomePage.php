@@ -31,39 +31,41 @@ if (! isset ( $_SESSION ['userData'] )) {
 ?>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../css/global.css"></link>
-<link rel="stylesheet" type="text/css" href="../css/topheader.css"></link>
+<link rel="stylesheet" type="text/css" href="../css/style.css"></link>
 <?php
 include_once ("../classes/lang.php");
 ?>
-	<link rel="stylesheet" type="text/css" href="../css/homeContent.css"></link>
 </head>
 <body>
 	<div id="mainWrapper">
 		<div id="headerWrapper">
 			<div id="top">
 				<div class="cl">&nbsp;</div>
-				<h1 id="logo">
-					<a href="#"><?php echo $lang->PROJECTTITLE; ?></a>
-				</h1>
-				<label id="header_userName"><?php echo $lang->WELCOME ?> <?php
-				
-				$objUserInfo = unserialize ( $_SESSION ['userData'] );
-				$userData = $objUserInfo->getUserPersonalInfo ();
-				
-				echo $userData ['first_name'] . " " . $userData ['last_name'];
-				?></label> <a href="./userHomePage.php?logOut"
-					class="btn blue"><?Php echo $lang->LOGOUT?></a><br>
-				<br>
-
-				<form action="userHomePage.php" method="get" id="search">
-					<div class="field-holder">
-						<input type="text" class="field" placeholder="Search"
-							title="Search" name="Search">
-					</div>
-					<input type="submit" class="button" value="Search">
-					<div class="cl">&nbsp;</div>
-				</form>
+				<div id="header_left">
+    				<h1 id="logo">
+    					<a href="#"><?php echo $lang->PROJECTTITLE; ?></a>
+    				</h1>
+				</div>				
+				<div id="header_right">
+					<div id = "header_userName" > 
+    				<label id="header_userNameLabel"><?php echo $lang->WELCOME ?> <?php				
+    				$objUserInfo = unserialize ( $_SESSION ['userData'] );
+    				$userData = $objUserInfo->getUserPersonalInfo ();				
+    				echo $userData ['first_name'] . " " . $userData ['last_name'];
+    				?></label></div>
+    				<div id = "header_logout" ><a href="./userHomePage.php?logOut"
+        			class="btn blue"><?Php echo $lang->LOGOUT?></a></div>    				
+				</div>
+				<div id="header_right_search">
+    				<form action="userHomePage.php" method="get" id="search">
+    					<div class="field-holder">
+    						<input type="text" class="field" placeholder="Search"
+    							title="Search" name="Search">
+    					</div>
+    					<input type="submit" class="button" value="Search">
+    					<div class="cl">&nbsp;</div>
+    				</form>
+				</div>
 			</div>
 			<nav class="top-nav">
 				<div class="shell">

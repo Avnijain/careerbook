@@ -13,20 +13,13 @@ class UserDiscussion extends DBConnection {
 	function __construct(){
 
 	}
-	public function getComments($userInfo){
-	    $user_id = $userInfo->getUserIdInfo();
-	    $user_id=$user_id['id'];
-	    /* This Code will fetch all the Admin Post from User Discussions Table */
-	    $this->Fields ( array (
-	        "b.description discussion",
-	        "b.id"
-	    ));
-	     
-	    $this->From ( "user_discussions b" );
-	    $this->Join ( "users d", " d.id = 1" );
-	    $this->Where (array ("b.user_id" => "1"));
-	    $this->Select ();
-	
+	public function getComments($userInfo,$searchVal){
+	    
+        $this->Fields(array('description'));
+        $this->From('user_discussions_comments');        
+        $this->Where(array("user_discussions_id=".$searchVal),true);
+        $this->Limit(1);
+        $this->Select();
 	    $tempData = $this->resultArray();
 	
 	    if(!empty($tempData)){

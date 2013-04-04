@@ -17,10 +17,10 @@ include_once("./classes/lang.php");
 <!--         <link rel="stylesheet" type="text/css" href="JavaScript/fancybox/jquery.fancybox.css" ></link> -->
         <link rel="stylesheet" href="css/login-form.css" media="screen"></link>
 	   <!-- The JavaScript -->
-	   
+<!--<script type="text/javascript" src="JavaScript/jquery-1.9.1.min.js"></script>	   -->
 	   <script src="JavaScript/jquery-1.7.1.js"></script>
 
-        <script src="JavaScript/modernizr.custom.63321.js"></script>        
+        <script src="JavaScript/modernizr.custom.63321.js"></script>
 		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
 		
 		<script type="text/javascript" src="JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>

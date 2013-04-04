@@ -293,7 +293,7 @@ class mainentrance {
 	private function getComments(){
 	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
-	    $result=$this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo);
+	    $result=$this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo,$_POST['discussionComment']);
 	    echo json_encode($result);
 	}	
 	// function to register a user and validate the feilds

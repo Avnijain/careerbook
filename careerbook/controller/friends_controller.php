@@ -9,6 +9,8 @@
     Created on                  -  March 20, 2013
 	***************************** Update Log ********************************
 	Sr.NO.		Version		Updated by           Updated on          Description
+	1			1.0			Prateek Saini		Marach 01, 2013		 Written Function To Fetch Friends Discussion
+	1			1.0			Prateek Saini		Marach 05, 2013		 Written Function To Fetch Friends Comments
     -------------------------------------------------------------------------
     */
 
@@ -46,7 +48,7 @@ class MyFriend{			//class to control all my friends needs
     //************************************************takes all request from users*****************************************************
     public function start($request,$searchVal="")
     {	
-    	if($request=='getFrndsDis')
+    	if($request=='getFrndsDis')                    // Get Current user and their Friends Discussions
     	{
     		$result = $this->getMyFriendsDis();
     		return $result;
@@ -71,12 +73,12 @@ class MyFriend{			//class to control all my friends needs
         }
         
     }
+    //**************************************** Get All the Discussions Of User and their Friends *******************************************
     private function getMyFriendsDis(){
     	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
     	$result=$this->_objFrndModel->getFrndsDis($this->_obj_usrinfo);
      	return ($result);
     }
-    
     //**************************************************************find all users**********************************************************
     private function allUsers($searchVal)
     {
