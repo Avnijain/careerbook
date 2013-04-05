@@ -31,7 +31,7 @@
 		echo "<p>Title : " . nl2br(htmlspecialchars($values ['title'])) . "</p>";
 		echo "<p>" . nl2br(htmlspecialchars($values ['description'])) . "</p>";
 		if ($values ['created_by'] == $userId) {
-			echo "<br/><a class=\"btn blue\" onclick=\"editGroup()\" href=\"../controller/mainentrance.php?action=process_edit_group&groupId={$values['id']}\"> $lang->EDITGROUP</a>";
+			echo "<br/><a class=\"btn blue\" href=\"../controller/mainentrance.php?action=process_edit_group&groupId={$values['id']}\"> $lang->EDITGROUP</a>";
 			echo "<a class=\"btn blue\" href=\"../controller/mainentrance.php?action=delete_group&groupId={$values['id']}\">$lang->DELETE</a>";
 		}
 		?>

@@ -129,7 +129,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_class->setGroupDetail($result);
 		$_SESSION['groupDetail'] = serialize($this->_obj_group_class);
 		
-		header ( 'Location: ../Home/userHomePage.php?Group&close' );
+		header ( 'Location: ../Home/userHomePage.php?editGroup' );
 		
 	}
 	

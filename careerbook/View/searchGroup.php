@@ -47,8 +47,8 @@
 		?>
 		<img src="<?php echo $uri; ?>" class="group_image">
 		<?php
-		echo "$lang->TITLE"." ".$values['title'] . "<br/>";
-		echo "$lang->GROUPDESCRIPTION"," ".$values['description'] . "<br/>";
+		echo "$lang->TITLE"." ".htmlspecialchars(nl2br($values['title'])) . "<br/>";
+		echo "$lang->GROUPDESCRIPTION"," ".htmlspecialchars(nl2br($values['description'])) . "<br/>";
 		if (isset($values['status'])) {
 			if($values['status'] == 'A') {
 				echo "<a class='group_button' href=\"../controller/mainentrance.php?action=getPost&groupId={$values['id']}\">View</a>";
