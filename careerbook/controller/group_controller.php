@@ -50,15 +50,6 @@ class GroupHandler extends Group {
 		$this->_obj_group_model->_created_by = $this->userid;
 		$this->_obj_group_model->_created_on = date ( 'Y-m-d H:i:s' );
 		
-		$validdob = new UserDataValidation ();
-		$error=$validdob->validate ( $_POST );
-		
-// 		if ($error == 0) {
-// 			echo "SUCCESS"; die;
-// 		} else {
-// 			echo "error"; die;
-// 		}
-		
 		$this->_obj_group_model->add_group ();
 		$this->handleGetGroup();
 	}
@@ -138,7 +129,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_class->setGroupDetail($result);
 		$_SESSION['groupDetail'] = serialize($this->_obj_group_class);
 		
-		header('Location: ../Home/userHomePage.php?editGroup');
+		header ( 'Location: ../Home/userHomePage.php?Group&close' );
 		
 	}
 	
@@ -209,7 +200,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_class->setGroupList($result);
 		$_SESSION ['groupList'] = serialize ( $this->_obj_group_class );
 		
-		header ( 'Location: ../Home/userHomePage.php?Group' );
+		header ( 'Location: ../Home/userHomePage.php?Group&close' );
 	}
 	
 	//***************************************function to add comment request***************************************//

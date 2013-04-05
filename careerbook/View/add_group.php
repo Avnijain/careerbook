@@ -1,7 +1,5 @@
 <?php
-include_once("../classes/lang.php"); 
-
-
+include_once("../classes/lang.php");
 ?>
 
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
@@ -27,8 +25,8 @@ include_once("../classes/lang.php");
 				name="group_image" id="group_image" />
 		</div><br/>
 		<div>
-			<input class="group_button" type="submit" value="Create Group"
-				name="btnsubmit" /> <input class="group_button" type="button"
+			<input class="btn blue" type="submit" value="Create Group" 
+				name="btnsubmit" /> <input class="btn blue" type="button"
 				value="Cancel" />
 		</div>
 	</form>

@@ -1,4 +1,8 @@
-
+<script type="text/javascript">
+        function closeME() {
+            parent.$.fancybox.close(); 
+        }
+</script>
 <?php
 ini_set ( 'session.cookie_httponly', true );
 // suhosin.session.encrypt=Off
@@ -26,6 +30,12 @@ include_once "../controller/friends_controller.php";
 if (! isset ( $_SESSION ['userData'] )) {
 	header ( "location:../index.php" );
 	die ();
+}
+if(isset($_GET ['close'])) {
+	echo '<script type="text/javascript">'
+		, 'closeME();'
+		, '</script>';
+	
 }
 
 ?>

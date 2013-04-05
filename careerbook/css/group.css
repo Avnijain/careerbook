@@ -3,7 +3,7 @@
 	width: 95%;
 	height: auto;
 	padding: 8px;
-	background: #D0D0D0;
+	background: #b1bcc9;
 	border: #660065 solid 0px;
 	border-radius: 15px;
 	overflow: hidden;
@@ -63,7 +63,7 @@ input.group_textbox {
 }
 
 textarea.group_textarea {
-	width: 460px;
+	width: 400px;
 	height: 70px;
 	margin: 0 0 20px 0;
 	background: white;
