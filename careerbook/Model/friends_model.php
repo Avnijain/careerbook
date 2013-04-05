@@ -36,21 +36,34 @@ class FriendsModel extends model {		//class to get all data of friends from data
     public function getFrndsDis($userInfo){
     	$user_id = $userInfo->getUserIdInfo();
     	$user_id=$user_id['id'];
+// SELECT distinct b.description discussion, d.first_name, b.id
+// FROM user_discussions b
+// INNER JOIN friends c
+// ON
+// c.user_id = '21'
+// INNER JOIN users d
+// ON
+// d.id in (c.friend_id,'21')
+// where b.user_id = d.id
+// ORDER BY b.created_on desc;    	
+    	
+    	
 /* This Code will fetch all the User Post on their profile home page */
     	$this->db->Fields ( array (
-    	    "b.description discussion",
+    	    "distinct b.description discussion",
     	    "d.profile_image",
     	    "b.id"
     	));
     	
     	$this->db->From ( "user_discussions b" );
-    	$this->db->Join ( "users d", " d.id = $user_id " );
-    	$this->db->Where (array ("b.user_id" => "$user_id"));
+    	$this->db->Join ( "friends c", " c.user_id = '$user_id' " );
+    	$this->db->Join ( "users d", " d.id in (c.friend_id, \"$user_id\")" );
+    	$this->db->Where (array ("b.user_id = d.id"),true);
     	$this->db->OrderBy("b.created_on desc");
     	$this->db->Select ();
-    	//      echo $this->db->lastQuery();
+//     	echo $this->db->lastQuery();
     	//       print_r($this->db->resultArray ());
-    	//      die;
+//     	die;
     	
     	$tempData = $this->db->resultArray();
     	
@@ -58,24 +71,24 @@ class FriendsModel extends model {		//class to get all data of friends from data
     	    $result[] = $tempData;
     	}
 /* This Code will fetch all the User Friends Post on their profile home page */
-    	$this->db->Fields ( array (
-    	    "b.description discussion",
-    	    "d.profile_image",
-    	    "b.id"
-    	));
+//     	$this->db->Fields ( array (
+//     	    "b.description discussion",
+//     	    "d.profile_image",
+//     	    "b.id"
+//     	));
     	 
-    	$this->db->From ( "user_discussions b" );
-    	$this->db->Join ( "friends c", " c.user_id = '$user_id' " );
-    	$this->db->Join ( "users d", " d.id = c.friend_id " );
-    	$this->db->Where (array ("b.user_id = c.friend_id"),true);
-    	$this->db->OrderBy("b.created_on desc");
-    	$this->db->Select ();
-//     	    	echo $this->db->lastQuery();
-//     	    	die;
-    	$tempData = $this->db->resultArray();
-    	if(!empty($tempData)){
-    	    $result[] = $tempData;
-    	}    	
+//     	$this->db->From ( "user_discussions b" );
+//     	$this->db->Join ( "friends c", " c.user_id = '$user_id' " );
+//     	$this->db->Join ( "users d", " d.id = c.friend_id " );
+//     	$this->db->Where (array ("b.user_id = c.friend_id"),true);
+//     	$this->db->OrderBy("b.created_on desc");
+//     	$this->db->Select ();
+// //     	    	echo $this->db->lastQuery();
+// //     	    	die;
+//     	$tempData = $this->db->resultArray();
+//     	if(!empty($tempData)){
+//     	    $result[] = $tempData;
+//     	}    	
 /* This Code will fetch all the Admin Post from User Discussions Table */    	
     	$this->db->Fields ( array (    	    
     	    "b.description discussion",

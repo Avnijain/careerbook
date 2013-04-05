@@ -13,10 +13,10 @@ class MyClass extends model {
 
     public function FindUsers() {
 
-        $this->db->Where(array("(first_name = '".$_POST['firstname']."' AND status='A' AND
-				middle_name = '".$_POST['middlename']."' AND
-				last_name = '".$_POST['lastname']."' AND
-				date_of_birth = '".$_POST['dob']."') OR (email_primary = '".$_POST['email']."' AND (status='A' OR status='I'))"),true);
+        $this->db->Where(array("(first_name = '".$_POST['first_name']."' AND status='A' AND
+				middle_name = '".$_POST['middle_name']."' AND
+				last_name = '".$_POST['last_name']."' AND
+				date_of_birth = '".$_POST['date_of_birth']."') OR (email_primary = '".$_POST['email_primary']."' AND (status='A' OR status='I'))"),true);
         $this->db->From("users");
 
         $this->db->Select();

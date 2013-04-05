@@ -349,7 +349,7 @@ EOD;*/
 			header ( "location:../View/NewRegistration.php?err=".$error );
 			die ();
 		}
-		$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
+//		$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
 		$ObjModel = new MyClass ();
 		$result = $ObjModel->FindUsers ();
 		if (count ( $result )) {
@@ -358,7 +358,7 @@ EOD;*/
 		}
 		
 		$ObjModel->AddUser ();
-		// sendMail();
+		 $this->sendMail();
 		header ( "location:../View/ConfirmRegistration.php" );
 		die ();
 	}
@@ -701,13 +701,18 @@ EOD;*/
 	//**********************************************send mail to register user***********************************************
 	private function sendMail() {
 		$emailSubject = 'Registration in careerbook';
-		$mailto = $_POST ['email'];
+		$mailto = 'avni.jain@osscube.com';
 		
 		/* These will gather what the user has typed into the fieled. */
 		
 		
 		/* This takes the information and lines it up the way you want it to be sent in the email. */
-		
+		$body = <<<EOD
+				<br><hr><br>
+				password:$_SESSION ['userDefaultPwd'] <br>
+			 <br>
+EOD;
+		/*
 		$body = <<<EOD
 <br>Dear $_POST ['firstname']<br>
 Verification of your email address is pending <br>
@@ -718,7 +723,7 @@ password: $_SESSION ['userDefaultPwd'] <br>
 
 				Best wishes,
 				Team CareerBook
-EOD;
+EOD;*/
 		
 		$headers = "From: $_POST ['email'] \r\n"; // This takes the email and displays it as who this email is from.
 		$headers .= "Content-type: text/html\r\n"; // This tells the server to turn the coding into the text.
