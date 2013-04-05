@@ -115,14 +115,40 @@ class mainentrance {
 				 * sent link here
 				 */
 				
-				// $str= date('ymd')+1;
-				// $time=strtotime($str);
-				// $hash=md5($time."ImSoRrYHaCkEr".$result[0]['id']);
-				// $link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/Home/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;
+				 $str= date('ymd')+1;
+				 $time=strtotime($str);
+				$hash=md5($time."ImSoRrYHaCkEr".$result[0]['id']);
+				
+				$link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/link/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;
 				
 				/*
 				 * mail here
 				 */
+				$emailSubject = 'CareerBook:Forget password Link';
+				$mailto = 'avni.jain@osscube.com';
+				$emailField=$result[0]['email_primary'];
+				$name=$result[0]['first_name'];
+				/* These will gather what the user has typed into the fieled. */
+				
+				
+				
+				/* This takes the information and lines it up the way you want it to be sent in the email. */
+				
+				$body = <<<EOD
+				<br><hr><br>
+				hiii:$name <br>
+				The requested link for your changed password is given below: $link <br>
+EOD;
+				/*$body = <<<EOD
+                       <br><hr><br>
+                      Name: $nameField <br>
+                      Email: $emailField <br>
+                      Question: $questionField <br>
+EOD;*/
+				
+				$headers = "From: $emailField\r\n"; // This takes the email and displays it as who this email is from.
+				$headers .= "Content-type: text/html\r\n"; // This tells the server to turn the coding into the text.
+				$success = mail($mailto, $emailSubject, $body, $headers);
 				
 				header ( 'location: ../View/forgetPasswd.php?code' );
 			}
@@ -674,21 +700,29 @@ class mainentrance {
 	}
 	//**********************************************send mail to register user***********************************************
 	private function sendMail() {
-		$to = $_POST ['email'];
-		$subject = "Registration in careerbook";
-		$message = "Dear " . $_POST ['firstname'] . $_POST ['middlename'] . $_POST ['lastname'] . ",<br>
-				Verification of your email address is pending.
-				Your Email Careerbook
-				User Name : " . $_POST ['email'] . "
-				Password  : " . $_SESSION ['userDefaultPwd'] . "
+		$emailSubject = 'Registration in careerbook';
+		$mailto = $_POST ['email'];
+		
+		/* These will gather what the user has typed into the fieled. */
+		
+		
+		/* This takes the information and lines it up the way you want it to be sent in the email. */
+		
+		$body = <<<EOD
+<br>Dear $_POST ['firstname']<br>
+Verification of your email address is pending <br>
+username: $_POST ['email'] <br>
+password: $_SESSION ['userDefaultPwd'] <br>
 				Kindly login with this user name and password to complete verification of your email.
 				http://www.careerbook.com/
 
 				Best wishes,
-				Team CareerBook ";
-		$from = "careerbook.com";
-		$headers = "From:" . $from;
-		mail ( $to, $subject, $message, $headers );
+				Team CareerBook
+EOD;
+		
+		$headers = "From: $_POST ['email'] \r\n"; // This takes the email and displays it as who this email is from.
+		$headers .= "Content-type: text/html\r\n"; // This tells the server to turn the coding into the text.
+		$success = mail($mailto, $emailSubject, $body, $headers);
 		echo "Mail Sent.";
 	}
 } //***********************************************End of class*****************************

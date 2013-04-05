@@ -16,13 +16,19 @@ include_once("../classes/lang.php");
 				    		<a href="userHomePage.php?message"><img src="../images/message.jpg" alt="" width="90%"></a>
 				    	</div>
 				    	<div class="data">
-				    		<p><?php echo $lang->USERMESSAGES?></p>
+				    		
 							<?php
 								
 								require_once '../controller/message_controller.php';
 								$objMessage1 = new MessageController();
 								$count=$objMessage1->handleNewMessage();
-								print($count[0]['count(id)']);
+								if(($count[0]['count(id)'])>=1) {
+								?><p style="color:red;"><?php echo $lang->NEWUSERMESSAGES?> </br>
+								    <?php  print($count[0]['count(id)']);?></p>	
+								<?php }
+								else {
+									?><p><?php echo $lang->NONEWMESSAGES?></p>
+								<?php }
 							?>
 				    	</div>
 				    </div>
@@ -33,16 +39,25 @@ include_once("../classes/lang.php");
 				    		<a href="userHomePage.php?FriendsRequest"><img src="../images/addFriends.jpg" alt="" width="90%"></a>
 				    	</div>
 				    	<div class="data">
-				    		<p><?php echo $lang->USERFRIENDREQUEST?></p>
+				    		
                                                 
                                                 <?php
                                                     
                                                         include_once('../classes/friendsClass.php');
                                                         $friendsReqData=unserialize($_SESSION['FrndReq']);
-                                                        $myFrndReq= $friendsReqData->countReqFrnds();
-                                                        echo "<b>".$myFrndReq."</b>";
+                                                        $myFrndReqCount= $friendsReqData->countReqFrnds();
+                                                        //echo ($myFrndReqCount);
+                                                        if($myFrndReqCount>0) {
+                                                        	?><p style="color:red;"><?php echo $lang->NEWFRIENDREQUEST?></br>
+                                                        						   <?php  print($myFrndReqCount);?></p>	
+                                                        							<?php }
+                                                        							else {
+                                                        							?><p><?php echo $lang->NONEWFRIENDREQUEST?></p>
+                                                        							<?php }
+                                                        							?>
+                                                 
                                                     
-                                                ?>
+                                                
                                                                                          
                                                                                                
 				    	</div>
