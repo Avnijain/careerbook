@@ -60,27 +60,6 @@ unset($resultSet[0]['discussionID']);
     }
 }
 ?>
-<style>
-input[type="text"], textarea {
-    background: none repeat scroll 0 0 transparent;
-    border: 1px solid #F8F5F1;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 0 1px #B3A895 inset;
-    color: #7C7873;
-    font: 14px normal normal uppercase helvetica,arial,serif;
-    height: 36px;
-    margin: 0 0 10px;
-    padding: 0 10px;
-    width: 380px;
-}
-textarea {
-    height: 80px;
-    padding-top: 14px;
-}
-textarea:focus, input[type="text"]:focus {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.35);
-}
-</style>
 <textarea id="commentID" class="group_textarea" placeholder="Comment"></textarea>
 <input type="submit" id = "commentSubmit" value="post comment"></input>
 <script src="../JavaScript/jquery-1.7.1.js"></script>

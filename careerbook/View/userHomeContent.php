@@ -78,23 +78,17 @@ if (isset($_GET['Group'])) {
 	include 'edit_group.php';
 } else if (isset($_GET['editPost'])) {
 	include 'edit_post.php';
-}
-elseif(isset($_GET['Friends'])){
+}else if(isset($_GET['Friends'])){
 	$objFrndControl->start('myFriends');
 	include_once "friends.php";
-}
-else if (isset($_GET['Settings'])) {
+}else if (isset($_GET['Settings'])) {
 	include 'userSettings.php';
-}
-elseif(isset($_GET['Search'])){
+}else if(isset($_GET['Search'])){
 	$objFrndControl->start('allUsers',$_GET['Search']);
 	include_once "search.php";
-}
-elseif(isset($_GET['FriendsRequest'])){
-	
+}else if(isset($_GET['FriendsRequest'])){	
 	include_once "friendsRequest.php";
-} 
-
+}
 else{
 
     if(isset($_SESSION['userData']))

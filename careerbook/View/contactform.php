@@ -18,43 +18,16 @@ if(isset($_REQUEST['c']))
 	echo "yor message has been sent";
 ?>
 
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Contact Form</title>
-	<script  src="jquery-1.3.2.min.js"></script>
-	<!--[if IE]><script>
-	$(document).ready(function() { 
-
+<!--[if IE]><script>
+$(document).ready(function() {
 $("#form_wrap").addClass('hide');
-
 })
-
 </script><![endif]-->
-
 <style>
-
-
-body, div, h1,h2, form, fieldset, input, textarea, footer,p {
-	margin: 0; padding: 0; border: 0; outline: none;
-}
-
-
-@font-face {
-	font-family: 'YanoneKaffeesatzRegular';
-	src: url('yanonekaffeesatz-regular-webfont.eot');
-	src: url('yanonekaffeesatz-regular-webfont.eot?#iefix') format('embedded-opentype'),
-	url('yanonekaffeesatz-regular-webfont.woff') format('woff'),
-	url('yanonekaffeesatz-regular-webfont.ttf') format('truetype'),
-	url('yanonekaffeesatz-regular-webfont.svg#YanoneKaffeesatzRegular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-body {background: #ccc url('images/bg_out.png'); color: #7c7873; font-family: 'YanoneKaffeesatzRegular';}
 p {text-shadow:0 1px 0 #fff; font-size:24px;}
-#wrap {width:530px; margin:20px auto 0; height:1000px;}
+#wrap {background: #ccc url('images/bg_out.png'); color: #7c7873; font-family: 'YanoneKaffeesatzRegular';width:530px; margin:20px auto 0; height:550px;}
 h1 {margin-bottom:20px; text-align:center;font-size:48px; text-shadow:0 1px 0 #ede8d9; }
+
 
 
 	#form_wrap { overflow:hidden; height:446px; position:relative; top:0px;
@@ -78,7 +51,7 @@ h1 {margin-bottom:20px; text-align:center;font-size:48px; text-shadow:0 1px 0 #e
 	#form_wrap:hover {height:776px;top:-200px;}
 
 
-	form {background:#f7f2ec url('images/letter_bg.png'); 
+	#contact_form {background:#f7f2ec url('images/letter_bg.png'); 
 		position:relative;top:200px;overflow:hidden;
 		height:200px;width:400px;margin:0px auto;padding:20px; 
 		border: 1px solid #fff;
@@ -120,7 +93,8 @@ h1 {margin-bottom:20px; text-align:center;font-size:48px; text-shadow:0 1px 0 #e
 		#form_wrap input[type=submit] {
 			position:relative;font-family: 'YanoneKaffeesatzRegular'; 
 			font-size:24px; color: #7c7873;text-shadow:0 1px 0 #fff;
-			width:100%; text-align:center;opacity:0;
+			margin-left:80px;
+			width:50%; text-align:center;opacity:0;
 			background:none;
 			cursor: pointer;
 			-moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; 
@@ -139,12 +113,10 @@ h1 {margin-bottom:20px; text-align:center;font-size:48px; text-shadow:0 1px 0 #e
 			#form_wrap:hover input:hover[type=submit] {color:#435c70;}
 
 </style>
-</head>
-<body>
 	<div id="wrap">
 		<h1>Contact us</h1>
 		<div id='form_wrap'>
-			<form name="form1" method="post" action="form_mailer.php">
+			<form id = "contact_form" name="form1" method="post" action="form_mailer.php">
 				<p><?php echo $personalInfo['0']['first_name']?> ,Send a Suggestion to us</p>
 				<label for="email">Your Message : </label>
 				<textarea  name="message" value="Your Message" id="message" ></textarea>
@@ -157,6 +129,3 @@ h1 {margin-bottom:20px; text-align:center;font-size:48px; text-shadow:0 1px 0 #e
 			</form>
 		</div>
 	</div>
-
-</body>
-</html>
