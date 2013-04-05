@@ -70,22 +70,22 @@ class mainentrance {
 				$result = $ObjModel->getUserPwd ( $this->obj_usrinfo );
 				if (md5 ( $_POST ['currPwd'] ) == $result [0] ['password']) {
 					if (strlen ( $_POST ['newPwd'] ) < 8 || strlen ( $_POST ['newPwd'] ) > 15) {
-						header ( 'location: ../views/userHomePage.php?Settings&err=4' );
+						header ( 'location: ../Home/userHomePage.php?Settings&err=4' );
 					
 					} elseif ($_POST ['newPwd'] == $_POST ['currPwd']) {
-						header ( 'location: ../views/userHomePage.php?Settings&err=5' );
+						header ( 'location: ../Home/userHomePage.php?Settings&err=5' );
 					} else {
 						$ObjModel->passwdChg ( $this->obj_usrinfo, $_POST ['newPwd'] );
-						header ( 'location: ../views/userHomePage.php?Settings&Success' );
+						header ( 'location: ../Home/userHomePage.php?Settings&Success' );
 					}
 				} else {
-					header ( 'location: ../views/userHomePage.php?Settings&err=3' );
+					header ( 'location: ../Home/userHomePage.php?Settings&err=3' );
 				}
 			} else {
-				header ( 'location: ../views/userHomePage.php?Settings&err=2' );
+				header ( 'location: ../Home/userHomePage.php?Settings&err=2' );
 			}
 		} else {
-			header ( 'location: ../views/userHomePage.php?Settings&err=1' );
+			header ( 'location: ../Home/userHomePage.php?Settings&err=1' );
 		}
 	}
 	// *****************************************delete an
@@ -101,14 +101,14 @@ class mainentrance {
 	// link*******************************************
 	private function forgetPasswd() {
 		if ($_SESSION ['secure'] != $_POST ['captcha-code']) {
-			header ( 'location: ../views/forgetPasswd.php?err=1' );
+			header ( 'location: ../View/forgetPasswd.php?err=1' );
 		} else {
 			
 			$ObjModel = new MyClass ();
 			$result = $ObjModel->FindLoginUsers ();
 			
 			if (! count ( $result )) {
-				header ( 'location: ../views/forgetPasswd.php?err=2' );
+				header ( 'location: ../View/forgetPasswd.php?err=2' );
 			} else {
 				
 				/*
@@ -118,13 +118,13 @@ class mainentrance {
 				// $str= date('ymd')+1;
 				// $time=strtotime($str);
 				// $hash=md5($time."ImSoRrYHaCkEr".$result[0]['id']);
-				// $link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/views/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;
+				// $link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/Home/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;
 				
 				/*
 				 * mail here
 				 */
 				
-				header ( 'location: ../views/forgetPasswd.php?code' );
+				header ( 'location: ../View/forgetPasswd.php?code' );
 			}
 		}
 	
@@ -138,10 +138,10 @@ class mainentrance {
 				$ObjModel->frogetUserPasswdChg ( $_POST ['userId'], $_POST ['newPwd'] );
 				header ( 'location: ../index.php' );
 			} else {
-				header ( 'location: ../views/error.php' );
+				header ( 'location: ../Home/error.php' );
 			}
 		} else {
-			header ( 'location: ../views/error.php' );
+			header ( 'location: ../Home/error.php' );
 		}
 	}
 	
@@ -199,7 +199,7 @@ class mainentrance {
 		if ($_REQUEST ['action'] == "send_message") {
 			$objMessage = new MessageController ();
 			$objMessage->handleSendMessage ();
-			header ( 'location: ../views/userHomePage.php?message&c=sent' );
+			header ( 'location: ../Home/userHomePage.php?message&c=sent' );
 
 		}
 		if ($_REQUEST ['action'] == "get_message") {
@@ -216,7 +216,7 @@ class mainentrance {
 			$_SESSION ['outbox'] = $objMessage2->handleSentMessage ();
 
 			rsort ( $_SESSION ['outbox'] );
-			header ( 'location: ../views/userHomePage.php?message' );
+			header ( 'location: ../Home/userHomePage.php?message' );
 		}
 		if ($_REQUEST ['action'] == "get_friend") {
 			
@@ -300,27 +300,27 @@ class mainentrance {
 	private function userRegistration() {
 		
 		if ($_POST ['captcha-code'] != $_SESSION ['secure']) {
-			header ( "location:../views/NewRegistration.php?err=7" );
+			header ( "location:../View/NewRegistration.php?err=7" );
 			die ();
 		}
 		
 		$error=$this->validationCheck ();
 		if($error !=0)
 		{
-			header ( "location:../views/NewRegistration.php?err=".$error );
+			header ( "location:../View/NewRegistration.php?err=".$error );
 			die ();
 		}
 		$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
 		$ObjModel = new MyClass ();
 		$result = $ObjModel->FindUsers ();
 		if (count ( $result )) {
-			header ( "location:../views/NewRegistration.php?err=6" );
+			header ( "location:../View/NewRegistration.php?err=6" );
 			die ();
 		}
 		
 		$ObjModel->AddUser ();
 		// sendMail();
-		header ( "location:../views/ConfirmRegistration.php" );
+		header ( "location:../View/ConfirmRegistration.php" );
 		die ();
 	}
 	
@@ -360,7 +360,7 @@ class mainentrance {
 				$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
 				
 
-				header ( "location:../views/userHomePage.php" );
+				header ( "location:../Home/userHomePage.php" );
 
 			}
 			else
@@ -649,7 +649,7 @@ class mainentrance {
 		}
 
 		$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
-		header ( "location:../views/userHomePage.php" );
+		header ( "location:../Home/userHomePage.php" );
 
 	}
 	//***********************************************all server side validation********************************************

@@ -87,20 +87,20 @@ include_once ("../classes/lang.php");
 		<div id="contentWrapper">
 <?php
 if (isset ( $_GET ['profile'] )) {
-	include 'UserInfoForm.php';
+	include '../View/UserInfoForm.php';
 } else if (isset ( $_GET ['resume'] )) {
-	include 'resume.php';
+	include '../View/resume.php';
 } else if (isset ( $_GET ['logOut'] )) {
 	session_destroy ();
 	header ( "location:../index.php" );
 	die ();
 } else if (isset ( $_GET ['message'] )) {
-	include 'message.php';
+	include '../View/message.php';
 } else if (isset ( $_GET ['information'] )) {
-	include 'information.php';
+	include '../View/information.php';
 }
   else{
-   include 'userHomeContent.php';
+   include '../View/userHomeContent.php';
 }
 ?>
 </div>

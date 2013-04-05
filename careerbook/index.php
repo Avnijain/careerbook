@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['userData']))
 {
-    header("location:./views/userHomePage.php");
+    header("location:./Home/userHomePage.php");
     die;
 }
 
@@ -34,13 +34,13 @@ include_once("./classes/lang.php");
         <a href="javascript:void(0)" id="selectorLogin"></a>
         <div id="main">
             <div id="header_wrapper">
-                <?php require_once './views/header.php'; ?>
+                <?php require_once './View/header.php'; ?>
             </div>
             <div id="left">
-                <?php require_once './views/slider.php'; ?>
+                <?php require_once './View/slider.php'; ?>
             </div>
             <div id="right">
-                <?php require_once './views/login.php'; ?>
+                <?php require_once './View/login.php'; ?>
             </div>
             <div id="googleAdds"></div>
 	    
@@ -60,13 +60,13 @@ include_once("./classes/lang.php");
 
 <script type="text/javascript">
 		function testoverlay() {
-			url = "views/NewRegistration.php";
+			url = "View/NewRegistration.php";
 			$("#selectorLogin").attr("href",url);
 	        $("#selectorLogin").trigger("click");
 		    
 		}
 		function forgetPwdOverlay() {
-			url = "views/forgetPasswd.php";
+			url = "View/forgetPasswd.php";
 			$("#selectorLogin").attr("href",url);
 	        $("#selectorLogin").trigger("click");
 		    

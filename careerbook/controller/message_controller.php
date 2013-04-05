@@ -37,7 +37,7 @@ class MessageController extends Message
 		if(!filter_var($emailid, FILTER_VALIDATE_EMAIL))
 		{
 		
-			header('location: ../views/userHomePage.php?message&c=invaild');
+			header('location: ../Home/userHomePage.php?message&c=invaild');
 			exit;
 		}
 		$this->_email_id=$emailid;
@@ -48,7 +48,7 @@ class MessageController extends Message
 		$r=parent::Checkfriend();
 		if(!count($r))
 		{
-			header('location: ../views/userHomePage.php?message&c=notfriend');
+			header('location: ../Home/userHomePage.php?message&c=notfriend');
 			exit;
 		}
 		$this->_messaging_time = date ( 'Y-m-d H:i:s' );

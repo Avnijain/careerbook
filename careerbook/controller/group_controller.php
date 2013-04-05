@@ -113,7 +113,7 @@ class GroupHandler extends Group {
 			$this->_obj_group_model->add_post ();
 			$this->handleGetPost();
 		} else {
-			header ( 'Location: ../views/userHomePage.php');
+			header ( 'Location: ../Home/userHomePage.php');
 		}
 		
 	}
@@ -138,7 +138,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_class->setGroupDetail($result);
 		$_SESSION['groupDetail'] = serialize($this->_obj_group_class);
 		
-		header('Location: ../views/userHomePage.php?editGroup');
+		header('Location: ../Home/userHomePage.php?editGroup');
 		
 	}
 	
@@ -150,7 +150,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_class->setPostDetail($result);
 		$_SESSION['postDetail'] = serialize($this->_obj_group_class);
 	
-		header('Location: ../views/userHomePage.php?editPost');
+		header('Location: ../Home/userHomePage.php?editPost');
 	
 	}
 	
@@ -179,9 +179,9 @@ class GroupHandler extends Group {
 			$_SESSION['groupDetail'] = serialize($this->_obj_group_class);
 			
 			
-			header ( 'Location: ../views/userHomePage.php?groupPost&groupId=' . $this->_obj_group_model->_group_id );
+			header ( 'Location: ../Home/userHomePage.php?groupPost&groupId=' . $this->_obj_group_model->_group_id );
 		} else {
-			header ( 'Location: ../views/userHomePage.php?Group');
+			header ( 'Location: ../Home/userHomePage.php?Group');
 		}
 	}
 	
@@ -197,7 +197,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_class->setPostDetail($result1);
 		$_SESSION['postDetail'] = serialize($this->_obj_group_class);
 		
-		header ( 'Location: ../views/userHomePage.php?groupComment&groupDiscussionId=' . $this->_obj_group_model->_group_discussion_id );
+		header ( 'Location: ../Home/userHomePage.php?groupComment&groupDiscussionId=' . $this->_obj_group_model->_group_discussion_id );
 
 	}
 	
@@ -209,7 +209,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_class->setGroupList($result);
 		$_SESSION ['groupList'] = serialize ( $this->_obj_group_class );
 		
-		header ( 'Location: ../views/userHomePage.php?Group' );
+		header ( 'Location: ../Home/userHomePage.php?Group' );
 	}
 	
 	//***************************************function to add comment request***************************************//
@@ -260,6 +260,6 @@ class GroupHandler extends Group {
 		$result = $this->_obj_group_model->search_group();
 		$this->_obj_group_class->setGroupSearchList($result);
 		$_SESSION ['groupSearch'] = serialize ( $this->_obj_group_class );
-		header ( 'Location: ../views/userHomePage.php?searchGroup' );
+		header ( 'Location: ../Home/userHomePage.php?searchGroup' );
 	}
 }

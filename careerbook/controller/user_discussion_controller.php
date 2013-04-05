@@ -24,7 +24,7 @@ class UserDiscussionController extends UserDiscussion {
 		$this->_created_on = date ( 'Y-m-d H:i:s' );
 		
 		$this->add_post();
-		header('Location: ../views/userHomePage.php');
+		header('Location: ../Home/userHomePage.php');
 	}
 }
 
