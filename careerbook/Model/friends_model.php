@@ -48,9 +48,9 @@ class FriendsModel extends model {		//class to get all data of friends from data
     	$this->db->Where (array ("b.user_id" => "$user_id"));
     	$this->db->OrderBy("b.created_on desc");
     	$this->db->Select ();
-    	//       echo $this->db->lastQuery();
+    	//      echo $this->db->lastQuery();
     	//       print_r($this->db->resultArray ());
-    	//       die;
+    	//      die;
     	
     	$tempData = $this->db->resultArray();
     	
@@ -65,13 +65,13 @@ class FriendsModel extends model {		//class to get all data of friends from data
     	));
     	 
     	$this->db->From ( "user_discussions b" );
-    	$this->db->Join ( "friends c", " c.user_id = $user_id " );
+    	$this->db->Join ( "friends c", " c.user_id = '$user_id' " );
     	$this->db->Join ( "users d", " d.id = c.friend_id " );
-    	$this->db->Where (array ("b.user_id" => "c.friend_id"));
+    	$this->db->Where (array ("b.user_id = c.friend_id"),true);
     	$this->db->OrderBy("b.created_on desc");
     	$this->db->Select ();
-    	//     	echo $this->db->lastQuery();
-    	//     	die;
+//     	    	echo $this->db->lastQuery();
+//     	    	die;
     	$tempData = $this->db->resultArray();
     	if(!empty($tempData)){
     	    $result[] = $tempData;

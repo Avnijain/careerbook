@@ -187,7 +187,10 @@ class mainentrance {
 		{
 		    //    	    $result = $this->getMyFriendsDis();
 		    return $this->getComments();
-		}		
+		}
+		if($_REQUEST ['action'] == "postComment"){
+		    $this->postComments();
+		}
 		if ($_REQUEST ['action'] == "profileinfo") {
 
 			$this->fillUserProfile ();
@@ -290,11 +293,21 @@ class mainentrance {
 			$this->_obj_user_discussion_controller->handleAddUserPost ();
 		}
 	}
+	/************* Get Comments of particular discussion *****************/
 	private function getComments(){
 	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
+	    $this->_obj_user_discussion_controller = new UserDiscussionController ();	    
+	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo,$_POST['discussionComment']);
+	}
+	/************* Post Comment for particular discussion *****************/
+	private function postComments(){
+	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
-	    $result=$this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo,$_POST['discussionComment']);
-	    echo json_encode($result);
+	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->postComments(
+	        $this->_obj_usrinfo,
+	        $_POST['discussionID'],
+	        $_POST['comment']
+	        );
 	}	
 	// function to register a user and validate the feilds
 	private function userRegistration() {

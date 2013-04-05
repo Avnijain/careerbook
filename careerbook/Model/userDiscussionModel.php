@@ -14,18 +14,40 @@ class UserDiscussion extends DBConnection {
 
 	}
 	public function getComments($userInfo,$searchVal){
-	    
-        $this->Fields(array('description'));
-        $this->From('user_discussions_comments');        
+	    $userID = $userInfo->getUserIdInfo();
+        $this->Fields(array('b.description',
+            "d.first_name",
+            "d.profile_image",
+            "b.created_on"
+        ));
+        $this->From('user_discussions_comments b');
+        $this->Join ( "users d", "d.id = b.user_id" );
         $this->Where(array("user_discussions_id=".$searchVal),true);
-        $this->Limit(1);
-        $this->Select();
+        $this->Select();        
 	    $tempData = $this->resultArray();
 	
+	    $tempData['discussionID'] = $searchVal;
+	    
 	    if(!empty($tempData)){
+	        
+	        $result[] = $tempData;	        
+	    }
+	    else{
+
+	        $tempData['description'] = "No Comments";
 	        $result[] = $tempData;
 	    }
 	    return $result;
+	}
+	public function postComments($userInfo,$searchVal,$comment){
+	    $userID = $userInfo->getUserIdInfo();
+	    $this->Fields(array("user_discussions_id"=>"$searchVal",	        
+	        "description"=>"$comment",
+	        "user_id"=>"$userID[id]"
+	    ));	    
+	    $this->From('user_discussions_comments');
+		$this->Insert ();		
+		
 	}	
 	function add_post() {
 		$this->Fields ( array (

@@ -15,17 +15,16 @@ include_once 'getMessages.php';
 
 <script>
 $(function() {
-	var screenW = 640, screenH = 480;
+	var screenW = 1024, screenH = 768;
     $(".view_comments_button").click(function(){
-//         alert("My Comments + " + $(this).attr("id"));
-//     	,function(data){
-	id = $(this).attr("id");
-            $.post("../controller/mainentrance.php",{"action":"getComments","discussionComment":id},function(data){
-        		url = "../View/comments.php";
-        		$("#selectorLogin").attr("href",url);
-                $("#selectorLogin").trigger("click");
-					//alert(data);
-                
+        	id = $(this).attr("id");
+            $.post("../controller/mainentrance.php",{"action":"getComments","discussionComment":id},function(data,status){
+				if(status=="success")
+				{				
+				        var url = "../View/comments.php";
+				        $('#selectorLogin').attr("href",url);				    	
+						$("#selectorLogin").trigger("click");
+				}
             });        
     });
 	$("#selectorLogin").fancybox({
