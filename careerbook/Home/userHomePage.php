@@ -32,11 +32,16 @@ if (! isset ( $_SESSION ['userData'] )) {
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../css/style.css"></link>
+<script src="../JavaScript/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>
+<script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="../JavaScript/fancybox/jquery.fancybox-1.3.4.css" ></link>
 <?php
 include_once ("../classes/lang.php");
 ?>
 </head>
 <body>
+    <a href="javascript:void(0)" id="selectorLogin"></a>
 	<div id="mainWrapper">
 		<div id="headerWrapper">
 			<div id="top">

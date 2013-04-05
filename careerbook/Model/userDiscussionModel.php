@@ -23,6 +23,7 @@ class UserDiscussion extends DBConnection {
         $this->From('user_discussions_comments b');
         $this->Join ( "users d", "d.id = b.user_id" );
         $this->Where(array("user_discussions_id=".$searchVal),true);
+        $this->OrderBy("b.created_on");
         $this->Select();        
 	    $tempData = $this->resultArray();
 	

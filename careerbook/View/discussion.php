@@ -2,15 +2,7 @@
 <?php
 include_once 'getMessages.php';
 ?>
-
 <!--<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>-->
-
-<script src="../JavaScript/jquery-1.7.1.js"></script>
-<script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>
-<script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<link rel="stylesheet" type="text/css" href="../JavaScript/fancybox/jquery.fancybox-1.3.4.css" ></link>
-
-
 <link rel="stylesheet" type="text/css" href="../css/call.css" />
 
 <script>
@@ -41,7 +33,7 @@ $(function() {
 
 	<div id="discussMain" class="dis">
 
-		<a href="javascript:void(0)" id="selectorLogin"></a>
+		
 <div id="post_user_discussion">
 	<form id="form"
 		action="../controller/mainentrance.php?action=addUserPost" method="post">
