@@ -212,6 +212,46 @@ p {
 	background-origin : content-box;
 }
 
+
+
+		*{
+		    margin:0;
+		    padding:0;
+		}
+    
+		a.back{
+		   
+		    position:fixed;
+		    width:150px;
+		    height:27px;
+		    outline:none;
+		    bottom:0px;
+		    left:0px;
+		}
+		#slider_content{
+/* 		    margin:150px auto 10px auto; */
+		    margin-top: 23px;
+			filter:alpha(opacity=50);
+		}
+		.reference{
+		    clear:both;
+		    width:800px;
+		    margin:30px auto;
+		}
+		.reference p a{
+		    text-transform:uppercase;
+		    text-shadow:1px 1px 1px #fff;
+		    color:#666;
+		    text-decoration:none;
+		    font-size:10px;
+		}
+		.reference p a:hover{
+		    color:#333;
+		}
+
+
+
+
 /* Footer CSS*/
 
 #footer {

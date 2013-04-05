@@ -14,6 +14,8 @@ if(isset($_SESSION['userData']))
 $obj->setId($id);	
 $UserPersonalInfoDB = $objUserInfo->getUserPersonalInfo();
 $personalInfo=$obj->handlePersonalInfo();
+if(isset($_REQUEST['c']))
+	echo "yor message has been sent";
 ?>
 
 <html>
@@ -142,7 +144,7 @@ h1 {margin-bottom:20px; text-align:center;font-size:48px; text-shadow:0 1px 0 #e
 	<div id="wrap">
 		<h1>Contact us</h1>
 		<div id='form_wrap'>
-			<form>
+			<form name="form1" method="post" action="form_mailer.php">
 				<p><?php echo $personalInfo['0']['first_name']?> ,Send a Suggestion to us</p>
 				<label for="email">Your Message : </label>
 				<textarea  name="message" value="Your Message" id="message" ></textarea>
