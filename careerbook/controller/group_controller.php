@@ -53,11 +53,11 @@ class GroupHandler extends Group {
 		$validdob = new UserDataValidation ();
 		$error=$validdob->validate ( $_POST );
 		
-		if ($error == 0) {
-			echo "SUCCESS"; die;
-		} else {
-			echo "error"; die;
-		}
+// 		if ($error == 0) {
+// 			echo "SUCCESS"; die;
+// 		} else {
+// 			echo "error"; die;
+// 		}
 		
 		$this->_obj_group_model->add_group ();
 		$this->handleGetGroup();
