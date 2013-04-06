@@ -1,10 +1,11 @@
 <?php
 include_once("../classes/lang.php");
 ?>
-
+<!--
 <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
-<script type="text/javascript" src="../JavaScript/jquery.idTabs.min.js"></script>
+-->
 <script type="text/javascript" src="../JavaScript/friends.js"></script>
+<script type="text/javascript" src="../JavaScript/jquery.idTabs.min.js"></script>
 <p id="SettingHead"><?php echo $lang->SETTINGS?></p>
 
 

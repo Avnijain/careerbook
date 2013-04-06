@@ -49,18 +49,7 @@ if(isset($_GET ['close'])) {
 <?php
 include_once ("../classes/lang.php");
 ?>
-<script type="text/javascript">
-$(function() {
-    $("#aheader_contactus").fancybox({
-            'width'			: 600,
-            'height'		: 600,
-            'autoScale'		: false,
-            'transitionIn'		: 'none',
-            'transitionOut'		: 'none',
-            'type'			: 'iframe'
-    });
-});
-</script>
+
 </head>
 <body>
     <a href="javascript:void(0)" id="selectorLogin"></a>
@@ -82,9 +71,6 @@ $(function() {
     				?></label></div>
     				<div id = "header_logout" ><a href="./userHomePage.php?logOut"
         			class="btn blue"><?Php echo $lang->LOGOUT?></a></div>    				
-				</div>
-				<div id="header_contactus">
-				<span><a id="aheader_contactus" href="../View/contactform.php"><?php echo "Contact Form"?></a></span>
 				</div>
 				<div id="header_right_search">
     				<form action="userHomePage.php" method="get" id="search">

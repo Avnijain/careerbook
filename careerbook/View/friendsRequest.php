@@ -5,7 +5,7 @@
     $myfrnd= $friendsReqData->getRequestedFriends();
 
 ?>
-<center><h1><?php echo $lang->YOUHAVE;echo $friendsReqData->countReqFrnds();echo $lang->FRIENDSREQUEST;?> </h1>
+<center><h1><?php echo $lang->YOUHAVE;echo $friendsReqData->countReqFrnds()." ";echo $lang->FRIENDREQUEST;?> </h1>
 <table id="frnd">
     <?php
     foreach($myfrnd as $keys=>$values){
@@ -29,9 +29,9 @@
     
 </table>
 </center>
-<script src="../JavaScript/jquery.min.js" type="text/javascript"></script>
+<!--
+<script src="../JavaScript/jquery.min.js" type="text/javascript"></script>-->
 <script src="../JavaScript/friends.js"></script>
-
 
 <style>
   #frnd td{

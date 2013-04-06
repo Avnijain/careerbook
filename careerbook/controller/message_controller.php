@@ -34,20 +34,20 @@ class MessageController extends Message
 		$this->_message_description = mysql_real_escape_string($_POST['descripition']);
 		$emailid=mysql_real_escape_string($_POST['uid']);
 		print($emailid);
-		if(!filter_var($emailid, FILTER_VALIDATE_EMAIL))
-		{
-		
+		if(!filter_var($emailid, FILTER_VALIDATE_EMAIL)) {
 			header('location: ../Home/userHomePage.php?message&c=invaild');
 			exit;
 		}
 		$this->_email_id=$emailid;
-		$s=parent::get_id();
-		//print_r($s);die;
-		$this->_user_to = $s[0]['id'];
+		$recieverId=parent::get_id();
+		if($recieverId[0]['id']==1) {
+			header('location: ../Home/userHomePage.php?message&c=admin');
+			exit;
+		}
+		$this->_user_to = $recieverId[0]['id'];
 		$this->_user_from = $this->userid;
 		$r=parent::Checkfriend();
-		if(!count($r))
-		{
+		if(!count($r)) {
 			header('location: ../Home/userHomePage.php?message&c=notfriend');
 			exit;
 		}

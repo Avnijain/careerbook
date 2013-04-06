@@ -1,28 +1,33 @@
+
 <?php
+/*
+ **************************** Creation Log *******************************
+File Name                   -  contactform.php
+Project Name                -  Careerbook
+Description                 -  file for sending suggestion/feedback 
+Version                     -  1.0
+Created by                  -  Avni Jain
+Created on                  -  March 31, 2013
+*/
 include_once("../classes/lang.php");
 require_once '../controller/userInfo.php';
 require_once '../controller/profile_controller.php';
 require_once '../controller/userInfo.php';
-if(isset($_SESSION['userData']))
+if(isset($_SESSION['userData']))   					//to get current user login information
 {
 	$ob1 = new user_info_controller();
 	$ob1 = unserialize($_SESSION['userData']);
 	$userid = $ob1->getUserIdInfo();
 	$id = $userid['id'];
 }
-//echo $id;
 $obj->setId($id);	
 $UserPersonalInfoDB = $objUserInfo->getUserPersonalInfo();
 $personalInfo=$obj->handlePersonalInfo();
-if(isset($_REQUEST['c']))
-	echo "yor message has been sent";
+if(isset($_REQUEST['c']))         					//to get the response from form_mailer 
+	echo $lang->MAILMESSAGE;
 ?>
 
-<!--[if IE]><script>
-$(document).ready(function() {
-$("#form_wrap").addClass('hide');
-})
-</script><![endif]-->
+
 <style>
 p {text-shadow:0 1px 0 #fff; font-size:24px;}
 #wrap {background: #ccc url('images/bg_out.png'); color: #7c7873; font-family: 'YanoneKaffeesatzRegular';width:530px; margin:20px auto 0; height:550px;}
@@ -114,16 +119,16 @@ h1 {margin-bottom:20px; text-align:center;font-size:48px; text-shadow:0 1px 0 #e
 
 </style>
 	<div id="wrap">
-		<h1>Contact us</h1>
+		<h1><?php $lang->CONTACTUS?></h1>
 		<div id='form_wrap'>
 			<form id = "contact_form" name="form1" method="post" action="form_mailer.php">
 				<p><?php echo $personalInfo['0']['first_name']?> ,Send a Suggestion to us</p>
-				<label for="email">Your Message : </label>
+				<label for="email"><?php $lang->YOURMESSAGE?></label>
 				<textarea  name="message" value="Your Message" id="message" ></textarea>
 				<p></p>	
-				<label for="name">Name: </label>
+				<label for="name"><?php $lang->NAME?></label>
 				<input type="text" name="name" value="<?php echo $personalInfo['0']['first_name']?>" id="name" />
-				<label for="email">Email: </label>
+				<label for="email"><?php $lang->EMAIL?></label>
 				<input type="text" name="email" value="<?php echo $personalInfo['0']['email_primary'];?>" id="email" />
 				<input type="submit" name ="submit" value="click to send" />
 			</form>

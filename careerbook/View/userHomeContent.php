@@ -2,6 +2,19 @@
 
 include_once("../classes/lang.php");
 ?>
+
+<script type="text/javascript">
+$(function() {
+    $("#contactus").fancybox({
+            'width'			: 600,
+            'height'		: 600,
+            'autoScale'		: false,
+            'transitionIn'		: 'none',
+            'transitionOut'		: 'none',
+            'type'			: 'iframe'
+    });
+});
+</script>
 <div id="contentSide">
 			<!-- Box -->
 			<div class="box">
@@ -48,6 +61,11 @@ include_once("../classes/lang.php");
 				</div>
 			</div>
 			<!-- /Box -->
+			<div class="box">
+				<h2><span><?php echo "Contact Us"; ?></span></h2>
+				<div class="cl">&nbsp;</div>				
+				<a id="contactus" href="../View/contactform.php"><img src="../images/suggestion1.jpg" width=240 height=200></a>
+			</div>
 			
 			
 			<div class="cl">&nbsp;</div>	

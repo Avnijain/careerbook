@@ -39,8 +39,8 @@ $myfrnd = $friendsData->getMyFriendsNetwork ();
 </table>
 </center>
 
-
-<script src="../JavaScript/jquery.min.js" type="text/javascript"></script>
+<!--
+<script src="../JavaScript/jquery.min.js" type="text/javascript"></script>-->
 <script src="../JavaScript/friends.js"></script>
 
 <style>
