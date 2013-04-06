@@ -11,7 +11,7 @@ function testoverlay() {
 		    
 		}
 		$(document).ready(function() {
-			var screenW = 640, screenH = 480;
+			var screenW = 800, screenH = 1200;
 			if (parseInt(navigator.appVersion)>3) {
 			 screenW = screen.width;
 			 screenH = screen.height;
@@ -28,7 +28,7 @@ function testoverlay() {
 			}
 				$("#selectorLogin").fancybox({
 		        'width'			: screenW/2,
-		        'height'		: screenH/2+60,
+		        'height'		: screenH-210,
 		        'autoScale'		: false,
 		        'transitionIn'		: 'none',
 		        'transitionOut'		: 'none',

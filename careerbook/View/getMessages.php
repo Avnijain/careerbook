@@ -1,57 +1,103 @@
-<?php 
-//$text="hello how  are you . my name is mohit";
-ini_set("display_errors",1);
+<?php
+/*
+**************************** Creation Log *******************************
+File Name                   -  getMessages.php
+Project Name                -  Careerbook
+Description                 -  Fetch User Discussion Posts from Friends 
+							   Controller 
+Version                     -  1.0
+Created by                  -  Prateek Saini
+Created on                  -  April 02, 2013
+***************************** Update Log ********************************
+Sr.NO.		Version		Updated by           Updated on          Description
+-------------------------------------------------------------------------
+*************************************************************************
+*/ 
+//ini_set("display_errors",1); // To Enable Error Display
 include_once "../controller/friends_controller.php";
-
+require_once '../controller/userInfo.php';
 
     $frndDisData = array();
     $frndDisData = $objFrndControl->start('getFrndsDis');
-    $discussions = array(array("id"=>"0","discussion"=>"empty","comments"=>array()));
-    $disCnt = 1;    
-
-
-
-// echo "<pre/>";
-// print_r ( array_keys($frndDisData) ); 
-// print_r ( $frndDisData);
-// die;
- 
- 
- 
- //echo "<pre/>";
-//  foreach($frndDisData as $key => $value){
-// //     print_r($value);     
-//      foreach($value as $inkey => $invalue){        
-//   //       print_r($invalue);
-// //         print($disCnt);         
-
-//         // print($invalue["id"]);
-//          for($i = 0 ; $i < $disCnt; $i++ ){
-//              if($dis[$i]['id'] == $invalue["id"]){                 
-//                  $dis[$i]['comments'][] = $invalue["comments"];
-//              }
-//              else if( $dis[$i]['id'] == "0" ){
-//                  //echo "yes";
-//                  $dis[$i]['id'] = $invalue["id"];
-//                  $dis[$i]['discussion'] = $invalue["discussion"];
-//                  $dis[$i]['comments'][] = $invalue["comments"];
-//                  break;
-//              }
-//              //print_r($dis[$i]);
-//          }
-//          $dis[] = array("id"=>"0","discussion"=>"empty","comments"=>array());
-//          $disCnt++;
-//          //echo "<br/>";
-//      }     
-//  }
- //echo "<pre/>";
- //print_r($invalue);
-// print_r($dis);
- 
- //print_r($frndDisData);
- //die;
-// $images = array(array("a1.jpeg"," first Discussion"),
-// 		array("a2.jpeg","second Discussion"),
-// 		array("a3.jpg","Third Discussion"),
-// 		array("a4.jpeg","forth Discussion"));
+    $objUserInfo = unserialize($_SESSION['userData']);
+    $userID = $objUserInfo->getUserIdInfo();
+//  		print_r($frndDisData[0][0]['first_name']);
+//  		die;    
+    foreach ( $frndDisData as $keys => $values ) {
+        foreach ( $values as $inkeys => $invalues ){
+            if($invalues['first_name'] != "Administrator"){
+                if(isset($invalues['profile_image'])){
+                    if(!empty($invalues['profile_image'])){
+                        $uri = 'data:image/png;base64,'.base64_encode($invalues['profile_image']);
+                    }
+                }
+?>
+    			<div class="group_list group_div">
+    			<img src="<?php echo $uri;?>" class="group_image">
+                <?php
+    //  		print_r($values);
+    //  		die;
+                if(isset($invalues['first_name'])){
+        		    if(!empty($invalues['first_name'])){		
+        		        echo "$invalues[first_name]";
+        		    }
+        		}
+        		if(isset($invalues['discussion'])){
+        		    if(!empty($invalues['discussion'])){		
+        		        echo " : " . nl2br($invalues['discussion']) 
+        		        . "<br />";
+        		    }
+        		}
+//echo "Comments : " . $invalues['comments'] . "<br />";
+                ?>
+        		<div>
+        		    <input type="button" id="<?php 
+        		    if(isset($invalues['id'])){
+        		        if(!empty($invalues['id'])){
+        		            echo $invalues['id'];
+        		        }
+        		    }
+        		    ?>" class="view_comments_button" value="View Comments"/>
+        		    <?php
+        		    if($userID['id'] == $invalues['user_id'] ){        		         
+        		    ?>
+        		    <input type="button" id="<?php 
+        		    if(isset($invalues['id'])){
+        		        if(!empty($invalues['id'])){
+        		            echo $invalues['id'];
+        		        }
+        		    }
+        		    ?>" class="delete_post_button" value="Delete Post"/>
+        		    <?php } ?>
+        		</div>
+		</div>
+	    <?php
+            }
+            else{
+                 if(isset($invalues['profile_image'])){
+                    if(!empty($invalues['profile_image'])){
+                        $uri = 'data:image/png;base64,'.base64_encode($invalues['profile_image']);
+                    }
+                }
+                ?>
+    			<div class="group_list group_div">
+    			<img src="<?php echo $uri;?>" class="group_image">
+                <?php
+                if(isset($invalues['first_name'])){
+        		    if(!empty($invalues['first_name'])){
+        		        echo "$invalues[first_name]";
+        		    }
+        		}
+        		if(isset($invalues['discussion'])){
+        		    if(!empty($invalues['discussion'])){
+        		        echo " : " . nl2br($invalues['discussion'])
+        		        . "<br />";
+        		    }
+        		}
+        		?>    		
+        		</div>
+        		<?php
+            }
+	    }
+	}
 ?>

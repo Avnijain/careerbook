@@ -9,18 +9,16 @@
     Created on                  -  March 20, 2013
 	***************************** Update Log ********************************
 	Sr.NO.		Version		Updated by           Updated on          Description
-	1			1.0			Prateek Saini		Marach 01, 2013		 Written Function To Fetch Friends Discussion
-	1			1.0			Prateek Saini		Marach 05, 2013		 Written Function To Fetch Friends Comments
+	1			1.0			Prateek Saini		April 01, 2013		 Written Function To Fetch Friends Discussion
+	2			1.0			Prateek Saini		April 05, 2013		 Written Function To Fetch Friends Comments
+	3			1.0			Prateek Saini		April 06, 2013		 Removed ObjModel as It was Not used
     -------------------------------------------------------------------------
-    */
-
-
+*/
 //session_start();
 ini_set("display_errors", "1");
 
 // require class,controller and model files
-require_once '../Model/friends_model.php';	
-require_once '../Model/model.php';
+require_once '../Model/friends_model.php';
 require_once'../classes/friendsClass.php';
 require_once '../controller/userInfo.php';
 require_once '../Model/validation.php';
@@ -29,14 +27,12 @@ class MyFriend{			//class to control all my friends needs
     
     private $_objFriend;	//friendsClass object
     private $_objFrndModel;	//friendModel Object
-    private $_objModel;		//model object
     private $_obj_usrinfo;	//user_info_controller object
     private $_objValidation; //Validation class objest
     
     public function __construct()
     {
 	//************************createing all object in constructor**************************************
-        $this->_objModel=new MyClass();
         $this->_objFriend=new FriendClass();
         $this->_objMyFrndReq=new FriendRequestClass();
         $this->_objAllUsers=new AllUsersClass();
@@ -112,18 +108,12 @@ class MyFriend{			//class to control all my friends needs
     	$this->_obj_usrinfo=unserialize($_SESSION['userData']);
         $result=$this->_objFrndModel->getFriends($this->_obj_usrinfo);
         $this->_objFriend->setMyFriendsNetwork($result);
-        $_SESSION['myFriends']=serialize($this->_objFriend);
-        
-    }
-    
+        $_SESSION['myFriends']=serialize($this->_objFriend);        
+    }    
 }
-
 $objFrndControl=new MyFriend();		//createing  friends class objest
-
 if(isset($_POST['action']))
 {
     $objFrndControl->start($_POST['action']);   //perform the task
 }
-
-
 ?>

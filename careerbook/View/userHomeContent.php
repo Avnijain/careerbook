@@ -1,8 +1,13 @@
-<?php 
-
+<?php
 include_once("../classes/lang.php");
 ?>
-
+<!--[if gte IE 7]>
+<style>
+	#mainWrapper {width: 100%; margin: 0 auto;}
+</style>
+<div style="text-align: center;">
+  <div style="text-align: left; margin: auto; width: 100%;">
+<![endif]-->
 <script type="text/javascript">
 $(function() {
     $("#contactus").fancybox({
@@ -26,6 +31,7 @@ $(function() {
 				    $objFrndControl->start('FrndReq');
 				    include_once 'notification.php';
 				    ?>
+				</div>
 			</div>
 			<!-- /Box -->
 			<!-- Box -->
@@ -66,13 +72,8 @@ $(function() {
 				<div class="cl">&nbsp;</div>				
 				<a id="contactus" href="../View/contactform.php"><img src="../images/suggestion1.jpg" width=240 height=200></a>
 			</div>
-			
-			
-			<div class="cl">&nbsp;</div>	
-		
-
-
-</div></div>
+			<div class="cl">&nbsp;</div>
+</div>
 <div id="contentCenter">
 
 <?php
@@ -126,7 +127,6 @@ else{
 </div>
 <div id="sideRight">
 <div id="contentSide">
-
 			<!-- Box -->
 			<div class="box">
 				<h2><span><?php echo $lang->USERPROFILE?></span></h2>
@@ -168,8 +168,10 @@ else{
 				</div>
 			</div>
 			<!-- /Box -->
-			
-			
 			<div class="cl">&nbsp;</div>	
 </div>
 </div>
+<!--[if gte IE 7]>
+  </div>
+</div>
+<![endif]-->

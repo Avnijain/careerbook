@@ -214,6 +214,16 @@ EOD;*/
 		    //    	    $result = $this->getMyFriendsDis();
 		    return $this->getComments();
 		}
+		if($_REQUEST ['action'] == "deleteDiscussionPost")
+		{
+		    //    	    $result = $this->getMyFriendsDis();
+		    $this->deleteDiscussionPost();
+		}
+		if($_REQUEST ['action'] == "deleteCommentPost")
+		{
+		    //    	    $result = $this->getMyFriendsDis();
+		    $this->deleteCommentPost();
+		}		
 		if($_REQUEST ['action'] == "postComment"){
 		    $this->postComments();
 		}
@@ -324,6 +334,18 @@ EOD;*/
 	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();	    
 	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo,$_POST['discussionComment']);
+	}
+	/************* Delete particular discussion *****************/
+	private function deleteDiscussionPost(){
+	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
+	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
+	    $this->_obj_user_discussion_controller->deleteDiscussionPost($this->_obj_usrinfo,$_POST['discussionComment']);	    	    
+	}
+	private function deleteCommentPost(){
+	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
+	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
+	    $this->_obj_user_discussion_controller->deleteCommentPost($this->_obj_usrinfo,$_POST['discussionComment']);
+	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo,$_POST['discussionComment']);	    
 	}
 	/************* Post Comment for particular discussion *****************/
 	private function postComments(){

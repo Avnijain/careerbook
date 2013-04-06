@@ -8,6 +8,10 @@ Created by                  -  Prateek Saini
 Created on                  -  April 04, 2013
 *************************************************************************/
 session_start();
+require_once '../controller/userInfo.php';
+$objUserInfo = unserialize($_SESSION['userData']);
+$userID = $objUserInfo->getUserIdInfo();
+
 if(isset($_SESSION['displayComments'])) {
     $resultSet = $_SESSION['displayComments'];
     $discussionID = $resultSet[0]['discussionID'];
@@ -35,6 +39,16 @@ unset($resultSet[0]['discussionID']);
                     <?php                    
                 }
             }
+		    if($userID['id'] == $invalues['user_id'] ){        		         
+		    ?>
+		    <input type="button" id="<?php 
+		    if(isset($invalues['id'])){
+		        if(!empty($invalues['id'])){
+		            echo $invalues['id'];
+		        }
+		    }
+		    ?>" class="delete_comments_button" value="Delete Comment"/>
+		    <?php }		    
             if(isset($invalues['first_name'])){
                 if(!empty($invalues['first_name'])){
                     ?>
@@ -65,10 +79,20 @@ unset($resultSet[0]['discussionID']);
 <script src="../JavaScript/jquery-1.7.1.js"></script>
 <script>
 $(function(){
+    $(".delete_comments_button").click(function(){
+    	id = $(this).attr("id");
+        $.post("../controller/mainentrance.php",{"action":"deleteCommentPost","discussionComment":id},function(data,status){
+			if(status=="success")
+			{
+				parent.$(".view_comments_button").attr("id",<?php echo $discussionID; ?>).trigger("click");				
+			}
+        });
+    });
 	$("#commentSubmit").click(function(){
 		$.post("../controller/mainentrance.php",{"action":"postComment",
 			"comment":$("#commentID").val(),
 			"discussionID":"<?php echo $discussionID; ?>"},function(data,status){ 
+				parent.$(".view_comments_button").attr("id",<?php echo $discussionID; ?>).trigger("click");
 			});
 		});
 });

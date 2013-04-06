@@ -7,6 +7,7 @@ class UserDiscussionController extends UserDiscussion {
 	public $userid;
 	
 	function __construct() {
+	    parent::__construct();
 		$this->_obj_user_class = new user_info_controller ();
 	if(isset($_SESSION['userData']))
 		{

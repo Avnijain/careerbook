@@ -19,9 +19,6 @@ Sr.NO.		Version		Updated by           Updated on          Description
  * Following class will create the user information objects and control the data flow.
  * All the ojects here created corresponds to class in user.php file 
  * */
-
-require_once '../Model/model.php';
-
 function __autoload($className)
 {
     if( strstr($className, "Model")){

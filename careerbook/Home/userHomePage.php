@@ -74,6 +74,7 @@ if(isset($_GET ['close'])) {
 }
 
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../css/style.css"></link>
@@ -150,12 +151,11 @@ if (isset ( $_GET ['profile'] )) {
 	include '../View/message.php';
 } else if (isset ( $_GET ['information'] )) {
 	include '../View/information.php';
-}
-  else{
+} else{
    include '../View/userHomeContent.php';
 }
 ?>
-</div>
 	</div>
+</div>
 </body>
 </html>

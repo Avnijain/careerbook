@@ -12,8 +12,9 @@ Sr.NO.		Version		Updated by           Updated on          Description
 -------------------------------------------------------------------------
 *************************************************************************
 */
-abstract class model {
+require_once '../Model/model.php';
 
+abstract class model {
     protected $db = "";
 
     function __construct() {
