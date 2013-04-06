@@ -18,16 +18,24 @@ session_start();
 class Language {
 
 	private $_lang;          //store user selected language array
+	private $_regError;		//Store all users registration errors
 
-	public function __construct($language) {
+	public function __construct($language,$regError) {
 		$this->_lang=$language;
+		$this->_regError=$regError;
 	}
 
 	public function __get($key){
 		return $this->_lang[$key];
 	}
+	
+	public function getRegError($key)
+	{
+		return $this->_regError[$key];
+	}
 
 }
+
 
 if(isset($_SESSION['lang'])){
 	$this->_langType=$_SESSION['lang'];
@@ -39,11 +47,7 @@ else
 $s=getcwd();
 $file = basename($s);         // $file is set to "index.php"
 $file = basename($s, ".php"); 
-/*echo $file;die;
-$a=explode('/', $s);
-print_r($a);
-$n=count($a);
-echo $n;die;*/
+
 if($file=="careerbook"){
 	
 	include_once './lang/lang.'.$selectedLang.".php";
@@ -52,6 +56,6 @@ else
 {
 	include_once '../lang/lang.'.$selectedLang.".php";
 }
-$lang= new language($langArr);
+$lang= new language($langArr,$regError);
 
 ?>

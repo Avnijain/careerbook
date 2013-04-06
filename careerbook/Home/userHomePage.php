@@ -25,7 +25,6 @@ if($data=file_get_contents($fileName))
 {
 	if($data != md5($SID))
 	{
-	unlink($fileName);
 	unset($_SESSION);
 	session_destroy();
 	header ( "location:../index.php" );						//multiple login save

@@ -56,7 +56,8 @@ include_once("../classes/lang.php");
                          
                     <?php 
                     if(isset($_GET['err'])){
-                    	echo "<h3>$lang->REGISTRATIONERROR".$_GET['err']."</h3>";
+                    	
+                    	echo "<h3>$lang->REGISTRATIONERROR".$_GET['err']."[".$lang->getRegError($_GET['err'])."]</h3>";
                     }
                     ?> 
         <div>

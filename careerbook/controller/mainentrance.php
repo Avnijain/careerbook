@@ -359,7 +359,14 @@ EOD;*/
 	}	
 	// function to register a user and validate the feilds
 	private function userRegistration() {
-		
+		if($_POST['email_primary']=="" ||
+				$_POST['first_name']=="" ||
+				$_POST['last_name']=="" ||
+				$_POST['date_of_birth']==""  )
+		{
+			header ( "location:../View/NewRegistration.php?err=10" );
+			die ();
+		}
 		if ($_POST ['captcha-code'] != $_SESSION ['secure']) {
 			header ( "location:../View/NewRegistration.php?err=7" );
 			die ();
@@ -371,7 +378,6 @@ EOD;*/
 			header ( "location:../View/NewRegistration.php?err=".$error );
 			die ();
 		}
-//		$_POST ['date_of_birth'] = $this->objdate->reverseDate ( $_POST ['date_of_birth'] );
 		$ObjModel = new MyClass ();
 		$result = $ObjModel->FindUsers ();
 		if (count ( $result )) {
