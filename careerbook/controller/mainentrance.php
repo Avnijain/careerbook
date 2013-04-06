@@ -397,8 +397,20 @@ EOD;*/
 				$this->obj_usrinfo->setUserProfessionalInfoDb ( $result );
 				
 				$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
+				//*************************************************************************************************
+				$_SESSION['secureSessionHijack'] = rand(100000,999999);
+				$SID=$_COOKIE['PHPSESSID'];
+				//********************************************************************************
+				$fileName="../temp/".$result[0]['email_primary'].".txt";
+				unlink($fileName);
+				$file=fopen($fileName,"a");					//mutiple login save
+				fwrite($file,md5($SID));
+				fclose($file);
+				//********************************************************************************
+				$token=md5($_SESSION['secureSessionHijack'].$SID.$result[0]['email_primary']);		//session hijacking bock
+				setcookie("userToken",$token , time()+3600*24,"/");
+				//************************************************************************************************
 				
-
 				header ( "location:../Home/userHomePage.php" );
 
 			}

@@ -1,0 +1,1 @@
+This folder is use to store temp session id of the users.

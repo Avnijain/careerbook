@@ -1,27 +1,9 @@
-<script type="text/javascript">
-        function closeME() {
-            parent.$.fancybox.close(); 
-        }
-</script>
 <?php
+ini_set("display_errors",1);
 ini_set ( 'session.cookie_httponly', true );
-// suhosin.session.encrypt=Off
-ini_set ( "suhosin.session.encrypt", true );
-// echo gethostname();
-
-// session_start ();
-// echo "dshfjkfs";
-// $time = time();
-// $date = $today = date("Ymd");
-// $id = $time + $date;
-
-// $a=session_id($id);
-// session_regenerate_id(true);
-// echo $a;
-// echo $_COOKIE["PHPSESSID"];
-
-?>
-<?php
+ini_set ( 'session.use_only_cookies', true);
+ini_set ( 'session.hash_function', "sha512");
+ini_set ( 'session.hash_bits_per_character', 5);
 
 include_once ("../classes/lang.php");
 require_once '../controller/userInfo.php';
@@ -31,6 +13,59 @@ if (! isset ( $_SESSION ['userData'] )) {
 	header ( "location:../index.php" );
 	die ();
 }
+
+
+$objUserInfo = unserialize ( $_SESSION ['userData'] );
+$userData = $objUserInfo->getUserPersonalInfo ();
+
+//********************************************************************************************************************************
+$SID=$_COOKIE['PHPSESSID'];
+$fileName="../temp/".$userData['email_primary'].".txt";
+if($data=file_get_contents($fileName))
+{
+	if($data != md5($SID))
+	{
+	unlink($fileName);
+	unset($_SESSION);
+	session_destroy();
+	header ( "location:../index.php" );						//multiple login save
+	die ();	
+	}
+}
+else
+{
+	unset($_SESSION);
+	session_destroy();
+	header ( "location:../index.php" );
+	die ();
+}
+//*****************************************************************************************************************************
+
+$token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
+if($token==$_COOKIE['userToken'])
+{
+	$_SESSION['secureSessionHijack'] = rand(100000,999999);
+	$token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
+	setcookie("userToken",$token , time()+3600*24,"/");
+}
+else											//session hijacking save
+{
+	unlink($fileName);
+	unset($_SESSION);
+	session_destroy();
+	header ( "location:../index.php" );
+	die ();
+}
+//****************************************************************************************************************************
+?>
+<script type="text/javascript">
+        function closeME() {
+            parent.$.fancybox.close(); 
+        }
+</script>
+
+<?php
+
 if(isset($_GET ['close'])) {
 	echo '<script type="text/javascript">'
 		, 'closeME();'
@@ -65,8 +100,7 @@ include_once ("../classes/lang.php");
 				<div id="header_right">
 					<div id = "header_userName" > 
     				<label id="header_userNameLabel"><?php echo $lang->WELCOME ?> <?php				
-    				$objUserInfo = unserialize ( $_SESSION ['userData'] );
-    				$userData = $objUserInfo->getUserPersonalInfo ();				
+				
     				echo $userData ['first_name'] . " " . $userData ['last_name'];
     				?></label></div>
     				<div id = "header_logout" ><a href="./userHomePage.php?logOut"
@@ -107,7 +141,9 @@ if (isset ( $_GET ['profile'] )) {
 } else if (isset ( $_GET ['resume'] )) {
 	include '../View/resume.php';
 } else if (isset ( $_GET ['logOut'] )) {
-	session_destroy ();
+	unlink($fileName);
+	unset($_SESSION);
+	session_destroy();
 	header ( "location:../index.php" );
 	die ();
 } else if (isset ( $_GET ['message'] )) {

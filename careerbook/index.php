@@ -1,11 +1,11 @@
 <?php
-session_start();
+include_once("./classes/lang.php");
 if(isset($_SESSION['userData']))
 {
     header("location:./Home/userHomePage.php");
     die;
 }
-include_once("./classes/lang.php");
+
 ?>
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
