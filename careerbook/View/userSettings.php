@@ -4,9 +4,10 @@ include_once("../classes/lang.php");
 <!--
 <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
 -->
+
 <script type="text/javascript" src="../JavaScript/friends.js"></script>
 <script type="text/javascript" src="../JavaScript/jquery.idTabs.min.js"></script>
-<p id="SettingHead"><?php echo $lang->SETTINGS?></p>
+<heading><h1><?php echo $lang->SETTINGS?></h1></heading>
 
 
 <div id='options'>
@@ -133,4 +134,5 @@ if(isset($_GET['Success']))
 #options ul li:hover {
 	background-color: #23922D;
 }
+heading { float:left; background:url(../images/content-heading.gif) right top no-repeat; color: #FFFFFF; padding:10px 85px 60px 85; }
 </style>
