@@ -34,12 +34,15 @@ activity varchar(80) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '
 
 alter table user_extracurricular_info ADD FOREIGN KEY (user_id) REFERENCES users(id);
 
+mysql> alter table user_discussions modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time of discussion creation';
+mysql> alter table user_discussions_comments modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time of comment creation';
 
-mysql> alter table user_discussions modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
-mysql> alter table user_discussions_comments modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
-
-mysql> alter table user_project_info ADD COLUMN status enum('A','D') DEFAULT 'A';
-mysql> alter table user_certification_info ADD COLUMN status enum('A','D') DEFAULT 'A';
-mysql> alter table user_certification_info ADD COLUMN status enum('A','D') DEFAULT 'A';
+mysql> alter table user_project_info ADD COLUMN status enum('A','D') DEFAULT 'A' COMMENT 'status A:Active,D:Deleted';
+mysql> alter table user_certification_info ADD COLUMN status enum('A','D') DEFAULT 'A' COMMENT 'status A:Active,D:Deleted';
+mysql> alter table user_extracurricular_info ADD COLUMN status enum('A','D') DEFAULT 'A' COMMENT 'status A:Active,D:Deleted';
 
 
+alter table user_academic_info modify column `percentage_GPA_10` float(3) unsigned zerofill DEFAULT NULL COMMENT 'PERCENTAGE IN 10TH STANDARD';
+alter table user_academic_info modify column `percentage_12` float(3) unsigned zerofill DEFAULT NULL COMMENT 'PERCENTAGE IN 12TH STANDARD';
+alter table user_academic_info modify column `graduation_percentage` float(3) unsigned zerofill DEFAULT NULL COMMENT 'PERCENTAGE IN GRADUATION STANDARD';
+alter table user_academic_info modify column `post_graduation_percentage` float(3) unsigned zerofill DEFAULT NULL COMMENT 'PERCENTAGE IN POST GRADUATION STANDARD';
