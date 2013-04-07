@@ -46,3 +46,22 @@ alter table user_academic_info modify column `percentage_GPA_10` float(3) unsign
 alter table user_academic_info modify column `percentage_12` float(3) unsigned zerofill DEFAULT NULL COMMENT 'PERCENTAGE IN 12TH STANDARD';
 alter table user_academic_info modify column `graduation_percentage` float(3) unsigned zerofill DEFAULT NULL COMMENT 'PERCENTAGE IN GRADUATION STANDARD';
 alter table user_academic_info modify column `post_graduation_percentage` float(3) unsigned zerofill DEFAULT NULL COMMENT 'PERCENTAGE IN POST GRADUATION STANDARD';
+
+
+create table user_activity_info (
+
+id bigint(11) unsigned PRIMARY KEY AUTO_INCREMENT COMMENT 'THIS WILL BE AUTO GENERATED UNIQUE ID',
+user_id bigint(11) unsigned NOT NULL COMMENT 'THIS WILL BE USER ID OF USER TABLE',
+date timestamp DEFAULT CURRENT_TIMESTAMP COMMENT 'Date and time user visited site',
+comments_count int(3) unsigned zerofill DEFAULT 0 COMMENT 'Number of User Comments in one day',
+discussions_count int(3) unsigned zerofill DEFAULT 0 COMMENT 'Number of User discussions in one day'
+
+) ENGINE = INNODB AUTO_INCREMENT = 1;
+
+create table skillSet_info (
+
+id bigint(11) unsigned PRIMARY KEY AUTO_INCREMENT COMMENT 'THIS WILL BE AUTO GENERATED UNIQUE ID',
+skill varchar(80) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'skill name'
+
+) ENGINE = INNODB AUTO_INCREMENT = 1;
+

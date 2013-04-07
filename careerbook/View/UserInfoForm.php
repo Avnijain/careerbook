@@ -90,7 +90,71 @@
         $.post("../controller/mainentrance.php",{"action":"deleteExtraCurricular","ExtraCurricularID":id},function(data,status){                
             location.reload();
      	});
-	});	
+	});
+	var tooltips = $( "[title]" ).tooltip();
+    $( "<button>" )
+      .text( "Show help" )
+      .button()
+      .click(function() {
+        tooltips.tooltip( "open" );
+      })
+      .insertAfter( "form" );
+
+
+    function split( val ) {
+        return val.split( /,\s*/ );
+      }
+      function extractLast( term ) {
+        return split( term ).pop();
+      }
+   
+      $( "#skill_id" )
+        // don't navigate away from the field on tab when selecting an item
+        .bind( "keydown", function( event ) {
+          if ( event.keyCode === $.ui.keyCode.TAB &&
+              $( this ).data( "ui-autocomplete" ).menu.active ) {
+            event.preventDefault();
+          }
+        })
+        .autocomplete({
+          source: function( request, response ) {
+        	 var temp = new Array();
+            $.getJSON( "../View/fetchSkillSet.php", {
+              term: extractLast( request.term )
+            }, function( data, status, xhr ) {
+                $.each(data, function(i, field){
+                    temp[i] = field['skill']; 
+                  });
+                response( temp );
+            });
+          },
+          search: function() {
+            // custom minLength
+            var term = extractLast( this.value );
+            if ( term.length < 2 ) {
+              return false;
+            }
+          },
+          focus: function() {
+            // prevent value inserted on focus
+            return false;
+          },
+          select: function( event, ui ) {
+            var terms = split( this.value );
+            // remove the current input
+            terms.pop();
+            // add the selected item
+            terms.push( ui.item.value );
+            // add placeholder to get the comma-and-space at the end
+            terms.push( "" );
+            this.value = terms.join( ", " );
+            return false;
+          }
+        });
+
+
+
+    
  });
     function addMoreDegree()
     {
@@ -131,13 +195,13 @@
                 <fieldset class="step">
                 	<legend> <?php echo $lang->ACCOUNT; ?> </legend>
                     <p><label><?php echo $lang->FIRSTNAME;?> </label> 
-                    <input id="username" name="first_name"
+                    <input id="username" name="first_name" title="Please provide your first name."
                     <?php if(!empty($UserPersonalInfoDB['first_name'])){?> value="<?php echo $UserPersonalInfoDB['first_name']; } ?>"/></p>
                     <p><label><?php echo $lang->MIDDLENAME;?> </label>
-                    <input id="username" name="middle_name"
+                    <input id="username" name="middle_name" title="Please provide your middle name."
                     <?php if(!empty($UserPersonalInfoDB['middle_name'])){?> value="<?php echo $UserPersonalInfoDB['middle_name']; } ?>"/></p>
                     <p><label><?php echo $lang->LASTNAME;?> </label> 
-                    <input	id="username" name="last_name"
+                    <input	id="username" name="last_name" title="Please provide your last name."
                     <?php if(!empty($UserPersonalInfoDB['last_name'])){?> value="<?php echo $UserPersonalInfoDB['last_name']; } ?>"/></p>
                     <p><label><?php echo $lang->GENDER;?></label> 
                     <?php if (!empty($UserPersonalInfoDB['gender'])){
@@ -147,7 +211,7 @@
                             $select = "female";
                         }
                     } ?> 
-                    <input type="radio" name="gender"
+                    <input type="radio" name="gender" 
                     <?php if($select =="male"){?> checked="checked" <?php } ?> value="male"> <?php echo $lang->MALE;?>
                     <input type="radio" name="gender"
                     <?php if($select =="female"){?> checked="checked" <?php } ?> value="female"> <?php echo $lang->FEMALE;?></p>
@@ -237,7 +301,7 @@
                         <?php if(!empty($UserAcademicInfoDB['post_graduation_percentage'])){?> value="<?php echo $UserAcademicInfoDB['post_graduation_percentage']; } ?>"/>
                     </p>
                 </fieldset>
-                <fieldset class="step" id="otherDegree">
+                <fieldset class="step" id="projects">
                     <legend> <?php echo $lang->PROJECT; ?></legend> 
                     <?php foreach($UserProjectInfoDB as $key => $value){ ?>
                         <p>
@@ -262,11 +326,11 @@
                     	<input type="button" value="<?php echo $lang->ADDMORE;?>" onclick="addMoreDegree();">
                     </p>
                 </fieldset>
-                <fieldset class="step" id="otherDegree">
+                <fieldset class="step" id="currentJob">
                     <legend> <?php echo $lang->JOB; ?></legend>
                     <p>
                         <label><?php echo $lang->SKILLSET;?> </label> 
-                        <input id="skill_id" name="skill_set" type="text" AUTOCOMPLETE="OFF" 
+                        <input id="skill_id" name="skill_set"
                         <?php if(!empty($UserProfessionalInfoDB['skill_set'])){?> value="<?php echo $UserProfessionalInfoDB['skill_set']; } ?>"/> 
                         <label><?php echo $lang->CURRENTPOSITION;?></label>
                         <input id="current_position" name="current_position" type="text" AUTOCOMPLETE="OFF"
@@ -279,7 +343,7 @@
                         <?php if(!empty($UserProfessionalInfoDB['start_period'])){?> value="<?php echo $UserProfessionalInfoDB['start_period']; } ?>"/>
                     </p>
                 </fieldset>
-                <fieldset class="step" id="otherDegree">
+                <fieldset class="step" id="previousJob">
                 	<legend><?php echo $lang->PREVJOB; ?></legend>
                     <p>
                         <label><?php echo $lang->POSITION;?> </label> 

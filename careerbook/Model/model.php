@@ -165,6 +165,7 @@ public function DeleteUser($userInfo){
     	$this->db->Where(array("id=".$user_id),true);
     	$this->db->Update();
 }
+
 public function startTransaction(){
     $this->db->startTransaction();
 }
@@ -183,4 +184,3 @@ public function Rollback(){
 //$obj->UpdateUser();
 //$obj->DeleteUser();
 ?>
-
