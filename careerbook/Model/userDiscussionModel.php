@@ -21,7 +21,7 @@ class UserDiscussion extends model {
         $this->db->From("user_discussions");
         $this->db->Where(array("id = " . $searchVal. " AND user_id = ".$user_id),true);
         $this->db->Update();
-        return $this->db->lastQuery(); 
+        //return $this->db->lastQuery(); 
 	}
 	public function deleteCommentPost($userInfo,$searchVal){
         $user_id = $userInfo->getUserIdInfo();
@@ -30,7 +30,7 @@ class UserDiscussion extends model {
         $this->db->From("user_discussions_comments");
         $this->db->Where(array("id = " . $searchVal. " AND user_id = ".$user_id),true);
         $this->db->Update();
-        return $this->db->lastQuery(); 
+        //return $this->db->lastQuery(); 
 	}	
 	/* This function will fetch all the use comments of particular post */
 	public function getComments($userInfo,$searchVal){

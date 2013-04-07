@@ -133,16 +133,25 @@ class UserInfoModel extends model {
     public function fetchUserCertificateInfo($userInfo){
         $user_id = $userInfo->getUserIdInfo();
         $this->db->From("user_certification_info");
-        $this->db->Where(array("user_id"=>$user_id['id']));
+        $this->db->Where(array("user_id = $user_id[id] AND status = 'A'"),true);
         $this->db->Select();
         //		echo $this->db->lastQuery();
         return $this->db->resultArray();
+    }    
+    public function deleteUserCertificate($userInfo,$certificateID){
+        $user_id = $userInfo->getUserIdInfo();
+        $user_id = $user_id['id'];
+        $this->db->Fields(array("status"=>"D"));
+        $this->db->From("user_certification_info");
+        $this->db->Where(array("id = " . $certificateID. " AND user_id = ".$user_id),true);
+        $this->db->Update();
+        return $this->db->lastQuery();
     }
     /* Start *********************************************** Project Information Manipulation ************************************/
     public function fetchUserProjectInfo($userInfo){
         $user_id = $userInfo->getUserIdInfo();
         $this->db->From("user_project_info");
-        $this->db->Where(array("user_id"=>$user_id['id']));
+        $this->db->Where(array("user_id = $user_id[id] AND status = 'A'"),true);
         $this->db->Select();
         //		echo $this->db->lastQuery();
         return $this->db->resultArray();
@@ -193,21 +202,21 @@ class UserInfoModel extends model {
             //die;
             //}
         }
-        // 	    $objProjectInfo['user_id'] = $user_id['id'];
-
-        // 	    //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
-
-        // 	    $this->db->Fields($objProjectInfo);
-        // 	    $this->db->From("user_academic_info");
-        // 	    $this->db->Insert();
-        // 		echo $this->db->lastQuery();
-        // 		die;
+    }
+    public function deleteUserProject($userInfo,$projectID){
+        $user_id = $userInfo->getUserIdInfo();
+        $user_id = $user_id['id'];
+        $this->db->Fields(array("status"=>"D"));
+        $this->db->From("user_project_info");
+        $this->db->Where(array("id = " . $projectID. " AND user_id = ".$user_id),true);
+        $this->db->Update();
+        return $this->db->lastQuery();
     }
     /* Start *********************************************** Extra Curricular Info Information Manipulation ************************************/
     public function fetchUserExtraCurricularInfo($userInfo){
         $user_id = $userInfo->getUserIdInfo();
         $this->db->From("user_extracurricular_info");
-        $this->db->Where(array("user_id"=>$user_id['id']));
+        $this->db->Where(array("user_id = $user_id[id] AND status = 'A'"),true);
         $this->db->Select();
         //		echo $this->db->lastQuery();
         return $this->db->resultArray();
@@ -262,15 +271,15 @@ class UserInfoModel extends model {
             //die;
             //}
         }
-        // 	    $objProjectInfo['user_id'] = $user_id['id'];
-
-        // 	    //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
-
-        // 	    $this->db->Fields($objProjectInfo);
-        // 	    $this->db->From("user_academic_info");
-        // 	    $this->db->Insert();
-        // 		echo $this->db->lastQuery();
-        // 		die;
+    }
+    public function deleteUserExtraCurricular($userInfo,$extraCurricularID){
+        $user_id = $userInfo->getUserIdInfo();
+        $user_id = $user_id['id'];
+        $this->db->Fields(array("status"=>"D"));
+        $this->db->From("user_extracurricular_info");
+        $this->db->Where(array("id = " . $extraCurricularID. " AND user_id = ".$user_id),true);
+        $this->db->Update();
+        return $this->db->lastQuery();
     }    
     /* Start *********************************************** Address Information Manipulation ************************************/
     public function fetchUserAddressInfo($userInfo){

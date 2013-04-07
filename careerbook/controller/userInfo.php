@@ -206,14 +206,14 @@ class user_info_controller
 	    	    	           );
 	}	
 	public function setUserCertificateInfoDb(){
+	    unset($this->objCertificateInfo);
+	    $this->objCertificateInfo[] = new UserCertificationInfo();
+	    $this->certificateCountDB = 0;	    
 		$result = $this->ObjUserModel->fetchUserCertificateInfo($this);
 		if(count($result) > 0 ){
 			$this->setDatainCertificateDB($result);
 			return true;
 		}
-	    unset($this->objCertificateInfo);
-	    $this->objCertificateInfo[] = new UserCertificationInfo();
-	    $this->certificateCountDB = 0;		
 		return false;
 	}
 	public function getUserCertificateInfo($flag = "true")
@@ -228,6 +228,9 @@ class user_info_controller
 	{
 	    $flag = $this->setUserCertificateInfoDb();
 	    return $this->getUserCertificateInfo($flag);
+	}
+	public function deleteUserCertificate($certificateID){
+	    return $this->ObjUserModel->deleteUserCertificate($this,$certificateID);	    
 	}
 /************************* Generic Data in Forms and DB Inertion Function for Array Objects ******************/	
 	private function setDatainFormsArray($result, &$ojbtoUpdate, $arrayFormat, &$countForm, &$countDB ){
@@ -279,11 +282,11 @@ class user_info_controller
 	    foreach($result as $key => $value){
 	        $max++;
 	    }
-        //print($max);
-        //die;
-        //echo "<pre/>";
-        //print_r($ojbtoUpdate);
-        //die;
+//        print($max);
+//        die;
+//        echo "<pre/>";
+//        print_r($ojbtoUpdate);
+//        die;
         foreach($result as $key => $value){
             $i = $key;
             $tempuser = $arrayFormat;
@@ -307,10 +310,10 @@ class user_info_controller
             }
         }
         $countDB = $max;
-    //print($countDB);
-    //echo "<pre/>";
-    //print_r($ojbtoUpdate);
-    //die;
+//print($countDB);
+//echo "<pre/>";
+//print_r($ojbtoUpdate);
+//die;
 	}	
 
 /***************************************** User Extra Curricular Information **************************************************/
@@ -342,14 +345,14 @@ class user_info_controller
 // 	    die;
 	}
 	public function setUserExtraCurricularInfoDb(){
+	    unset($this->objExtraCurricularInfo);
+	    $this->objExtraCurricularInfo[] = new UserExtraCurricularInfo();
+	    $this->extraCurricularCountDB = 0;
 		$result = $this->ObjUserModel->fetchUserExtraCurricularInfo($this);
 		if(count($result) > 0 ){
 			$this->setDatainExtraCurricularDB($result);
 			return true;
 		}
-	    unset($this->objExtraCurricularInfo);
-	    $this->objExtraCurricularInfo[] = new UserExtraCurricularInfo();
-	    $this->extraCurricularCountDB = 0;		
 		return false;
 	}
 	private function setDatainExtraCurricularDB($result){
@@ -371,6 +374,9 @@ class user_info_controller
 	{
 	    $flag = $this->setUserExtraCurricularInfoDb();
 	    return $this->getUserExtraCurricularInfo($flag);
+	}	
+	public function deleteUserExtraCurricular($extraCurricularID){
+	    return $this->ObjUserModel->deleteUserExtraCurricular($this,$extraCurricularID);	    
 	}
 /***************************************** User Project Information **************************************************/	
 	public function setUserProjectInfoForm($result){
@@ -419,15 +425,18 @@ class user_info_controller
 	    return $this->getUserProjectInfo($flag);
 	}	
 	public function setUserProjectInfoDb(){
+	    unset($this->objProjectInfo);
+	    $this->objProjectInfo[] = new UserProjectInfo();
+	    $this->projectCountDB = 0;	    
 	    $result = $this->ObjUserModel->fetchUserProjectInfo($this);
 	    if(count($result) > 0 ){
 	        $this->setDatainProjectDB($result);
 	        return true;
 	    }
-	    unset($this->objProjectInfo);
-	    $this->objProjectInfo[] = new UserProjectInfo();
-	    $this->projectCountDB = 0;
 	    return false;
+	}
+	public function deleteUserProject($projectID){
+	    return $this->ObjUserModel->deleteUserProject($this,$projectID);	    
 	}
 /***************************************** User Professional Information **************************************************/		
 	public function setUserProfessionalInfoForm($result){

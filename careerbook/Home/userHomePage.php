@@ -57,12 +57,6 @@ else											//session hijacking save
 }
 //****************************************************************************************************************************
 ?>
-<script type="text/javascript">
-        function closeME() {
-            parent.$.fancybox.close(); 
-        }
-</script>
-
 <?php
 
 if(isset($_GET ['close'])) {
@@ -77,6 +71,11 @@ if(isset($_GET ['close'])) {
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../css/style.css"></link>
+<script type="text/javascript">
+        function closeME() {
+            parent.$.fancybox.close(); 
+        }
+</script>
 <script src="../JavaScript/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>
 <script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>

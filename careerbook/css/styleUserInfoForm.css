@@ -166,6 +166,9 @@ span.error{
     width: 200px;
     float:left;
 }
+#steps form input[type=button]{
+	cursor: pointer;
+}
 #steps form input:not([type=radio]),
 #steps form textarea,
 #steps form select{

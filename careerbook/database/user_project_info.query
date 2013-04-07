@@ -38,4 +38,8 @@ alter table user_extracurricular_info ADD FOREIGN KEY (user_id) REFERENCES users
 mysql> alter table user_discussions modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 mysql> alter table user_discussions_comments modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
+mysql> alter table user_project_info ADD COLUMN status enum('A','D') DEFAULT 'A';
+mysql> alter table user_certification_info ADD COLUMN status enum('A','D') DEFAULT 'A';
+mysql> alter table user_certification_info ADD COLUMN status enum('A','D') DEFAULT 'A';
+
 

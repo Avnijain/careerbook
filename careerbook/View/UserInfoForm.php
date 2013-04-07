@@ -15,20 +15,18 @@
 ?>
 
 <title><?php echo $lang->USERINFOFORM;?></title>
-<link rel="stylesheet" type="text/css" href="../css/global.css"></link>
-<link rel="stylesheet" type="text/css" href="../css/topheader.css"></link>
 <link rel="stylesheet" href="../css/styleUserInfoForm.css"
 	type="text/css" media="screen" />
 
 
 <link rel="stylesheet" href="../css/styleUserInfoForm.css"
 	type="text/css" media="screen" />
-<script type="text/javascript" src="../JavaScript/jquery.min.js"></script>
+
 <script type="text/javascript" src="../JavaScript/sliding.form.js"></script>
 
 
 <link rel="stylesheet" href="../css/jquery-ui.css" />
-<script src="../JavaScript/jquery-1.9.1.min.js"></script>
+
 <script src="../JavaScript/jquery-ui.js"></script>
 <script>
  $(function() {					//to display calendar
@@ -70,11 +68,29 @@
 	  	   minDate: new Date('1975/01/01'),
 	  	   maxDate: '-1d'
 		 });
-     $("#deleteMessage.selectMessage").click(function(){
+	$(".selectProject").click(function(){
+     	id = $(this).attr('id');
          //alert("hieee" + $(this).attr('name') );
-        $.POST("../controller/mainentrance.php",{"action":"deleteMessage"});
-     	});		 
-     });
+        $.post("../controller/mainentrance.php",{"action":"deleteMessage","projectID":id},function(data,status){                
+            location.reload();
+     	});
+	});
+	$(".selectCertificate").click(function(){
+     	id = $(this).attr('id');
+         //alert("hieee" + $(this).attr('name') );
+        $.post("../controller/mainentrance.php",{"action":"deleteCertificate","certificateID":id},function(data,status){                
+            location.reload();
+     	});
+	});
+	$(".selectExtracurricular").click(function(){
+     	id = $(this).attr('id');
+         //alert("hieee" + $(this).attr('name') );
+        $.post("../controller/mainentrance.php",{"action":"deleteExtraCurricular","ExtraCurricularID":id},function(data,status){                
+            location.reload();
+     	});
+	});	
+ }); 
+ selectCertificate
     function addMoreDegree()
     {
         var $text1="<p><label ><?php echo $lang->TITLE;?> </label>";
@@ -237,8 +253,7 @@
                             <input id="duration" name="duration[]" type="number" AUTOCOMPLETE="OFF"
                             <?php if(!empty($value['duration'])){?> value="<?php echo $value['duration']; } ?>"/>
                             <?php if (!empty($value['title'])){?>
-                                <input type="button" class="selectMessage" id="deleteMessage" value="Delete Message" 
-                                name="<?php if(!empty($value['id'])){ echo $value['id']; } ?>" /> 
+                                <input type="button" class="selectProject" id="<?php if(!empty($value['id'])){ echo $value['id']; } ?>" value="Delete Project" /> 
                             <?php }?>
                         </p>
                     <?php } ?>
@@ -292,14 +307,20 @@
                             <?php if (!empty($value['description'])){?> value="<?php echo $value['description']; } ?>" /> 
                             <label><?php echo $lang->DATEDAT;?></label>
                             <input id="datedat<?php if(!empty($value['id'])){ echo $value['id']; }else{echo 0;} ?>" class="certificate" name="certificate_duration[]" type="text" AUTOCOMPLETE="OFF"
-                            <?php if(!empty($value['duration'])){?> value="<?php echo $value['duration']; } ?>"/> 
+                            <?php if(!empty($value['duration'])){?> value="<?php echo $value['duration']; } ?>"/>
+                            <?php if (!empty($value['name'])){?>
+                                <input type="button" class="selectCertificate" id="<?php if(!empty($value['id'])){ echo $value['id']; } ?>" value="Delete Certificate" />
+                            <?php }?>
                         </p>
                     <?php } ?>
                     <?php foreach($UserExtraCurricularInfoDB as $key => $value){ ?>
                         <p>
                             <label><?php echo $lang->EXTRACURRICULAR?> </label>
                             <input id="extracurricular" name="extracurricular_activity[]" type="text" AUTOCOMPLETE="OFF"
-                            <?php if(!empty($value['activity'])){?> value="<?php echo $value['activity']; } ?>"/> 
+                            <?php if(!empty($value['activity'])){?> value="<?php echo $value['activity']; } ?>"/>
+                            <?php if (!empty($value['activity'])){?>
+                                <input type="button" class="selectExtracurricular" id="<?php if(!empty($value['id'])){ echo $value['id']; } ?>" value="Delete Extra Curricular" />
+                            <?php }?>                            
                         </p>
                     <?php } ?>
                     <p>

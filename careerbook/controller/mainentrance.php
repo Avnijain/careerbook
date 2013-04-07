@@ -231,6 +231,15 @@ EOD;*/
 
 			$this->fillUserProfile ();
 		}
+		if ($_REQUEST ['action'] == "deleteMessage") {
+			$this->deleteUserProject ();
+		}
+		if ($_REQUEST ['action'] == "deleteCertificate") {
+			$this->deleteUserCertificate ();
+		}		
+		if ($_REQUEST ['action'] == "deleteExtraCurricular") {
+			$this->deleteUserExtraCurricular ();
+		}
 		if ($_REQUEST ['action'] == "edit_group") {
 			$this->_obj_group_controller = new GroupHandler ();
 			$this->_obj_group_controller->handleEditGroup ();
@@ -340,12 +349,28 @@ EOD;*/
 	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
 	    $this->_obj_user_discussion_controller->deleteDiscussionPost($this->_obj_usrinfo,$_POST['discussionComment']);	    	    
-	}
+	}	
+	/************* Delete particular comment on discussion *****************/
 	private function deleteCommentPost(){
 	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
 	    $this->_obj_user_discussion_controller->deleteCommentPost($this->_obj_usrinfo,$_POST['discussionComment']);
 	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo,$_POST['discussionComment']);	    
+	}
+	/************* Delete User Project *****************/	
+	private function deleteUserProject (){
+	    $this->_obj_usrinfo = unserialize($_SESSION['userData']);
+	    echo $this->_obj_usrinfo->deleteUserProject($_POST['projectID']);
+	}
+	/************* Delete User Extra Curricular *****************/	
+	private function deleteUserExtraCurricular (){
+	    $this->_obj_usrinfo = unserialize($_SESSION['userData']);
+	    echo $this->_obj_usrinfo->deleteUserExtraCurricular($_POST['ExtraCurricularID']);
+	}	
+	/************* Delete particular certificate *****************/
+	private function deleteUserCertificate (){
+	    $this->_obj_usrinfo = unserialize($_SESSION['userData']);
+	    $this->_obj_usrinfo->deleteUserCertificate($_POST['certificateID']);
 	}
 	/************* Post Comment for particular discussion *****************/
 	private function postComments(){
@@ -404,20 +429,15 @@ EOD;*/
 			$result = $ObjModel->FindLoginUsers ();
 
 			if (count ( $result ) == 0) {
-				
-
 				header ( "location:../index.php?err=AuthenticationFailed" );
 				die ();
 			}
 			if (md5 ( $_POST ['password'] ) == $result [0] ['password'])
-			 {
-				
+			 {				
 				if ($result [0] ['status'] == 'I') {
 					$ObjModel->UpadteUserSattus ( $result [0] ['id'] ); // user login
 					                                               // first time
 				}
-				
-
 				$this->obj_usrinfo->setUserPersonalInfo ( $result );
 				$this->obj_usrinfo->setUserIdInfo ( $result );
 				$this->obj_usrinfo->setUserAddressInfoDb ( $result );
@@ -440,7 +460,6 @@ EOD;*/
 				//************************************************************************************************
 				
 				header ( "location:../Home/userHomePage.php" );
-
 			}
 			else
 			{
@@ -448,10 +467,8 @@ EOD;*/
 			}
 		} 
 		else 
-		{
-			
+		{			
 			header ( "location:../index.php?err=AuthenticationFailed" );
-
 		}
 	}
 	//******************************************************************************************************
@@ -728,7 +745,7 @@ EOD;*/
 		}
 
 		$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
-		header ( "location:../Home/userHomePage.php" );
+		header ( "location:../Home/userHomePage.php?profile" );
 
 	}
 	//***********************************************all server side validation********************************************
