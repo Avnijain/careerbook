@@ -84,7 +84,7 @@ $(function(){
         $.post("../controller/mainentrance.php",{"action":"deleteCommentPost","discussionComment":id},function(data,status){
 			if(status=="success")
 			{
-				parent.$(".view_comments_button").attr("id",<?php echo $discussionID; ?>).trigger("click");				
+				parent.$("#<?php echo $discussionID; ?>").trigger("click");				
 			}
         });
     });
@@ -92,7 +92,7 @@ $(function(){
 		$.post("../controller/mainentrance.php",{"action":"postComment",
 			"comment":$("#commentID").val(),
 			"discussionID":"<?php echo $discussionID; ?>"},function(data,status){ 
-				parent.$(".view_comments_button").attr("id",<?php echo $discussionID; ?>).trigger("click");
+				parent.$("#<?php echo $discussionID; ?>").trigger("click");
 			});
 		});
 });
