@@ -681,7 +681,15 @@ EOD;*/
 			}
 		}
 		if ($flagData) {
-			$this->obj_usrinfo->setUserPersonalInfoForm ( $userPersonalInfo );
+			$error = $this->obj_usrinfo->setUserPersonalInfoForm ( $userPersonalInfo );
+			if(isset($error)){
+			    if(!empty($error)){
+			        if($error != 0){
+			         header ("location:../Home/userHomePage.php?profile&err=".$error);
+			         die;
+			        }		            
+			    }			        
+			}
 			// die;
 			// echo "inserting professional";
 		}

@@ -24,6 +24,9 @@ function __autoload($className)
     if( strstr($className, "Model")){
         require('../Model/'.$className.'.php');
     }
+    else if($className == "UserDataValidation"){
+        require('../Model/validation.php');
+    }
     else{
         require('../classes/'.$className.'.php');
     }
@@ -36,7 +39,7 @@ class user_info_controller
 	private $objProfessionalInfo;
 	private $objAcademicInfo;
 	private $objIdentityInfo;	
-	private	$ObjUserModel;
+	private	 $ObjUserModel;
 	private $objAddressInfo;
 	private $objProjectInfo;
 	private $projectCountDB;
@@ -48,9 +51,11 @@ class user_info_controller
 	private $objPreviousJobInfo;
 	private $objCertificateInfo;
 	private $objExtraCurricularInfo;
+	private $objValidation;
 
 	public function __construct()
 	{
+	    $this->objValidation = new UserDataValidation();
 		$this->objPersonalInfo = new UserPersonalInfo();
 		$this->objProfessionalInfo = new UserProfessionalInfo();
 		$this->objIdentityInfo = new userIdentityInfo();
@@ -65,6 +70,11 @@ class user_info_controller
 /*************************************** User Personal Information ****************************************************/
 	public function setUserPersonalInfoForm($result){
 		$this->objPersonalInfo->setinfo($result);
+		
+		$error = $this->objValidation->validate($this->objPersonalInfo->getinfo());
+		if($error != 0 ){
+		    return $error;
+		}
 		$resultDB = $this->ObjUserModel->fetchUserPersonalInfo($this);
 // 		echo "<pre/>";
 // 		print_r($resultDB);
