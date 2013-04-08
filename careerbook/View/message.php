@@ -141,7 +141,9 @@ include_once("../classes/lang.php");
 			  if(isset($_REQUEST['c'])&&($_REQUEST['c']=="notfriend")) 
 			echo $lang->ERRORMSG2;
 			  if(isset($_REQUEST['c'])&&($_REQUEST['c']=="admin")) 
-			echo $lang->ERRORMSG3;?></h3>
+			echo $lang->ERRORMSG3;
+			   if(isset($_REQUEST['c'])&&($_REQUEST['c']=="script")) 
+			echo "you cann't insert script in message";?></h3>
 	</div>
 	<div>
 		<h4>

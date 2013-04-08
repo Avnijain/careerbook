@@ -38,6 +38,15 @@ class MessageController extends Message
 			header('location: ../Home/userHomePage.php?message&c=invaild');
 			exit;
 		}
+		if (preg_match("'<script>'",$this->_message_description)) {
+			header('location: ../Home/userHomePage.php?message&c=script');
+			exit;
+		}
+		if (preg_match("(/(<([^>]+)>)",$this->_message_description)) {
+			header('location: ../Home/userHomePage.php?message&c=script');
+			exit;
+		}
+		
 		$this->_email_id=$emailid;
 		$recieverId=parent::get_id();
 		if($recieverId[0]['id']==1) {
