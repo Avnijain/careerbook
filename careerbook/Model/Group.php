@@ -165,6 +165,7 @@ class Group {
 	function get_posts() {
 		$this->db->Fields ( array (
 				"group_discussions.id",
+				"group_id",
 				"group_discussions.description",
 				"group_discussions.created_by",
 				"group_discussions.created_on",

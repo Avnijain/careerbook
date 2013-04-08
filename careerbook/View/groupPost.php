@@ -43,6 +43,7 @@
 </div><br/>
 <div class="group_post">
 	<?php
+	rsort($groupData);
 	foreach ( $groupData as $keys => $values ) {
 	$uri = 'data:image/png;base64,'.base64_encode($groupData[$keys]['profile_image']);
 		?>
@@ -50,7 +51,7 @@
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
 		if (strlen($values ['description']) > 10) {
-			echo "<p id=\"".$values ['id'] ."\" >". nl2br(htmlspecialchars(substr($values ['description'],0,10))) .'...' . "<a onclick=expand(" .$values ['id'] .",".$values ['id'].");>.$lang->VIEWMORE.</a></p>";
+			echo "<p id=\"".$values ['id'] ."\" >". nl2br(htmlspecialchars(substr($values ['description'],0,10))) .'...' . "<a onclick=expand(" .$values ['id'] .",\"".addslashes($values ['description']."\"").");>.$lang->VIEWMORE.</a></p>";
 		} else {
 			echo "<p>". $values ['description'] . "</p>";
 		}

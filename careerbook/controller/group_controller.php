@@ -118,7 +118,7 @@ class GroupHandler extends Group {
 		
 		$this->_obj_group_model->edit_post ();
 		
-		$this->handleGetPost();
+		header ( 'Location: ../Home/userHomePage.php?editGroup?groupPost' );
 	}
 	
 	//*********************************function to orocess edit group request**********************************//

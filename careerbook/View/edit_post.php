@@ -11,7 +11,7 @@ $groupData= $groupData->getPostDetail();
 		method="post">
 		<h2><?php echo $lang->EDITPOST;?></h2><br/>
 		<textarea class="group_textarea" name="group_discussion_description" rows="6" cols="20"><?php echo nl2br($groupData[0]['description']);?></textarea>
-		<br/>
-		<input class="group_button" type="submit" value="Post">
+		<input type="hidden" name="groupId" value="">
+		<br/><input class="group_button" type="submit" value="Post">
 	</form>
 </div>
