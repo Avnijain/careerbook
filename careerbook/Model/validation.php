@@ -1,84 +1,4 @@
 <?php
-
-class validation {
-	public function validate($a) { // echo "validation fun";
-		foreach ( $a as $key => $value ) {
-			
-			if (($key == "email_primary") || ($key == "email_secondary")) {
-				
-				if (! filter_var ( $value, FILTER_SANITIZE_EMAIL )) {
-					
-					if ($_POST ['action'] == "registration") {
-						header ( "location:../views/UserInfoForm.php?err=3" );
-						exit ();
-					} else {
-						header ( "location:../views/NewRegistration.php?err=3" );
-						exit ();
-					}
-				}
-			} else if (($key == "percentage_GPA_10") || ($key == "percentage_12") || ($key == "graduation_percentage") || ($key == "post_graduation_percentage") || ($key == "percentage")) {
-				if (! (var_dump ( filter_var ( $value, FILTER_VALIDATE_FLOAT ) ))) {
-					if ($_POST ['action'] == "registration") {
-						header ( "location:../views/UserInfoForm.php?err=3" );
-						exit ();
-					} else {
-						header ( "location:../views/NewRegistration.php?err=3" );
-						exit ();
-					}
-				}
-			} 			// else if(($key=="date_of_birth")||($key=="startperiod"))
-			// {
-			// if(!(preg_match("/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/", $value)))
-			// {
-			// if($_POST['action']=="registration")
-			// {
-			// header("location:../views/UserInfoForm.php?err=3");
-			// exit;
-			// }
-			// else
-			// {
-			// header("location:../views/NewRegistration.php?err=3");
-			// exit;
-			// }
-			// }
-			// }
-			else if (($key == "image")) {
-				$allowedExts = array (
-						"jpg",
-						"jpeg",
-						"gif",
-						"png" 
-				);
-				$extension = end ( explode ( ".", $_FILES ["file"] ["name"] ) );
-				if ((($_FILES ["file"] ["type"] == "image/gif") || ($_FILES ["file"] ["type"] == "image/jpeg") || ($_FILES ["file"] ["type"] == "image/png") || ($_FILES ["file"] ["type"] == "image/pjpeg")) && ($_FILES ["file"] ["size"] < 800) && in_array ( $extension, $allowedExts )) {
-					if ($_FILES ["file"] ["error"] > 0) {
-						echo "Error: " . $_FILES ["file"] ["error"] . "<br>";
-						exit ();
-					}
-				
-				} else {
-					header ( "location:../views/UserInfoForm.php?err=image" );
-					exit ();
-				}
-			} else {
-				if (! filter_var ( $value, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_SANITIZE_MAGIC_QUOTES ) && ! isset ( $value )) {
-					
-					if ($_POST ['action'] == "registration") {
-						header ( "location:../views/UserInfoForm.php?err=3" );
-						exit ();
-					} else {
-						header ( "location:../views/NewRegistration.php?err=3" );
-						exit ();
-					}
-				}
-			}
-		}
-	}
-
-}
-
-// $validdob= new validation();
-
 // ******************************************************************************************************************************************************
 // *
 // @author:Mohit K.Singh
@@ -88,18 +8,23 @@ class validation {
 
 class UserDataValidation {
 	
-	private $_intgerType;
-	private $_floatType;
-	private $_stringType;
-	private $_emailType;
-	private $_imageType;
-	private $_quotes;
+	private $_intgerType;		//will store all integer fields
+	private $_floatType;		//will store all float fields
+	private $_stringType;		//will store all string fields
+	private $_emailType;		//will store all email fields
+	private $_imageType;		//will store all image fields
+	private $_quotes;			//will store all quotes fields
 	
 	public function __construct() {
 		$this->_intgerType = array (
 				"phone_no" 
 		);
-		$this->_floatType = array ();
+		$this->_floatType = array (
+				"percentage_GPA_10",
+				"percentage_12",
+				"graduation_percentage",
+				"post_graduation_percentage"
+		);
 		$this->_stringType = array (
 				"first_name",
 				"middle_name",
@@ -107,16 +32,38 @@ class UserDataValidation {
 				"title",
 				"description",
 				"group_discussion_description",
-				"group_discussion_comment" 
+				"group_discussion_comment",
+				"skill_set",
+				"current_position",
+				"current_company",
+				"position",
+				"company",
+				"address",
+				"city_name",
+				"state_name",
+				"board_10",
+				"school_10",
+				"board_12",
+				"school_12",
+				"graduation_degree",
+				"graduation_specialization",
+				"graduation_college",
+				 "post_graduation_degree",
+				"post_graduation_specialization",
+				"post_graduation_college",
+				"duration"
 		);
 		$this->_emailType = array (
-				"email_primary" 
+				"email_primary",
+				"email_secondary" 
 		);
 		$this->_imageType = array (
 				"group_image" 
 		);
 		$this->_dateType = array (
-				"date_of_birth" 
+				"date_of_birth",
+				"start_period",
+				"end_period" 
 		);
 		$this->_quotes = array (
 				"first_name",
@@ -126,7 +73,27 @@ class UserDataValidation {
 				"title",
 				"description",
 				"group_discussion_description",
-				"group_discussion_comment", "search"
+				"group_discussion_comment", 
+				"search",
+				"skill_set",
+				"current_position",
+				"current_company",
+				"position",
+				"company",
+				"address",
+				"city_name",
+				"state_name",
+				"board_10",
+				"school_10",
+				"board_12",
+				"school_12",
+				"graduation_degree",
+				"graduation_specialization",
+				"graduation_college",
+				"post_graduation_degree",
+				"post_graduation_specialization",
+				"post_graduation_college",
+				"duration"
 		);
 	}
 	// *******************************************************Function to
