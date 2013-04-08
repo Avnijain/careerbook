@@ -1,15 +1,9 @@
 <?php
 include_once("../classes/lang.php");
 ?>
-
-<html>
-
-<head>
-
-
 <link href="../css/setting.css" rel="stylesheet" />
-<script type="text/javascript" src="../JavaScript/jquery-1.2.6.min.js"></script>
-<script type="text/javascript" src="../JavaScript/jquery.easing.1.3.js"></script> 
+
+ 
 <script type="text/javascript" src="../JavaScript/friends.js"></script>
 <script language="javascript">
 $(document).ready(function() {
@@ -18,11 +12,10 @@ $(document).ready(function() {
 	
 	$('#Changepassword').click(function() {
 		
-		$('#Log-in').css('background-color', '#006699');
-		$('#delete').css('background-color', '#000000');
-		$('#submit').hide().css({'left' : '0px'});
+		$('#login').hide().css({'left' : '0px','top':'210px'});
+		$('#delete').css('background-color', '#000000');		
 		$('#SignupForm').hide().css({'top' : '0px'});
-		
+		$('#submit').hide();
 		$('#login').show().animate({
 		
 			left   : '55%',
@@ -35,7 +28,7 @@ $(document).ready(function() {
 		///
 		$('#Login_form').show().animate({
 	
-			top   : '60px',
+			top   : '210px',
 			
 		},700,function(){
 			
@@ -47,7 +40,8 @@ $(document).ready(function() {
 		
 		$('#signUp').css('background-color', '#006699');
 		$('#Log-in').css('background-color', '#000000');
-		$('#login').hide().css({'left' : '0px'});
+		$('#submit').hide().css({'left' : '0px','top':'210px'});
+		$('#login').hide().css({'left' : '0px','top':'210px'});
 		$('#Login_form').hide().css({'top' : '0px'});
 		
 		$('#submit').show().animate({
@@ -62,7 +56,7 @@ $(document).ready(function() {
 		///
 		$('#SignupForm').show().animate({
 	
-			top   : '60px',
+			top   : '210px',
 			
 		},700,function(){
 			
@@ -72,9 +66,6 @@ $(document).ready(function() {
 	
 });
 </script>
-</head>
-<body>
-
 	<img src="../images/changepwd.jpg" id="login" />
 	<img src="../images/delete.jpg" id="submit" width=200 height=60/>
 	<div id="settingdiv">
@@ -137,7 +128,3 @@ $(document).ready(function() {
 	</div>
 	
 	<!--<img src="reg.png" id="register" />-->
- 
-</body>
-</html>
-
