@@ -17,47 +17,6 @@ if (! isset ( $_SESSION ['userData'] )) {
 
 $objUserInfo = unserialize ( $_SESSION ['userData'] );
 $userData = $objUserInfo->getUserPersonalInfo ();
-
-
-//********************************************************************************************************************************
-
-// $SID=$_COOKIE['PHPSESSID'];
-// $fileName="../temp/".$userData['email_primary'].".txt";
-// if($data=file_get_contents($fileName))
-// {
-// 	if($data != md5($SID))
-// 	{
-// 	unset($_SESSION);
-// 	session_destroy();
-// 	header ( "location:../index.php" );						//multiple login save
-// 	die ();	
-// 	}
-// }
-// else
-// {
-// 	unset($_SESSION);
-// 	session_destroy();
-// 	header ( "location:../index.php" );
-// 	die ();
-// }
-//*****************************************************************************************************************************
-
-// $token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
-// if($token==$_COOKIE['userToken'])
-// {
-// 	$_SESSION['secureSessionHijack'] = rand(100000,999999);
-// 	$token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
-// 	setcookie("userToken",$token , time()+3600*24,"/");
-// }
-// else											//session hijacking save
-// {
-// 	unlink($fileName);
-// 	unset($_SESSION);
-// 	session_destroy();
-// 	header ( "location:../index.php" );
-// 	die ();
-// }
-//****************************************************************************************************************************
 ?>
 <?php
 
@@ -80,7 +39,7 @@ if(isset($_GET ['close'])) {
         function changeToken() {
        	 $.post("../View/security.php",function(data){});
        	}
-       	var id = setInterval('changeToken();', 100000);
+       	var id = setInterval('changeToken();', 10000);
 </script>
 <script src="../JavaScript/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>
