@@ -1,6 +1,5 @@
 $(function() {
 
-
 	$('#add_group_form')
 		.submit(
 			function() {
@@ -81,3 +80,81 @@ $(function() {
 		$(this).removeClass('error').next('span').remove();
 	});
 });
+
+
+function addGroup() {
+	url = "../View/add_group.php";
+	$("#selectorLogin").attr("href",url);
+    $("#selectorLogin").trigger("click");
+    
+}
+
+function editGroup() {
+	url = "../View/edit_group.php";
+	$("#selectorLogin").attr("href",url);
+    $("#selectorLogin").trigger("click");
+    
+}
+
+$(document).ready(function() {
+
+		$("#selectorLogin").fancybox({
+        'width'			: 450,
+        'height'		: 400,
+        'autoScale'		: true,
+        'transitionIn'	: 'none',
+        'transitionOut'	: 'none',
+        'type'			: 'iframe',
+        'onClosed'      : function() {
+            parent.location.reload(true);
+        }
+    });
+	
+});
+
+
+function viewGroup(groupId) {
+	$.post('../controller/mainentrance.php',{'action':'getPost','groupId':groupId},function(){        
+		window.location="userHomePage.php?groupPost";
+    });
+}
+
+function viewComment(postId) {
+	$.post('../controller/mainentrance.php',{'action':'getComment','groupDiscussionId':postId},function(){        
+		window.location="userHomePage.php?groupComment";
+    });
+}
+
+function deleteGroup(groupId) {
+	var chk=window.confirm("Are You Sure...want to delete this group");
+    if(chk==true) {
+    	$.post('../controller/mainentrance.php',{'action':'delete_group','groupId':groupId},function(){        
+    		window.location="userHomePage.php?Group";
+        });
+    } else {
+
+    }
+}
+
+function deleteComment(commentId,groupDisscussionId) {
+	var chk=window.confirm("Are You Sure...want to delete this comment");
+    if(chk==true) {
+    	$.post('../controller/mainentrance.php',{'action':'delete_comment','commentId':commentId},function(){        
+    		viewComment(groupDisscussionId);
+        });
+    } else {
+    		
+    }
+}
+
+function unlinkGroup(groupId) {
+	var chk=window.confirm("Are You Sure...want to leave this group");
+    if(chk==true) {
+    	$.post('../controller/mainentrance.php',{'action':'unjoinGroup','groupId':groupId},function(){        
+    		window.location="userHomePage.php?Group";
+        });
+    } else {
+
+    }
+}
+

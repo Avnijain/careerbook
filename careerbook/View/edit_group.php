@@ -2,8 +2,7 @@
 include_once('../classes/groupClass.php');
 $groupData=unserialize($_SESSION['groupDetail']);
 $groupData= $groupData->getGroupDetail();
-//echo "<pre>";
-//print_r($groupData);
+
 ?>
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 

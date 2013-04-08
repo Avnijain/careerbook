@@ -278,7 +278,7 @@
 		 		'ERRORMSG3'=>"Sorry!!!You do not have the privileges to send a message to admin.",
 		 		'YOURMESSAGE'=>"Your Message : ",
 		 		'MAILMESSAGE'=>"THANKS!!! for sharing your views with us!!!",
-		 		''=>"",
+		 		'CREATEDBY'=>"Created by",
 		 		''=>"",
 		 		''=>"",
 		 		''=>"",

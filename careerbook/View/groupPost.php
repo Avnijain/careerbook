@@ -29,11 +29,12 @@
 		<?php
 		echo "<p>" . nl2br(htmlspecialchars($groupData1[0] ['title'])) . "</p>";
 		echo "<p>" . nl2br(htmlspecialchars($groupData1[0] ['description'])) . "</p>";
+		echo "<br/> ".$lang->CREATEDBY. "<a href=\"#\"> " . $groupData1[0]  ['first_name'] . " " . $groupData1[0] ['middle_name'] . " " . $groupData1[0] ['last_name']. "</a><br/>";
 		?>
 </div>
 <div id="groupPost">
 	<form id="group_post_form"
-		action="../controller/mainentrance.php?action=addPost&groupId=<?php echo $_GET['groupId'];?>"
+		action="../controller/mainentrance.php?action=addPost&groupId=<?php echo $groupData1[0] ['id'];?>"
 		method="post">
 		<br/>
 			<textarea class="group_textarea" id="group_discussion_description" name="group_discussion_description" rows="6" cols="20" placeholder="Post Your Message ..."></textarea>
@@ -56,14 +57,14 @@
 			echo "<p>". $values ['description'] . "</p>";
 		}
 	
-		echo "<br/> ".$lang->POSTEDBY. "<a href=\"#\"> " . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a> ";
+		echo "<br/> ".$lang->POSTEDBY. "<a href='#'> " . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a> ";
 		echo $lang->ON ." ". $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {
-			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=process_edit_post&postId={$values['id']}\">$lang->EDITPOST </a>";
+			echo "<br/><a class='group_button' href='../controller/mainentrance.php?action=process_edit_post&groupId={$groupData1[0] ['id']}&postId={$values['id']}'>$lang->EDITPOST </a>";
 		}
 		?>
 		<a class="group_button"
-			href="../controller/mainentrance.php?action=getComment&groupDiscussionId=<?php echo $values['id'];?>"><?php echo $lang->VIEWCOMMENT; ?></a><br />
+			href="javascript:viewComment(<?php echo $values['id'];?>)"><?php echo $lang->VIEWCOMMENT; ?></a><br />
 	</div><br/>
 	<?php
 	}
@@ -73,4 +74,5 @@
 function expand(id,description) {
 	$("#"+id).html("<p>"+description+"</p>");
 }
+
 </script>

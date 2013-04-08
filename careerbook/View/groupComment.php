@@ -27,7 +27,7 @@
 </div><br/>
 <div id="groupDiscussionComment">
 	<form id="groupDiscussionComment_form"
-		action="../controller/mainentrance.php?action=addComment&groupDiscussionId=<?php echo $_GET['groupDiscussionId'];?>"
+		action="../controller/mainentrance.php?action=addComment&groupDiscussionId=<?php echo $groupData1[0] ['id'];?>"
 		method="post">
 		<p>
 			<textarea class="group_textarea" id="group_discussion_comment" name="group_discussion_comment" rows="6" cols="20" placeholder="Post Comment..."></textarea>
@@ -48,7 +48,7 @@
 		echo $lang->POSTEDBY . " <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. " </a>";
 		echo $lang->ON ." " . $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {
-			echo "<br/><a class=\"group_button\" href=\"../controller/mainentrance.php?action=delete_comment&commentId={$values['id']}\">$lang->DELETE</a>";
+			echo "<br/><a class='group_button' href='javascript:deleteComment(".$values['id'].",".$groupData1[0] ['id'].")'>$lang->DELETE</a>";
 		}
 		?>
 		

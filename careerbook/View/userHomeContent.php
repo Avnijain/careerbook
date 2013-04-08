@@ -80,6 +80,7 @@ $(function() {
 if (isset($_GET['Group'])) {
 	include 'group.php';
 }else if (isset($_GET['getGroup'])) {
+	header('Location../controller/mainentrance.php?action=Group');
 	include 'group.php';
 } else if (isset($_GET['addGroup'])) {
 	include 'add_group.php';

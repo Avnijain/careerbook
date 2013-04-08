@@ -117,8 +117,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_model->_group_discussion_description = mysql_real_escape_string ( $_POST ['group_discussion_description'] );
 		
 		$this->_obj_group_model->edit_post ();
-		
-		header ( 'Location: ../Home/userHomePage.php?editGroup?groupPost' );
+		header ( 'Location: ../controller/mainentrance.php?action=getPost&groupId = '. $_REQUEST ['groupId']);
 	}
 	
 	//*********************************function to orocess edit group request**********************************//
@@ -136,13 +135,13 @@ class GroupHandler extends Group {
 	//*****************************function to orocess edit post request**********************************//
 	function handleProcessEditPost() {
 		$this->_obj_group_model->_group_discussion_id =  ($_REQUEST ['postId']);
-		
+		$this->_obj_group_model->_group_id =  ($_REQUEST ['groupId']);
 		$result = $this->_obj_group_model->get_post();
 		$this->_obj_group_class->setPostDetail($result);
 		$_SESSION['postDetail'] = serialize($this->_obj_group_class);
 	
-		header('Location: ../Home/userHomePage.php?editPost');
-	
+		header('Location: ../Home/userHomePage.php?editPost&groupId='. $this->_obj_group_model->_group_id);
+		die;
 	}
 	
 	//***************************function to handle delete group request*********************************// 
@@ -169,8 +168,8 @@ class GroupHandler extends Group {
 			$this->_obj_group_class->setGroupDetail($result1);
 			$_SESSION['groupDetail'] = serialize($this->_obj_group_class);
 			
-			
 			header ( 'Location: ../Home/userHomePage.php?groupPost&groupId=' . $this->_obj_group_model->_group_id );
+			die;
 		} else {
 			header ( 'Location: ../Home/userHomePage.php?Group');
 		}

@@ -192,6 +192,7 @@ class Group {
 	function get_post() {
 		$this->db->Fields ( array (
 				"group_discussions.id",
+				"group_discussions.group_id",
 				"group_discussions.description",
 				"group_discussions.created_by",
 				"group_discussions.created_on",
@@ -220,19 +221,23 @@ class Group {
 				"group_details.id",
 				"title",
 				"description",
-				"created_by",
-				"created_on", 
+				"group_details.created_by",
+				"group_details.created_on", 
+				"users.first_name",
+				"users.middle_name",
+				"users.last_name",
 			    "group_image"
 				) );
 		
 		$this->db->From ( "group_details" );
 		$this->db->Join ( "group_members", " group_details.id = group_members.group_id " );
+		$this->db->Join ( "users", "group_details.created_by = users.id" );
 		$this->db->Where ( array (
 				"group_members.member_id = " .$this->_created_by . " AND group_details.status = 'A' AND group_members.status = 'A'"
 		),true );
 		
 		$this->db->Select ();
-
+		//echo $this->db->lastQuery();die;
 		return $this->db->resultArray ();
 	}
 	
@@ -240,21 +245,25 @@ class Group {
 	//*************************************function to get particular group details************************//
 	function get_group_detail() {
 		$this->db->Fields ( array (
-				"id",
+				"group_details.id",
 				"title",
 				"description",
-				"created_on",
-				"group_image",
-		) );
+				"group_details.created_by",
+				"group_details.created_on", 
+				"users.first_name",
+				"users.middle_name",
+				"users.last_name",
+			    "group_image"
+				) );
 	
 		$this->db->From ( "group_details" );
-	
+		$this->db->Join ( "users", "group_details.created_by = users.id" );
 		$this->db->Where ( array (
-				"id = ". $this->_group_id
+				"group_details.id = ". $this->_group_id
 		),true );
 	
 		$this->db->Select ();
-	
+		//echo $this->db->lastQuery();die;
 		return $this->db->resultArray ();
 	}
 	
@@ -352,6 +361,7 @@ class Group {
 				"gd.id",
 				"gd.title",
 				"gd.description",
+				"gd.created_by",
 				"gd.group_image",
 				"gm.member_id",
 				"gm.status"
