@@ -264,7 +264,7 @@ EOD;*/
 			$_SESSION ['outbox'] = $objMessage2->handleSentMessage ();
 
 			rsort ( $_SESSION ['outbox'] );
-			header ( 'location: ../Home/userHomePage.php?message' );
+
 		}
 		if ($_REQUEST ['action'] == "get_friend") {
 			

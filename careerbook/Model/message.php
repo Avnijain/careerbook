@@ -123,7 +123,7 @@ class Message extends DBConnection {
 		$this->Where1(array("user_from"=>$this->_user_from,"user_to"=>"b.id"));
 	
 		$this->Select();
-		echo $this->lastQuery();
+		//echo $this->lastQuery();
 		return $this->resultArray();
 	
 	}
@@ -138,7 +138,7 @@ class Message extends DBConnection {
 		$this->Where(array("email_primary"=>$this->_email_id));
 	
 		$this->Select();
-		echo $this->lastQuery();
+		//echo $this->lastQuery();
 		return $this->resultArray();
 	
 	}
@@ -154,7 +154,7 @@ class Message extends DBConnection {
 		$this->Where(array("id"=>$this->userid));
 	
 		$this->Select();
-		echo $this->lastQuery();
+		//echo $this->lastQuery();
 		return $this->resultArray();
 	
 	}
@@ -171,7 +171,7 @@ class Message extends DBConnection {
 		$this->Where(array("id"=>$messageId));
 		
 		$this->Update();
-		echo $this->lastQuery();
+		//echo $this->lastQuery();
 		//die;
 		//return $this->resultArray();
 	}
@@ -199,7 +199,7 @@ class Message extends DBConnection {
 		$this->Where(array("user_id"=>$this->_user_from,"friend_id"=>$this->_user_to));
 		
 		$this->Select();
-		echo $this->lastQuery();
+		//echo $this->lastQuery();
 		return $this->resultArray();
 	
 	
@@ -215,7 +215,7 @@ class Message extends DBConnection {
 		$this->Where(array("a.id=b.friend_id AND b.user_id=".$this->userid." AND a.status='A'"),true);
 		
 		$this->Select();
-		echo $this->lastQuery();
+		//echo $this->lastQuery();
 		return $this->resultArray();
 		
 	}

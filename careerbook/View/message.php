@@ -44,7 +44,7 @@ include_once("../classes/lang.php");
 </script>
  <script>
 	$(document).ready(function () {
-		$("li.inbox").hover(function(){
+		$("li.Inbox").click(function(){
 
 			$.post('../controller/mainentrance.php',{'action':'get_message'},function(data,status){
 
@@ -57,7 +57,7 @@ include_once("../classes/lang.php");
 				});
 
 		});
-		$("li.outbox").hover(function(){
+		$("li.Outbox").click(function(){
 			$.post('../controller/mainentrance.php',{'action':'message_sent'},function(data,status){
 
 				if(status=="success")
