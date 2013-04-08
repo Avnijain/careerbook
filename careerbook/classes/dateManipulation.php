@@ -21,8 +21,8 @@ class dateManipulation {
 	//Reverse the date in parameter to year-month-date 
 	public function reverseDate($temp){		
 		$datearr = explode("/", $temp);
-		$this->date->setDate($datearr[2], $datearr[0], $datearr[1]);
-		return $this->date->format("Y-m-d");
+		$this->date->setDate($datearr[2], $datearr[1], $datearr[0]);
+		return $this->date->format("Y/m/d");
 	}
 	//Reverse the date in parameter to year-month-date
 	public function formatDate($temp, $format = "Y-m-d"){

@@ -91,15 +91,55 @@
             location.reload();
      	});
 	});
-	var tooltips = $( "[title]" ).tooltip();
-    $( "<button>" )
-      .text( "Show help" )
-      .button()
-      .click(function() {
-        tooltips.tooltip( "open" );
-      })
-      .insertAfter( "form" );
+	 $( "#city" ).autocomplete({
+    	 minLength: 1,
+    	 source: function( request, response ) {
+        	 $.getJSON( "../Model/fetchCity.php", request, function( data, status, xhr ) {
+        		 var temp = new Array();
+                 $.each(data, function(i, field){
+                     temp[i] = field['name'];
+                   });
+                 response( temp );
+        	 });
+    	 }
+	 });
 
+
+	 $( "#country" ).ready(function(){
+    	 $.getJSON( "../Model/fetchCountry.php", {"term":""}, function( data, status, xhr ) {
+    		 $("#country").append("<option value=\"default\" selected>Select...</option>");
+             $.each(data, function(i, field){
+                 $("#country").append("<option value="+field['name']+">"+field['name']+"</option>");
+               });
+             
+    	 });		 
+	 });
+	 $( "#country" ).on({
+		 change:function(){
+    	 $.getJSON( "../Model/fetchState.php", {"term":$(this).val()}, function( data, status, xhr ) {
+    		 $("#state").html("");
+    		 $("#state").append("<option value=\"default\" selected>Select...</option>");    		 
+             $.each(data, function(i, field){
+                 $("#state").append("<option value="+field['name']+">"+field['name']+"</option>");
+               });             
+    	 });
+		 }  
+	 });
+	 $( "#state" ).on({
+		change:function(){
+		 $("#city").html("");
+		 $("#city").append("<option value=\"none\" selected=\"true\">none</option>");
+		 $.getJSON( "../Model/fetchCity.php", {"term":$(this).val()}, function( data, status, xhr ) {
+			 $("#city").html("");
+			 $("#city").append("<option value=\"default\" selected>Select...</option>");
+	         $.each(data, function(i, field){
+	        	 $("#city").append("<option value="+field['name']+">"+field['name']+"</option>");
+	           });
+		 });
+	 	}  
+	 });
+	 
+	var tooltips = $( "[title]" ).tooltip();
 
     function split( val ) {
         return val.split( /,\s*/ );
@@ -119,7 +159,7 @@
         .autocomplete({
           source: function( request, response ) {
         	 var temp = new Array();
-            $.getJSON( "../View/fetchSkillSet.php", {
+            $.getJSON( "../Model/fetchSkillSet.php", {
               term: extractLast( request.term )
             }, function( data, status, xhr ) {
                 $.each(data, function(i, field){
@@ -131,7 +171,7 @@
           search: function() {
             // custom minLength
             var term = extractLast( this.value );
-            if ( term.length < 2 ) {
+            if ( term.length < 1 ) {
               return false;
             }
           },
@@ -216,7 +256,7 @@
                     <input type="radio" name="gender"
                     <?php if($select =="female"){?> checked="checked" <?php } ?> value="female"> <?php echo $lang->FEMALE;?></p>
                     <p><label><?php echo $lang->DOB;?></label>
-                    <input type="text"	id="datepicker" name="date_of_birth"
+                    <input type="text"	id="datepicker" name="date_of_birth" readonly="true"
                     <?php if(!empty($UserPersonalInfoDB['date_of_birth'])){ //echo
                     $UserPersonalInfoDB['date_of_birth']; ?> 
                     value="<?php echo $objdate->formatDate($UserPersonalInfoDB['date_of_birth'],"d/m/Y"); } ?>" 
@@ -237,14 +277,24 @@
                     <input id="adress" name="address" type="text" AUTOCOMPLETE="OFF" 
                     <?php if (!empty($UserAddressInfoDB['address'])){?> value="<?php echo $UserAddressInfoDB['address']; } ?>" />
                     
-                    <p><label for="country"><?php echo $lang->CITY;?></label> 
-                    <input id="city" name="city_name" type="text" AUTOCOMPLETE="OFF"
-                    <?php if (!empty($UserAddressInfoDB['city_name'])){?> value="<?php echo $UserAddressInfoDB['city_name']; } ?>" /></p>
-                    
-                    <p><label><?php echo $lang->STATE;?> </label> 
-                    <input id="state" name="state_name" type="text" AUTOCOMPLETE="OFF"
-                    <?php if (!empty($UserAddressInfoDB['state_name'])){?> value="<?php echo $UserAddressInfoDB['state_name']; } ?>" /></p>
-                    
+                    <p><label><?php echo $lang->COUNTRY;?> </label>
+                     <select id="country" name="country_name">
+                     <?php if (!empty($UserAddressInfoDB['country'])){?> 
+                     <option value="<?php echo $UserAddressInfoDB['country']; } ?>">"<?php echo $UserAddressInfoDB['country']; ?>"</option>
+                     </select>
+                    </p>
+                    <p><label><?php echo $lang->STATE;?> </label>
+                     <select id="state" name="state_name">
+                     <?php if (!empty($UserAddressInfoDB['state_name'])){?> 
+                     <option value="<?php echo $UserAddressInfoDB['state_name']; } ?>">"<?php echo $UserAddressInfoDB['state_name']; ?>"</option>
+                     </select>
+                    </p>
+                    <p><label><?php echo $lang->CITY;?></label>
+                     <select id="city" name="city_name">
+                     <?php if (!empty($UserAddressInfoDB['city_name'])){?> 
+                     <option value="<?php echo $UserAddressInfoDB['city_name']; } ?>">"<?php echo $UserAddressInfoDB['city_name']; ?>"</option>
+                     </select>
+                    </p>
                     <p><label><?php echo $lang->IMAGE;?> </label> 
                     <input id="image" name="user_image" type="file" AUTOCOMPLETE="OFF" /></p>
                 </fieldset>
@@ -339,7 +389,7 @@
                         <input id="current_company" name="current_company" type="text" AUTOCOMPLETE="OFF"
                         <?php if(!empty($UserProfessionalInfoDB['current_company'])){?> value="<?php echo $UserProfessionalInfoDB['current_company']; } ?>"/>
                         <label><?php echo $lang->STARTPERIOD;?> </label> 
-                        <input id="start_period" class="date" name="start_period" type="text" AUTOCOMPLETE="OFF"
+                        <input id="start_period" class="date" name="start_period" type="text" AUTOCOMPLETE="OFF" readonly="true"
                         <?php if(!empty($UserProfessionalInfoDB['start_period'])){?> value="<?php echo $UserProfessionalInfoDB['start_period']; } ?>"/>
                     </p>
                 </fieldset>
@@ -353,10 +403,10 @@
                         <input id="company" name="company" type="text" AUTOCOMPLETE="OFF"
                         <?php if(!empty($UserPreviousJobInfoDB['company'])){?> value="<?php echo $UserPreviousJobInfoDB['company']; } ?>"/> 
                         <label><?php echo $lang->STARTPERIOD;?> </label> 
-                        <input id="start_periodPREVJOB" name="start_periodPREVJOB" type="text" AUTOCOMPLETE="OFF"
+                        <input id="start_periodPREVJOB" name="start_periodPREVJOB" type="text" AUTOCOMPLETE="OFF" readonly="true"
                         <?php if(!empty($UserPreviousJobInfoDB['start_period'])){?> value="<?php echo $UserPreviousJobInfoDB['start_period']; } ?>"/>
                         <label><?php echo $lang->ENDPERIOD;?></label> 
-                        <input id="end_periodPREVJOB" name="end_periodPREVJOB" type="text" AUTOCOMPLETE="OFF"
+                        <input id="end_periodPREVJOB" name="end_periodPREVJOB" type="text" AUTOCOMPLETE="OFF" readonly="true"
                         <?php if(!empty($UserPreviousJobInfoDB['end_period'])){?> value="<?php echo $UserPreviousJobInfoDB['end_period']; } ?>"/>
                     </p>
                 </fieldset>
@@ -371,8 +421,13 @@
                             <input id="certificatedescription" name="certificate_description[]" type="text" AUTOCOMPLETE="OFF"
                             <?php if (!empty($value['description'])){?> value="<?php echo $value['description']; } ?>" /> 
                             <label><?php echo $lang->DATEDAT;?></label>
-                            <input id="<?php if(!empty($value['id'])){ echo $value['id']; }else{echo 0;} ?>" class="certificate" name="certificate_duration[]" type="text" AUTOCOMPLETE="OFF"
-                            <?php if(!empty($value['duration'])){?> value="<?php echo $value['duration']; } ?>"/>
+                            <input id="<?php if(!empty($value['id']))
+                            { echo $value['id']; }else{echo 0;} ?>"
+                            class="certificate" name="certificate_duration[]"
+                            type="text" AUTOCOMPLETE="OFF" readonly="true"
+                            <?php if(!empty($value['duration'])){
+                            ?> value="<?php echo $value['duration']; } 
+                            ?>"/>
                             <?php if (!empty($value['name'])){?>
                                 <input type="button" class="selectCertificate" id="<?php if(!empty($value['id'])){ echo $value['id']; } ?>" value="Delete Certificate" />
                             <?php }?>

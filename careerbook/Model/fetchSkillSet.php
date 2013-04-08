@@ -1,7 +1,6 @@
 <?php
-require_once '../Model/DbConnectionModelAbstract.php';
+require_once 'DbConnectionModelAbstract.php';
 class SkillSet extends model{
-    private $skill;
     public function __construct(){
        parent::__construct(); 
     }

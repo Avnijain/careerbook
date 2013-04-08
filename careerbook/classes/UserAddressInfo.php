@@ -18,6 +18,7 @@ class UserAddressInfo {
 	private $address;               //User Address information
 	private $city_name;              //User living in city
 	private $state_name;              //User living in state
+	private $country_name;
 
 	//get the value of specified variable
 	public function getInfoExcptState(){

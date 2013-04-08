@@ -473,7 +473,6 @@ EOD;*/
 	}
 	//******************************************************************************************************
 	private function fillUserProfile() {
-
 		$userProfessionalInfo = array (
 				array (
 						"skill_set" => "",
@@ -495,7 +494,8 @@ EOD;*/
 				array (
 						"address" => "",
 						"city_name" => "",
-						"state_name" => "" 
+						"state_name" => "",
+						"country_name" => ""
 				) 
 		);
 		
@@ -588,8 +588,7 @@ EOD;*/
 		}
 
 		/**
-		 * ************************** User Professional Information
-		 * ***********************
+		 * ************ User Professional Information **************
 		 */
 		
 		$flagData = false;
@@ -671,7 +670,15 @@ EOD;*/
 		 * ************************** User Personal Information ***********************
 		 */
 		$flagData = false;
-
+		if(isset($_POST['date_of_birth'])){
+		    if(!empty($_POST['date_of_birth'])){
+        	     $date = new DateTime($_POST['date_of_birth']);
+        	     $date = $date->format("Y/m/d");
+        	     if($_POST['date_of_birth'] != $date){
+        	         $_POST['date_of_birth'] = $this->objdate->reverseDate($_POST['date_of_birth']);
+        	     }    
+		    }
+		}
 		foreach ( array_keys ( $userPersonalInfo [0] ) as $key => $value ) {
 			if (isset ( $_POST [$value] )) {
 				if (! empty ( $_POST [$value] )) {
@@ -681,15 +688,16 @@ EOD;*/
 			}
 		}
 		if ($flagData) {
-			$error = $this->obj_usrinfo->setUserPersonalInfoForm ( $userPersonalInfo );
-			if(isset($error)){
-			    if(!empty($error)){
-			        if($error != 0){
-			         header ("location:../Home/userHomePage.php?profile&err=".$error);
-			         die;
-			        }		            
-			    }			        
-			}
+		    $this->obj_usrinfo->setUserPersonalInfoForm ( $userPersonalInfo );
+//			$error = $this->obj_usrinfo->setUserPersonalInfoForm ( $userPersonalInfo );
+//			if(isset($error)){
+//			    if(!empty($error)){
+//			        if($error != 0){
+//			         header ("location:../Home/userHomePage.php?profile&err=".$error);
+//			         die;
+//			        }		            
+//			    }			        
+//			}
 			// die;
 			// echo "inserting professional";
 		}

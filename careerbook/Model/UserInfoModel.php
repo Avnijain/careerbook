@@ -295,29 +295,30 @@ class UserInfoModel extends model {
         $this->db->From("user_personal_info upersnli");
         $user_id = $userInfo->getUserIdInfo();
 
-        $this->db->Fields(array('address','cty.name city_name'));
+        $this->db->Fields(array('address','cty.name city_name','stt.name state_name'));
 
         $this->db->Where(array("user_id"=>$user_id['id']));
         $this->db->Join("city cty", "cty.id = upersnli.city_id ", $type="INNER");
+        $this->db->Join("state stt", "stt.id = cty.state_id ", $type="INNER");
         $this->db->Select();
 
-        //echo $this->db->lastQuery();
-        //print_r ($this->db->resultArray());
-        //die;
+//       echo $this->db->lastQuery();
+//       print_r ($this->db->resultArray());
+//       die;
         return $this->db->resultArray();
     }
     public function insertIntoUserAddress($userInfo){
         $objAddressInfo = $userInfo->getUserAddressInfo();
+        $user_id = $userInfo->getUserIdInfo();
+        $finalInfo = array();
+        $finalInfo["user_id"] = $user_id['id'];
+        
         if(isset($objAddressInfo['city_name'])){
             $city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
+            $finalInfo["city_id"] = $city_id[0]['id'];            
         }
-        $user_id = $userInfo->getUserIdInfo();
-
         if(isset($objAddressInfo['address'])){
-            $finalInfo = array("user_id"=>$user_id['id'],
-				"address"=>$objAddressInfo['address'],
-				"city_id"=>$city_id[0]['id']
-            );
+            $finalInfo["address"] = $objAddressInfo['address'];
         }
         //print_r($finalInfo);
         if(isset($finalInfo)){
@@ -325,7 +326,8 @@ class UserInfoModel extends model {
             $this->db->From("user_personal_info");
             $this->db->Insert();
         }
-        //echo $this->db->lastQuery();
+//        echo $this->db->lastQuery();
+//        die;
     }
     public function updateUserAddress($userInfo) {
         $objAddressInfo = $userInfo->getUserAddressInfo();
