@@ -2,9 +2,10 @@
 <script type="text/javascript" src="../JavaScript/group.js"></script>
 <?php
     include_once('../classes/groupClass.php');
+
     $groupData=unserialize($_SESSION['groupList']);
     $groupData= $groupData->getGroupList();
-    
+
     $objUserId = unserialize($_SESSION['userData']);
     $userData=$objUserId->getUserIdInfo();
     $userId = $userData['id'];

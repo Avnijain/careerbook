@@ -112,6 +112,11 @@ $(document).ready(function() {
 	
 });
 
+function groupList() {
+	$.post('../controller/mainentrance.php',{'action':'Group'},function(){        
+		window.location="userHomePage.php?getGroup";
+    });
+}
 
 function viewGroup(groupId) {
 	$.post('../controller/mainentrance.php',{'action':'getPost','groupId':groupId},function(){        
