@@ -766,15 +766,17 @@ EOD;*/
 	//**********************************************send mail to register user***********************************************
 	private function sendMail() {
 		$emailSubject = 'Registration in careerbook';
+		//$userEmail=$_POST ['email'];
+		//$mailto =$userEmail;
 		$mailto = 'avni.jain@osscube.com';
 		
 		/* These will gather what the user has typed into the fieled. */
 		
-		
+		$userPassword=$_SESSION ['userDefaultPwd'];
 		/* This takes the information and lines it up the way you want it to be sent in the email. */
 		$body = <<<EOD
-				<br><hr><br>
-				password:$_SESSION ['userDefaultPwd'] <br>
+				<br>Dear User,Your password for registration with careerbook<br>
+				password:$userPassword<br>
 			 <br>
 EOD;
 		/*
@@ -790,10 +792,11 @@ password: $_SESSION ['userDefaultPwd'] <br>
 				Team CareerBook
 EOD;*/
 		
-		$headers = "From: $_POST ['email'] \r\n"; // This takes the email and displays it as who this email is from.
+		$headers = "From: mailcareerbook@gmail.com \r\n"; // This takes the email and displays it as who this email is from.
 		$headers .= "Content-type: text/html\r\n"; // This tells the server to turn the coding into the text.
 		$success = mail($mailto, $emailSubject, $body, $headers);
-		echo "Mail Sent.";
+		echo "mail sent";
+		//echo $lang->MAILSENT;
 	}
 } //***********************************************End of class*****************************
 

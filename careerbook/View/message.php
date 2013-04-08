@@ -127,7 +127,7 @@ include_once("../classes/lang.php");
 			<div>
 				<label for="meassage">
 					<?php echo  $lang->MESSAGE?></label>
-					<textarea name="descripition" rows="8" cols="40"></textarea>
+					<textarea name="descripition" rows="8" cols="40" maxlength="150"></textarea>
 			</div>
 			<div>
 				<input id="message" class="btn blue" type="submit" value="Send" />
@@ -143,7 +143,7 @@ include_once("../classes/lang.php");
 			  if(isset($_REQUEST['c'])&&($_REQUEST['c']=="admin")) 
 			echo $lang->ERRORMSG3;
 			   if(isset($_REQUEST['c'])&&($_REQUEST['c']=="script")) 
-			echo "you cann't insert script in message";?></h3>
+			echo $lang->ERRORMSG4;?></h3>
 	</div>
 	<div>
 		<h4>
