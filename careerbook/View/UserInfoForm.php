@@ -5,7 +5,7 @@
     $objUserInfo = unserialize($_SESSION['userData']);
     $UserPersonalInfoDB = $objUserInfo->getUserPersonalInfoDB();
     $UserAcademicInfoDB = $objUserInfo->getUserAcademicInfoDB();
-    $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();    
+    $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
     $UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
     $UserCertificateInfoDB =  $objUserInfo->getUserCertificateInfoDB();
     $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
@@ -106,34 +106,58 @@
 
 
 	 $( "#country" ).ready(function(){
+		 var countrySelected = $("#countrySelected").val();		 
     	 $.getJSON( "../Model/fetchCountry.php", {"term":""}, function( data, status, xhr ) {
     		 $("#country").append("<option value=\"default\" selected>Select...</option>");
              $.each(data, function(i, field){
-                 $("#country").append("<option value="+field['name']+">"+field['name']+"</option>");
-               });
-             
+                 if(field['name'] != countrySelected){
+                     $("#country").append("<option value="+field['name']+">"+field['name']+"</option>");                     
+                 }
+                 else{
+                	 $("#country").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
+                	 $( "#country" ).trigger("change");
+                 }
+               });             
     	 });		 
 	 });
 	 $( "#country" ).on({
 		 change:function(){
+		 if($("#stateSelected").val() != 'undefined'){
+			 var stateSelected = $("#stateSelected").val();
+		 }
     	 $.getJSON( "../Model/fetchState.php", {"term":$(this).val()}, function( data, status, xhr ) {
     		 $("#state").html("");
     		 $("#state").append("<option value=\"default\" selected>Select...</option>");    		 
              $.each(data, function(i, field){
-                 $("#state").append("<option value="+field['name']+">"+field['name']+"</option>");
+            	 if(field['name'] != stateSelected){
+            		 $("#state").append("<option value="+field['name']+">"+field['name']+"</option>");
+            	 }
+            	 else{
+                	 $("#state").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
+                	 $("#state").trigger("change");
+            	 }
                });             
     	 });
 		 }  
 	 });
 	 $( "#state" ).on({
 		change:function(){
+		 if($("#citySelected").val() != 'undefined'){
+			 var citySelected = $("#citySelected").val();
+		 }			
 		 $("#city").html("");
 		 $("#city").append("<option value=\"none\" selected=\"true\">none</option>");
 		 $.getJSON( "../Model/fetchCity.php", {"term":$(this).val()}, function( data, status, xhr ) {
 			 $("#city").html("");
 			 $("#city").append("<option value=\"default\" selected>Select...</option>");
 	         $.each(data, function(i, field){
-	        	 $("#city").append("<option value="+field['name']+">"+field['name']+"</option>");
+            	 if(field['name'] != citySelected){
+            		 $("#city").append("<option value="+field['name']+">"+field['name']+"</option>");
+            	 }
+            	 else{
+                	 $("#city").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
+                	 $("#city").trigger("change");
+            	 }
 	           });
 		 });
 	 	}  
@@ -279,20 +303,20 @@
                     
                     <p><label><?php echo $lang->COUNTRY;?> </label>
                      <select id="country" name="country_name">
-                     <?php if (!empty($UserAddressInfoDB['country'])){?> 
-                     <option value="<?php echo $UserAddressInfoDB['country']; } ?>">"<?php echo $UserAddressInfoDB['country']; ?>"</option>
+                     <?php if (!empty($UserAddressInfoDB['country_name'])){?> 
+                     <option id="countrySelected" value="<?php echo $UserAddressInfoDB['country_name']; } ?>">"<?php echo $UserAddressInfoDB['country_name']; ?>"</option>
                      </select>
                     </p>
                     <p><label><?php echo $lang->STATE;?> </label>
                      <select id="state" name="state_name">
                      <?php if (!empty($UserAddressInfoDB['state_name'])){?> 
-                     <option value="<?php echo $UserAddressInfoDB['state_name']; } ?>">"<?php echo $UserAddressInfoDB['state_name']; ?>"</option>
+                     <option id="stateSelected" value="<?php echo $UserAddressInfoDB['state_name']; } ?>">"<?php echo $UserAddressInfoDB['state_name']; ?>"</option>
                      </select>
                     </p>
                     <p><label><?php echo $lang->CITY;?></label>
                      <select id="city" name="city_name">
                      <?php if (!empty($UserAddressInfoDB['city_name'])){?> 
-                     <option value="<?php echo $UserAddressInfoDB['city_name']; } ?>">"<?php echo $UserAddressInfoDB['city_name']; ?>"</option>
+                     <option id="citySelected" value="<?php echo $UserAddressInfoDB['city_name']; } ?>">"<?php echo $UserAddressInfoDB['city_name']; ?>"</option>
                      </select>
                     </p>
                     <p><label><?php echo $lang->IMAGE;?> </label> 

@@ -16,9 +16,9 @@ Sr.NO.		Version		Updated by           Updated on          Description
 */
 class UserAddressInfo {
 	private $address;               //User Address information
-	private $city_name;              //User living in city
-	private $state_name;              //User living in state
-	private $country_name;
+	private $city_name;             //City Name Where user live
+	private $state_name;            //State Name Where user live
+	private $country_name;          //Country Name Where user live
 
 	//get the value of specified variable
 	public function getInfoExcptState(){
