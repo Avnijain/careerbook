@@ -1,5 +1,6 @@
 <?php
 include_once("../classes/lang.php");
+include_once("../classes/dateManipulation.php");
 ?>
 
 <?php
@@ -32,7 +33,7 @@ $projectCount=count($UserProjectInfoDB);                                    // t
 $certificateCount=count($UserCertificateInfoDB);							//to get the total number of certifiactes
 $extraCurricularCount=count($UserExtraCurricularobInfoDB);					//to get the count of Extra Curricular Activities
 $first_name=$UserPersonalInfoDB['first_name']; 								// getting first name
-
+$dob=($objdate->reverseDateClass($UserPersonalInfoDB['date_of_birth']));echo $dob;die;
 if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // When first template is selected by user
 {	
 	echo "template1";
@@ -76,7 +77,7 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 		if(!empty($UserPersonalInfoDB['date_of_birth'])) {
 			echo "<tr><td>$lang->DOB</td>";
 			echo "<td>";
-			echo $UserPersonalInfoDB['date_of_birth'];
+			echo $dob;
 			echo "</td></tr>";
 		}
 		if(!empty($UserPersonalInfoDB['gender'])) {
