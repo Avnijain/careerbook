@@ -96,6 +96,15 @@ $(document).ready(function() {
 			</div>
 			<input type="submit" class="btn blue" value="Submit"  />
 						<input type="button" class="btn blue" value="Cancel" onclick="cancle();" />
+				<br/>
+				<?Php if(isset($_REQUEST['err'])&&($_REQUEST['err']=="4")) {
+				?><center><?PHP echo $lang->SETTINGMSG1; ?></center><?php }?>
+				<?Php if(isset($_REQUEST['err'])&&($_REQUEST['err']=="5")) {
+				?><center><?PHP echo  $lang->SETTINGMSG2; ?></center><?php }?>
+				<?Php if(isset($_REQUEST['err'])&&($_REQUEST['err']=="2")) {
+				?><center><?PHP echo  $lang->SETTINGMSG3; ?></center><?php }?>
+				<?Php if(isset($_REQUEST['Success'])) {
+				?><center><?PHP echo  $lang->SETTINGMSG4; ?></center><?php }?>
 			</div>
 		</form>
 		</div>
@@ -108,7 +117,7 @@ $(document).ready(function() {
 			<div>
 			<div class="form-item">
 			
-			 <label for="edit-name"><?php echo $lang->CONFIRMDELETION?></label>
+			 <label for="edit-name"><?php echo $lang->CONFIRMDELETION?></label></br>
 			<input type="submit" class="btn blue" value="Yes" name='yes' />
 			 <input type="button" class="btn blue" value="No" name='no' onclick="cancle();" />
 			</div>
@@ -117,12 +126,11 @@ $(document).ready(function() {
 		</form>
 		
 	</div>
-	
 	<div id="nav-bar">
 	
 		<div class="module-bg">
-			<a href="#" class="TopButtons" id="Changepassword">Change password</a>
-			<a href="#" class="TopButtons" id="delete">delete account</a>
+			<a href="#" class="TopButtons" id="Changepassword"><?php echo $lang->CHANGEPASSWORD?></a>
+			<a href="#" class="TopButtons" id="delete"><?php echo $lang->DELETEACCOUNT?></a>
 		</div>
 		
 	</div>

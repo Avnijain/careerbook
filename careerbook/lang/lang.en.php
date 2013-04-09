@@ -288,7 +288,10 @@
 		 		'YEAROLD'=>"yrs old",
 		 		'NATIONALITY'=>"Nationality",
 		 		'INVAILDLOGIN'=>"Wrong User id or Wrong User password",
-		 		''=>"",
+		 		'SETTINGMSG1'=>"New password length should be above 8 and less than 15",
+				'SETTINGMSG2'=>"new and old password must be different",
+		 		'SETTINGMSG3'=>"new password and confirm password must match",
+				'SETTINGMSG4'=>"Password Changed Sucessfully",
 				''=>"",
 		 		''=>""
  		
