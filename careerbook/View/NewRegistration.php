@@ -53,8 +53,9 @@ h3 {
                          
                     <?php
                     if (isset ( $_GET ['err'] )) {
-                        
-                        echo "<h3>$lang->REGISTRATIONERROR" . $_GET ['err'] . "[" . $lang->getRegError ( $_GET ['err'] ) . "]</h3>";
+                        $value=substr($_GET['err'],1);
+                        $key=substr($_GET['err'],0,1);
+                        echo "<h3>$lang->REGISTRATIONERROR" . $key . "[" . $lang->getRegError ( $key ) . "] in ".$value."</h3>";
                     }
 
                     ?> 
@@ -99,7 +100,7 @@ h3 {
                             </p>
 						<p>
 							<label><?php echo $lang->DOB;?></label>
-							</td> <input type="text" id="datepicker" name="date_of_birth" value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['date_of_birth'];?>" />
+							</td> <input type="text" id="datepicker" name="date_of_birth" value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['date_of_birth'];?>" readonly="readonly" />
 						</p>
 						<p>
 							<label><?php echo $lang->PHONENUMBER;?></label> <input
@@ -129,6 +130,7 @@ h3 {
 					<li><a href="#"><?php echo $lang->PERSONALDETAILS?></a></li>
 
 					<li><a href="#"><?php echo $lang->CONFIRM?></a></li>
+					<?php unset($_SESSION['registration']);?>
 				</ul>
 			</div>
 		</div>

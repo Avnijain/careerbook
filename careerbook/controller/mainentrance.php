@@ -261,8 +261,6 @@ class mainentrance {
 			$objMessage1 = new MessageController ();
 			$_SESSION ['myinbox'] = $objMessage1->handleRecieveMessage ();
 			rsort ( $_SESSION ['myinbox'] );
-			//print_r ( $_SESSION ['myinbox'] );
-
 		}
 		if ($_REQUEST ['action'] == "message_sent") {
 			
@@ -398,10 +396,11 @@ class mainentrance {
 		{
 		    $_SESSION['registration'] = $_POST;
 
-			header ( "location:../View/NewRegistration.php?err=10&". $_POST );
+			header ( "location:../View/NewRegistration.php?err=9" );
 			die ();
 		}
 		if ($_POST ['captcha-code'] != $_SESSION ['secure']) {
+			$_SESSION['registration'] = $_POST;
 			header ( "location:../View/NewRegistration.php?err=7" );
 			die ();
 		}
@@ -409,12 +408,14 @@ class mainentrance {
 		$error=$this->validationCheck ();
 		if($error !=0)
 		{
-			header ( "location:../View/NewRegistration.php?err=".$error );
+			$_SESSION['registration'] = $_POST;
+			header ( "location:../View/NewRegistration.php?err=".$error);
 			die ();
 		}
 		$ObjModel = new MyClass ();
 		$result = $ObjModel->FindUsers ();
 		if (count ( $result )) {
+			$_SESSION['registration'] = $_POST;
 			header ( "location:../View/NewRegistration.php?err=6" );
 			die ();
 		}
@@ -702,8 +703,6 @@ class mainentrance {
 			        }		            
 			    }			        
 			}
-			// die;
-			// echo "inserting professional";
 		}
 		/**
 		 * ************************** User Address Information
@@ -718,8 +717,7 @@ class mainentrance {
 				}
 			}
 		}
-		if ($flagData) {
-			// echo "Inserting professional data";			
+		if ($flagData) {		
 			$error = $this->obj_usrinfo->setUserAddressInfoForm ( $userAddressInfo );			
 			if(isset($error)){
 			    if(!empty($error)){
@@ -747,12 +745,9 @@ class mainentrance {
 				}
 			}
 		}
-// echo "<pre/>";
-// print_r($userCertificationInfo);
-// die;
+
 		if ($flagData) {
 			$this->obj_usrinfo->setUserCertificateInfoForm ( $userCertificationInfo );
-			// echo "inserting Academic";
 		}
 		/**
 		 * ************************** User Academic Information

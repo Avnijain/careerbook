@@ -291,11 +291,13 @@
  $regError=array("7"=>"Wrong Captcha Code",
 				"6"=>"Already Have this Id",
  				"1"=>"Wrong Integer Type",
- 				"3"=>"\",\',\` are not allowed",
- 				"10"=>"Blank Email,First Nmae  And Last Name is not allowed",
+ 				"2"=>"Wrong Floating Number",
+ 				"3"=>"\",',` are not allowed",
+ 				"9"=>"Blank Email,First Nmae  And Last Name is not allowed",
+ 				"8"=>"Image Upoad Error",
  				"4"=>"Invalid String",
  				"5"=>"Invalid Email",
- 				"9"=>"Invaid Date"
+ 				"10"=>"Invaid Date"
 				);
 
 

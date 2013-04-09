@@ -144,7 +144,7 @@ class UserDataValidation {
 				}
 			}
 		}
-		return $error;
+		return $error.$keys;
 	}
 	// *******************************************************validate interger
 	// type data**********************************************
@@ -152,7 +152,7 @@ class UserDataValidation {
 		if ($value == "") {
 			return 0;
 		}
-		if (! filter_var ( $value, FILTER_VALIDATE_INT)) {
+			if (! (preg_match ( "/[0-9]{10}/", $value ))) {
 			return 1;
 		} else {
 			return 0;
@@ -164,7 +164,7 @@ class UserDataValidation {
 		if ($value == "") {
 			return 0;
 		}
-		if (! (var_dump ( filter_var ( $value, FILTER_VALIDATE_FLOAT ) ))) {
+		if (! (preg_match ( "/[0-9]{2,3}[.]{0,1}[0-9]/", $value ))) {
 			return 2;
 		} else {
 			return 0;
@@ -239,7 +239,7 @@ class UserDataValidation {
 					return 0;
 				}
 			} else {
-				return 6;
+				return 8;
 			}
 		} else {
 			return 0;
@@ -252,7 +252,7 @@ class UserDataValidation {
 			return 0;
 		}
 		if (! (preg_match ( "/[0-9]{4}\/[0-9]{2}\/[0-9]{2}/", $value ))) {
-			return 9;
+			return 10;
 		} else {
 			return 0;
 		}

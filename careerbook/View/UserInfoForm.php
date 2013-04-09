@@ -256,10 +256,11 @@
     <div id="content">
     <div id="formErrors">
     <?php 
-    if(isset($_GET['err'])){
-    	
-    	echo "<h3>$lang->REGISTRATIONERROR".$_GET['err']."[".$lang->getRegError($_GET['err'])."]</h3>";
-    }
+                    if (isset ( $_GET ['err'] )) {
+                        $value=substr($_GET['err'],1);
+                        $key=substr($_GET['err'],0,1);
+                        echo "<h3>$lang->REGISTRATIONERROR" . $key . "[" . $lang->getRegError ( $key ) . "] in ".$value."</h3>";
+                    }
     ?> 
     </div>
 		<div id="wrapper" style="width: 780px">
