@@ -14,11 +14,21 @@ class UserDataValidation {
 	private $_emailType;		//will store all email fields
 	private $_imageType;		//will store all image fields
 	private $_quotes;			//will store all quotes fields
+	private $_wordLimit20;		//will store al feilds having word limit 20 char
+	private $_wordLimit50;		//will store al feilds having word limit 50 char
 	
 	public function __construct() {
 		$this->_intgerType = array (
 				"phone_no" 
 		);
+		$this->_wordLimit20=array(
+					"",
+					""
+				);
+		$this->_wordLimit50=array(
+				"",
+				""
+		);		
 		$this->_floatType = array (
 				"percentage_GPA_10",
 				"percentage_12",
@@ -143,6 +153,18 @@ class UserDataValidation {
 					break;
 				}
 			}
+			if (in_array ( $keys, $this->_wordLimit20 )) {
+				$error = $this->validateWordLimit20( $values );
+				if ($error != 0) {
+					break;
+				}
+			}
+			if (in_array ( $keys, $this->_wordLimit50 )) {
+				$error = $this->validateWordLimit50 ( $values );
+				if ($error != 0) {
+					break;
+				}
+			}
 		}
 		if($error != 0){
 		return $error.$keys;
@@ -246,6 +268,30 @@ class UserDataValidation {
 			} else {
 				return 8;
 			}
+		} else {
+			return 0;
+		}
+	}
+	// *******************************************************validate 20 Word limit
+	// type data**********************************************
+	private function validateWordLimit20($value) {
+		if ($value == "") {
+			return 0;
+		}
+		if (strlen($value) > 20) {
+			return "T";
+		} else {
+			return 0;
+		}
+	}
+	// *******************************************************validate 50 Word limit
+	// type data**********************************************
+	private function validateWordLimit50($value) {
+		if ($value == "") {
+			return 0;
+		}
+		if (strlen($value) > 50) {
+			return "F";
 		} else {
 			return 0;
 		}

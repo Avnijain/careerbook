@@ -33,20 +33,20 @@ else
 }
 //***********************************************************************************************************************
 $token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
-if($token==$_COOKIE['userToken'])
-{
-	$_SESSION['secureSessionHijack'] = rand(100000,999999);
-	$token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
-	setcookie("userToken",$token , time()+3600*24,"/");
-}
-else											//session hijacking save
-{
-	unlink($fileName);
-	unset($_SESSION);
-	session_destroy();
-	header ( "location:../index.php" );
-	die ();
-}
+// if($token==$_COOKIE['userToken'])
+// {
+// 	$_SESSION['secureSessionHijack'] = rand(100000,999999);
+// 	$token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
+// 	setcookie("userToken",$token , time()+3600*24,"/");
+// }
+// else											//session hijacking save
+// {
+// 	unlink($fileName);
+// 	unset($_SESSION);
+// 	session_destroy();
+// 	header ( "location:../index.php" );
+// 	die ();
+// }
 //************************************************************************************************************************
 
 

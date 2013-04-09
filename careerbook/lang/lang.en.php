@@ -15,6 +15,7 @@
      3			1.0			Avni Jain			March 17,2013		added constant for resume.php
 	 4			1.0			Avni Jain			April 02,2013		added constant for UserHomepage.php,
 																	userSettings.php,friends.php,userHomePage.php
+	 5			1.0			Mohit K Singh		April 09,2013		added constant for al errors																	
     *************************************************************************
 
 */
@@ -305,7 +306,9 @@
  				"8"=>"Image Upoad Error",
  				"4"=>"Invalid String",
  				"5"=>"Invalid Email",
- 				"10"=>"Invaid Date"
+ 				"10"=>"Invaid Date",
+ 				"T"=>"Error:More than 20 Words",
+ 				"F"=>"Error:More than 50 Words"
 				);
 
 
