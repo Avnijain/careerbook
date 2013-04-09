@@ -89,25 +89,55 @@
             location.reload();
      	});
 	});
-	 $( "#language" ).ready(function(){
-		 var languageSelected = '';
-		 if($("#languageSelected").val()){
-			 var languageSelected = $("#languageSelected").val();
-		 }
-		 $("#language").html("");
-    	 $.getJSON( "../Model/fetchLanguage.php", {"term":""}, function( data, status, xhr ) {
-    		 $("#language").append("<option value=\"default\" selected>Select...</option>");
-             $.each(data, function(i, field){
-                 if(field['name'] != languageSelected){
-                     $("#language").append("<option value="+field['name']+">"+field['name']+"</option>");                     
-                 }
-                 else{
-                	 $("#language").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
-                 }
-               });             
-    	 });
-	 });
-
+    function split( val ) {
+        return val.split( /,\s*/ );
+      }
+      function extractLast( term ) {
+        return split( term ).pop();
+      }
+      $( "#language" )
+        // don't navigate away from the field on tab when selecting an item
+        .bind( "keydown", function( event ) {
+          if ( event.keyCode === $.ui.keyCode.TAB &&
+              $( this ).data( "ui-autocomplete" ).menu.active ) {
+            event.preventDefault();
+          }
+        })
+        .autocomplete({
+          source: function( request, response ) {
+        	 var temp = new Array();
+            $.getJSON( "../Model/fetchLanguage.php", {
+              term: extractLast( request.term )
+            }, function( data, status, xhr ) {
+                $.each(data, function(i, field){
+                    temp[i] = field['name']; 
+                  });
+                response( temp );
+            });
+          },
+          search: function() {
+            // custom minLength
+            var term = extractLast( this.value );
+            if ( term.length < 1 ) {
+              return false;
+            }
+          },
+          focus: function() {
+            // prevent value inserted on focus
+            return false;
+          },
+          select: function( event, ui ) {
+            var terms = split( this.value );
+            // remove the current input
+            terms.pop();
+            // add the selected item
+            terms.push( ui.item.value );
+            // add placeholder to get the comma-and-space at the end
+            terms.push( "" );
+            this.value = terms.join( ", " );
+            return false;
+          }
+        });
 	 $( "#country" ).ready(function(){
 		 var countrySelected = '';
 		 if($("#countrySelected").val()){
@@ -174,12 +204,6 @@
 	 
 	var tooltips = $( "[title]" ).tooltip();
 
-    function split( val ) {
-        return val.split( /,\s*/ );
-      }
-      function extractLast( term ) {
-        return split( term ).pop();
-      }
    
       $( "#skill_id" )
         // don't navigate away from the field on tab when selecting an item
@@ -341,10 +365,8 @@
                      </select>
                     </p>
                     <p><label><?php echo $lang->LANGUAGE;?></label>
-                     <select id="language" name="language">
-                     <?php if (!empty($UserAddressInfoDB['language'])){?> 
-                     <option id="languageSelected" value="<?php echo $UserAddressInfoDB['language']; } ?>">"<?php echo $UserAddressInfoDB['language']; ?>"</option>
-                     </select>
+                        <input id="language" name="language" type="text" AUTOCOMPLETE="OFF"
+                        <?php if(!empty($UserAddressInfoDB['language'])){?> value="<?php echo $UserAddressInfoDB['language']; } ?>"/>
                     </p>                    
                     <p><label><?php echo $lang->IMAGE;?> </label>
                         <input id="image" name="user_image" type="file" 
