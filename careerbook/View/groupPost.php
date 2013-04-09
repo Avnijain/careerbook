@@ -39,7 +39,7 @@
 		<br/>
 			<textarea class="group_textarea" id="group_discussion_description" name="group_discussion_description" rows="6" cols="20" placeholder="Post Your Message ..."></textarea>
 		<br/>
-		<input class="group_button" type="submit" value="Post">
+		<input class="btn blue" type="submit" value="Post">
 	</form>
 </div><br/>
 <div>
@@ -60,10 +60,10 @@
 		echo "<br/> ".$lang->POSTEDBY. "<a href='#'> " . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a> ";
 		echo $lang->ON ." ". $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {
-			echo "<br/><a class='group_button' href='../controller/mainentrance.php?action=process_edit_post&groupId={$groupData1[0] ['id']}&postId={$values['id']}'>$lang->EDITPOST </a>";
+			echo "<br/><a class='btn blue' href='../controller/mainentrance.php?action=process_edit_post&groupId={$groupData1[0] ['id']}&postId={$values['id']}'>$lang->EDITPOST </a>";
 		}
 		?>
-		<a class="group_button"
+		<a class="btn blue"
 			href="javascript:viewComment(<?php echo $values['id'];?>)"><?php echo $lang->VIEWCOMMENT; ?></a><br />
 	</div><br/>
 	<?php

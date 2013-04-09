@@ -1,4 +1,4 @@
-<script type="text/javascript" src="../JavaScript/group.js"></script>
+<script src="../JavaScript/group.js"></script>
 <?php
 include_once("../classes/lang.php");
 ?>

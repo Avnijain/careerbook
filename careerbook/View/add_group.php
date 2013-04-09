@@ -1,10 +1,12 @@
 <?php
 include_once("../classes/lang.php");
 ?>
-
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
-<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="../JavaScript/group.js"> </script>
+<script type="text/javascript" src="../JavaScript/group.js"></script>
+<script src="../JavaScript/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>
+<script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="../JavaScript/fancybox/jquery.fancybox-1.3.4.css" ></link>
 <div id="add_group">
 	<form id="add_group_form" enctype="multipart/form-data"
 		action="../controller/mainentrance.php?action=add_group" method="post">

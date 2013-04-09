@@ -32,7 +32,7 @@
 		<p>
 			<textarea class="group_textarea" id="group_discussion_comment" name="group_discussion_comment" rows="6" cols="20" placeholder="Post Comment..."></textarea>
 		</p>
-		<input type="submit" value="Post" class="group_button">
+		<input type="submit" value="Post" class="btn blue">
 	</form>
 </div><br/>
 <div>
@@ -48,7 +48,7 @@
 		echo $lang->POSTEDBY . " <a href=\"#\">" . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. " </a>";
 		echo $lang->ON ." " . $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {
-			echo "<br/><a class='group_button' href='javascript:deleteComment(".$values['id'].",".$groupData1[0] ['id'].")'>$lang->DELETE</a>";
+			echo "<br/><a class='btn blue' href='javascript:deleteComment(".$values['id'].",".$groupData1[0] ['id'].")'>$lang->DELETE</a>";
 		}
 		?>
 		

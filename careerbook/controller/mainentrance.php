@@ -390,13 +390,14 @@ class mainentrance {
 	}	
 	// function to register a user and validate the feilds
 	private function userRegistration() {
+	    
+	    $_SESSION['registration'] = $_POST;
+	    
 		if($_POST['email_primary']=="" ||
 				$_POST['first_name']=="" ||
 				$_POST['last_name']=="" ||
 				$_POST['date_of_birth']==""  )
 		{
-		    $_SESSION['registration'] = $_POST;
-
 			header ( "location:../View/NewRegistration.php?err=9" );
 			die ();
 		}

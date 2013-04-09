@@ -14,9 +14,9 @@
 <div id="main">
 	<form action="../controller/mainentrance.php?action=searchGroup"
 		method="post">
-		<input class="group_textbox" type="text" placeholder="Search Group"
-			name="groupSearch"> <input class="group_button" type="submit"
-			value="Search">
+		<p><input class="group_textbox" type="text" placeholder="Search Group"
+			name="groupSearch"><input class="btn blue" type="submit"
+			value="Search"></p>
 	</form>
 </div>
 <br />
@@ -51,13 +51,13 @@
 		echo "$lang->GROUPDESCRIPTION"," ".htmlspecialchars(nl2br($values['description'])) . "<br/>";
 		if (isset($values['status'])) {
 			if($values['status'] == 'A') {
-				echo "<a class='group_button' href=\"../controller/mainentrance.php?action=getPost&groupId={$values['id']}\">View</a>";
+				echo "<a class='btn blue' href='../controller/mainentrance.php?action=getPost&groupId={$values['id']}'>View</a>";
 			} else if($values['status'] == 'D'){
-				echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=joinGroup&groupId={$values['id']}\">Join Group</a>";
+				echo "<a class='btn blue' href='../controller/mainentrance.php?action=joinGroup&groupId={$values['id']}'>Join Group</a>";
 			}
 		}
 		 if(!isset($values['status'])) {
-			echo "<a class=\"group_button\" href=\"../controller/mainentrance.php?action=joinGroup&groupId={$values['id']}\">Join Group</a>";
+			echo "<a class='btn blue' href='../controller/mainentrance.php?action=joinGroup&groupId={$values['id']}'>Join Group</a>";
 		}
 		?>
 		

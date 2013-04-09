@@ -58,7 +58,7 @@ h3 {
                         echo "<h3>$lang->REGISTRATIONERROR" . $key . "[" . $lang->getRegError ( $key ) . "] in ".$value."</h3>";
                     }
 
-                    ?> 
+?> 
         <div>
 		<span class="reference"> </span>
 	</div>
@@ -74,23 +74,28 @@ h3 {
 
 						<p>
 							<label><?php echo $lang->EMAIL;?></label> <input id="email"
-								name="email_primary" placeholder="info@tympanus.net" 
-								type="email" value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['email_primary'];?>" AUTOCOMPLETE=OFF />
+								name="email_primary" placeholder="info@tympanus.net"
+								type="email"
+								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['email_primary'];?>"
+								AUTOCOMPLETE=OFF />
 						</p>
 					</fieldset>
 					<fieldset class="step">
 						<legend><?php echo $lang->PERSONALDETAILS?></legend>
 						<p>
 							<label><?php echo $lang->FIRSTNAME;?></label> <input
-								id="first_name" name="first_name" value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['first_name'];?>" />
+								id="first_name" name="first_name"
+								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['first_name'];?>" />
 						</p>
 						<p>
 							<label><?php echo $lang->MIDDLENAME;?></label> <input
-								id="middle_name" name="middle_name" value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['middle_name'];?>" />
+								id="middle_name" name="middle_name"
+								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['middle_name'];?>" />
 						</p>
 						<p>
-							<label><?php echo $lang->LASTNAME;?></label> <input id="last_name"
-								name="last_name" value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['last_name'];?>" />
+							<label><?php echo $lang->LASTNAME;?></label> <input
+								id="last_name" name="last_name"
+								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['last_name'];?>" />
 						</p>
 						<p>
 							<label><?php echo $lang->GENDER;?></label> <input type="radio"
@@ -104,7 +109,8 @@ h3 {
 						</p>
 						<p>
 							<label><?php echo $lang->PHONENUMBER;?></label> <input
-								id="phone_no" name="phone_no" value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['phone_no'];?>" />
+								id="phone_no" name="phone_no"
+								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['phone_no'];?>" />
 						</p>
 					</fieldset>
 					<fieldset class="step">

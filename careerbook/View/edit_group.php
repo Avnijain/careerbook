@@ -22,12 +22,12 @@ $groupData= $groupData->getGroupDetail();
 				rows="06"><?php echo nl2br($groupData[0]['description']);?></textarea>
 		</div>
 		<div>
-			<label><?php echo $lang->GROUPIMAGE;?></label><br /> <input type="file"
+			<label><?php echo $lang->GROUPIMAGE;?></label><br /> <input class="btn blue" type="file"
 				name="group_image" id="group_image" />
 		</div><br/>
 		<div>
-			<input class="group_button" type="submit" value="Edit Group"
-				name="btnsubmit" /> <input class="group_button" type="button"
+			<input class="btn blue" type="submit" value="Edit Group"
+				name="btnsubmit" /> <input class="btn blue" type="button"
 				value="Cancel" />
 		</div>
 	</form>
