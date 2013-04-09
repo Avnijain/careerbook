@@ -586,16 +586,21 @@ class mainentrance {
 			}
 		}
 		if ($flagData) {
-			$this->obj_usrinfo->setUserPreviousJobInfoForm ( $userPreviousJobInfo );
-
+			$error = $this->obj_usrinfo->setUserPreviousJobInfoForm ( $userPreviousJobInfo );
+			if(isset($error)){
+			    if(!empty($error)){
+			        if($error != 0){
+			         header ("location:../Home/userHomePage.php?profile&err=".$error);
+			         die;
+			        }
+			    }
+			}
 		}
-
 		/**
 		 * ************ User Professional Information **************
 		 */
 		
 		$flagData = false;
-
 		foreach ( array_keys ( $userProfessionalInfo [0] ) as $key => $value ) {
 			if (isset ( $_POST [$value] )) {
 				if (! empty ( $_POST [$value] )) {
@@ -604,9 +609,16 @@ class mainentrance {
 				}
 			}
 		}
-		if ($flagData) {
-			$this->obj_usrinfo->setUserProfessionalInfoForm ( $userProfessionalInfo );
-			
+		if ($flagData) {			
+			$error = $this->obj_usrinfo->setUserProfessionalInfoForm ( $userProfessionalInfo );			
+			if(isset($error)){
+			    if(!empty($error)){
+			        if($error != 0){
+			         header ("location:../Home/userHomePage.php?profile&err=".$error);
+			         die;
+			        }
+			    }
+			}
 		}
 		/**
 		 * ************************** User Profile Image ***********************
@@ -667,7 +679,6 @@ class mainentrance {
 
 		if ($flagData) {
 			$this->obj_usrinfo->setUserExtraCurricularInfoForm( $userExtraCurricularInfo );
-		
 		}		
 		/**
 		 * ************************** User Personal Information ***********************
@@ -708,8 +719,16 @@ class mainentrance {
 			}
 		}
 		if ($flagData) {
-			// echo "Inserting professional data";
-			$this->obj_usrinfo->setUserAddressInfoForm ( $userAddressInfo );
+			// echo "Inserting professional data";			
+			$error = $this->obj_usrinfo->setUserAddressInfoForm ( $userAddressInfo );			
+			if(isset($error)){
+			    if(!empty($error)){
+			        if($error != 0){
+			         header ("location:../Home/userHomePage.php?profile&err=".$error);
+			         die;
+			        }		            
+			    }			        
+			}			
 		}
 		/**
 		 * ************************** User Certification Information
@@ -748,9 +767,16 @@ class mainentrance {
 				}
 			}
 		}
-		if ($flagData) {
-			$this->obj_usrinfo->setUserAcademicInfoForm ( $userAcademicInfo );
-
+		if ($flagData) {			
+			$error = $this->obj_usrinfo->setUserAcademicInfoForm ( $userAcademicInfo );			
+			if(isset($error)){
+			    if(!empty($error)){
+			        if($error != 0){
+			         header ("location:../Home/userHomePage.php?profile&err=".$error);
+			         die;
+			        }		            
+			    }			        
+			}
 		}
 
 		$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );

@@ -126,7 +126,12 @@ class user_info_controller
 	}
 /**************************************** User Address Information ***************************************************/
 	public function setUserAddressInfoForm($result){
-		$this->objAddressInfo->setinfo($result);		
+		$this->objAddressInfo->setinfo($result);
+		$error = $this->objValidation->validate($this->objAddressInfo->getinfo());
+		if($error != 0 ){
+		    return $error;
+		}
+
 		$resultDB = $this->ObjUserModel->fetchUserAddressInfo($this);
 		if(count($resultDB) > 0 ){
 			$this->ObjUserModel->updateUserAddress($this);
@@ -157,6 +162,11 @@ class user_info_controller
 /***************************************** User Academic Information **************************************************/
 	public function setUserAcademicInfoForm($result){
 	    $this->objAcademicInfo->setinfo($result);
+	    
+		$error = $this->objValidation->validate($this->objAcademicInfo->getinfo());
+		if($error != 0 ){
+		    return $error;
+		}	    
 	    $resultDB = $this->ObjUserModel->fetchUserAcademicInfo($this);
 	    
 	    if(count($resultDB) > 0 ){
@@ -452,8 +462,13 @@ class user_info_controller
 /***************************************** User Professional Information **************************************************/		
 	public function setUserProfessionalInfoForm($result){
 		$this->objProfessionalInfo->setinfo($result);
+
+		$error = $this->objValidation->validate($this->objProfessionalInfo->getinfo());
+		if($error != 0 ){
+		    return $error;
+		}
+
 		$resultDB = $this->ObjUserModel->fetchUserProfessionalInfo($this);
-		
 		if(count($resultDB) > 0 ){
 			$this->ObjUserModel->updateUserProfessional($this);
 		}
@@ -487,6 +502,12 @@ class user_info_controller
 /************************************** User Previous Job Information *****************************************************/
 	public function setUserPreviousJobInfoForm($result){
 		$this->objPreviousJobInfo->setinfo($result);
+		
+		$error = $this->objValidation->validate($this->objPreviousJobInfo->getinfo());
+		if($error != 0 ){
+		    return $error;
+		}
+		
 		$resultDB = $this->ObjUserModel->fetchUserPreviousJobInfo($this);
 		
 		if(count($resultDB) > 0 ){
