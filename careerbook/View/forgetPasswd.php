@@ -64,7 +64,14 @@ background: url(../images/fpd.jpg) repeat-x 0px 0px;
 		<?php 
 		if(isset($_GET['err']))
 		{
-		echo "You have error no:".$_GET['err'];
+			if($_GET['err']==1)
+			{
+				echo $lang->CAPTCHA;
+			}
+			else if($_GET['err']==2)
+			{
+				echo $lang->NOTFOUND;
+			}
 		}
 		?>
 	</div>

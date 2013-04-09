@@ -100,6 +100,7 @@ class mainentrance {
 	// ***************************************************sent a forget password
 	// link*******************************************
 	private function forgetPasswd() {
+		
 		if ($_SESSION ['secure'] != $_POST ['captcha-code']) {
 			header ( 'location: ../View/forgetPasswd.php?err=1' );
 		} else {	

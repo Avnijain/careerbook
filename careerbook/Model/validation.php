@@ -144,7 +144,12 @@ class UserDataValidation {
 				}
 			}
 		}
+		if($error != 0){
 		return $error.$keys;
+		}
+		else{
+			return $error;
+		}
 	}
 	// *******************************************************validate interger
 	// type data**********************************************

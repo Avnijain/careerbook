@@ -13,8 +13,6 @@
     $UserExtraCurricularInfoDB =  $objUserInfo->getUserExtraCurricularInfoDB();
     $_SESSION['userData'] = serialize($objUserInfo);
 ?>
-
-<title><?php echo $lang->USERINFOFORM;?></title>
 <link rel="stylesheet" href="../css/styleUserInfoForm.css"
 	type="text/css" media="screen" />
 
@@ -304,7 +302,7 @@
                     <p><label><?php echo $lang->SEC_EMAIL;?></label> 
                     <input id="email" name="email_secondary" placeholder="info@tympanus.net" type="email"
                     <?php if (!empty($UserPersonalInfoDB['email_secondary'])){?> value="<?php echo $UserPersonalInfoDB['email_secondary']; } ?>" /></p>
- 	                <p><label><?php echo $lang->EMAIL;?></label>
+ 	                <p><label><?php echo $lang->PHONENUMBER;?></label>
  	                <input id="phoneno" name="phone_no" placeholder="XXXXXXXXXX" type="text" AUTOCOMPLETE="OFF"
                     <?php if(!empty($UserPersonalInfoDB['phone_no'])){?> value="<?php echo $UserPersonalInfoDB['phone_no']; } ?>" /></p>
                      
