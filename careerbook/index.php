@@ -33,7 +33,8 @@ if(isset($_SESSION['userData']))
                 <?php require_once './View/slider.php'; ?>
             </div>
             <div id="right">
-                <?php require_once './View/login.php'; ?>
+                <?php require_once './View/login.php';  if(isset($_REQUEST['err'])&&($_REQUEST['err']=="AuthenticationFailed")) {
+				?><center><h3><?PHP $lang->INVAILDLOGIN; ?></h3></center><?php }?>
             </div>
             <div id="googleAdds"></div>
 	    

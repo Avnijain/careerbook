@@ -196,7 +196,7 @@ class Message extends DBConnection {
 				)
 		);
 		$this->From("friends");
-		$this->Where(array("user_id"=>$this->_user_from,"friend_id"=>$this->_user_to));
+		$this->Where(array("user_id"=>$this->_user_from,"friend_id"=>$this->_user_to,"status"=>F));
 		
 		$this->Select();
 		//echo $this->lastQuery();

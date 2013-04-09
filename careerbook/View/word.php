@@ -33,7 +33,7 @@ $projectCount=count($UserProjectInfoDB);                                    // t
 $certificateCount=count($UserCertificateInfoDB);							//to get the total number of certifiactes
 $extraCurricularCount=count($UserExtraCurricularobInfoDB);					//to get the count of Extra Curricular Activities
 $first_name=$UserPersonalInfoDB['first_name']; 								// getting first name
-$dob=($objdate->reverseDateClass($UserPersonalInfoDB['date_of_birth']));
+$dob=($objdate->reverseDateClass($UserPersonalInfoDB['date_of_birth']));	//to get the date of birth in correct format
 $pastWorkDuration=($objdate->getDuration($UserPreviousJobInfo['start_period'],$UserPreviousJobInfo['end_period']));
 if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // When first template is selected by user
 {	
@@ -87,6 +87,18 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 			echo $UserPersonalInfoDB['gender'];
 			echo "</td></tr>";
 		}
+		if(!empty($UserAddressInfoDB['nationality'])) {
+			echo "<tr><td>$lang->NATIONALITY</td>";
+			echo "<td>";
+			echo $UserAddressInfoDB['nationality'];
+			echo "</td></tr>";
+		}
+		if(!empty($UserAddressInfoDB['language'])) {
+			echo "<tr><td>$lang->LANGUAGEPROFICENCY</td>";
+			echo "<td>";
+			echo $UserAddressInfoDB['language'];
+			echo "</td></tr>";
+		}
 		if(!empty($UserExtraCurricularobInfoDB[0]['activity'])) {
 			echo "<tr><td>$lang->EXTRACURRICULAR</td>";
 			if($extraCurricularCount>=1) {
@@ -111,7 +123,9 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['school_10'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['percentage_GPA_10'];
+			if(!empty($UserAcademicInfoDB['percentage_GPA_10'])) {
+			$UserAcademicInfoDB['percentage_GPA_10'] = ltrim($UserAcademicInfoDB['percentage_GPA_10'], '0');
+			echo $UserAcademicInfoDB['percentage_GPA_10']; }
 			echo "</td></tr>";
 		}
 		if(!empty($UserAcademicInfoDB['board_12'])) {  
@@ -121,7 +135,9 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['school_12'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['percentage_12'];
+			if(!empty($UserAcademicInfoDB['percentage_12'])) {
+			$UserAcademicInfoDB['percentage_12'] = ltrim($UserAcademicInfoDB['percentage_12'], '0');
+			echo $UserAcademicInfoDB['percentage_12']; }
 			echo "</td></tr>";
 		}
 		if(!empty($UserAcademicInfoDB['graduation_degree'])) {  
@@ -130,7 +146,20 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['graduation_college'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['graduation_percentage']; 
+			if(!empty($UserAcademicInfoDB['graduation_percentage'])) {
+			$UserAcademicInfoDB['graduation_percentage'] = ltrim($UserAcademicInfoDB['graduation_percentage'], '0');
+			echo $UserAcademicInfoDB['graduation_percentage']; }
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['post_graduation_degree'])) {  
+			echo "<tr><td>$lang->GRADUATION</td><td>";
+			echo $UserAcademicInfoDB['post_graduation_degree'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['post_graduation_college'];
+			echo "</td><td>";
+			if(!empty($UserAcademicInfoDB['post_graduation_percentage'])) {
+			$UserAcademicInfoDB['post_graduation_percentage'] = ltrim($UserAcademicInfoDB['post_graduation_percentage'], '0');
+			echo $UserAcademicInfoDB['post_graduation_percentage']; }
 			echo "</td></tr>";
 		}
 		echo "</table>";
@@ -164,7 +193,7 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 		echo "<tr><td>$lang->DESIGNATION</td><td>";
 		echo  $UserProfessionalInfoDB['current_position'];
 		echo "</td></tr>";
-		echo "<tr><td>$lang->DURATION</td><td>";
+		echo "<tr><td>$lang->WORKINGFROM</td><td>";
 		echo ($objdate->reverseDateClass($UserProfessionalInfoDB['start_period']));
 		echo "</td></tr>";
 		echo "</table>";
@@ -217,8 +246,8 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 			echo "$lang->CERTIFIED"." ";
 			if(!empty( $UserCertificateInfoDB[$i]['duration'])) {
 				echo "$lang->DATED"." ";
-				echo ($objdate->reverseDateClass($UserCertificateInfoDB[$i]['duration']));
-			echo "</br>";	
+				echo ($objdate->reverseDate($UserCertificateInfoDB[$i]['duration']));
+			echo "<br/>";
 			}
 		}
 	}
@@ -228,7 +257,7 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 		echo $pastWorkDuration." ";
 		echo "$lang->WORKEDIN"." ";
 		echo $UserPreviousJobInfo['company'];
-	
+		echo "<br/>";
 	}
 	if(!empty($UserAcademicInfoDB)) {
 	echo "<b><h3>$lang->EDUCATION</h3></b>";
@@ -240,7 +269,9 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['school_10'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['percentage_GPA_10'];
+			if(!empty($UserAcademicInfoDB['percentage_GPA_10'])) {
+			$UserAcademicInfoDB['percentage_GPA_10'] = ltrim($UserAcademicInfoDB['percentage_GPA_10'], '0');
+			echo $UserAcademicInfoDB['percentage_GPA_10']; }
 			echo "</td></tr>";
 		}
 		if(!empty($UserAcademicInfoDB['board_12'])) {  
@@ -250,7 +281,9 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['school_12'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['percentage_12'];
+			if(!empty($UserAcademicInfoDB['percentage_12'])) {
+			$UserAcademicInfoDB['percentage_12'] = ltrim($UserAcademicInfoDB['percentage_12'], '0');
+			echo $UserAcademicInfoDB['percentage_12']; }
 			echo "</td></tr>";
 		}
 		if(!empty($UserAcademicInfoDB['graduation_degree'])) {  
@@ -259,7 +292,20 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['graduation_college'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['graduation_percentage']; 
+			if(!empty($UserAcademicInfoDB['graduation_percentage'])) {
+			$UserAcademicInfoDB['graduation_percentage'] = ltrim($UserAcademicInfoDB['graduation_percentage'], '0');
+			echo $UserAcademicInfoDB['graduation_percentage']; }
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['post_graduation_degree'])) {  
+			echo "<tr><td>$lang->GRADUATION</td><td>";
+			echo $UserAcademicInfoDB['post_graduation_degree'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['post_graduation_college'];
+			echo "</td><td>";
+			if(!empty($UserAcademicInfoDB['post_graduation_percentage'])) {
+			$UserAcademicInfoDB['post_graduation_percentage'] = ltrim($UserAcademicInfoDB['post_graduation_percentage'], '0');
+			echo $UserAcademicInfoDB['post_graduation_percentage']; }
 			echo "</td></tr>";
 		}
 		echo "</table>";
@@ -331,7 +377,9 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['school_10'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['percentage_GPA_10'];
+			if(!empty($UserAcademicInfoDB['percentage_GPA_10'])) {
+			$UserAcademicInfoDB['percentage_GPA_10'] = ltrim($UserAcademicInfoDB['percentage_GPA_10'], '0');
+			echo $UserAcademicInfoDB['percentage_GPA_10']; }
 			echo "</td></tr>";
 		}
 		if(!empty($UserAcademicInfoDB['board_12'])) {  
@@ -341,7 +389,9 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['school_12'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['percentage_12'];
+			if(!empty($UserAcademicInfoDB['percentage_12'])) {
+			$UserAcademicInfoDB['percentage_12'] = ltrim($UserAcademicInfoDB['percentage_12'], '0');
+			echo $UserAcademicInfoDB['percentage_12'];}
 			echo "</td></tr>";
 		}
 		if(!empty($UserAcademicInfoDB['graduation_degree'])) {  
@@ -350,7 +400,20 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 			echo "</td><td>";
 			echo $UserAcademicInfoDB['graduation_college'];
 			echo "</td><td>";
-			echo $UserAcademicInfoDB['graduation_percentage']; 
+			if(!empty($UserAcademicInfoDB['graduation_percentage'])) {
+			$UserAcademicInfoDB['graduation_percentage'] = ltrim($UserAcademicInfoDB['graduation_percentage'], '0');
+			echo $UserAcademicInfoDB['graduation_percentage'];} 
+			echo "</td></tr>";
+		}
+		if(!empty($UserAcademicInfoDB['post_graduation_degree'])) {  
+			echo "<tr><td>$lang->GRADUATION</td><td>";
+			echo $UserAcademicInfoDB['post_graduation_degree'];
+			echo "</td><td>";
+			echo $UserAcademicInfoDB['post_graduation_college'];
+			echo "</td><td>";
+			if(!empty($UserAcademicInfoDB['post_graduation_percentage'])) {
+			$UserAcademicInfoDB['post_graduation_percentage'] = ltrim($UserAcademicInfoDB['post_graduation_percentage'], '0');
+			echo $UserAcademicInfoDB['post_graduation_percentage']; }
 			echo "</td></tr>";
 		}
 		echo "</table>";
@@ -367,7 +430,7 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 			echo "</td>";
 			if(!empty( $UserCertificateInfoDB[$i]['duration'])) {
 			echo "<td>";
-			echo ($objdate->reverseDateClass($UserCertificateInfoDB[$i]['duration']));
+			echo ($objdate->reverseDate($UserCertificateInfoDB[$i]['duration']));
 			echo "</td>";
 			}
 			echo "</tr>";
