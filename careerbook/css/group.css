@@ -103,7 +103,7 @@ textarea.group_textarea {
 	background: #05BFFC;
 	color: #fff
 	border: #fff solid 1px;
-	border-radius: 15px;
+	overflow: hidden;
 }
 
 

@@ -30,7 +30,6 @@ class mainentrance {
 	private function __construct() {
 		$this->obj_usrinfo = new user_info_controller ();
 		$this->objdate = new dateManipulation ();
-	
 	}
 	public static function getinstance() {
 		if (is_null ( mainentrance::$instance )) {
@@ -62,7 +61,6 @@ class mainentrance {
 	// *************************************************change a users
 	// password*************************************
 	private function chngPwd() {
-		
 		if ($_POST ['currPwd'] != " " && $_POST ['newPwd'] != "" && $_POST ['confirmPwd'] != "") {
 			if ($_POST ['newPwd'] == $_POST ['confirmPwd']) {
 				$ObjModel = new MyClass ();
@@ -102,8 +100,7 @@ class mainentrance {
 	private function forgetPasswd() {
 		if ($_SESSION ['secure'] != $_POST ['captcha-code']) {
 			header ( 'location: ../View/forgetPasswd.php?err=1' );
-		} else {
-			
+		} else {	
 			$ObjModel = new MyClass ();
 			$result = $ObjModel->FindLoginUsers ();
 			
@@ -389,7 +386,9 @@ EOD;*/
 				$_POST['last_name']=="" ||
 				$_POST['date_of_birth']==""  )
 		{
-			header ( "location:../View/NewRegistration.php?err=10" );
+		    $_SESSION['registration'] = $_POST;
+
+			header ( "location:../View/NewRegistration.php?err=10&". $_POST );
 			die ();
 		}
 		if ($_POST ['captcha-code'] != $_SESSION ['secure']) {
@@ -411,7 +410,9 @@ EOD;*/
 		}
 		
 		$ObjModel->AddUser ();
-		 $this->sendMail();
+		$_SESSION['registration'] = '';
+		unset($_SESSION['registration']);
+		$this->sendMail();
 		header ( "location:../View/ConfirmRegistration.php" );
 		die ();
 	}

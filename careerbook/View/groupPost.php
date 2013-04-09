@@ -42,7 +42,7 @@
 		<input class="group_button" type="submit" value="Post">
 	</form>
 </div><br/>
-<div class="group_post">
+<div>
 	<?php
 	rsort($groupData);
 	foreach ( $groupData as $keys => $values ) {

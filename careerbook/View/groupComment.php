@@ -15,7 +15,7 @@
 	$groupData1 = unserialize ( $_SESSION ['postDetail'] );
 	$groupData1 = $groupData1->getPostDetail();
 	$uri1 = 'data:image/png;base64,'.base64_encode($groupData1[0]['profile_image']);
-
+	rsort($groupData);
 ?>
 <div  class="group_header group_div">
 	<img src="<?php echo $uri1;?>" class="group_image">
@@ -35,9 +35,9 @@
 		<input type="submit" value="Post" class="group_button">
 	</form>
 </div><br/>
-<div class="group_comment group_div">
+<div>
 	<?php
-	rsort($groupData);
+	
 	foreach ( $groupData as $keys => $values ) {
 		$uri = 'data:image/png;base64,'.base64_encode($groupData[$keys]['profile_image']);
 		?>
