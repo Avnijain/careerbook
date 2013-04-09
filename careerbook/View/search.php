@@ -49,7 +49,7 @@
     
 </table>
 </center>
-<script src="../JavaScript/jquery.min.js" type="text/javascript"></script>
+
 <script src="../JavaScript/search.js"></script>
 <style>
   #frnd td{

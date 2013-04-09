@@ -12,7 +12,12 @@ background-size:contain;
 border-color:#668099;
 	font-size:14px;
 }
-heading { float:left; background:url(../images/content-heading.gif) right top no-repeat; color: #FFFFFF; padding:10px 85px 60px 85; }
+heading { 
+background: url("../images/content-heading.gif") no-repeat scroll right top transparent;
+    color: #FFFFFF;
+    float: left;
+    padding: 10px 85px 60px;
+ }
 p
 {
 background-color:#668099;
