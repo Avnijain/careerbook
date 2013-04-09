@@ -19,6 +19,8 @@ class UserAddressInfo {
 	private $city_name;             //City Name Where user live
 	private $state_name;            //State Name Where user live
 	private $country_name;          //Country Name Where user live
+	private $language;              //Language spoken by user
+	private $nationality;           //Current Nationality of user
 
 	//get the value of specified variable
 	public function getInfoExcptState(){

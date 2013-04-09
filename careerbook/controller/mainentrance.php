@@ -509,7 +509,9 @@ class mainentrance {
 						"address" => "",
 						"city_name" => "",
 						"state_name" => "",
-						"country_name" => ""
+						"country_name" => "",
+						"language" => "",
+				        "nationality" => ""
 				) 
 		);
 		

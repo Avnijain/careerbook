@@ -1,16 +1,20 @@
 RewriteEngine on
 #Deny from all
-Options +Indexes +FollowSymLinks -MultiViews
+Options -Indexes +FollowSymLinks -MultiViews
 #IndexIgnore *
 #RewriteBase /var/www/websites/careerbook/01042013/careerbook.git/trunk/careerbook
 #RewriteRule ^home$ views/userHomePage.php [PT]
 #PHP_flag session.use_cookies Off
 #PHP_flag session.use_only_cookies On
 #PHP_flag session.cookie_secure Off
-ErrorDocument 404 "<html><head><title>NO!</title></head><body><h2><tt>There is nothing here.. go away quickly!</tt></h2></body></html>" 
+ErrorDocument 404 /careerbook.git/trunk/careerbook/error_pages/404.html 
+
+#ErrorLog "/careerbook.git/trunk/careerbook/logs/error.log"
+
 
 # php error logs..
 php_flag display_errors off
 php_flag log_errors on
 php_value track_errors on
+
 

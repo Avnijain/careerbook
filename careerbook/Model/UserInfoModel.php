@@ -324,6 +324,12 @@ class UserInfoModel extends model {
         if(isset($objAddressInfo['address'])){
             $finalInfo["address"] = $objAddressInfo['address'];
         }
+        if(isset($objAddressInfo['language'])){
+            $finalInfo["language"] = $objAddressInfo['language'];
+        }
+        if(isset($objAddressInfo['nationality'])){
+            $finalInfo["nationality"] = $objAddressInfo['nationality'];
+        }
         //print_r($finalInfo);
         if(isset($finalInfo)){
             $this->db->Fields($finalInfo);
@@ -335,6 +341,8 @@ class UserInfoModel extends model {
     }
     public function updateUserAddress($userInfo) {
         $objAddressInfo = $userInfo->getUserAddressInfo();
+//        print_r($objAddressInfo);
+//        die;
         $city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
 
         $user_id = $userInfo->getUserIdInfo();
@@ -349,14 +357,21 @@ class UserInfoModel extends model {
         }
         if(isset($objAddressInfo['address'])){
             $finalInfo["address"] = $objAddressInfo['address'];
-        }        
+        }
+        if(isset($objAddressInfo['language'])){
+            $finalInfo["language"] = $objAddressInfo['language'];
+        }
+        if(isset($objAddressInfo['nationality'])){
+            $finalInfo["nationality"] = $objAddressInfo['nationality'];
+        }
         //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
 
         $this->db->Fields($finalInfo);
         $this->db->From("user_personal_info");
         $this->db->Where(array("user_id"=>$user_id['id']));
         $this->db->Update();
-        //	  	echo $this->db->lastQuery();
+//       	echo $this->db->lastQuery();
+//       	die;
     }
     private function getCityIdInfo($cityName){
         $this->db->From("city");

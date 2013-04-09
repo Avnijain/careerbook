@@ -89,19 +89,24 @@
             location.reload();
      	});
 	});
-	 $( "#city" ).autocomplete({
-    	 minLength: 1,
-    	 source: function( request, response ) {
-        	 $.getJSON( "../Model/fetchCity.php", request, function( data, status, xhr ) {
-        		 var temp = new Array();
-                 $.each(data, function(i, field){
-                     temp[i] = field['name'];
-                   });
-                 response( temp );
-        	 });
-    	 }
+	 $( "#language" ).ready(function(){
+		 var languageSelected = '';
+		 if($("#languageSelected").val()){
+			 var languageSelected = $("#languageSelected").val();
+		 }
+		 $("#language").html("");
+    	 $.getJSON( "../Model/fetchLanguage.php", {"term":""}, function( data, status, xhr ) {
+    		 $("#language").append("<option value=\"default\" selected>Select...</option>");
+             $.each(data, function(i, field){
+                 if(field['name'] != languageSelected){
+                     $("#language").append("<option value="+field['name']+">"+field['name']+"</option>");                     
+                 }
+                 else{
+                	 $("#language").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
+                 }
+               });             
+    	 });
 	 });
-
 
 	 $( "#country" ).ready(function(){
 		 var countrySelected = '';
@@ -311,8 +316,11 @@
                 <fieldset class="step">
                 	<legend><?php echo $lang->PERSONALINFO; ?></legend>
                     <p><label><?php echo $lang->ADDRESS;?> </label> 
-                    <input id="adress" name="address" type="text" AUTOCOMPLETE="OFF" 
-                    <?php if (!empty($UserAddressInfoDB['address'])){?> value="<?php echo $UserAddressInfoDB['address']; } ?>" />
+                    <input id="address" name="address" type="text" AUTOCOMPLETE="OFF" 
+                    <?php if (!empty($UserAddressInfoDB['address'])){?> value="<?php echo $UserAddressInfoDB['address']; } ?>" /></p>
+                    <p><label><?php echo $lang->NATIONALITY;?> </label> 
+                    <input id="nationality" name="nationality" type="text" AUTOCOMPLETE="OFF" 
+                    <?php if (!empty($UserAddressInfoDB['nationality'])){?> value="<?php echo $UserAddressInfoDB['nationality']; } ?>" /></p>                    
                     
                     <p><label><?php echo $lang->COUNTRY;?> </label>
                      <select id="country" name="country_name">
@@ -332,6 +340,12 @@
                      <option id="citySelected" value="<?php echo $UserAddressInfoDB['city_name']; } ?>">"<?php echo $UserAddressInfoDB['city_name']; ?>"</option>
                      </select>
                     </p>
+                    <p><label><?php echo $lang->LANGUAGE;?></label>
+                     <select id="language" name="language">
+                     <?php if (!empty($UserAddressInfoDB['language'])){?> 
+                     <option id="languageSelected" value="<?php echo $UserAddressInfoDB['language']; } ?>">"<?php echo $UserAddressInfoDB['language']; ?>"</option>
+                     </select>
+                    </p>                    
                     <p><label><?php echo $lang->IMAGE;?> </label>
                         <input id="image" name="user_image" type="file" 
                         AUTOCOMPLETE="OFF" />
