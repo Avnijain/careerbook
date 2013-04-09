@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <script type="text/javascript" src="../JavaScript/group.js"> </script>
+<script src="../JavaScript/jquery-1.7.1.js"></script>
 <?php
     include_once('../classes/groupClass.php');
 
@@ -11,7 +12,7 @@
     $userId = $userData['id'];
 ?>
 <div class="button">
-	<a class="btn blue"  href="javascript:addGroup()"><?php echo $lang->ADDGROUP;?></a>
+	<a class="btn blue"  href="../Home/userHomePage.php?addGroup"><?php echo $lang->ADDGROUP;?></a>
 	<a class="btn blue" href="../Home/userHomePage.php?searchGroup"><?php echo $lang->SEARCHGROUP;?></a>
 </div>
 <br/>

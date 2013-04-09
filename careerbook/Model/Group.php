@@ -155,10 +155,7 @@ class Group {
 		$this->db->Where ( array (
 				"id" => $this->_group_id
 		) );
-		$this->db->Update ();
-		//echo $this->db->lastQuery();die;
-		
-	
+		$this->db->Update ();		
 	}
 	
 	//*********************************function to list group post***************************//
@@ -237,7 +234,6 @@ class Group {
 		),true );
 		
 		$this->db->Select ();
-		//echo $this->db->lastQuery();die;
 		return $this->db->resultArray ();
 	}
 	
@@ -263,7 +259,6 @@ class Group {
 		),true );
 	
 		$this->db->Select ();
-		//echo $this->db->lastQuery();die;
 		return $this->db->resultArray ();
 	}
 	

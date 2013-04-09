@@ -5,6 +5,8 @@ $groupData= $groupData->getGroupDetail();
 
 ?>
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
+<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../JavaScript/group.js"> </script>
 
 <div id="add_group">
 	<form id="edit_group_form" enctype="multipart/form-data"
@@ -13,13 +15,25 @@ $groupData= $groupData->getGroupDetail();
 		<div>
 			<label><?php echo $lang->TITLE;?></label><br />
 			<input class="group_textbox" type="text" placeholder="Group Title"
-				value="<?php echo $groupData[0]['title'];?>" name="title" id="title" />
+				value="<?php echo $groupData[0]['title'];?>" name="title" id="title" /><br/>
+				<?php
+        		if(isset($_GET['errno'])) {
+        		    if($_GET['errno'] == 5)
+        		        echo '<br/>Title must not be empty and should be less than 60 chars';
+        		}
+        		?>
 		</div>
 		<br /> <br />
 		<div>
 			<label><?php echo $lang->GROUPDESCRIPTION;?></label><br />
 			<textarea class="group_textarea" name="description" cols="25"
-				rows="06"><?php echo nl2br($groupData[0]['description']);?></textarea>
+				rows="06"><?php echo nl2br($groupData[0]['description']);?></textarea><br/>
+				<?php
+        		if(isset($_GET['errno'])) {
+        		    if($_GET['errno'] == 6)
+        		        echo '<br/>Description must not be empty and should be less than 60 chars';
+        		}
+        		?>
 		</div>
 		<div>
 			<label><?php echo $lang->GROUPIMAGE;?></label><br /> <input class="btn blue" type="file"

@@ -56,12 +56,7 @@
 	<div class="group_post group_div">
 		<img src="<?php echo $uri;?>" class="group_image">
 		<?php
-		if (strlen($values ['description']) > 10) {
-			echo "<p id=\"".$values ['id'] ."\" >". nl2br(htmlspecialchars(substr($values ['description'],0,10))) .'...' . "<a onclick=expand(" .$values ['id'] .",\"".addslashes($values ['description']."\"").");>.$lang->VIEWMORE.</a></p>";
-		} else {
-			echo "<p>". $values ['description'] . "</p>";
-		}
-	
+		echo "<p>". $values ['description'] . "</p>";
 		echo "<br/> ".$lang->POSTEDBY. "<a href='#'> " . $values ['first_name'] . " " . $values['middle_name'] . " " . $values['last_name']. "</a> ";
 		echo $lang->ON ." ". $values ['created_on'] . "<br/>";
 		if ($values ['created_by'] == $userId) {

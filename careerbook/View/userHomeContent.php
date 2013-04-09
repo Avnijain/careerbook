@@ -78,8 +78,8 @@ $(function() {
 <div id="contentCenter">
 
 <?php
-if (isset($_GET['getGroup'])) {
-	include 'group.php';
+if (isset($_GET['addGroup'])) {
+	include 'add_group.php';
 }else if (isset($_GET['Group'])) {
 	include 'group.php';
 } else if (isset($_GET['addGroup'])) {

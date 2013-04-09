@@ -40,6 +40,17 @@ class GroupHandler extends Group {
 	
 	//*********************function to handle add group request**************************************//
 	function handleAddGroup() {
+	    
+	    $lengthTitle = strlen(utf8_decode($_POST ['title']));
+	    $lengthDescription = strlen(utf8_decode($_POST ['description']));
+	    if ($lengthTitle == 0 || $lengthTitle > 60) {
+	        header ( 'Location: ../Home/userHomePage.php?addGroup&errno=3');
+		    die;
+	    }
+	    if ($lengthDescription == 0 || $lengthDescription > 60) {
+	        header ( 'Location: ../Home/userHomePage.php?addGroup&errno=4');
+	        die;
+	    }
 		$this->_obj_group_model->_group_title = trim ( $_POST ['title'] );
 		$this->_obj_group_model->_group_title = htmlentities(( $_POST ['title']), ENT_COMPAT, 'UTF-8');
 		$this->_obj_group_model->_group_title = mysql_real_escape_string ( $_POST ['title'] );
@@ -57,6 +68,17 @@ class GroupHandler extends Group {
 	
 	//*********************************function to handle edit group Request**********************************//
 	function handleEditGroup() {
+	    
+	    $lengthTitle = strlen(utf8_decode($_POST ['title']));
+	    $lengthDescription = strlen(utf8_decode($_POST ['description']));
+	    if ($lengthTitle == 0 || $lengthTitle > 60) {
+	        header ( 'Location: ../Home/userHomePage.php?editGroup&errno=5');
+	        die;
+	    }
+	    if ($lengthDescription == 0 || $lengthDescription > 60) {
+	        header ( 'Location: ../Home/userHomePage.php?addGroup&errno=6');
+	        die;
+	    }
 		$this->_obj_group_model->_group_id = $_REQUEST['groupId'];
 		
 		$this->_obj_group_model->_group_title = trim ( $_POST ['title'] );
@@ -132,7 +154,7 @@ class GroupHandler extends Group {
 		$this->_obj_group_model->_group_discussion_description = mysql_real_escape_string ( $_POST ['group_discussion_description'] );
 		
 		$this->_obj_group_model->edit_post ();
-		header ( 'Location: ../controller/mainentrance.php?action=getPost&groupId = '. $_REQUEST ['groupId']);
+		header ( 'Location: ../controller/mainentrance.php?action=getPost&groupId='.$_REQUEST ['groupId']);
 		die;
 	}
 	

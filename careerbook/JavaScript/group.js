@@ -3,30 +3,52 @@ $(function() {
 	$('#add_group_form')
 		.submit(
 			function() {
+				if ($('#title').val().length == 0 ||
+						$('#title').val().length > 60) {
+						$('#title')
+							.addClass('error')
+							.after(
+							'<br/><span class="error"><br/>This title must not be empty or greater than 60 characters </span>');
+							return false;
+					}
 				if ($('#description').val().length == 0 ||
 						$('#description').val().length > 250) {
 					$('#description')
 						.addClass('error')
 						.after(
-						'<br/><span class="error"><br/>This field must not be empty or greater than 250 characters </span>');
+						'<br/><span class="error"><br/>This description must not be empty or greater than 250 characters </span>');
 						return false;
 				}
+			}	
+		);
+	
+	$('#edit_group_form')
+	.submit(
+			function() {
 				if ($('#title').val().length == 0 ||
-					$('#title').val().length > 60) {
-					$('#title')
+						$('#title').val().length > 60) {
+						$('#title')
+							.addClass('error')
+							.after(
+							'<br/><span class="error"><br/>This title must not be empty or greater than 60 characters </span>');
+							return false;
+					}
+				if ($('#description').val().length == 0 ||
+						$('#description').val().length > 250) {
+					$('#description')
 						.addClass('error')
 						.after(
-						'<br/><span class="error"><br/>This field must not be empty </span>');
+						'<br/><span class="error"><br/>This description must not be empty or greater than 250 characters </span>');
 						return false;
 				}
-			}
-		);
-
-	$('#description').focus(function() {
-		$(this).removeClass('error').next('span').remove();
-	});
+			}		
+	);
 
 	$('#title').focus(function() {
+		$(this).removeClass('error').next('span').remove();
+	});
+	
+	$('#description').focus(function() {
 		$(this).removeClass('error').next('span').remove();
 	});
 
@@ -63,6 +85,20 @@ $(function() {
 	$('#group_discussion_comment').focus(function() {
 		$(this).removeClass('error').next('span').remove();
 	});
+	
+	$('#editPost_form')
+	.submit(
+		function() {
+			if (($('#group_discussion_description').val().length > 100) || ($('#group_discussion_description').val().length == 0)) {
+				$('#group_discussion_description')
+					.addClass('error')
+					.after(
+					'<span class="error"><br/>This Comment must not empty and less than 100 chars.</span>');
+					return false;
+			}
+		}
+	);
+
 });
 
 
@@ -79,22 +115,6 @@ function editGroup() {
     $("#selectorLogin").trigger("click");
     
 }
-
-$(document).ready(function() {
-
-		$("#selectorLogin").fancybox({
-        'width'			: 450,
-        'height'		: 400,
-        'autoScale'		: true,
-        'transitionIn'	: 'none',
-        'transitionOut'	: 'none',
-        'type'			: 'iframe',
-        'onClosed'      : function() {
-            parent.location.reload(true);
-        }
-    });
-	
-});
 
 function groupList() {
 	$.post('../controller/mainentrance.php',{'action':'Group'},function(){        
@@ -145,5 +165,9 @@ function unlinkGroup(groupId) {
     } else {
 
     }
+}
+
+function cancelAddGroup() {
+	window.location="userHomePage.php?Group";
 }
 
