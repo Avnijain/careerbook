@@ -31,7 +31,7 @@ $(document).ready(function() {
 	
 	<!-- Captcha HTML Code -->
 	
-	<div id="captcha-wrap"><?php echo $lang->CAPTCHA ?>captcha
+	<div id="captcha-wrap"><?php echo $lang->CAPTCHA ?>
 		<div class="captcha-box">
 			<img src="get_captcha.php" alt="" id="captcha" />
 		</div>

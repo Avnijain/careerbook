@@ -17,6 +17,8 @@ ini_set ( "display_errors", "1" );
 require_once '../Model/model.php';
 require_once '../Model/validation.php';
 require_once '../controller/userInfo.php';
+require_once "../classes/class.phpmailer.php";
+require_once "../classes/class.smtp.php";
 require_once '../controller/group_controller.php';
 require_once '../classes/dateManipulation.php';
 require_once '../controller/message_controller.php';
@@ -119,34 +121,42 @@ class mainentrance {
 				$link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/link/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;
 				
 				/*
-				 * mail here
+				 * ***********************************mail here*******************************************************
 				 */
-				$emailSubject = 'CareerBook:Forget password Link';
-				$mailto = 'avni.jain@osscube.com';
-				$emailField=$result[0]['email_primary'];
-				$name=$result[0]['first_name'];
-				/* These will gather what the user has typed into the fieled. */
+				$mail = new PHPMailer();
+				$mail->IsSMTP();
+				$mail->SMTPAuth = true;
+				$mail->Host = "ssl://smtp.gmail.com";
+				$mail->Port = 465;
+				$mail->Username = "careerbook2013@gmail.com";
+				$mail->Password = "2013careerbook*";
+				$mail->SMTPDebug = 1;
+				$webmaster_email = "careerbook2013@gmail.com";
 				
 				
+				$email="avni.jain@osscube.com";
+				$name="Avni";
+				/*$emailField=$result[0]['email_primary'];
+				$name=$result[0]['first_name'];*/
 				
-				/* This takes the information and lines it up the way you want it to be sent in the email. */
 				
-				$body = <<<EOD
-				<br><hr><br>
-				hiii:$name <br>
-				The requested link for your changed password is given below: $link <br>
-EOD;
-				/*$body = <<<EOD
-                       <br><hr><br>
-                      Name: $nameField <br>
-                      Email: $emailField <br>
-                      Question: $questionField <br>
-EOD;*/
+				$mail->From = $webmaster_email;
+				$mail->FromName = "CareerBook";
+				$mail->AddAddress($email,$name);
+				$mail->AddReplyTo($webmaster_email,"Webmaster");
+				$mail->WordWrap = 50; // set word wrap
+				$mail->IsHTML(true); // send as HTML
+				$mail->Subject = 'CareerBook:Forget Password help';
+				$mail->Body="<br>Dear User,The requested link for your changed password is given below:<br>".
+						"link:".$link."<br>";
+				$mail->AltBody = "This is the body when user views in plain text format"; //Text Bod
 				
-				$headers = "From: $emailField\r\n"; // This takes the email and displays it as who this email is from.
-				$headers .= "Content-type: text/html\r\n"; // This tells the server to turn the coding into the text.
-				$success = mail($mailto, $emailSubject, $body, $headers);
-				
+				if($mail->Send()) {
+					echo $lang->MAILSENT;
+				} else {
+					echo  $mail->ErrorInfo;
+				}
+				//**********************************************************************************************				
 				header ( 'location: ../View/forgetPasswd.php?code' );
 			}
 		}
@@ -412,7 +422,7 @@ EOD;*/
 		$ObjModel->AddUser ();
 		$_SESSION['registration'] = '';
 		unset($_SESSION['registration']);
-		$this->sendMail();
+		$this->mailToUser();
 		header ( "location:../View/ConfirmRegistration.php" );
 		die ();
 	}
@@ -755,40 +765,44 @@ EOD;*/
 		return $error;
 	}
 	//**********************************************send mail to register user***********************************************
-	private function sendMail() {
-		$emailSubject = 'Registration in careerbook';
-		//$userEmail=$_POST ['email'];
-		//$mailto =$userEmail;
-		$mailto = 'avni.jain@osscube.com';
+	
+	private function mailToUser()
+	{
+		$mail = new PHPMailer();
+		$mail->IsSMTP();
+		$mail->SMTPAuth = true;
+		$mail->Host = "ssl://smtp.gmail.com";
+		$mail->Port = 465;
+		$mail->Username = "careerbook2013@gmail.com";
+		$mail->Password = "2013careerbook*";
+		$mail->SMTPDebug = 1;
+		$webmaster_email = "careerbook2013@gmail.com";
 		
-		/* These will gather what the user has typed into the fieled. */
 		
+		$email="avni.jain@osscube.com";
+		$name="Avni";
+		
+		
+		$mail->From = $webmaster_email;
+		$mail->FromName = "CareerBook";
+		$mail->AddAddress($email,$name);
+		$mail->AddReplyTo($webmaster_email,"Webmaster");
+		$mail->WordWrap = 50; // set word wrap
+		$mail->IsHTML(true); // send as HTML
+		$mail->Subject = 'Registration in careerbook';
 		$userPassword=$_SESSION ['userDefaultPwd'];
-		/* This takes the information and lines it up the way you want it to be sent in the email. */
-		$body = <<<EOD
-				<br>Dear User,Your password for registration with careerbook<br>
-				password:$userPassword<br>
-			 <br>
-EOD;
-		/*
-		$body = <<<EOD
-<br>Dear $_POST ['firstname']<br>
-Verification of your email address is pending <br>
-username: $_POST ['email'] <br>
-password: $_SESSION ['userDefaultPwd'] <br>
-				Kindly login with this user name and password to complete verification of your email.
-				http://www.careerbook.com/
-
-				Best wishes,
-				Team CareerBook
-EOD;*/
+		$mail->Body="<br>Dear User,Your password for registration with careerbook<br>".
+				"User Name:".$_POST['email_primary']."<br>".
+				"password:".$userPassword."<br>";
+		$mail->AltBody = "This is the body when user views in plain text format"; //Text Bod	
 		
-		$headers = "From: mailcareerbook@gmail.com \r\n"; // This takes the email and displays it as who this email is from.
-		$headers .= "Content-type: text/html\r\n"; // This tells the server to turn the coding into the text.
-		$success = mail($mailto, $emailSubject, $body, $headers);
-		echo "mail sent";
-		//echo $lang->MAILSENT;
+		if($mail->Send()) {
+			echo $lang->MAILSENT;
+		} else {
+			echo "Mailer Error: " . $mail->ErrorInfo;
+		}
 	}
+	
 } //***********************************************End of class*****************************
 
 $obj = mainentrance::getinstance ();

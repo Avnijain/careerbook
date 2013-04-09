@@ -1,6 +1,6 @@
 <?php
-    include_once("../classes/lang.php");
-    require_once '../controller/userInfo.php';
+    //include_once("../classes/lang.php");
+    //require_once '../controller/userInfo.php';
     require_once '../classes/dateManipulation.php';
     $objUserInfo = unserialize($_SESSION['userData']);
     $UserPersonalInfoDB = $objUserInfo->getUserPersonalInfoDB();
