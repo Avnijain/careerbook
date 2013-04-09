@@ -127,8 +127,7 @@ class user_info_controller
 /**************************************** User Address Information ***************************************************/
 	public function setUserAddressInfoForm($result){
 		$this->objAddressInfo->setinfo($result);		
-		$resultDB = $this->ObjUserModel->fetchUserAddressInfo($this);		
-
+		$resultDB = $this->ObjUserModel->fetchUserAddressInfo($this);
 		if(count($resultDB) > 0 ){
 			$this->ObjUserModel->updateUserAddress($this);
 		}
@@ -138,6 +137,8 @@ class user_info_controller
 	}
 	public function setUserAddressInfoDb(){
 		$result = $this->ObjUserModel->fetchFullUserAddressInfo($this);
+//		print_r($result);
+//		die;
 		if(count($result) > 0 ){
 			$this->objAddressInfo->setinfo($result);
 			return true;

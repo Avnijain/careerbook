@@ -567,19 +567,11 @@ EOD;*/
 		 * ***********************
 		 */
 		$flagData = false;
-		if (isset ( $_POST ['start_periodPREVJOB'] ) || isset ( $_POST ['end_periodPREVJOB'] )) {
-			if (! empty ( $_POST ['start_periodPREVJOB'] ) || ! empty ( $_POST ['end_periodPREVJOB'] )) {
-				$userPreviousJobInfo [0] ['start_period'] = $_POST ['start_periodPREVJOB'];
-				$userPreviousJobInfo [0] ['end_period'] = $_POST ['end_periodPREVJOB'];
-			}
-		}
-		foreach ( array_keys ( $userPreviousJobInfo [0] ) as $key => $value ) {
-			if ("$value" != "start_period" && "$value" != "end_period") {
-				if (isset ( $_POST [$value] )) {
-					if (! empty ( $_POST [$value] )) {
-						$userPreviousJobInfo [0] [$value] = $_POST [$value];
-						$flagData = true;
-					}
+		foreach ( array_keys ( $userPreviousJobInfo [0] ) as $key => $value ) {			
+			if (isset ( $_POST ["PreviousJob_".$value] )) {
+				if (! empty ( $_POST ["PreviousJob_".$value] )) {
+					$userPreviousJobInfo [0] [$value] = $_POST ["PreviousJob_".$value];
+					$flagData = true;
 				}
 			}
 		}
@@ -671,15 +663,6 @@ EOD;*/
 		 * ************************** User Personal Information ***********************
 		 */
 		$flagData = false;
-		if(isset($_POST['date_of_birth'])){
-		    if(!empty($_POST['date_of_birth'])){
-        	     $date = new DateTime($_POST['date_of_birth']);
-        	     $date = $date->format("Y/m/d");
-        	     if($_POST['date_of_birth'] != $date){
-        	         $_POST['date_of_birth'] = $this->objdate->reverseDate($_POST['date_of_birth']);
-        	     }    
-		    }
-		}
 		foreach ( array_keys ( $userPersonalInfo [0] ) as $key => $value ) {
 			if (isset ( $_POST [$value] )) {
 				if (! empty ( $_POST [$value] )) {
@@ -689,16 +672,15 @@ EOD;*/
 			}
 		}
 		if ($flagData) {
-		    $this->obj_usrinfo->setUserPersonalInfoForm ( $userPersonalInfo );
-//			$error = $this->obj_usrinfo->setUserPersonalInfoForm ( $userPersonalInfo );
-//			if(isset($error)){
-//			    if(!empty($error)){
-//			        if($error != 0){
-//			         header ("location:../Home/userHomePage.php?profile&err=".$error);
-//			         die;
-//			        }		            
-//			    }			        
-//			}
+		    $error = $this->obj_usrinfo->setUserPersonalInfoForm ( $userPersonalInfo );			
+			if(isset($error)){
+			    if(!empty($error)){
+			        if($error != 0){
+			         header ("location:../Home/userHomePage.php?profile&err=".$error);
+			         die;
+			        }		            
+			    }			        
+			}
 			// die;
 			// echo "inserting professional";
 		}
@@ -736,9 +718,9 @@ EOD;*/
 				}
 			}
 		}
-		// echo "<pre/>";
-		// print_r($userCertificationInfo);
-		// die;
+// echo "<pre/>";
+// print_r($userCertificationInfo);
+// die;
 		if ($flagData) {
 			$this->obj_usrinfo->setUserCertificateInfoForm ( $userCertificationInfo );
 			// echo "inserting Academic";

@@ -65,3 +65,4 @@ skill varchar(80) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'ski
 
 ) ENGINE = INNODB AUTO_INCREMENT = 1;
 
+mysql> alter table user_certification_info modify column created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'DURATION OF CERTIFICATION';

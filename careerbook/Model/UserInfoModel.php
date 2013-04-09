@@ -310,13 +310,16 @@ class UserInfoModel extends model {
     }
     public function insertIntoUserAddress($userInfo){
         $objAddressInfo = $userInfo->getUserAddressInfo();
+
         $user_id = $userInfo->getUserIdInfo();
         $finalInfo = array();
         $finalInfo["user_id"] = $user_id['id'];
         
         if(isset($objAddressInfo['city_name'])){
             $city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
-            $finalInfo["city_id"] = $city_id[0]['id'];            
+            if(!empty($city_id)){
+             $finalInfo["city_id"] = $city_id[0]['id'];
+            }
         }
         if(isset($objAddressInfo['address'])){
             $finalInfo["address"] = $objAddressInfo['address'];
@@ -333,12 +336,20 @@ class UserInfoModel extends model {
     public function updateUserAddress($userInfo) {
         $objAddressInfo = $userInfo->getUserAddressInfo();
         $city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
-        $user_id = $userInfo->getUserIdInfo();
 
-        $finalInfo = array("user_id"=>$user_id['id'],
-				"address"=>$objAddressInfo['address'],
-				"city_id"=>$city_id[0]['id']
-        );
+        $user_id = $userInfo->getUserIdInfo();
+        $finalInfo = array();
+        $finalInfo["user_id"] = $user_id['id'];
+        
+        if(isset($objAddressInfo['city_name'])){
+            $city_id = $this->getCityIdInfo($objAddressInfo['city_name']);
+            if(!empty($city_id)){
+             $finalInfo["city_id"] = $city_id[0]['id'];
+            }
+        }
+        if(isset($objAddressInfo['address'])){
+            $finalInfo["address"] = $objAddressInfo['address'];
+        }        
         //	  	print_r($objProfessionalInfo);  // For Testing Display Array Data
 
         $this->db->Fields($finalInfo);

@@ -100,7 +100,6 @@ class UserDataValidation {
 	// validate User data
 	// **************************************************************
 	public function validate($userData) {
-		$error;
 		foreach ( $userData as $keys => $values ) {
 			if (in_array ( $keys, $this->_intgerType )) {
 				$error = $this->validateInt ( $values );
@@ -108,12 +107,12 @@ class UserDataValidation {
 					break;
 				}
 			}
-			if (in_array ( $keys, $this->_dateType )) {
-				$error = $this->validateDate ( $values );
-				if ($error != 0) {
-					break;
-				}
-			}
+//			if (in_array ( $keys, $this->_dateType )) {
+//				$error = $this->validateDate ( $values );
+//				if ($error != 0) {
+//					break;
+//				}
+//			}
 			if (in_array ( $keys, $this->_floatType )) {
 				$error = $this->validateFloat ( $values );
 				if ($error != 0) {
@@ -153,7 +152,7 @@ class UserDataValidation {
 		if ($value == "") {
 			return 0;
 		}
-		if (! filter_var ( $value, FILTER_VALIDATE_INT )) {
+		if (! filter_var ( $value, FILTER_VALIDATE_INT)) {
 			return 1;
 		} else {
 			return 0;

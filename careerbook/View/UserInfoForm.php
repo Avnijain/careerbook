@@ -56,7 +56,7 @@
         	   maxDate: '-1d'
   		});
      });
-     $("#datepicker").datepicker({
+     $("#dateOfBirth").datepicker({
   	   changeYear: true,
   	   changeMonth: true,
   	   dateFormat: 'yy/mm/dd',
@@ -106,7 +106,11 @@
 
 
 	 $( "#country" ).ready(function(){
-		 var countrySelected = $("#countrySelected").val();		 
+		 var countrySelected = '';
+		 if($("#countrySelected").val()){
+			 var countrySelected = $("#countrySelected").val();
+		 }
+		 $("#country").html("");
     	 $.getJSON( "../Model/fetchCountry.php", {"term":""}, function( data, status, xhr ) {
     		 $("#country").append("<option value=\"default\" selected>Select...</option>");
              $.each(data, function(i, field){
@@ -122,9 +126,10 @@
 	 });
 	 $( "#country" ).on({
 		 change:function(){
-		 if($("#stateSelected").val() != 'undefined'){
-			 var stateSelected = $("#stateSelected").val();
-		 }
+		 var stateSelected = '';
+		 if($("#stateSelected").val()){
+			 stateSelected = $("#stateSelected").val();
+		 }		 
     	 $.getJSON( "../Model/fetchState.php", {"term":$(this).val()}, function( data, status, xhr ) {
     		 $("#state").html("");
     		 $("#state").append("<option value=\"default\" selected>Select...</option>");    		 
@@ -136,14 +141,16 @@
                 	 $("#state").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
                 	 $("#state").trigger("change");
             	 }
-               });             
+               });
+             $("#state").trigger("change");
     	 });
 		 }  
 	 });
 	 $( "#state" ).on({
 		change:function(){
-		 if($("#citySelected").val() != 'undefined'){
-			 var citySelected = $("#citySelected").val();
+		 var citySelected = '';
+		 if($("#citySelected").val()){
+			 citySelected = $("#citySelected").val();
 		 }			
 		 $("#city").html("");
 		 $("#city").append("<option value=\"none\" selected=\"true\">none</option>");
@@ -155,8 +162,7 @@
             		 $("#city").append("<option value="+field['name']+">"+field['name']+"</option>");
             	 }
             	 else{
-                	 $("#city").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
-                	 $("#city").trigger("change");
+                	 $("#city").append("<option value="+field['name']+" selected>"+field['name']+"</option>");                	
             	 }
 	           });
 		 });
@@ -215,12 +221,8 @@
             return false;
           }
         });
-
-
-
-    
  });
-    function addMoreDegree()
+    function addMoreProject()
     {
         var $text1="<p><label ><?php echo $lang->TITLE;?> </label>";
         var $text2="<input id=\"title\" name=\"title[]\" type=\"text\" AUTOCOMPLETE=OFF />";
@@ -230,7 +232,7 @@
         var $text6="<input id=\"technology\" name=\"technology_used[]\" type=\"text\" AUTOCOMPLETE=OFF />";
         var $text7="<label ><?php echo $lang->DURATION;?></label>";                                                  
         var $text8="<input id=\"duration\" name=\"duration[]\" type=\"number\" AUTOCOMPLETE=OFF /></p>";                  
-        $("#otherDegree").append($text1+$text2+$text3+$text4+$text5+$text6+$text7+$text8);
+        $("#ExtraProject").append($text1+$text2+$text3+$text4+$text5+$text6+$text7+$text8);
     }
     function addMoreCertificate()
     {
@@ -240,18 +242,26 @@
         var $text4="<input id=\"certificatedescription\" name=\"certificate_description[]\" type=\"text\" AUTOCOMPLETE=OFF />";
         var $text5="<label ><?php echo $lang->DATEDAT;?></label>";
         var $text6="<input id=\"datedat\" name=\"certificate_duration[]\" class=\"certificate\" type=\"text\" AUTOCOMPLETE=OFF />";                  
-        $("#otherCertificate").append($text1+$text2+$text3+$text4+$text5+$text6);
+        $("#ExtraCertificate").append($text1+$text2+$text3+$text4+$text5+$text6);
     }
     function addMoreExtraCurricular()
     {
         var $text1="<p><label ><?php echo $lang->EXTRACURRICULAR;?> </label>";
         var $text2="<input id=\"extracurricular\" name=\"extracurricular_activity[]\" type=\"text\" AUTOCOMPLETE=OFF />";
-        $("#otherCertificate").append($text1+$text2);
+        $("#ExtraCertificate").append($text1+$text2);
     }
 </script>
 <div id="mainWrapper">
 <div><span class="reference"> </span></div>
     <div id="content">
+    <div id="formErrors">
+    <?php 
+    if(isset($_GET['err'])){
+    	
+    	echo "<h3>$lang->REGISTRATIONERROR".$_GET['err']."[".$lang->getRegError($_GET['err'])."]</h3>";
+    }
+    ?> 
+    </div>
 		<div id="wrapper" style="width: 780px">
 			<div id="steps" style="width: 700px">
 				<form id="formElem" name="formElem"	action="../controller/mainentrance.php?action=profileinfo"
@@ -280,19 +290,23 @@
                     <input type="radio" name="gender"
                     <?php if($select =="female"){?> checked="checked" <?php } ?> value="female"> <?php echo $lang->FEMALE;?></p>
                     <p><label><?php echo $lang->DOB;?></label>
-                    <input type="text"	id="datepicker" name="date_of_birth" readonly="true"
+                    <input type="text"	id="dateOfBirth" name="date_of_birth" readonly="true"
                     <?php if(!empty($UserPersonalInfoDB['date_of_birth'])){ //echo
                     $UserPersonalInfoDB['date_of_birth']; ?> 
-                    value="<?php echo $objdate->formatDate($UserPersonalInfoDB['date_of_birth'],"d/m/Y"); } ?>" 
+                    value="<?php echo $UserPersonalInfoDB['date_of_birth'];} ?>" 
                     /></p>
-                    
+                                        
                     <p><label><?php echo $lang->EMAIL;?></label> 
                     <input id="email" name="email_primary" placeholder="info@tympanus.net" type="email"	disabled="disabled" AUTOCOMPLETE="OFF"
                     <?php if(!empty($UserPersonalInfoDB['email_primary'])){?> value="<?php echo $UserPersonalInfoDB['email_primary']; } ?>" /></p>
-                    
+                                                            
                     <p><label><?php echo $lang->SEC_EMAIL;?></label> 
                     <input id="email" name="email_secondary" placeholder="info@tympanus.net" type="email"
                     <?php if (!empty($UserPersonalInfoDB['email_secondary'])){?> value="<?php echo $UserPersonalInfoDB['email_secondary']; } ?>" /></p>
+ 	                <p><label><?php echo $lang->EMAIL;?></label>
+ 	                <input id="phoneno" name="phone_no" placeholder="XXXXXXXXXX" type="text" AUTOCOMPLETE="OFF"
+                    <?php if(!empty($UserPersonalInfoDB['phone_no'])){?> value="<?php echo $UserPersonalInfoDB['phone_no']; } ?>" /></p>
+                     
                 </fieldset>
                 
                 <fieldset class="step">
@@ -319,85 +333,129 @@
                      <option id="citySelected" value="<?php echo $UserAddressInfoDB['city_name']; } ?>">"<?php echo $UserAddressInfoDB['city_name']; ?>"</option>
                      </select>
                     </p>
-                    <p><label><?php echo $lang->IMAGE;?> </label> 
-                    <input id="image" name="user_image" type="file" AUTOCOMPLETE="OFF" /></p>
+                    <p><label><?php echo $lang->IMAGE;?> </label>
+                        <input id="image" name="user_image" type="file" 
+                        AUTOCOMPLETE="OFF" />
+                        <?php if (!empty($UserPersonalInfoDB['profile_image']))
+                        {
+                        	$uri = 'data:image/png;base64,'
+                        	.base64_encode($userData['profile_image']);
+                        ?>
+                        <img id="userProfilePic" alt="user"
+                        src="<?php echo $uri;?>" width="50" height="50">
+                        <?php }?>
+                    </p>
                 </fieldset>
                 <fieldset class="step">
                     <legend> <?php echo $lang->EDUCATION; ?></legend>
                     <p>
-                        <label><?php echo $lang->BOARD10;?> </label> 
-                        <input id="board_10" name="board_10" type="text" AUTOCOMPLETE="OFF"
-                        <?php if(!empty($UserAcademicInfoDB['board_10'])){?> value="<?php echo $UserAcademicInfoDB['board_10']; } ?>"/> 
+                        <label><?php echo $lang->BOARD10;?> </label>
+                        <input id="board_10" name="board_10" type="text"
+                        AUTOCOMPLETE="OFF"
+                        <?php if(!empty($UserAcademicInfoDB['board_10'])){?>
+                        value="<?php echo $UserAcademicInfoDB['board_10']; } ?>"/>
+                        
                         <label><?php echo $lang->SCHOOL10;?> </label> 
-                        <input id="school_10" name="school_10" type="text" AUTOCOMPLETE="OFF"
-                        <?php if(!empty($UserAcademicInfoDB['school_10'])){?> value="<?php echo $UserAcademicInfoDB['school_10']; } ?>" /> 
+                        <input id="school_10" name="school_10" type="text" 
+                        AUTOCOMPLETE="OFF"
+                        <?php if(!empty($UserAcademicInfoDB['school_10'])){?>
+                        value="<?php echo $UserAcademicInfoDB['school_10']; } ?>" />
+                        
                         <label><?php echo $lang->PERCENTAGE;?> </label> 
-                        <input id="10percentage" name="percentage_GPA_10" type="number" AUTOCOMPLETE="OFF"
-                        <?php if (!empty($UserAcademicInfoDB['percentage_GPA_10'])){?> value="<?php echo $UserAcademicInfoDB['percentage_GPA_10']; } ?>" />
+                        <input id="10percentage" name="percentage_GPA_10" 
+                        AUTOCOMPLETE="OFF"
+                        <?php if (!empty($UserAcademicInfoDB['percentage_GPA_10']))
+                        {?> value="<?php echo 
+                        floatval($UserAcademicInfoDB['percentage_GPA_10']); } ?>" />
                     </p>
                     <p>
                         <label><?php echo $lang->BOARD12;?> </label>
-                        <input id="board_10" name="board_12" type="text" AUTOCOMPLETE="OFF"
-                        <?php if (!empty($UserAcademicInfoDB['board_12'])){?> value="<?php echo $UserAcademicInfoDB['board_12']; } ?>" />
+                        <input id="board_10" name="board_12" type="text" 
+                        AUTOCOMPLETE="OFF"
+                        <?php if (!empty($UserAcademicInfoDB['board_12'])){?>
+                        value="<?php echo $UserAcademicInfoDB['board_12']; } 
+                        ?>" />
+                        
                         <label><?php echo $lang->SCHOOL12;?></label>
-                        <input id="school_10" name="school_12" type="text" AUTOCOMPLETE="OFF"
-                        <?php if(!empty($UserAcademicInfoDB['school_12'])){?> value="<?php echo $UserAcademicInfoDB['school_12']; } ?>" />
+                        <input id="school_10" name="school_12" type="text" 
+                        AUTOCOMPLETE="OFF"
+                        <?php if(!empty($UserAcademicInfoDB['school_12'])){?>
+                        value="<?php echo $UserAcademicInfoDB['school_12']; } ?>" />
+                        
                         <label><?php echo $lang->PERCENTAGE;?> </label> 
-                        <input id="10percentage" name="percentage_12" type="number" AUTOCOMPLETE="OFF"
-                        <?php if(!empty($UserAcademicInfoDB['percentage_12'])){?> value="<?php echo $UserAcademicInfoDB['percentage_12']; } ?>" />
+                        <input id="10percentage" name="percentage_12" 
+                        AUTOCOMPLETE="OFF"
+                        <?php if(!empty($UserAcademicInfoDB['percentage_12']))
+                        {?> 
+                        value="<?php echo floatval($UserAcademicInfoDB['percentage_12']);
+                        } ?>" />
                     </p>
                     <p>
                         <label><?php echo $lang->DEGREE;?> </label> 
                         <input id="board_10" name="graduation_degree" type="text" AUTOCOMPLETE="OFF"
-                        <?php if (!empty($UserAcademicInfoDB['graduation_degree'])){?> value="<?php echo $UserAcademicInfoDB['graduation_degree']; } ?>" /> 
+                        <?php if (!empty($UserAcademicInfoDB['graduation_degree'])){?> 
+                        value="<?php echo $UserAcademicInfoDB['graduation_degree']; } ?>" /> 
                         <label><?php echo $lang->SPECIALIZATION;?></label>
                         <input id="school_10" name="graduation_specialization" type="text" AUTOCOMPLETE="OFF"
-                        <?php if (!empty($UserAcademicInfoDB['graduation_specialization'])){?> value="<?php echo $UserAcademicInfoDB['graduation_specialization']; } ?>" /> 
+                        <?php if (!empty($UserAcademicInfoDB['graduation_specialization'])){?> 
+                        value="<?php echo $UserAcademicInfoDB['graduation_specialization']; } ?>" /> 
                         <label><?php echo $lang->SCHOOLCOLLEGE;?></label>
                         <input id="school_10" name="graduation_college" type="text" AUTOCOMPLETE="OFF"
-                        <?php if(!empty($UserAcademicInfoDB['graduation_college'])){?> value="<?php echo $UserAcademicInfoDB['graduation_college']; } ?>" /> 
+                        <?php if(!empty($UserAcademicInfoDB['graduation_college'])){?> 
+                        value="<?php echo $UserAcademicInfoDB['graduation_college']; } ?>" /> 
                         <label><?php echo $lang->PERCENTAGE;?></label> 
-                        <input id="10percentage" name="graduation_percentage" type="number" AUTOCOMPLETE="OFF"
-                        <?php if(!empty($UserAcademicInfoDB['graduation_percentage'])){?> value="<?php echo $UserAcademicInfoDB['graduation_percentage']; } ?>"/>
+                        <input id="10percentage" name="graduation_percentage" AUTOCOMPLETE="OFF"
+                        <?php if(!empty($UserAcademicInfoDB['graduation_percentage'])){?> 
+                        value="<?php echo floatval($UserAcademicInfoDB['graduation_percentage']); } ?>"/>
                     </p>
                     <p>
                         <label><?php echo $lang->POST_DEGREE;?> </label>
                         <input id="board_10" name="post_graduation_degree" type="text" AUTOCOMPLETE=OFF
-                        <?php if (!empty($UserAcademicInfoDB['post_graduation_degree'])){?> value="<?php echo $UserAcademicInfoDB['post_graduation_degree']; } ?>"/>
+                        <?php if (!empty($UserAcademicInfoDB['post_graduation_degree'])){?> 
+                        value="<?php echo $UserAcademicInfoDB['post_graduation_degree']; } ?>"/>
                         <label><?php echo $lang->SPECIALIZATION;?> </label>
                         <input id="school_10" name="post_graduation_specialization" type="text" AUTOCOMPLETE="OFF" 
-                        <?php if (!empty($UserAcademicInfoDB['post_graduation_specialization'])){?> value="<?php echo $UserAcademicInfoDB['post_graduation_specialization']; } ?>"/>
+                        <?php if (!empty($UserAcademicInfoDB['post_graduation_specialization'])){?> 
+                        value="<?php echo $UserAcademicInfoDB['post_graduation_specialization']; } ?>"/>
                         <label><?php echo $lang->SCHOOLCOLLEGE;?></label> 
                         <input id="school_10" name="post_graduation_college" type="text" AUTOCOMPLETE="OFF" 
-                        <?php if(!empty($UserAcademicInfoDB['post_graduation_college'])){?> value="<?php echo $UserAcademicInfoDB['post_graduation_college']; } ?>" />
+                        <?php if(!empty($UserAcademicInfoDB['post_graduation_college'])){?> 
+                        value="<?php echo $UserAcademicInfoDB['post_graduation_college']; } ?>" />
                         <label><?php echo $lang->PERCENTAGE;?></label> 
-                        <input id="10percentage" name="post_graduation_percentage" type="number" AUTOCOMPLETE="OFF"
-                        <?php if(!empty($UserAcademicInfoDB['post_graduation_percentage'])){?> value="<?php echo $UserAcademicInfoDB['post_graduation_percentage']; } ?>"/>
+                        <input id="10percentage" name="post_graduation_percentage" AUTOCOMPLETE="OFF"
+                        <?php if(!empty($UserAcademicInfoDB['post_graduation_percentage'])){?> 
+                        value="<?php echo floatval($UserAcademicInfoDB['post_graduation_percentage']); } ?>"/>
                     </p>
                 </fieldset>
-                <fieldset class="step" id="projects">
+                <fieldset id="ExtraProject" class="step" id="projects">
                     <legend> <?php echo $lang->PROJECT; ?></legend> 
                     <?php foreach($UserProjectInfoDB as $key => $value){ ?>
                         <p>
                             <label><?php echo $lang->TITLE;?> </label>
                             <input id="title" name="title[]" type="text" AUTOCOMPLETE="OFF" 
-                            <?php if (!empty($value['title'])){?> value="<?php echo $value['title']; } ?>" />
+                            <?php if (!empty($value['title'])){?> 
+                            value="<?php echo $value['title']; } ?>" />
                             <label><?php echo $lang->DESCRIPITION;?></label>
                             <input id="descripition" name="project_description[]" type="text" AUTOCOMPLETE="OFF"
-                            <?php if (!empty($value['project_description'])){?> value="<?php echo $value['project_description']; } ?>" /> 
+                            <?php if (!empty($value['project_description'])){?> 
+                            value="<?php echo $value['project_description']; } ?>" /> 
                             <label><?php echo $lang->TECHNOLOGYUSED;?> </label>
                             <input id="technology" name="technology_used[]" type="text"	AUTOCOMPLETE="OFF"
-                            <?php if(!empty($value['technology_used'])){?> value="<?php echo $value['technology_used']; } ?>"/> 
+                            <?php if(!empty($value['technology_used'])){?> 
+                            value="<?php echo $value['technology_used']; } ?>"/> 
                             <label><?php echo $lang->DURATION;?> </label> 
                             <input id="duration" name="duration[]" type="number" AUTOCOMPLETE="OFF"
-                            <?php if(!empty($value['duration'])){?> value="<?php echo $value['duration']; } ?>"/>
+                            <?php if(!empty($value['duration'])){?> 
+                            value="<?php echo $value['duration']; } ?>"/>
                             <?php if (!empty($value['title'])){?>
-                                <input type="button" class="selectProject" id="<?php if(!empty($value['id'])){ echo $value['id']; } ?>" value="Delete Project" /> 
+                                <input type="button" class="selectProject" 
+                                id="<?php if(!empty($value['id'])){ echo $value['id']; } ?>" 
+                                value="Delete Project" /> 
                             <?php }?>
                         </p>
                     <?php } ?>
                     <p>
-                    	<input type="button" value="<?php echo $lang->ADDMORE;?>" onclick="addMoreDegree();">
+                    	<input type="button" value="<?php echo $lang->ADDMORE;?>" onclick="addMoreProject();">
                     </p>
                 </fieldset>
                 <fieldset class="step" id="currentJob">
@@ -421,20 +479,20 @@
                 	<legend><?php echo $lang->PREVJOB; ?></legend>
                     <p>
                         <label><?php echo $lang->POSITION;?> </label> 
-                        <input id="position" name="position" type="text" AUTOCOMPLETE="OFF"
+                        <input id="position" name="PreviousJob_position" type="text" AUTOCOMPLETE="OFF"
                         <?php if(!empty($UserPreviousJobInfoDB['position'])){?> value="<?php echo $UserPreviousJobInfoDB['position']; } ?>"/> 
                         <label><?php echo $lang->COMPANY;?></label>
-                        <input id="company" name="company" type="text" AUTOCOMPLETE="OFF"
+                        <input id="company" name="PreviousJob_company" type="text" AUTOCOMPLETE="OFF"
                         <?php if(!empty($UserPreviousJobInfoDB['company'])){?> value="<?php echo $UserPreviousJobInfoDB['company']; } ?>"/> 
                         <label><?php echo $lang->STARTPERIOD;?> </label> 
-                        <input id="start_periodPREVJOB" name="start_periodPREVJOB" type="text" AUTOCOMPLETE="OFF" readonly="true"
+                        <input id="start_periodPREVJOB" name="PreviousJob_start_period" type="text" AUTOCOMPLETE="OFF" readonly="true"
                         <?php if(!empty($UserPreviousJobInfoDB['start_period'])){?> value="<?php echo $UserPreviousJobInfoDB['start_period']; } ?>"/>
                         <label><?php echo $lang->ENDPERIOD;?></label> 
-                        <input id="end_periodPREVJOB" name="end_periodPREVJOB" type="text" AUTOCOMPLETE="OFF" readonly="true"
+                        <input id="end_periodPREVJOB" name="PreviousJob_end_period" type="text" AUTOCOMPLETE="OFF" readonly="true"
                         <?php if(!empty($UserPreviousJobInfoDB['end_period'])){?> value="<?php echo $UserPreviousJobInfoDB['end_period']; } ?>"/>
                     </p>
                 </fieldset>
-                <fieldset class="step" id="otherCertificate">
+                <fieldset id="ExtraCertificate" class="step" id="otherCertificate">
                     <legend> <?php echo $lang->OTHER; ?></legend>
                     <?php foreach($UserCertificateInfoDB as $key => $value){ ?>
                         <p>
