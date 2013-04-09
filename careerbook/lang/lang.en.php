@@ -15,7 +15,8 @@
      3			1.0			Avni Jain			March 17,2013		added constant for resume.php
 	 4			1.0			Avni Jain			April 02,2013		added constant for UserHomepage.php,
 																	userSettings.php,friends.php,userHomePage.php
-	 5			1.0			Mohit K Singh		April 09,2013		added constant for al errors																	
+	 5			1.0			Mohit K Singh		April 09,2013		added constant for al errors
+	 6			1.0			Prateek SAini		April 09,2013		Corrected Speeling Mistakes																	
     *************************************************************************
 
 */
@@ -237,7 +238,7 @@
 					is missing or filled out with invalid data. In this
 					last step the user can confirm the submission of
 					the form.",
-		 		'REGISTAR'=>"Registar",
+		 		'REGISTAR'=>"Register",
 		 		'USERREGISTRATIONFORM'=>"User Registration Form",
 		 		'REGISTRATIONERROR'=>"You Have Error No:",
 		 		'LOGIN'=>"Login Form",

@@ -26,16 +26,19 @@ unset($resultSet[0]['discussionID']);
                 if(!empty($invalues['profile_image'])){
                     $uri = 'data:image/png;base64,'.base64_encode($invalues['profile_image']);
                     ?>
-                    <p>                    
+                    <p>
+                    <div style="float:left">
                     <img src="<?php echo $uri;?>" width="35" height="30" class="group_image">
+                    </div>
                     <?php
                 }
             }
             if(isset($invalues['description'])){
                 if(!empty($invalues['description'])){
                     ?>
-                    <input type="text" disabled = "true" class="group_textarea"
-                    placeholder="Comment" value = "<?php print ($invalues['description']); ?>"/>
+                    <div id="displayComments" style="float:left;border:0.1em solid; min-width:350px; max-width:350px; word-wrap:break-word; background-color:#efefee;  ">
+                    <?php print nl2br(($invalues['description'])); ?>
+                    </div>
                     <?php                    
                 }
             }
@@ -74,11 +77,29 @@ unset($resultSet[0]['discussionID']);
     }
 }
 ?>
-<textarea id="commentID" class="group_textarea" placeholder="Comment"></textarea>
+<textarea id="commentID" class="group_textarea" placeholder="Comment" rows="4" cols="50"></textarea>
+<div id="commentError"></div>
+<div id="commentLength"></div>
 <input type="submit" id = "commentSubmit" value="post comment"></input>
 <script src="../JavaScript/jquery-1.7.1.js"></script>
 <script>
 $(function(){
+	$("#commentID").click(function(){
+		$("#commentID").width("425");
+		$("#commentID").height("70");
+	});
+	$( "#commentID" ).on("change keypress",function(){	
+		if($("#commentID").val().length >= 200){			
+			var temp = $("#commentID").val();
+			var subtemp = temp.substring(0,200);
+			$("#commentID").val(subtemp);
+			$("#commentError")
+    		.html("<div style=\"display=\"block\";\" id=\"errorDisplay\"><h4>Max 200 chars Allowed</h4></div>");
+    		$("#errorDisplay").fadeOut(3000);			
+		}			
+		$("#commentLength").html($("#commentID").val().length + "chars");
+		
+	});
     $(".delete_comments_button").click(function(){
     	id = $(this).attr("id");
         $.post("../controller/mainentrance.php",{"action":"deleteCommentPost","discussionComment":id},function(data,status){
@@ -89,12 +110,24 @@ $(function(){
         });
     });
 	$("#commentSubmit").click(function(){
-		$.post("../controller/mainentrance.php",{"action":"postComment",
-			"comment":$("#commentID").val(),
-			"discussionID":"<?php echo $discussionID; ?>"},function(data,status){ 
-				parent.$("#<?php echo $discussionID; ?>").trigger("click");
-			});
-		});
+		if($("#commentID").val().length > 0 ){
+    		if($("#commentID").val().length <= 200 ){        		
+    			$.post("../controller/mainentrance.php",{"action":"postComment",
+    				"comment":$("#commentID").val(),
+    				"discussionID":"<?php echo $discussionID; ?>"},function(data,status){ 
+    					parent.$("#<?php echo $discussionID; ?>").trigger("click");
+    				});
+    		}else{
+        		$("#commentID")
+        		.after("<div style=\"display=\"block\";\" id=\"errorDisplay\"><h4>Comment Must be within 200 chars</h4></div>");
+        		$("#errorDisplay").fadeOut(3000);
+        		return false;
+    		}
+		}else{
+			$("#commentID").after("<div style=\"display=\"block\";\" id=\"errorDisplay\"><h4>Empty Comments Not allowed</h4></div>")
+			$("#errorDisplay").fadeOut(3000);
+			return false;
+		}
+	});
 });
-
 </script>

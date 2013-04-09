@@ -248,6 +248,11 @@
             return false;
           }
         });
+      $("#formElem").submit(function(){
+    	  if($("#start_periodPREVJOB").val() < $("#end_periodPREVJOB").val()){
+        	  alert("okeee");        	  
+    	  }
+      });
  });
     function addMoreProject()
     {
