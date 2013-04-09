@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
-
+<script type="text/javascript" src="../JavaScript/group.js"> </script>
 <?php
     include_once('../classes/groupClass.php');
 

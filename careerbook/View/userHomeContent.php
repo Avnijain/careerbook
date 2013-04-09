@@ -1,4 +1,4 @@
-<script src="../JavaScript/group.js"></script>
+
 <?php
 include_once("../classes/lang.php");
 ?>
@@ -81,10 +81,7 @@ $(function() {
 if (isset($_GET['getGroup'])) {
 	include 'group.php';
 }else if (isset($_GET['Group'])) {
-	echo '<script type="text/javascript">'
-   , 'groupList();'
-   , '</script>';
-	//include 'group.php';
+	include 'group.php';
 } else if (isset($_GET['addGroup'])) {
 	include 'add_group.php';
 } else if (isset($_GET['groupPost'])) {

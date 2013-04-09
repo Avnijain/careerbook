@@ -63,7 +63,7 @@ h3 {
 		<span class="reference"> </span>
 	</div>
 	<div id="content">
-
+    <div id="error_div1"></div>
 		<div id="wrapper">
 			<div id="steps">
 				<form id="formElem" name="formElem"
@@ -78,6 +78,7 @@ h3 {
 								type="email"
 								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['email_primary'];?>"
 								AUTOCOMPLETE=OFF />
+								
 						</p>
 					</fieldset>
 					<fieldset class="step">

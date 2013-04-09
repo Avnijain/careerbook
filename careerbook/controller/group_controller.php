@@ -91,6 +91,13 @@ class GroupHandler extends Group {
 	
 	//*******************************function to handle add post request**********************************************//
 	function handleAddPost() {
+	    
+	    $length = strlen(utf8_decode($_POST ['group_discussion_description']));
+	    if ($length == 0 || $length > 100) {
+	        header('Location: ../Home/userHomePage.php?groupPost&groupId=' . $this->_obj_group_model->_group_id . '&errno=1');
+	        die;
+	    }
+	    
 		$this->_obj_group_model->_group_id = ($_REQUEST ['groupId']);
 		$this->_obj_group_model->_group_discussion_description = trim ( $_POST ['group_discussion_description'] );
 		$this->_obj_group_model->_group_discussion_description = htmlentities( $_POST ['group_discussion_description'], ENT_COMPAT, 'UTF-8' );
@@ -105,12 +112,20 @@ class GroupHandler extends Group {
 			$this->handleGetPost();
 		} else {
 			header ( 'Location: ../Home/userHomePage.php');
+			die;
 		}
 		
 	}
 	
 	//********************************function to handle edit post request******************************************//
 	function handleEditPost() {
+	    
+	    $length = strlen(utf8_decode($_POST ['group_discussion_description']));
+	    if ($length == 0 || $length > 100) {
+	        header('Location: ../controller/mainentrance.php?action=process_edit_post&groupId='. $_REQUEST ['groupId']. '&errno=2');
+	        die;
+	    }
+	    
 		$this->_obj_group_model->_group_discussion_id =  ($_REQUEST ['postId']);
 		$this->_obj_group_model->_group_discussion_description = trim ( $_POST ['group_discussion_description'] );
 		$this->_obj_group_model->_group_discussion_description = htmlentities ( $_POST ['group_discussion_description'], ENT_COMPAT, 'UTF-8' );
@@ -118,6 +133,7 @@ class GroupHandler extends Group {
 		
 		$this->_obj_group_model->edit_post ();
 		header ( 'Location: ../controller/mainentrance.php?action=getPost&groupId = '. $_REQUEST ['groupId']);
+		die;
 	}
 	
 	//*********************************function to orocess edit group request**********************************//
@@ -129,6 +145,7 @@ class GroupHandler extends Group {
 		$_SESSION['groupDetail'] = serialize($this->_obj_group_class);
 		
 		header ( 'Location: ../Home/userHomePage.php?editGroup' );
+		die;
 		
 	}
 	
@@ -172,6 +189,7 @@ class GroupHandler extends Group {
 			die;
 		} else {
 			header ( 'Location: ../Home/userHomePage.php?Group');
+			die;
 		}
 	}
 	
@@ -188,6 +206,7 @@ class GroupHandler extends Group {
 		$_SESSION['postDetail'] = serialize($this->_obj_group_class);
 		
 		header ( 'Location: ../Home/userHomePage.php?groupComment&groupDiscussionId=' . $this->_obj_group_model->_group_discussion_id );
+		die;
 
 	}
 	
@@ -200,10 +219,18 @@ class GroupHandler extends Group {
 		$_SESSION ['groupList'] = serialize ( $this->_obj_group_class );
 		
 		header ( 'Location: ../Home/userHomePage.php?Group&close' );
+		die;
 	}
 	
 	//***************************************function to add comment request***************************************//
 	function handleAddComment() {
+	    
+	    $length = strlen(utf8_decode($_POST ['group_discussion_comment']));
+	    if ($length == 0 || $length > 100) {
+	        header('Location: ../Home/userHomePage.php?groupComment&groupDiscussionId=' . $this->_obj_group_model->_group_discussion_id . '&errno=2');
+	        die;
+	    }
+	    
 		$this->_obj_group_model->_group_discussion_id = ( int ) ($_REQUEST ['groupDiscussionId']);
 		$this->_obj_group_model->_group_discussion_comment = trim ( $_POST ['group_discussion_comment'] );
 		$this->_obj_group_model->_group_discussion_comment = htmlentities ( $_POST ['group_discussion_comment'], ENT_COMPAT, 'UTF-8' );
@@ -251,5 +278,6 @@ class GroupHandler extends Group {
 		$this->_obj_group_class->setGroupSearchList($result);
 		$_SESSION ['groupSearch'] = serialize ( $this->_obj_group_class );
 		header ( 'Location: ../Home/userHomePage.php?searchGroup' );
+		die;
 	}
 }

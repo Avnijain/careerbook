@@ -38,63 +38,83 @@ $(document).ready(function() {
 	$('#email').blur(function() {
 		
         var sEmail = $('#email').val();
-        if ($.trim(sEmail).length == 0) {
-            alert('Please enter valid email address');
-            $(this).focus();
-            return false;
-        }
 
-        if (validateEmail(sEmail)) {
-           
+        if (validateEmail(sEmail)) { 
         }
         else {
-            alert('Invalid Email Address');
-            $(this).focus();
+            $('#error_div1').text("Not a Valid Email id");
             return false;
         }
     });
+	
+	$('#email').focus(function() {
+		$('#error_div1').text("");
+	});
 	
 	$("#first_name").blur(function() {
 		var sName = $('#first_name').val();
 		if (validateName(sName) ) {
 	        
 	    } else {
-	    	alert("First name should be 3-16 character left and must not be blank");
-	    	$(this).focus();
-	    	return false;
+	    	 $('#error_div1').text("First Name must not be blank and must be 3-14 chars long");
+	            return false;
 	    }
 
 	  });
+	
+	$('#first_name').focus(function() {
+		$('#error_div1').text("");
+	});
+	
+	$("#middle_name").blur(function() {
+		var sName = $('#middle_name').val();
+		if (Number == "") {
+	        
+	    } else if (validateName(sName)){
+	    } else {
+	    	 $('#error_div1').text("Middle Name must not be blank and must be 3-14 chars long");
+	            return false;
+	    }
+	  });
+	
+	$('#middle_name').focus(function() {
+		$('#error_div1').text("");
+	});
 	
 	$("#last_name").blur(function() {
 		var sName = $('#last_name').val();
 		if (validateName(sName) ) {
 	        
 	    } else {
-	    	alert("Last name should be 3-16 character left and must not be blank");
-	    	$(this).focus();
-	    	return false;
+	    	 $('#error_div1').text("Last Name must not be blank and must be 3-14 chars long");
+	            return false;
 	    }
 
 	  });
+	
+	$('#last_name').focus(function() {
+		$('#error_div1').text("");
+	});
 	
 	$("#phone_no").blur(function() {
 		var Number = $('#phone_no').val();
 		if (Number == "") {
 	        
 	    } else if (validateName(Number)){
-	    	alert("Phone No. should only contain 0-9");
-	    	$(this).focus();
-	    	return false;
+	    	$('#error_div1').text("Phone No. should only contain 0-9");
+            return false;
 	    }
-
 	  });
+	
+	$('#phone_no').focus(function() {
+		$('#error_div1').text("");
+	});
 });
 	
 //function to allow only numbers
 function numericsonly(ob) 
 {
-    var invalidChars = /[^0-9]/;
+    var invalidChars = /^[0-9-+]+$/;
     if(invalidChars.test(ob.value)) 
     {
         ob.value = ob.value.replace(invalidChars,"");

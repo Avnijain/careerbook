@@ -88,7 +88,7 @@ include_once ("../classes/lang.php");
 					<span class="top-nav-shadow"></span>
 					<ul>
 						<li class="active first"><span><a href="userHomePage.php"><?php echo $lang->HOME?></a></span></li>
-						<li><span><a href="userHomePage.php?Group"><?php echo $lang->GROUP?></a></span></li>
+						<li><span><a href="../controller/mainentrance.php?action=Group"><?php echo $lang->GROUP?></a></span></li>
 						<li><span><a href="userHomePage.php?Friends"><?php echo $lang->FRIENDS?></a></span></li>
 						<li><span><a href="userHomePage.php?message"><?php echo $lang->MESSAGES?></a></span></li>
 						<li><span><a href="userHomePage.php?resume"><?php echo $lang->RESUME?></a></span></li>

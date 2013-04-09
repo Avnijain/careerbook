@@ -39,7 +39,12 @@
 		<br/>
 			<textarea class="group_textarea" id="group_discussion_description" name="group_discussion_description" rows="6" cols="20" placeholder="Post Your Message ..."></textarea>
 		<br/>
-		<input class="btn blue" type="submit" value="Post">
+		<?php 
+		if(isset($_GET['errno'])) {
+		    echo 'Post description must not be empty and should be less than 100 chars';
+		}
+		?>
+		<br/><input class="btn blue" type="submit" value="Post">
 	</form>
 </div><br/>
 <div>

@@ -32,6 +32,12 @@
 		<p>
 			<textarea class="group_textarea" id="group_discussion_comment" name="group_discussion_comment" rows="6" cols="20" placeholder="Post Comment..."></textarea>
 		</p>
+		<?php
+		if(isset($_GET['errno'])) {
+		    echo 'Comment must not be empty and should be less than 100 chars';
+		}
+		?>
+		<br/>
 		<input type="submit" value="Post" class="btn blue">
 	</form>
 </div><br/>
