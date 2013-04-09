@@ -165,7 +165,7 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 		echo  $UserProfessionalInfoDB['current_position'];
 		echo "</td></tr>";
 		echo "<tr><td>$lang->DURATION</td><td>";
-		echo  $UserProfessionalInfoDB['start_period'];
+		echo ($objdate->reverseDateClass($UserProfessionalInfoDB['start_period']));
 		echo "</td></tr>";
 		echo "</table>";
 	}
@@ -207,7 +207,7 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 	if(!empty($UserProfessionalInfoDB['current_company'])) { 
 		echo "$lang->CURRENTLYWORKINGIN"." ";
 		echo $UserProfessionalInfoDB['current_company'];
-		echo "$lang->AS"." ";
+		echo "$lang->AS"."  ";
 		echo $UserProfessionalInfoDB['current_position'];
 		echo "<br/>";
 	}
@@ -217,10 +217,18 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 			echo "$lang->CERTIFIED"." ";
 			if(!empty( $UserCertificateInfoDB[$i]['duration'])) {
 				echo "$lang->DATED"." ";
-				echo $UserCertificateInfoDB[$i]['duration'];
+				echo ($objdate->reverseDateClass($UserCertificateInfoDB[$i]['duration']));
 			echo "</br>";	
 			}
 		}
+	}
+	if((!empty($UserPreviousJobInfo['company']))&&(!empty($UserPreviousJobInfo['start_period']))
+	   &&(!empty($UserPreviousJobInfo['end_period']))&&(!empty($UserPreviousJobInfo['position']))) {
+	    echo "$lang->EXPERIENCE"." ";
+		echo $pastWorkDuration." ";
+		echo "$lang->WORKEDIN"." ";
+		echo $UserPreviousJobInfo['company'];
+	
 	}
 	if(!empty($UserAcademicInfoDB)) {
 	echo "<b><h3>$lang->EDUCATION</h3></b>";
@@ -359,7 +367,7 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 			echo "</td>";
 			if(!empty( $UserCertificateInfoDB[$i]['duration'])) {
 			echo "<td>";
-			echo $UserCertificateInfoDB[$i]['duration'];
+			echo ($objdate->reverseDateClass($UserCertificateInfoDB[$i]['duration']));
 			echo "</td>";
 			}
 			echo "</tr>";
@@ -375,8 +383,8 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 	echo "<tr><td>$lang->DESIGNATION</td><td>";
 	echo  $UserProfessionalInfoDB['current_position'];
 	echo "</td></tr>";
-	echo "<tr><td>$lang->DURATION</td><td>";
-	echo  $UserProfessionalInfoDB['start_period'];
+	echo "<tr><td>$lang->WORKINGFROM</td><td>";
+	echo  ($objdate->reverseDateClass($UserProfessionalInfoDB['start_period']));
 	echo "</td></tr>";
 	echo "</table>";
 	}
@@ -393,9 +401,9 @@ else if($_POST['template3']=="use this template")	// When third template is sele
 	}
 	if((!empty($UserPreviousJobInfo['start_period']))&&(!empty($UserPreviousJobInfo['end_period']))) {
 		echo "$lang->FROM"." ";
-		echo $UserPreviousJobInfo['start_period']." ";
+		echo $objdate->reverseDateClass($UserPreviousJobInfo['start_period'])." ";
 		echo "$lang->TO"." ";
-		echo $UserPreviousJobInfo['end_period'];
+		echo $objdate->reverseDateClass($UserPreviousJobInfo['end_period']);
 	}	
 	echo "</body>";
 	echo "</html>";

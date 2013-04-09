@@ -101,6 +101,7 @@ class Profile extends DBConnection {
 				"first_name",
 				"middle_name",
 				"last_name",
+				"date_of_birth",
 				"email_primary",
 				"phone_no",
 				"gender","profile_image"

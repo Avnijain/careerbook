@@ -283,6 +283,9 @@
 		 		'ERRORMSG4'=>"you cann't insert script in message",
 		 		'CAPTCHA'=>"Wrong Captcha Code",
 		 		'NOTFOUND'=>"Email ID not found",
+				'WORKINGFROM'=>"Working From",
+		 		'EXPERIENCE'=>"Has a experience of",
+		 		'YEAROLD'=>"yrs old",
 		 		''=>"",
 		 		''=>"",
 		 		''=>""

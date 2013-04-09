@@ -13,7 +13,7 @@
     *************************************************************************
 */
 include_once("../classes/lang.php");
-
+include_once("../classes/dateManipulation.php");
 require_once '../controller/userInfo.php';
 require_once '../controller/profile_controller.php';
 
@@ -26,14 +26,14 @@ if(isset($_SESSION['userData']))
 }
 if (isset($_REQUEST['user_id']) && isset($_REQUEST['hash'])) //if viewing friend's profile 
 {
-	//echo $_REQUEST['hash'];
+
 	$str= date('ymd');
 	$time=strtotime($str);
 	$hash=md5($time.$lang->KEY.$_REQUEST['user_id']);
 
-	if($_REQUEST['hash']==$hash) {
+	if($_REQUEST['hash']==$hash) { 
 
-		$id=$_GET['user_id'];
+		$id=$_GET['user_id'];	//getting the friend's user id
 	}
 	else {
 		$id=$idd;
@@ -53,16 +53,22 @@ $projectInfo=$obj->handleProjectInfo();
 $jobInfo=$obj->handlePreviousJobInfo();
 $professionalInfo=$obj->handleProfessionalInfo();
 $certificateInfo=$obj->handleCertificateInfo();
-
+if(!empty($personalInfo['0']['date_of_birth'])) {             // to get the age in years of the user
+	$age=$objdate->getAge($personalInfo['0']['date_of_birth']);
+	$year=explode(" ",$age);
+	$onlyYear=$year[0];
+	$userAge=explode("-",$onlyYear);
+}
 ?>
 <link rel="stylesheet" type="text/css" href="../css/information.css" />
+<!-- ------------------------------------------------------------PROFILE PAGE VIEW----------------------------------------------------------------->
 <body>
 <div id="main">
 	<h2></h2>
 	<div id="mainframe">
 		<?php if(isset($personalInfo)) {?>
 		<h1><?php echo $personalInfo['0']['first_name']." ";echo $personalInfo['0']['middle_name']." ";echo $personalInfo['0']['last_name'];?></h1>
-		<br/>
+		<br/><?php $personalInfo['0']['date_of_birth']?>
 		<?php if(isset($personalInfo['0']['profile_image'])) { 
 				$uri = 'data:image/png;base64,'.base64_encode($personalInfo['0']['profile_image']);
 			?>
@@ -73,6 +79,7 @@ $certificateInfo=$obj->handleCertificateInfo();
 		<h4><?php echo $lang->PRIMARYEMAIL.": "; echo $personalInfo['0']['email_primary'];?></h4>
 		<h4><?php echo $lang->GENDER.": "; echo $personalInfo['0']['gender'];?></h4>
 		<h4><?php echo $lang->PHONENUMBER.": ";echo $personalInfo['0']['phone_no']; }?></h4>
+		<h4><?php if(!empty($personalInfo['0']['date_of_birth'])) { echo $userAge[1]." ";echo $lang->YEAROLD; }?></h4>
 		<?php if(!empty($professionalInfo['0']['current_company'])) { ?>
 		<h4><?php echo $lang->CURRENTLYWORKINGIN ." "; echo $professionalInfo['0']['current_company'];?> <?php echo $lang->AS." ";echo $professionalInfo['0']['current_position'];?></h4>
 			<?php }?>
@@ -80,36 +87,49 @@ $certificateInfo=$obj->handleCertificateInfo();
 		<br/><br/><br/><br/>
 			
 		<?php if(!empty($acdemicInfo)) { ?>
-		<div id="Education">
-			<heading><?php echo $lang->EDUCATION?></heading>
-			<table cellspacing="10" cellpadding="5";>
-			<tr><td><?php echo $lang->STD?></td><?php if((!empty($acdemicInfo['0']['board_10']))||(!empty($acdemicInfo['0']['board_12']))) {?><td><?php echo $lang->BOARD ?><?php }?></td><td><?php echo $lang->SCHOOLCOLLEGE?></td></tr>
-			<tr><td><?php if((!empty($acdemicInfo['0']['board_10']))||(!empty($acdemicInfo['0']['school_10'])))echo $lang->TENTH ?></td><td><?php if(!empty($acdemicInfo['0']['board_10']))echo $acdemicInfo['0']['board_10']?></td><td><?php echo $acdemicInfo['0']['school_10']?></td></tr>
-			<tr><td><?php if((!empty($acdemicInfo['0']['board_12']))||(!empty($acdemicInfo['0']['school_12'])))echo $lang->TWELETH ?></td><?php if(!empty($acdemicInfo['0']['board_12'])) {?><td><?php  echo $acdemicInfo['0']['board_12']?></td><?php }?><td><?php echo $acdemicInfo['0']['school_12']?></td></tr>
-			<tr><td><?php echo $acdemicInfo['0']['graduation_degree']?></td><td><?php echo $acdemicInfo['0']['graduation_specialization']?></td><td><?php echo $acdemicInfo['0']['graduation_college']?></td></tr>
-			<tr><td><?php echo $acdemicInfo['0']['post_graduation_degree']?></td><td><?php echo $acdemicInfo['0']['post_graduation_specialization']?></td><td><?php echo $acdemicInfo['0']['post_graduation_college']?></td></tr>
-			</table>
-		</div>
+			<div id="Education">
+				<heading><?php echo $lang->EDUCATION?></heading>
+				<table cellspacing="10" cellpadding="5";>
+					<tr><td><?php echo $lang->STD?></td><?php if((!empty($acdemicInfo['0']['board_10']))||(!empty($acdemicInfo['0']['board_12']))) 
+																{?><td><?php echo $lang->BOARD ?><?php }?></td><td><?php echo $lang->SCHOOLCOLLEGE?></td></tr>
+					<tr><td><?php if((!empty($acdemicInfo['0']['board_10']))||(!empty($acdemicInfo['0']['school_10'])))echo $lang->TENTH ?></td>
+									<td><?php if(!empty($acdemicInfo['0']['board_10']))echo $acdemicInfo['0']['board_10']?></td>
+									<td><?php echo $acdemicInfo['0']['school_10']?></td></tr>
+					<tr><td><?php if((!empty($acdemicInfo['0']['board_12']))||(!empty($acdemicInfo['0']['school_12'])))echo $lang->TWELETH ?></td>
+							<?php if(!empty($acdemicInfo['0']['board_12'])) {?><td>
+							<?php  echo $acdemicInfo['0']['board_12']?></td><?php }?>
+							<td><?php echo $acdemicInfo['0']['school_12']?></td>
+					</tr>
+					<tr><td><?php echo $acdemicInfo['0']['graduation_degree']?></td>
+						<td><?php echo $acdemicInfo['0']['graduation_specialization']?></td>
+						<td><?php echo $acdemicInfo['0']['graduation_college']?></td>
+					</tr>
+					<tr><td><?php echo $acdemicInfo['0']['post_graduation_degree']?></td>
+						<td><?php echo $acdemicInfo['0']['post_graduation_specialization']?></td>
+						<td><?php echo $acdemicInfo['0']['post_graduation_college']?></td>
+					</tr>
+				</table>
+			</div>
 		<?php }?><br/><br/>
 		<?php if(!empty($certificateInfo[0]['name'])) {
-		$certificateCount=count($certificateInfo);
-		if(($certificateCount>=1)) {?>
-		<heading><?php echo $lang->CERTIFICATION;?></heading>
-		<table>
-		<tr><td><?php echo $lang->NAME?></td><td><?php echo $lang->CERTIFICATEDESCRIPTION?></td><td><?php echo $lang->DATED?></td></tr>
-		<?php for($i=0;$i<$certificateCount;$i++) {?>
-			<tr><td>
-			<?php echo $certificateInfo[$i]['name'];?>
-			</td><td>
-			<?php echo $certificateInfo[$i]['description'];?> 
-			</td>
-			<?php if(!empty( $certificateInfo[$i]['duration'])) {?>
-			<td>
-			<?php echo $certificateInfo[$i]['duration']; ?>
-			</td>
-			<?php }?>
-			</tr>
-		<?php } ?>
+			$certificateCount=count($certificateInfo);
+			if(($certificateCount>=1)) {?>
+			<heading><?php echo $lang->CERTIFICATION;?></heading>
+			<table>
+			<tr><td><?php echo $lang->NAME?></td><td><?php echo $lang->CERTIFICATEDESCRIPTION?></td><td><?php echo $lang->DATED?></td></tr>
+			<?php for($i=0;$i<$certificateCount;$i++) {?>
+				<tr><td>
+				<?php echo $certificateInfo[$i]['name'];?>
+				</td><td>
+				<?php echo $certificateInfo[$i]['description'];?> 
+				</td>
+				<?php if(!empty( $certificateInfo[$i]['duration'])) {?>
+				<td>
+				<?php $date=$certificateInfo[$i]['duration'];echo $objdate->reverseDate($date); ?>
+				</td>
+				<?php }?>
+				</tr>
+			<?php } ?>
 		</table>
 	<?php } }?><br/><br/><br/>
 	 
@@ -139,12 +159,7 @@ $certificateInfo=$obj->handleCertificateInfo();
 			<tr><td><?php echo $lang->DESIGNATION?></td><td><?php echo $jobInfo['0']['position'] ?></td></tr>
 			</table>
 			<?php }?>
-			<!-- <div id="Achievements"><p><?php echo $lang->ACHIEVEMENTS?></p>
-				<table cellspacing="10" cellpadding="5";>
-				<tr><td><?php echo $lang->ACADEMIC?></td></tr>
-				<tr><td><?php echo $lang->COCIRCULAR?></td></tr>
-				</table>
-			</div>  -->
+			
 	</div>
 </div>
 </body>
