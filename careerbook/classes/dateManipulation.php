@@ -21,7 +21,7 @@ class dateManipulation {
 	//Reverse the date in parameter to year-month-date 
 	public function reverseDate($temp){		
 		$datearr = explode("/", $temp);
-		$date=$datearr[2]."-".$datearr[1]."-".$datearr[0];
+		$date=$datearr[2]."/".$datearr[1]."/".$datearr[0];
 		return $date;
 	}
 	public function reverseDateClass($temp){		
@@ -44,6 +44,20 @@ class dateManipulation {
 		
 //		echo $dateNow->format("Y-m-d");		
 //		$dateTemp->format("Y-m-d");
+	}
+	public function getDuration($date1,$date2) {
+		/*$start = strtotime($date1);
+		$end = strtotime($date2);
+
+		$days_between = ceil(abs($end - $start) / 86400);
+		return $days_between;
+		*/
+		$d1=new DateTime($date1);
+		$d2=new DateTime($date2);
+		$diff=$d1->diff($d2);
+		return $diff->format("Years-%Y Months-%m Days-%d");
+		return($diff);
+	
 	}
 }
 $objdate = new dateManipulation();
