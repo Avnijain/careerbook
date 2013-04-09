@@ -1,8 +1,6 @@
 <?php
 include_once("../classes/lang.php");
 ?>
-<link rel="stylesheet" type="text/css" href="../css/group.css"></link>
-<script type="text/javascript" src="../JavaScript/group.js"></script>
 <script src="../JavaScript/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>
 <script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
