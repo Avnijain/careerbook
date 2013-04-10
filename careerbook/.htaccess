@@ -11,10 +11,13 @@ ErrorDocument 404 /careerbook.git/trunk/careerbook/error_pages/404.html
 
 #ErrorLog "/careerbook.git/trunk/careerbook/logs/error.log"
 
+# enable PHP error logging
+php_flag  log_errors on
+php_value error_log  ../logs/PHP_errors.log
 
-# php error logs..
-php_flag display_errors off
-php_flag log_errors on
-php_value track_errors on
-
-
+# prevent access to PHP error log
+<Files PHP_errors.log>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>
