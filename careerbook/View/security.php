@@ -49,13 +49,18 @@ $token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
 // 	die ();
 // }
 //************************************************************************************************************************
-
-function adminErrorLogHandling($old_data) {
-	$fileName="../logs/PHP_errors.log";
-	$data=file_get_contents($fileName);
+	
+	$file=fopen('../temp/PHP_errors_temp.log',"a");					//mutiple login save
+	
+	$data=file_get_contents('../logs/PHP_errors.log');
+	
 	if ($data) {
-		$flag = xdiff_file_diff($old_data, $data, '../logs/PHP_errors_diff.log');
+		$flag = xdiff_file_diff($file, $data,'../temp/error_diff.log');
 		if ($flag) {
+			$diff = file_get_contents('../temp/error_diff.log');
+			fwrite($file,$diff);
+			fclose($file);
+			unlink('../temp/error_diff.log');
 			//code to mail log file
 			$mail = new PHPMailer();
 			$mail->IsSMTP();
@@ -66,7 +71,6 @@ function adminErrorLogHandling($old_data) {
 			$mail->Password = "2013careerbook*";
 			$mail->SMTPDebug = 1;
 			$webmaster_email = "careerbook2013@gmail.com";
-			
 			
 			$email="careerbook2013@gmail.com";
 			$name="Error Log";
@@ -87,6 +91,6 @@ function adminErrorLogHandling($old_data) {
 			$mail->Send();
 		}
 	}
-}
+
 
 ?>

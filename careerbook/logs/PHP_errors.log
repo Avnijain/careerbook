@@ -1,0 +1,161 @@
+[10-Apr-2013 05:37:43 UTC] PHP Notice:  Undefined index: postId in /var/www/careerbook/trunk/careerbook/controller/group_controller.php on line 199
+[10-Apr-2013 05:37:44 UTC] PHP Notice:  Undefined offset: 0 in /var/www/careerbook/trunk/careerbook/View/edit_post.php on line 12
+[10-Apr-2013 05:37:44 UTC] PHP Notice:  Undefined offset: 0 in /var/www/careerbook/trunk/careerbook/View/edit_post.php on line 16
+[10-Apr-2013 06:17:40 UTC] PHP Notice:  Undefined index: postId in /var/www/careerbook/trunk/careerbook/controller/group_controller.php on line 199
+[10-Apr-2013 06:17:40 UTC] PHP Notice:  Undefined offset: 0 in /var/www/careerbook/trunk/careerbook/View/edit_post.php on line 12
+[10-Apr-2013 06:17:40 UTC] PHP Notice:  Undefined offset: 0 in /var/www/careerbook/trunk/careerbook/View/edit_post.php on line 16
+[10-Apr-2013 06:33:38 UTC] PHP Notice:  Undefined index: postId in /var/www/careerbook/trunk/careerbook/controller/group_controller.php on line 199
+[10-Apr-2013 06:33:38 UTC] PHP Notice:  Undefined offset: 0 in /var/www/careerbook/trunk/careerbook/View/edit_post.php on line 12
+[10-Apr-2013 06:33:38 UTC] PHP Notice:  Undefined offset: 0 in /var/www/careerbook/trunk/careerbook/View/edit_post.php on line 16
+[10-Apr-2013 06:49:20 UTC] PHP Parse error:  syntax error, unexpected T_IF in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 06:49:30 UTC] PHP Parse error:  syntax error, unexpected T_IF in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 06:49:40 UTC] PHP Parse error:  syntax error, unexpected T_IF in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 08:45:34 UTC] PHP Warning:  preg_match(): No ending matching delimiter ')' found in /var/www/careerbook/trunk/careerbook/controller/message_controller.php on line 45
+[10-Apr-2013 08:45:34 UTC] PHP Notice:  Use of undefined constant F - assumed 'F' in /var/www/careerbook/trunk/careerbook/Model/message.php on line 199
+[10-Apr-2013 08:46:17 UTC] PHP Warning:  preg_match(): No ending matching delimiter ')' found in /var/www/careerbook/trunk/careerbook/controller/message_controller.php on line 45
+[10-Apr-2013 08:46:17 UTC] PHP Notice:  Use of undefined constant F - assumed 'F' in /var/www/careerbook/trunk/careerbook/Model/message.php on line 199
+[10-Apr-2013 08:46:37 UTC] PHP Notice:  Undefined index: country_name in /var/www/careerbook/trunk/careerbook/View/UserInfoForm.php on line 359
+[10-Apr-2013 08:46:37 UTC] PHP Notice:  Undefined index: state_name in /var/www/careerbook/trunk/careerbook/View/UserInfoForm.php on line 365
+[10-Apr-2013 08:46:37 UTC] PHP Notice:  Undefined index: city_name in /var/www/careerbook/trunk/careerbook/View/UserInfoForm.php on line 371
+[10-Apr-2013 09:02:57 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:03:07 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:03:17 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:03:27 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:03:37 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:03:47 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:03:57 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:04:07 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:04:17 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:04:27 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:04:37 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:04:47 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:04:57 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:05:07 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 55
+[10-Apr-2013 09:05:17 UTC] PHP Parse error:  syntax error, unexpected ';' in /var/www/careerbook/trunk/careerbook/View/security.php on line 53
+[10-Apr-2013 09:05:27 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 57
+[10-Apr-2013 09:05:37 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 57
+[10-Apr-2013 09:05:47 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 57
+[10-Apr-2013 09:05:57 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 57
+[10-Apr-2013 09:06:07 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 57
+[10-Apr-2013 09:06:17 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 57
+[10-Apr-2013 09:06:27 UTC] PHP Fatal error:  Call to undefined function xdiff_file_diff() in /var/www/careerbook/trunk/careerbook/View/security.php on line 59
+[10-Apr-2013 09:06:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:06:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:06:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:06:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:07:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:07:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:07:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:07:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:07:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:07:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:07:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:07:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:07:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:07:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:07:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:07:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:08:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:08:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:08:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:08:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:08:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:08:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:08:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:08:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:08:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:08:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:08:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:08:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:09:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:09:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:09:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:09:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:09:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:09:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:09:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:09:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:09:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:09:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:09:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:09:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:10:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:10:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:10:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:10:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:10:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:10:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:10:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:10:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:10:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:10:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:10:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:10:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:11:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:11:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:11:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:11:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:11:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:11:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:11:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:11:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:11:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:11:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:11:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:11:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:12:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:12:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:12:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:12:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:12:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:12:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:12:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:12:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:12:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:12:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:12:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:12:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:13:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:13:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:13:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:13:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:13:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:13:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:13:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:13:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:13:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:13:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:13:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:13:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:14:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:14:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:14:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:14:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:14:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:14:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:14:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:14:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:14:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:14:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:14:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:14:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:15:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:15:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:15:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:15:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:15:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:15:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:15:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:15:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:15:47 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:15:47 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:15:57 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:15:57 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:16:07 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:16:07 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:16:17 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:16:17 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:16:27 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:16:27 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
+[10-Apr-2013 09:16:37 UTC] PHP Notice:  Undefined index: userData in /var/www/careerbook/trunk/careerbook/View/security.php on line 13
+[10-Apr-2013 09:16:37 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/careerbook/trunk/careerbook/View/security.php on line 14
