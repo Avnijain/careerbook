@@ -76,9 +76,8 @@ h3 {
 							<label><?php echo $lang->EMAIL;?></label> <input id="email"
 								name="email_primary" placeholder="info@tympanus.net"
 								type="email"
-								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['email_primary'];?>"
-								AUTOCOMPLETE=OFF />
-								
+								value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['email_primary']);?>"
+								AUTOCOMPLETE=OFF />					
 						</p>
 					</fieldset>
 					<fieldset class="step">
@@ -86,17 +85,17 @@ h3 {
 						<p>
 							<label><?php echo $lang->FIRSTNAME;?></label> <input
 								id="first_name" name="first_name"
-								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['first_name'];?>" />
+								value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['first_name']);?>" />
 						</p>
 						<p>
 							<label><?php echo $lang->MIDDLENAME;?></label> <input
 								id="middle_name" name="middle_name"
-								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['middle_name'];?>" />
+								value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['middle_name']);?>" />
 						</p>
 						<p>
 							<label><?php echo $lang->LASTNAME;?></label> <input
 								id="last_name" name="last_name"
-								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['last_name'];?>" />
+								value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['last_name']);?>" />
 						</p>
 						<p>
 							<label><?php echo $lang->GENDER;?></label> <input type="radio"
@@ -106,12 +105,12 @@ h3 {
                             </p>
 						<p>
 							<label><?php echo $lang->DOB;?></label>
-							</td> <input type="text" id="datepicker" name="date_of_birth" value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['date_of_birth'];?>" readonly="readonly" />
+							</td> <input type="text" id="datepicker" name="date_of_birth" value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['date_of_birth']);?>" readonly="readonly" />
 						</p>
 						<p>
 							<label><?php echo $lang->PHONENUMBER;?></label> <input
 								id="phone_no" name="phone_no"
-								value="<?php if (isset($_SESSION['registration'])) echo $_SESSION['registration']['phone_no'];?>" />
+								value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['phone_no']);?>" />
 						</p>
 					</fieldset>
 					<fieldset class="step">
