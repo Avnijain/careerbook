@@ -38,14 +38,24 @@ class MessageController extends Message
 			header('location: ../Home/userHomePage.php?message&c=invaild');
 			exit;
 		}
-		if (preg_match("'<script>'",$this->_message_description)) {
+		/************************************** message content validation*************************/
+		if (preg_match("'</script>'",$this->_message_description)) {
 			header('location: ../Home/userHomePage.php?message&c=script');
 			exit;
 		}
-		if (preg_match("(/(<([^>]+)>)",$this->_message_description)) {
+		if (preg_match("'<([a-z][a-z0-9]*)\b[^>]*>(.*?)</\1>'",$this->_message_description)) {
 			header('location: ../Home/userHomePage.php?message&c=script');
 			exit;
 		}
+		if (preg_match("'(/(<([^>]+)>')",$this->_message_description)) {
+			header('location: ../Home/userHomePage.php?message&c=script');
+			exit;
+		}
+		if (preg_match("'<'",$this->_message_description)) {
+			header('location: ../Home/userHomePage.php?message&c=script');
+			exit;
+		}
+		
 		
 		$this->_email_id=$emailid;
 		$recieverId=parent::get_id();

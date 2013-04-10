@@ -282,7 +282,7 @@
 		 		'CREATEDBY'=>"Created by",
 		 		'COUNTRY'=>"Country",
 		 		'SENDSUGGESTION'=>",Send a Suggestion to us",
-		 		'ERRORMSG4'=>"you cann't insert script in message",
+		 		'ERRORMSG4'=>"you cann't insert script/special symbol in message",
 		 		'CAPTCHA'=>"Wrong Captcha Code",
 		 		'NOTFOUND'=>"Email ID not found",
 				'WORKINGFROM'=>"Working From",
