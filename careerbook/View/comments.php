@@ -36,7 +36,7 @@ unset($resultSet[0]['discussionID']);
             if(isset($invalues['description'])){
                 if(!empty($invalues['description'])){
                     ?>
-                    <div id="displayComments" style="float:left;border:0.1em solid; min-width:350px; max-width:350px; word-wrap:break-word; background-color:#efefee;  ">
+                    <div id="displayComments" style="border:0.1em solid; margin-left: 40px; min-width:350px; max-width:350px; word-wrap:break-word; background-color:#efefee;  ">
                     <?php print nl2br(($invalues['description'])); ?>
                     </div>
                     <?php                    
@@ -89,9 +89,9 @@ $(function(){
 		$("#commentID").height("70");
 	});
 	$( "#commentID" ).on("change keypress",function(){	
-		if($("#commentID").val().length >= 200){			
+		if($("#commentID").val().length > 200){			
 			var temp = $("#commentID").val();
-			var subtemp = temp.substring(0,200);
+			var subtemp = temp.substring(0,199);
 			$("#commentID").val(subtemp);
 			$("#commentError")
     		.html("<div style=\"display=\"block\";\" id=\"errorDisplay\"><h4>Max 200 chars Allowed</h4></div>");
@@ -111,7 +111,7 @@ $(function(){
     });
 	$("#commentSubmit").click(function(){
 		if($("#commentID").val().length > 0 ){
-    		if($("#commentID").val().length <= 200 ){        		
+    		if($("#commentID").val().length < 200 ){        		
     			$.post("../controller/mainentrance.php",{"action":"postComment",
     				"comment":$("#commentID").val(),
     				"discussionID":"<?php echo $discussionID; ?>"},function(data,status){ 

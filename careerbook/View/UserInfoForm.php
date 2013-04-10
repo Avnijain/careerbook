@@ -32,39 +32,39 @@
 	 $( "#start_periodPREVJOB" ).datepicker({
 	  	   changeYear: true,
 	  	   changeMonth: true,
-	  	   dateFormat: 'yy/mm/dd',
+	  	   dateFormat: 'yy-mm-dd',
 	  	   minDate: new Date('1975/01/01'),
 	  	   maxDate: '-1d'
 		 });
 	 $( "#end_periodPREVJOB" ).datepicker({
 	  	   changeYear: true,
 	  	   changeMonth: true,
-	  	   dateFormat: 'yy/mm/dd',
+	  	   dateFormat: 'yy-mm-dd',
 	  	   minDate: new Date('1975/01/01'),
 	  	   maxDate: '-1d'
 		});
-	var id = 0;
-     $( ".certificate" ).click(function(){
-         id = $(this).attr("id");
-         $("#"+id).datepicker({
-      	   changeYear: true,
-        	   changeMonth: true,
-        	   dateFormat: 'yy/mm/dd',
-        	   minDate: new Date('1975/01/01'),
-        	   maxDate: '-1d'
+	 <?php foreach($UserCertificateInfoDB as $key => $value){ ?>
+         $("#<?php if(!empty($value['id']))
+         { echo $value['id']; }else{echo 0;} ?>").datepicker({
+         changeYear: true,
+    	   changeMonth: true,
+    	   dateFormat: 'yy-mm-dd',
+    	   minDate: new Date('1975/01/01'),
+    	   maxDate: '-1d'
   		});
-     });
+
+     <?php }?>
      $("#dateOfBirth").datepicker({
   	   changeYear: true,
   	   changeMonth: true,
-  	   dateFormat: 'yy/mm/dd',
+  	   dateFormat: 'yy-mm-dd',
   	   minDate: new Date('1975/01/01'),
   	   maxDate: '-1d'
   	});     
 	 $( "#start_period" ).datepicker({
 	  	   changeYear: true,
 	  	   changeMonth: true,
-	  	   dateFormat: 'yy/mm/dd',
+	  	   dateFormat: 'yy-mm-dd',
 	  	   minDate: new Date('1975/01/01'),
 	  	   maxDate: '-1d'
 		 });
@@ -148,10 +148,10 @@
     		 $("#country").append("<option value=\"default\" selected>Select...</option>");
              $.each(data, function(i, field){
                  if(field['name'] != countrySelected){
-                     $("#country").append("<option value="+field['name']+">"+field['name']+"</option>");                     
+                     $("#country").append("<option value=\""+field['name']+"\">"+field['name']+"</option>");                     
                  }
                  else{
-                	 $("#country").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
+                	 $("#country").append("<option value=\""+field['name']+"\" selected>"+field['name']+"</option>");
                 	 $( "#country" ).trigger("change");
                  }
                });             
@@ -168,11 +168,10 @@
     		 $("#state").append("<option value=\"default\" selected>Select...</option>");    		 
              $.each(data, function(i, field){
             	 if(field['name'] != stateSelected){
-            		 $("#state").append("<option value="+field['name']+">"+field['name']+"</option>");
+            		 $("#state").append("<option value=\""+field['name']+"\">"+field['name']+"</option>");
             	 }
             	 else{
-                	 $("#state").append("<option value="+field['name']+" selected>"+field['name']+"</option>");
-                	 $("#state").trigger("change");
+                	 $("#state").append("<option value=\""+field['name']+"\" selected>"+field['name']+"</option>");
             	 }
                });
              $("#state").trigger("change");
@@ -186,16 +185,16 @@
 			 citySelected = $("#citySelected").val();
 		 }			
 		 $("#city").html("");
-		 $("#city").append("<option value=\"none\" selected=\"true\">none</option>");
+		 $("#city").append("<option value=\"none\" selected>none</option>");
 		 $.getJSON( "../Model/fetchCity.php", {"term":$(this).val()}, function( data, status, xhr ) {
 			 $("#city").html("");
 			 $("#city").append("<option value=\"default\" selected>Select...</option>");
 	         $.each(data, function(i, field){
             	 if(field['name'] != citySelected){
-            		 $("#city").append("<option value="+field['name']+">"+field['name']+"</option>");
+            		 $("#city").append("<option value=\""+field['name']+"\">"+field['name']+"</option>");
             	 }
-            	 else{
-                	 $("#city").append("<option value="+field['name']+" selected>"+field['name']+"</option>");                	
+            	 else{            		 
+                	 $("#city").append("<option value=\""+field['name']+"\" selected>"+field['name']+"</option>");                	 
             	 }
 	           });
 		 });
@@ -205,7 +204,7 @@
 	var tooltips = $( "[title]" ).tooltip();
 
    
-      $( "#skill_id" )
+      $( "#skill_id" )      
         // don't navigate away from the field on tab when selecting an item
         .bind( "keydown", function( event ) {
           if ( event.keyCode === $.ui.keyCode.TAB &&
@@ -218,8 +217,8 @@
         	 var temp = new Array();
             $.getJSON( "../Model/fetchSkillSet.php", {
               term: extractLast( request.term )
-            }, function( data, status, xhr ) {
-                $.each(data, function(i, field){
+            }, function( data, status, xhr ) {                
+                $.each(data, function(i, field){                	
                     temp[i] = field['skill']; 
                   });
                 response( temp );
@@ -272,9 +271,12 @@
         var $text2="<input id=\"certificatename\" name=\"certificate_name[]\" type=\"text\" AUTOCOMPLETE=OFF />";
         var $text3="<label ><?php echo $lang->DESCRIPITION;?></label>";
         var $text4="<input id=\"certificatedescription\" name=\"certificate_description[]\" type=\"text\" AUTOCOMPLETE=OFF />";
-        var $text5="<label ><?php echo $lang->DATEDAT;?></label>";
-        var $text6="<input id=\"datedat\" name=\"certificate_duration[]\" class=\"certificate\" type=\"text\" AUTOCOMPLETE=OFF />";                  
-        $("#ExtraCertificate").append($text1+$text2+$text3+$text4+$text5+$text6);
+        var $text5="<label ><?php echo $lang->DATEDAT;?></label>";        
+        var $lastId = $("[class^=certificate]:last").attr("id");
+        $lastId++;        
+        var $text6="<input id="+$lastId+" name=\"certificate_duration[]\" class=\"certificate\" type=\"text\" AUTOCOMPLETE=OFF />";                          
+        $("#ExtraCertificate").append($text1+$text2+$text3+$text4+$text5+$text6);        
+        $("#runtimeScript").after("<script>$(\" #"+$lastId+"\").datepicker({changeYear: true,changeMonth: true,dateFormat: 'yy/mm/dd',minDate: new Date('1975/01/01'),maxDate: '-1d'});<\/script>");
     }
     function addMoreExtraCurricular()
     {
@@ -596,3 +598,4 @@
 </div>
 </div>
 </div>
+<div id="runtimeScript" style="display: none;"></div>

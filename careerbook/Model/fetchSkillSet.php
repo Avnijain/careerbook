@@ -25,7 +25,7 @@ class SkillSet extends model{
     //************************* Get Skill Set from Database *************** 
     private function fetchSkillSet($search){
         $this->db->Fields(array("skill"));
-        $this->db->From("skillSet_info");
+        $this->db->From("skillset_info");
         $this->db->Where(array("skill like('".$search."%')"),true);
         $this->db->Select();
         return $this->db->resultArray();

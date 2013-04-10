@@ -47,6 +47,36 @@ $(function() {
         'transitionOut'		: 'none',
         'type'			: 'iframe'
     });
+	$("#textAreaDiscussions").click(function(){
+		$("#textAreaDiscussions").width("425");
+		$("#textAreaDiscussions").height("70");
+	});
+	$( "#textAreaDiscussions" ).on("change keypress",function(){	
+		if($("#textAreaDiscussions").val().length > 400){			
+			var temp = $("#textAreaDiscussions").val();
+			var subtemp = temp.substring(0,399);
+			$("#textAreaDiscussions").val(subtemp);
+			$("#discussionError")
+    		.html("<div style=\"display=\"block\";\" id=\"errorDisplay\"><h4>Max 400 chars Allowed</h4></div>");
+    		$("#errorDisplay").fadeOut(3000);			
+		}
+	});
+	$("#form").submit(function(){
+		if($("#textAreaDiscussions").val().length > 0 ){
+    		if($("#textAreaDiscussions").val().length < 399 ){
+        		return true; 
+    		}else{
+        		$("#discussionError")
+        		.html("<div style=\"display=\"block\";\" id=\"errorDisplay\"><h4>Discussions Must be within 400 chars</h4></div>");
+        		$("#errorDisplay").fadeOut(3000);
+        		return false;
+    		}
+		}else{
+			$("#discussionError").html("<div style=\"display=\"block\";\" id=\"errorDisplay\"><h4>Empty Discussions Not allowed</h4></div>");
+			$("#errorDisplay").fadeOut(3000);
+			return false;
+		}
+	});
 });
 </script>
 <div id="discussMain" class="dis">
@@ -55,7 +85,7 @@ $(function() {
     		action="../controller/mainentrance.php?action=addUserPost" method="post">
     		<h2>Whats in Your Mind...</h2>
     		<div>
-    			<textarea class="group_textarea" name="description" cols="25"
+    			<textarea id="textAreaDiscussions" class="group_textarea" name="description" cols="25"
     				rows="06" placeholder="Description"></textarea>
     		</div>
     		<div>
@@ -63,6 +93,8 @@ $(function() {
     				name="btnsubmit" />
     		</div>
     	</form>
+<div id="discussionError"></div>
+<div id="discussionLength"></div>    	
     </div>
     <br/>
 <div>
