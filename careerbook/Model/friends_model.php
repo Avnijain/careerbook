@@ -48,7 +48,7 @@ class FriendsModel extends model {		//class to get all data of friends from data
     	$this->db->From ( "user_discussions b" );
     	$this->db->Join ( "friends c", " c.user_id = '$user_id' " );
     	$this->db->Join ( "users d", " d.id in (c.friend_id, \"$user_id\")" );
-    	$this->db->Where (array ("b.user_id = d.id AND b.status <> 'D'"),true);
+    	$this->db->Where (array ("b.user_id = d.id AND b.status <> 'D' AND c.status = 'F'"),true);
     	$this->db->OrderBy("b.created_on desc");
     	$this->db->Select ();
 //     	echo $this->db->lastQuery();

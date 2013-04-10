@@ -21,7 +21,7 @@
 	type="text/css" media="screen" />
 
 <script type="text/javascript" src="../JavaScript/sliding.form.js"></script>
-
+<script type="text/javascript" src="../JavaScript/jquery.validate.min.js"></script>
 
 <link rel="stylesheet" href="../css/jquery-ui.css" />
 
@@ -247,11 +247,31 @@
             return false;
           }
         });
+/*
       $("#formElem").submit(function(){
     	  if($("#start_periodPREVJOB").val() < $("#end_periodPREVJOB").val()){
         	  alert("okeee");        	  
-    	  }
+    	  }     	  
       });
+*/
+      $("#formElem").validate({
+		rules: {
+			first_name: {required: true,
+				maxlength: 40
+			},
+			phone_no:{
+				minlength: 10,
+				maxlength: 10
+			}
+		},
+		messages: {
+			firstname: "Please enter your firstname, MAX 40 Chars Allowed",
+			phoneno: "Please enter 10 Digit phone no"
+		},          
+    	  submitHandler: function(form) {
+    	    form.submit();
+    	  }
+    	 });
  });
     function addMoreProject()
     {
@@ -297,13 +317,13 @@
                     }
     ?> 
     </div>
-		<div id="wrapper" style="width: 780px">
-			<div id="steps" style="width: 700px">
+		<div id="wrapper">
+			<div id="steps">
 				<form id="formElem" name="formElem"	action="../controller/mainentrance.php?action=profileinfo"
 				method="post" enctype="multipart/form-data">
                 <fieldset class="step">
                 	<legend> <?php echo $lang->ACCOUNT; ?> </legend>
-                    <p><label><?php echo $lang->FIRSTNAME;?> </label> 
+                    <p><label for="first_name"><?php echo $lang->FIRSTNAME;?> </label> 
                     <input id="username" name="first_name" title="Please provide your first name."
                     <?php if(!empty($UserPersonalInfoDB['first_name'])){?> value="<?php echo $UserPersonalInfoDB['first_name']; } ?>"/></p>
                     <p><label><?php echo $lang->MIDDLENAME;?> </label>
@@ -326,10 +346,8 @@
                     <?php if($select =="female"){?> checked="checked" <?php } ?> value="female"> <?php echo $lang->FEMALE;?></p>
                     <p><label><?php echo $lang->DOB;?></label>
                     <input type="text"	id="dateOfBirth" name="date_of_birth" readonly="true"
-                    <?php if(!empty($UserPersonalInfoDB['date_of_birth'])){ //echo
-                    $UserPersonalInfoDB['date_of_birth']; ?> 
-                    value="<?php echo $UserPersonalInfoDB['date_of_birth'];} ?>" 
-                    /></p>
+                    <?php if(!empty($UserPersonalInfoDB['date_of_birth'])){ //echo $UserPersonalInfoDB['date_of_birth']; ?> 
+                    value="<?php echo $UserPersonalInfoDB['date_of_birth'];} ?>"/></p>
                                         
                     <p><label><?php echo $lang->EMAIL;?></label> 
                     <input id="email" name="email_primary" placeholder="info@tympanus.net" type="email"	disabled="disabled" AUTOCOMPLETE="OFF"
@@ -337,11 +355,11 @@
                                                             
                     <p><label><?php echo $lang->SEC_EMAIL;?></label> 
                     <input id="email" name="email_secondary" placeholder="info@tympanus.net" type="email"
-                    <?php if (!empty($UserPersonalInfoDB['email_secondary'])){?> value="<?php echo $UserPersonalInfoDB['email_secondary']; } ?>" /></p>
- 	                <p><label><?php echo $lang->PHONENUMBER;?></label>
+                    <?php if (!empty($UserPersonalInfoDB['email_secondary'])){?> value=<?php echo '\"'+$UserPersonalInfoDB['email_secondary'] + '\"'; } ?> /></p>
+ 	                <p><label for="phone_no"><?php echo $lang->PHONENUMBER;?></label>
  	                <input id="phoneno" name="phone_no" placeholder="XXXXXXXXXX" type="text" AUTOCOMPLETE="OFF"
                     <?php if(!empty($UserPersonalInfoDB['phone_no'])){?> value="<?php echo $UserPersonalInfoDB['phone_no']; } ?>" /></p>
-                     
+                    <div id = "displayErrorsPersonal" style="float:left"></div> 
                 </fieldset>
                 
                 <fieldset class="step">
