@@ -191,7 +191,7 @@ class UserDataValidation {
 		if ($value == "") {
 			return 0;
 		}
-		if (! (preg_match ( "/[0-9]{2,3}[.]{0,1}[0-9]/", $value ))) {
+		if (! (preg_match ('~^(\d+)|(\d+)?\.(\d+)$~', $value ))) {
 			return 2;
 		} else {
 			return 0;

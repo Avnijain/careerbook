@@ -114,7 +114,8 @@ $(document).ready(function() {
 //function to allow only numbers
 function numericsonly(ob) 
 {
-    var invalidChars = /^[0-9-+]+$/;
+    //var invalidChars = /^[0-9-+]+$/;
+	var invalidChars = /^[0-9]$/;
     if(invalidChars.test(ob.value)) 
     {
         ob.value = ob.value.replace(invalidChars,"");

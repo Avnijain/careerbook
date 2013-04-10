@@ -19,6 +19,8 @@ if(isset($_SESSION['userData']))
         <script type="text/javascript" src="JavaScript/indexPage.js"></script>
 		<script type="text/javascript" src="JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>
 		<script type="text/javascript" src="JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+		<script src="JavaScript/slideshow.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/slideshow.css" type="text/css"></link>
 		<link rel="stylesheet" type="text/css" href="JavaScript/fancybox/jquery.fancybox-1.3.4.css" ></link>
 	    <script type="text/javascript" src="JavaScript/jquery.easing.1.3.js"></script>
 		        
@@ -37,7 +39,7 @@ if(isset($_SESSION['userData']))
 				?><center><h3><?PHP echo $lang->INVAILDLOGIN; ?></h3></center><?php }?>
             </div>
             <div id="googleAdds"></div>
-	    
+	    		<?php require_once './View/slideShow.html'; ?>
             <div id="footer">
 		<div class="footer-bottom">
 			<div class="shell">
