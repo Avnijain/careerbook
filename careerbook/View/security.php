@@ -51,16 +51,20 @@ $token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
 //************************************************************************************************************************
 	
 	$file=fopen('../temp/PHP_errors_temp.log',"a");					//mutiple login save
+	$data="";
+	$data1=file_get_contents('../logs/PHP_errors.log');
+	$data2=file_get_contents('../temp/PHP_errors_temp.log');
 	
-	$data=file_get_contents('../logs/PHP_errors.log');
+	$data1Length = strlen($data1);
+	$data2Length = strlen($data2);
 	
-	if ($data) {
-		$flag = xdiff_file_diff($file, $data,'../temp/error_diff.log');
-		if ($flag) {
-			$diff = file_get_contents('../temp/error_diff.log');
-			fwrite($file,$diff);
+	
+	if($data1Length > $data2Length)
+	{
+		$data=substr($data1,$data2Length,$data1Length);
+	
+			fwrite($file,$data);
 			fclose($file);
-			unlink('../temp/error_diff.log');
 			//code to mail log file
 			$mail = new PHPMailer();
 			$mail->IsSMTP();
@@ -83,14 +87,15 @@ $token=md5($_SESSION['secureSessionHijack'].$SID.$userData['email_primary']);
 			$mail->WordWrap = 50; // set word wrap
 			$mail->IsHTML(true); // send as HTML
 			$mail->Subject = 'Error in careerbook';
-			$userPassword=$_SESSION ['userDefaultPwd'];
 			$mail->Body="<br>Dear Admin,an error has been occured at your site...<br>".
-					file_get_contents("../logs/PHP_errors_diff.log")."<br>";
+					$data."<br>";
 			$mail->AltBody = "This is the body when user views in plain text format"; //Text Bod
 			
 			$mail->Send();
-		}
 	}
+		
+
+	//}
 
 
 ?>

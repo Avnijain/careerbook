@@ -17,6 +17,8 @@ if (! isset ( $_SESSION ['userData'] )) {
 
 $objUserInfo = unserialize ( $_SESSION ['userData'] );
 $userData = $objUserInfo->getUserPersonalInfo ();
+
+$fileName="../temp/".$userData['email_primary'].".txt";
 ?>
 <?php
 
