@@ -302,7 +302,7 @@
  				'IMAGEINCORRECT'=>"please choose correct image file .jpg, .png, .gif, .jpeg'",
  				'COMMENTERROR'=>"Comment must not be empty and should be less than 100 chars",
  				'POSTERROR'=>"Post description must not be empty and should be less than 100 chars",
- 				''=>"",
+ 				'POST'=>"Post",
  				''=>"",
  				''=>""
                 );

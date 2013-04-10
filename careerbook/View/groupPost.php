@@ -44,7 +44,7 @@
 		    echo $lang->POSTERROR;
 		}
 		?>
-		<br/><input class="btn blue" type="submit" value="Post">
+		<br/><input class="btn blue" type="submit" value='<?php echo $lang->POST; ?>'>
 	</form>
 </div><br/>
 <div>

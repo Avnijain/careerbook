@@ -38,7 +38,7 @@
 		}
 		?>
 		<br/>
-		<input type="submit" value="Post" class="btn blue">
+		<input type="submit" value="<?php echo $lang->POST;?>" class="btn blue">
 	</form>
 </div><br/>
 <div>
