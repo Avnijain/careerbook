@@ -294,8 +294,8 @@
 				'SETTINGMSG2'=>"new and old password must be different",
 		 		'SETTINGMSG3'=>"new password and confirm password must match",
 				'SETTINGMSG4'=>"Password Changed Sucessfully",
-				''=>"",
-		 		''=>""
+				'MONTHS'=>" months",
+		 		'YEARS'=>" years"
  		
                 );
  $regError=array("7"=>"Wrong Captcha Code",

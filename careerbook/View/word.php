@@ -35,6 +35,20 @@ $extraCurricularCount=count($UserExtraCurricularobInfoDB);					//to get the coun
 $first_name=$UserPersonalInfoDB['first_name']; 								// getting first name
 $dob=($objdate->reverseDateClass($UserPersonalInfoDB['date_of_birth']));	//to get the date of birth in correct format
 $pastWorkDuration=($objdate->getDuration($UserPreviousJobInfo['start_period'],$UserPreviousJobInfo['end_period']));
+$year=explode(" ",$pastWorkDuration); // to get the working experience in correct format
+$onlyYear=$year[0];
+$onlyMonth=$year[1];
+$month=explode("-",$onlyMonth);
+$year=explode("-",$onlyYear);
+if($month[1]>0)
+{
+	$pastWorkDuration=$month[1]."$lang->MONTHS";
+}
+if($year[1]>0)
+{
+ $pastWorkDuration=$year[1]."$lang->YEARS";
+	
+}
 if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // When first template is selected by user
 {	
 	echo "template1";
