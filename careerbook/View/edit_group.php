@@ -2,7 +2,7 @@
 include_once('../classes/groupClass.php');
 $groupData=unserialize($_SESSION['groupDetail']);
 $groupData= $groupData->getGroupDetail();
-
+include_once("../classes/lang.php");
 ?>
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
@@ -17,11 +17,12 @@ $groupData= $groupData->getGroupDetail();
 			<input class="group_textbox" type="text" placeholder="Group Title"
 				value="<?php echo $groupData[0]['title'];?>" name="title" id="title" /><br/>
 				<?php
-        		if(isset($_GET['errno'])) {
-        		    if($_GET['errno'] == 5)
-        		        echo '<br/>Title must not be empty and should be less than 60 chars';
-        		}
-        		?>
+                       if(isset($_GET['errno'])) {
+                           if($_GET['errno'] == 5) {
+                               echo $lang->TITLEERROR;
+                           }
+                       }
+                       ?>
 		</div>
 		<br /> <br />
 		<div>
@@ -31,7 +32,7 @@ $groupData= $groupData->getGroupDetail();
 				<?php
         		if(isset($_GET['errno'])) {
         		    if($_GET['errno'] == 6)
-        		        echo '<br/>Description must not be empty and should be less than 60 chars';
+        		        echo $lang->DESCRIPTIONERROR;
         		}
         		?>
 		</div>
@@ -39,6 +40,15 @@ $groupData= $groupData->getGroupDetail();
 			<label><?php echo $lang->GROUPIMAGE;?></label><br /> <input class="btn blue" type="file"
 				name="group_image" id="group_image" />
 		</div><br/>
+		<?php
+        		if(isset($_GET['errno'])) {
+        		   if($_GET['errno'] == 7) {
+				 		echo $lang->IMAGENOTCORRECT;
+					} elseif($_GET['errno'] == 8) {
+						echo $lang->IMAGEINCORRECT;
+					}
+        		}
+       ?>
 		<div>
 			<input class="btn blue" type="submit" value="Edit Group"
 				name="btnsubmit" /> <input class="btn blue" type="button"

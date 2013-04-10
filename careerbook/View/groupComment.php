@@ -34,7 +34,7 @@
 		</p>
 		<?php
 		if(isset($_GET['errno'])) {
-		    echo 'Comment must not be empty and should be less than 100 chars';
+		    echo $lang->COMMENTERROR;
 		}
 		?>
 		<br/>

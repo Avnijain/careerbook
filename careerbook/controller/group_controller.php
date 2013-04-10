@@ -51,6 +51,29 @@ class GroupHandler extends Group {
 	        header ( 'Location: ../Home/userHomePage.php?addGroup&errno=4');
 	        die;
 	    }
+	    if ($_FILES ["group_image"] ["tmp_name"] != "") {
+	    	$allowedExts = array (
+	    			"gif",
+	    			"jpeg",
+	    			"jpg",
+	    			"png"
+	    	);
+	    	$extension = end ( explode ( ".", $_FILES ["group_image"] ["name"] ) );
+	    	if ((($_FILES ["group_image"] ["type"] == "image/gif") ||
+	    			($_FILES ["group_image"] ["type"] == "image/jpeg") ||
+	    			($_FILES ["group_image"] ["type"] == "image/jpg") ||
+	    			($_FILES ["group_image"] ["type"] == "image/png")) &&
+	    			($_FILES ["group_image"] ["size"] < 3145728) &&
+	    			in_array ( $extension, $allowedExts )) {
+	    		if ($_FILES ["group_image"] ["error"] > 0) {
+	    			header ( 'Location: ../Home/userHomePage.php?addGroup&errno=7');
+	    			die;
+	    		}
+	    	} else {
+	    		header ( 'Location: ../Home/userHomePage.php?addGroup&errno=8');
+	    		die;
+	    	}
+	    }
 		$this->_obj_group_model->_group_title = trim ( $_POST ['title'] );
 		$this->_obj_group_model->_group_title = htmlentities(( $_POST ['title']), ENT_COMPAT, 'UTF-8');
 		$this->_obj_group_model->_group_title = mysql_real_escape_string ( $_POST ['title'] );

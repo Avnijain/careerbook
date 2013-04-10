@@ -295,8 +295,16 @@
 		 		'SETTINGMSG3'=>"new password and confirm password must match",
 				'SETTINGMSG4'=>"Password Changed Sucessfully",
 				'MONTHS'=>" months",
-		 		'YEARS'=>" years"
- 		
+		 		'YEARS'=>" years",
+ 				'TITLEERROR'=>"Title must not be empty and should be less than 60 chars",
+ 				'DESCRIPTIONERROR'=>"Description must not be empty and should be less than 60 chars",
+ 				'IMAGENOTCORRECT'=>"Image not correct...please choose correct image",
+ 				'IMAGEINCORRECT'=>"please choose correct image file .jpg, .png, .gif, .jpeg'",
+ 				'COMMENTERROR'=>"Comment must not be empty and should be less than 100 chars",
+ 				'POSTERROR'=>"Post description must not be empty and should be less than 100 chars",
+ 				''=>"",
+ 				''=>"",
+ 				''=>""
                 );
  $regError=array("7"=>"Wrong Captcha Code",
 				"6"=>"Already Have this Id",

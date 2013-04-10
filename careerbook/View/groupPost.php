@@ -41,7 +41,7 @@
 		<br/>
 		<?php 
 		if(isset($_GET['errno'])) {
-		    echo 'Post description must not be empty and should be less than 100 chars';
+		    echo $lang->POSTERROR;
 		}
 		?>
 		<br/><input class="btn blue" type="submit" value="Post">

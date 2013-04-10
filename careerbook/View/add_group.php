@@ -14,11 +14,12 @@ include_once("../classes/lang.php");
 			<input class="group_textbox" type="text" placeholder="Group Title"
 				value="" name="title" id="title" /><br/>
 				<?php
-        		if(isset($_GET['errno'])) {
-        		    if($_GET['errno'] == 3)
-        		        echo '<br/>Title must not be empty and should be less than 60 chars';
-        		}
-        		?>
+                       if(isset($_GET['errno'])) {
+                           if($_GET['errno'] == 3) {
+                               echo $lang->TITLEERROR;
+                           } 
+                       }
+                       ?>
 		</div>
 		<br /> <br />
 		<div>
@@ -28,7 +29,7 @@ include_once("../classes/lang.php");
 				<?php
         		if(isset($_GET['errno'])) {
         		    if($_GET['errno'] == 4)
-        		        echo '<br/>Description must not be empty and should be less than 60 chars';
+        		        echo $lang->DESCRIPTIONERROR;
         		}
         		?>
 		</div>
@@ -36,6 +37,15 @@ include_once("../classes/lang.php");
 			<label><?php echo $lang->GROUPIMAGE;?></label><br /> <input type="file"
 				name="group_image" id="group_image" class="btn blue" />
 		</div><br/>
+		<?php
+        		if(isset($_GET['errno'])) {
+        		   if($_GET['errno'] == 7) {
+				 		echo $lang->IMAGENOTCORRECT;
+					} elseif($_GET['errno'] == 8) {
+						echo $lang->IMAGEINCORRECT;
+					}
+        		}
+       ?>
 		<div>
 			<input class="btn blue" type="submit" value="Create Group" 
 				name="btnsubmit" /> <input class="btn blue" type="button"
