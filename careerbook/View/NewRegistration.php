@@ -102,7 +102,7 @@ if (isset ( $_GET ['err'] )) {
                             </p>
 						<p>
 							<label><?php echo $lang->DOB;?></label>
-							<input type="text" id="datepicker" name="date_of_birth" value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['date_of_birth']);?>" readonly="readonly" />
+							<input type="text" id="date_of_birth" name="date_of_birth" value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['date_of_birth']);?>" readonly="readonly" />
 						</p>
 						<p>
 							<label><?php echo $lang->PHONENUMBER;?></label> <input
