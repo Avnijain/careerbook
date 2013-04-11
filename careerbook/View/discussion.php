@@ -63,7 +63,7 @@ $(function() {
 	});
 	$("#form").submit(function(){
 		if($("#textAreaDiscussions").val().length > 0 ){
-    		if($("#textAreaDiscussions").val().length < 399 ){
+    		if($("#textAreaDiscussions").val().length < 400 ){
         		return true; 
     		}else{
         		$("#discussionError")

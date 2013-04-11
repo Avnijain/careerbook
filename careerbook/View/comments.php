@@ -1,81 +1,5 @@
-<?php 
-/***************************** Creation Log *******************************
-File Name                   -  comments.php
-Project Name                -  Careerbook
-Description                 -  file for displaying discussion comments
-Version                     -  1.0
-Created by                  -  Prateek Saini
-Created on                  -  April 04, 2013
-*************************************************************************/
-session_start();
-require_once '../controller/userInfo.php';
-$objUserInfo = unserialize($_SESSION['userData']);
-$userID = $objUserInfo->getUserIdInfo();
-
-if(isset($_SESSION['displayComments'])) {
-    $resultSet = $_SESSION['displayComments'];
-    $discussionID = $resultSet[0]['discussionID'];
-
-unset($resultSet[0]['discussionID']);
-//     echo "<pre/>";
-//     print_r($resultSet);
-//     die; 
-    foreach ( $resultSet as $keys => $values ) {        
-        foreach ( $values as $inkeys => $invalues ){
-            if(isset($invalues['profile_image'])){
-                if(!empty($invalues['profile_image'])){
-                    $uri = 'data:image/png;base64,'.base64_encode($invalues['profile_image']);
-                    ?>
-                    <p>
-                    <div style="float:left">
-                    <img src="<?php echo $uri;?>" width="35" height="30" class="group_image">
-                    </div>
-                    <?php
-                }
-            }
-            if(isset($invalues['description'])){
-                if(!empty($invalues['description'])){
-                    ?>
-                    <div id="displayComments" style="border:0.1em solid; margin-left: 40px; min-width:350px; max-width:350px; word-wrap:break-word; background-color:#efefee;  ">
-                    <?php print nl2br(($invalues['description'])); ?>
-                    </div>
-                    <?php                    
-                }
-            }
-		    if($userID['id'] == $invalues['user_id'] ){        		         
-		    ?>
-		    <input type="button" id="<?php 
-		    if(isset($invalues['id'])){
-		        if(!empty($invalues['id'])){
-		            echo $invalues['id'];
-		        }
-		    }
-		    ?>" class="delete_comments_button btn blue" value="Delete Comment"/>
-		    <?php }		    
-            if(isset($invalues['first_name'])){
-                if(!empty($invalues['first_name'])){
-                    ?>
-                    <span style="font-family: arial,sans-serif;font-size: 12px;float:right;">
-                        <?php
-                        print($invalues['first_name']);
-                        ?>                    
-                    <?php
-                }
-            }
-            if(isset($invalues['created_on'])){
-                if(!empty($invalues['created_on'])){
-                    ?>
-                        <?php
-                        print($invalues['created_on']);
-                        ?>
-                    </span>
-                    <?php
-                }
-            }            
-        }
-    }
-}
-?>
+<div id="discussionDisplay"></div>
+<?php include_once 'getComments.php'; ?>
 <textarea id="commentID" class="group_textarea" placeholder="Comment" rows="4" cols="50"></textarea>
 <div id="commentError"></div>
 <div id="commentLength"></div>
@@ -128,5 +52,20 @@ $(function(){
 			return false;
 		}
 	});
+	$("#discussionDisplay").ready(function(){
+		var $temp = parent.$("#<?php echo $discussionID; ?>").parent().parent().text();
+		$("#discussionDisplay").html($temp);
+	});
+	$(".justComments").mouseover(function(){
+		var $str = $(this).attr("id");
+		var $id = $str.substr(15,$str.length);		
+		$("#dispNameDateTime"+$id).css("display","block");		 
+	});
+	$(".justComments").mouseout(function(){
+		var $str = $(this).attr("id");
+		var $id = $str.substr(15,$str.length);		
+		$("#dispNameDateTime"+$id).css("display","none");		 
+	});
 });
 </script>
+<link href="../css/comment.css" rel="stylesheet" type="text/css" />

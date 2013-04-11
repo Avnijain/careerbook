@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+#fancybox-frame{
+background-color: #eeeeee;
+}
+/* Generic font class */
+.custon_font{
+font-family: arial,sans-serif;font-size: 12px;
+}
+/* User Comments */
+.displayComment{
+border:0.1em solid; float:left; min-height: 30px; min-width:430px; max-width:430px; word-wrap:break-word; background-color:#eeeeef;
+margin-left : 5px; padding: 1px;
+}
+#discussionDisplay{
+border: 1px solid #dbeef3; padding: 2px; border-bottom:1px solid #000000; min-width:470px; max-width:470px; word-wrap:break-word; background-color:#efefee;
+}
+.delete_comments_button{
+background-image: url(../images/delete-sml.jpg); border: 0; text-indent: -4000px; width: 25px;
+height: 25px; cursor: pointer;
+}
+#delBtnTime{
+display:block; float:left; width: 470px;
+}
+#commentWrapper{
+display:block; width:475px;float:left;background-color: #aaaaaa;
+margin-top: 5px;
+}
+#commentImage{
+width:35px; float:left;
+}
+.floatRight{
+	float:right;
+}
+.textWhite{
+	color :#ffffff;
+}
+.dispNDT{
+display:none;
+}

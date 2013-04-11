@@ -42,14 +42,18 @@ require_once '../controller/userInfo.php';
         		        echo "$invalues[first_name]";
         		    }
         		}
+        		?>
+        		<span class="discussionText">
+        		<?php
         		if(isset($invalues['discussion'])){
         		    if(!empty($invalues['discussion'])){		
         		        echo " : " . nl2br($invalues['discussion']) 
         		        . "<br />";
         		    }
         		}
-//echo "Comments : " . $invalues['comments'] . "<br />";
-                ?>
+        		//echo "Comments : " . $invalues['comments'] . "<br />";
+        		?>
+        		</span>
         		<div>
         		    <input type="button" id="<?php 
         		    if(isset($invalues['id'])){
