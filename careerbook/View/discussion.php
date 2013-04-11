@@ -89,7 +89,7 @@ $(function() {
     				rows="06" placeholder="Description"></textarea>
     		</div>
     		<div>
-    			<input class="group_button" type="submit" value="POST"
+    			<input class="btn blue" type="submit" value="POST"
     				name="btnsubmit" />
     		</div>
     	</form>

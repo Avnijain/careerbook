@@ -20,3 +20,8 @@
 [11-Apr-2013 05:18:03 UTC] PHP Warning:  unlink(../temp/abc@abc.com.txt): No such file or directory in C:\xampp\htdocs\careerbook\trunk\careerbook\controller\mainentrance.php on line 467
 [11-Apr-2013 05:18:03 UTC] PHP Notice:  Undefined variable: result in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\friends_model.php on line 81
 [11-Apr-2013 05:18:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\careerbook\trunk\careerbook\View\getMessages.php on line 26
+[11-Apr-2013 05:37:50 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\singleton.php on line 53
+[11-Apr-2013 05:37:50 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\singleton.php on line 53
+[11-Apr-2013 05:37:50 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\singleton.php on line 53
+[11-Apr-2013 05:37:50 UTC] PHP Fatal error:  Call to a member function From() on a non-object in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\model.php on line 114
+[11-Apr-2013 05:38:01 UTC] PHP Warning:  unlink(../temp/lookforward007@gmail.com.txt): No such file or directory in C:\xampp\htdocs\careerbook\trunk\careerbook\controller\mainentrance.php on line 467

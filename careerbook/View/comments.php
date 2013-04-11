@@ -50,7 +50,7 @@ unset($resultSet[0]['discussionID']);
 		            echo $invalues['id'];
 		        }
 		    }
-		    ?>" class="delete_comments_button" value="Delete Comment"/>
+		    ?>" class="delete_comments_button btn blue" value="Delete Comment"/>
 		    <?php }		    
             if(isset($invalues['first_name'])){
                 if(!empty($invalues['first_name'])){
@@ -69,7 +69,6 @@ unset($resultSet[0]['discussionID']);
                         print($invalues['created_on']);
                         ?>
                     </span>
-                    </p>
                     <?php
                 }
             }            
@@ -80,7 +79,7 @@ unset($resultSet[0]['discussionID']);
 <textarea id="commentID" class="group_textarea" placeholder="Comment" rows="4" cols="50"></textarea>
 <div id="commentError"></div>
 <div id="commentLength"></div>
-<input type="submit" id = "commentSubmit" value="post comment"></input>
+<input type="submit" class="btn blue" id = "commentSubmit" value="post comment"></input>
 <script src="../JavaScript/jquery-1.7.1.js"></script>
 <script>
 $(function(){

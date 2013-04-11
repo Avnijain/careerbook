@@ -57,7 +57,7 @@ require_once '../controller/userInfo.php';
         		            echo $invalues['id'];
         		        }
         		    }
-        		    ?>" class="view_comments_button" value="View Comments"/>
+        		    ?>" class="view_comments_button btn blue" value="View Comments"/>
         		    <?php
         		    if($userID['id'] == $invalues['user_id'] ){        		         
         		    ?>
@@ -67,7 +67,7 @@ require_once '../controller/userInfo.php';
         		            echo $invalues['id'];
         		        }
         		    }
-        		    ?>" class="delete_post_button" value="Delete Post"/>
+        		    ?>" class="delete_post_button btn blue" value="Delete Post"/>
         		    <?php } ?>
         		</div>
 		</div>

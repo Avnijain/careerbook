@@ -101,9 +101,11 @@ textarea.group_textarea {
 	height: auto;
 	padding: 8px;
 	background: #05BFFC;
+	word-wrap: break-word;
 	color: #fff
 	border: #fff solid 1px;
 	overflow: hidden;
+	border-radius: 10px;
 }
 
 
