@@ -1,106 +1,226 @@
-$(function() {
+(function($, W, D) {
 
-	$('#add_group_form')
-		.submit(
-			function() {
-				if ($('#title').val().length == 0 ||
-						$('#title').val().length > 60) {
-						$('#title')
-							.addClass('error')
-							.after(
-							'<br/><span class="error"><br/>This title must not be empty or greater than 60 characters </span>');
-							return false;
-					}
-				if ($('#description').val().length == 0 ||
-						$('#description').val().length > 250) {
-					$('#description')
-						.addClass('error')
-						.after(
-						'<br/><span class="error"><br/>This description must not be empty or greater than 250 characters </span>');
-						return false;
-				}
-			}	
-		);
+$(document).ready(function() {
 	
-	$('#edit_group_form')
-	.submit(
-			function() {
-				if ($('#title').val().length == 0 ||
-						$('#title').val().length > 60) {
-						$('#title')
-							.addClass('error')
-							.after(
-							'<br/><span class="error"><br/>This title must not be empty or greater than 60 characters </span>');
-							return false;
-					}
-				if ($('#description').val().length == 0 ||
-						$('#description').val().length > 250) {
-					$('#description')
-						.addClass('error')
-						.after(
-						'<br/><span class="error"><br/>This description must not be empty or greater than 250 characters </span>');
-						return false;
-				}
-			}		
-	);
-
-	$('#title').focus(function() {
-		$(this).removeClass('error').next('span').remove();
+	$("#description").click(function(){
+		$("#description").width("425");
+		$("#description").height("70");
 	});
 	
-	$('#description').focus(function() {
-		$(this).removeClass('error').next('span').remove();
+	$("#group_discussion_description").click(function(){
+		$("#group_discussion_description").width("425");
+		$("#group_discussion_description").height("70");
 	});
+	
+	$("#group_discussion_comment").click(function(){
+		$("#group_discussion_comment").width("425");
+		$("#group_discussion_comment").height("70");
+	});
+	
+	$("#group_discussion_description").click(function(){
+		$("#group_discussion_description").width("425");
+		$("#group_discussion_description").height("70");
+	});
+	
+	$.validator.addMethod("groupRegex", function(value,
+			element) {
+		return this.optional(element)
+				|| /^[a-z' ']+$/i.test(value);
+	});
+	
+	$.validator
+	.addMethod(
+		"url",
+		function(value, element) {
+			return this.optional(element)
+				|| !(/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i
+				.test(value));
+		});
+	
+	$.validator.addMethod("script",
+			function(value, element) {
+				return this.optional(element)
+					|| !(/(<([^>]+)>)/i.test(value));
+	});
+		
+	$("#add_group_form")
+	.validate(
+			{
+				rules : {
 
-	$('#group_post_form')
-		.submit(
-			function() {
-				if (($('#group_discussion_description').val().length > 100) || ($('#group_discussion_description').val().length == 0)) {
-					$('#group_discussion_description')
-						.addClass('error')
-						.after(
-						'<span class="error"><br/>This Comment must not empty and less than 100 chars.</span>');
-						return false;
+					title : {
+						groupRegex : true,
+						required : true,
+						url : true,
+						script : true,
+						minlength : 3,
+						maxlength : 60,
+
+					},
+					description : {
+						groupRegex : true,
+						required : true,
+						url : true,
+						script : true,
+						minlength : 10,
+						maxlength : 100,
+					},
+					
+				},
+				messages : {
+					title : {
+						required : "Please enter your group  title",
+						groupRegex : "Group title must contain only letters.",
+						minlength : "Your Group title must be at least 3 characters long",
+						maxlength : "Your Group title Not more than 60 characters",
+						url : "Url not allowed",
+						script : "Dont use script here",
+					},
+					
+					description : {
+						required : "Please enter your group  description",
+						groupRegex : "Group description must contain only letters.",
+						minlength : "Your Group description must be at least 10 characters long",
+						maxlength : "Your Group description must Not more than 100 characters",
+						url : "Url not allowed",
+						script : "Dont use script here",
+					},
+
+				},
+				submitHandler : function(form) {
+					form.submit();
 				}
-			}
-		);
+		});
 	
-	$('#group_discussion_description').focus(function() {
-		$(this).removeClass('error').next('span').remove();
-	});
+	$("#edit_group_form")
+	.validate(
+			{
+				rules : {
 
-	$('#groupDiscussionComment_form')
-		.submit(
-			function() {
-				if (($('#group_discussion_comment').val().length > 100) || ($('#group_discussion_comment').val().length == 0)) {
-					$('#group_discussion_comment')
-						.addClass('error')
-						.after(
-						'<span class="error"><br/>This Comment must not empty and less than 100 chars.</span>');
-						return false;
+					title : {
+						groupRegex : true,
+						required : true,
+						url : true,
+						script : true,
+						minlength : 3,
+						maxlength : 60,
+
+					},
+					description : {
+						groupRegex : true,
+						required : true,
+						url : true,
+						script : true,
+						minlength : 10,
+						maxlength : 100,
+					},
+					
+				},
+				messages : {
+					title : {
+						required : "Please enter your group  title",
+						groupRegex : "Group title must contain only letters.",
+						minlength : "Your Group title must be at least 3 characters long",
+						maxlength : "Your Group title Not more than 60 characters",
+						url : "Url not allowed",
+						script : "Dont use script here",
+					},
+					
+					description : {
+						required : "Please enter your group  description",
+						groupRegex : "Group description must contain only letters.",
+						minlength : "Your Group description must be at least 10 characters long",
+						maxlength : "Your Group description must Not more than 100 characters",
+						url : "Url not allowed",
+						script : "Dont use script here",					},
+
+				},
+				submitHandler : function(form) {
+					form.submit();
 				}
-			}
-		);
+		});
 	
-	$('#group_discussion_comment').focus(function() {
-		$(this).removeClass('error').next('span').remove();
+	$("#group_post_form")
+	.validate(
+			{
+				rules : {
+					group_discussion_description : {
+						required : true,
+						groupRegex : true,
+						minlength : 3,
+						maxlength : 250,
+					},
+					
+				},
+				messages : {
+					group_discussion_description : {
+						required : "Please enter your group  title",
+						groupRegex : "Post must contain only letters.",
+						minlength : "Your Post must be at least 3 characters long",
+						maxlength : "Your Post must Not more than 250 characters",
+					},
+
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+		});
+	
+	$("#editPost_form")
+	.validate(
+			{
+				rules : {
+					group_discussion_description : {
+						required : true,
+						groupRegex : true,
+						minlength : 3,
+						maxlength : 250,
+					},
+					
+				},
+				messages : {
+					group_discussion_description : {
+						required : "Please enter your Post",
+						groupRegex : "Post must contain only letters.",
+						minlength : "Your Post must be at least 3 characters long",
+						maxlength : "Your Post must Not more than 250 characters",
+					},
+
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+		});
+	
+	$("#groupDiscussionComment_form")
+	.validate(
+			{
+				rules : {
+					group_discussion_comment : {
+						required : true,
+						groupRegex : true,
+						minlength : 3,
+						maxlength : 250,
+					},
+					
+				},
+				messages : {
+					group_discussion_comment : {
+						required : "Please enter your comment",
+						groupRegex : "Comment must contain only letters.",
+						minlength : "Your Comment must be at least 3 characters long",
+						maxlength : "Your Comment must Not more than 250 characters",
+					},
+
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+		});
+	
 	});
+})(jQuery, window, document);;
 	
-	$('#editPost_form')
-	.submit(
-		function() {
-			if (($('#group_discussion_description').val().length > 100) || ($('#group_discussion_description').val().length == 0)) {
-				$('#group_discussion_description')
-					.addClass('error')
-					.after(
-					'<span class="error"><br/>This Comment must not empty and less than 100 chars.</span>');
-					return false;
-			}
-		}
-	);
-
-});
-
 
 function addGroup() {
 	url = "../View/add_group.php";

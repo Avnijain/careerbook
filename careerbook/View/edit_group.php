@@ -6,6 +6,7 @@ include_once("../classes/lang.php");
 ?>
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<script src="../JavaScript/jquery.validate.min.js"></script>
 <script type="text/javascript" src="../JavaScript/group.js"> </script>
 
 <div id="add_group">
@@ -27,7 +28,7 @@ include_once("../classes/lang.php");
 		<br /> <br />
 		<div>
 			<label><?php echo $lang->GROUPDESCRIPTION;?></label><br />
-			<textarea class="group_textarea" name="description" cols="25"
+			<textarea class="group_textarea" name="description" cols="25" id="description"
 				rows="06"><?php echo nl2br($groupData[0]['description']);?></textarea><br/>
 				<?php
         		if(isset($_GET['errno'])) {

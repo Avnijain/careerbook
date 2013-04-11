@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+<script src="../JavaScript/jquery.validate.min.js"></script>
 <script type="text/javascript" src="../JavaScript/group.js"> </script>
 <?php
 	include_once('../classes/groupClass.php');
