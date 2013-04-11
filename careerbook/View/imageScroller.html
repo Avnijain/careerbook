@@ -1,0 +1,169 @@
+		<div id="outerMyContainer">
+			<div id="imageScroller">
+				<div id="viewer" class="js-disabled">
+					<a class="ImageWrapper" href="#" title="User Profie"><img class="logo" width="150px" height="150px" src="./images/sl1.jpeg" alt="Apple"></a>
+					<a class="ImageWrapper" href="#" title="Emails"><img class="logo" width="150px" height="150px" src="./images/sl2.jpeg" alt="Firefox"></a>
+					<a class="ImageWrapper" href="#" title="Search Friends"><img class="logo" width="150px" height="150px" src="./images/sl3.jpg" alt="jQuery"></a>
+					<a class="ImageWrapper" href="#" title="Group discussion"><img class="logo" width="250px" height="150px" src="./images/sl4.jpeg" alt="Twitter"></a>
+					<a class="ImageWrapper" href="#" title="Friends discussion"><img class="logo" width="150px" height="150px" src="./images/sl6.jpeg" alt="jQuery UI"></a>
+					<a class="ImageWrapper" href="#" title="Suggestion"><img class="logo" width="150px" height="150px" src="./images/sl7.jpeg" alt="jQuery UI"></a>
+					<a class="ImageWrapper" href="#" title="Contact us"><img class="logo" width="150px" height="150px" src="./images/sl5.jpg" alt="jQuery UI"></a>
+				</div>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			$(function() {
+			
+			  //remove js-disabled class
+				$("#viewer").removeClass("js-disabled");
+			
+			  //create new MyContainer for images
+				$("<div>").attr("id", "MyContainer").css({ position:"absolute"}).width($(".ImageWrapper").length * 170).height(170).appendTo("div#viewer");
+			  	
+				//add images to MyContainer
+				$(".ImageWrapper").each(function() {
+					$(this).appendTo("div#MyContainer");
+				});
+				
+				//work out duration of anim based on number of images (1 second for each image)
+				var duration = $(".ImageWrapper").length * 1000;
+				
+				//store speed for later (distance / time)
+				var speed = (parseInt($("div#MyContainer").width()) + parseInt($("div#viewer").width())) / duration;
+								
+				//set direction
+				var direction = "rtl";
+				
+				//set initial position and class based on direction
+				(direction == "rtl") ? $("div#MyContainer").css("left", $("div#viewer").width()).addClass("rtl") : $("div#MyContainer").css("left", 0 - $("div#MyContainer").width()).addClass("ltr") ;
+				
+				//animator function
+				var animator = function(el, time, dir) {
+				 
+					//which direction to scroll
+					if(dir == "rtl") {
+					  
+					  //add direction class
+						el.removeClass("ltr").addClass("rtl");
+					 		
+						//animate the el
+						el.animate({ left:"-" + el.width() + "px" }, time, "linear", function() {
+												
+							//reset MyContainer position
+							$(this).css({ left:$("div#imageScroller").width(), right:"" });
+							
+							//restart animation
+							animator($(this), duration, "rtl");
+							
+							//hide controls if visible
+							($("div#controls").length > 0) ? $("div#controls").slideUp("slow").remove() : null ;			
+											
+						});
+					} else {
+					
+					  //add direction class
+						el.removeClass("rtl").addClass("ltr");
+					
+						//animate the el
+						el.animate({ left:$("div#viewer").width() + "px" }, time, "linear", function() {
+												
+							//reset MyContainer position
+							$(this).css({ left:0 - $("div#MyContainer").width() });
+							
+							//restart animation
+							animator($(this), duration, "ltr");
+							
+							//hide controls if visible
+							($("div#controls").length > 0) ? $("div#controls").slideUp("slow").remove() : null ;			
+						});
+					}
+				}
+				
+				//start anim
+				animator($("div#MyContainer"), duration, direction);
+				
+				//pause on mouseover
+				$("a.ImageWrapper").live("mouseover", function() {
+				  
+					//stop anim
+					$("div#MyContainer").stop(true);
+					
+					//show controls
+					($("div#controls").length == 0) ? $("<div>").attr("id", "controls").appendTo("div#outerMyContainer").css({ opacity:0.7 }).slideDown("slow") : null ;
+					($("a#rtl").length == 0) ? $("<a>").attr({ id:"rtl", href:"#", title:"rtl" }).appendTo("#controls") : null ;
+					($("a#ltr").length == 0) ? $("<a>").attr({ id:"ltr", href:"#", title:"ltr" }).appendTo("#controls") : null ;
+					
+					//variable to hold trigger element
+					var title = $(this).attr("title");
+					
+					//add p if doesn't exist, update it if it does
+					($("p#title").length == 0) ? $("<p>").attr("id", "title").text(title).appendTo("div#controls") : $("p#title").text(title) ;
+				});
+				
+				//restart on mouseout
+				$("a.ImageWrapper").live("mouseout", function(e) {
+				  
+					//hide controls if not hovering on them
+					(e.relatedTarget == null) ? null : (e.relatedTarget.id != "controls") ? $("div#controls").slideUp("slow").remove() : null ;
+					
+					//work out total travel distance
+					var totalDistance = parseInt($("div#MyContainer").width()) + parseInt($("div#viewer").width());
+														
+					//work out distance left to travel
+					var distanceLeft = ($("div#MyContainer").hasClass("ltr")) ? totalDistance - (parseInt($("div#MyContainer").css("left")) + parseInt($("div#MyContainer").width())) : totalDistance - (parseInt($("div#viewer").width()) - (parseInt($("div#MyContainer").css("left")))) ;
+					
+					//new duration is distance left / speed)
+					var newDuration = distanceLeft / speed;
+				
+					//restart anim
+					animator($("div#MyContainer"), newDuration, $("div#MyContainer").attr("class"));
+
+				});
+												
+				//handler for ltr button
+				$("#ltr").live("click", function() {
+				 					
+					//stop anim
+					$("div#MyContainer").stop(true);
+				
+					//swap class names
+					$("div#MyContainer").removeClass("rtl").addClass("ltr");
+										
+					//work out total travel distance
+					var totalDistance = parseInt($("div#MyContainer").width()) + parseInt($("div#viewer").width());
+					
+					//work out remaining distance
+					var distanceLeft = totalDistance - (parseInt($("div#MyContainer").css("left")) + parseInt($("div#MyContainer").width()));
+					
+					//new duration is distance left / speed)
+					var newDuration = distanceLeft / speed;
+					
+					//restart anim
+					animator($("div#MyContainer"), newDuration, "ltr");
+				});
+				
+				//handler for rtl button
+				$("#rtl").live("click", function() {
+										
+					//stop anim
+					$("div#MyContainer").stop(true);
+					
+					//swap class names
+					$("div#MyContainer").removeClass("ltr").addClass("rtl");
+					
+					//work out total travel distance
+					var totalDistance = parseInt($("div#MyContainer").width()) + parseInt($("div#viewer").width());
+
+					//work out remaining distance
+					var distanceLeft = totalDistance - (parseInt($("div#viewer").width()) - (parseInt($("div#MyContainer").css("left"))));
+					
+					//new duration is distance left / speed)
+					var newDuration = distanceLeft / speed;
+				
+					//restart anim
+					animator($("div#MyContainer"), newDuration, "rtl");
+				});
+			});
+		</script>

@@ -21,16 +21,6 @@ $userData = $objUserInfo->getUserPersonalInfo ();
 
 $fileName="../temp/".$userData['email_primary'].".txt";
 ?>
-<?php
-
-if(isset($_GET ['close'])) {
-	echo '<script type="text/javascript">'
-		, 'closeME();'
-		, '</script>';
-	
-}
-
-?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
@@ -50,7 +40,13 @@ if(isset($_GET ['close'])) {
 <script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="../JavaScript/fancybox/jquery.fancybox-1.3.4.css" ></link>
 <?php
-include_once ("../classes/lang.php");
+
+if(isset($_GET ['close'])) {
+	echo '<script type="text/javascript">'
+		, 'closeME();'
+		, '</script>';
+	
+}
 ?>
 
 </head>

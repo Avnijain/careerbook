@@ -471,7 +471,9 @@ class mainentrance {
 				$SID=$_COOKIE['PHPSESSID'];
 				//********************************************************************************
 				$fileName="../temp/".$result[0]['email_primary'].".txt";
-				unlink($fileName);
+				if (file_exists($fileName)) {
+					unlink($fileName);
+				}
 				$file=fopen($fileName,"a");					//mutiple login save
 				fwrite($file,md5($SID));
 				fclose($file);
