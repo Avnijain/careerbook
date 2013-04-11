@@ -34,12 +34,14 @@ $certificateCount=count($UserCertificateInfoDB);							//to get the total number
 $extraCurricularCount=count($UserExtraCurricularobInfoDB);					//to get the count of Extra Curricular Activities
 $first_name=$UserPersonalInfoDB['first_name']; 								// getting first name
 $dob=($objdate->reverseDateClass($UserPersonalInfoDB['date_of_birth']));	//to get the date of birth in correct format
-$pastWorkDuration=($objdate->getDuration($UserPreviousJobInfo['start_period'],$UserPreviousJobInfo['end_period']));
-$year=explode(" ",$pastWorkDuration); // to get the working experience in correct format
-$onlyYear=$year[0];
-$onlyMonth=$year[1];
-$month=explode("-",$onlyMonth);
-$year=explode("-",$onlyYear);
+if((!empty($UserPreviousJobInfo['start_period']))&&(!empty($UserPreviousJobInfo['end_period']))) {
+	$pastWorkDuration=($objdate->getDuration($UserPreviousJobInfo['start_period'],$UserPreviousJobInfo['end_period']));
+	$year=explode(" ",$pastWorkDuration); // to get the working experience in correct format
+	$onlyYear=$year[0];
+	$onlyMonth=$year[1];
+	$month=explode("-",$onlyMonth);
+	$year=explode("-",$onlyYear);
+}
 if($month[1]>0)
 {
 	$pastWorkDuration=$month[1]."$lang->MONTHS";
@@ -49,7 +51,7 @@ if($year[1]>0)
  $pastWorkDuration=$year[1]."$lang->YEARS";
 	
 }
-if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // When first template is selected by user
+if((isset($_POST['template1']))&&($_POST['template1']=="Use this template")) // When first template is selected by user
 {	
 	echo "template1";
 	header("Content-type: application/vnd.ms-word");    					// to open a word file
@@ -216,7 +218,7 @@ if((isset($_POST['template1']))&&($_POST['template1']=="use this template")) // 
 	echo "</html>";
 }
 
-else if((isset($_POST['template2']))&&($_POST['template2']=="use this template"))	// When second template is selected by user
+else if((isset($_POST['template2']))&&($_POST['template2']=="Use this template"))	// When second template is selected by user
 {
 	header("Content-type: application/vnd.ms-word");
 	header("Content-Disposition: attachment;Filename=$first_name.doc");
@@ -248,9 +250,9 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 	echo "<b><h3>$lang->SNAPSHOT</h3></b>";
 	echo "<hr noshade>";
 	if(!empty($UserProfessionalInfoDB['current_company'])) { 
-		echo "$lang->CURRENTLYWORKINGIN"." ";
+		echo "$lang->CURRENTLYWORKINGIN "." ";
 		echo $UserProfessionalInfoDB['current_company'];
-		echo "$lang->AS"."  ";
+		echo "$lang->AS "."  ";
 		echo $UserProfessionalInfoDB['current_position'];
 		echo "<br/>";
 	}
@@ -349,7 +351,7 @@ else if((isset($_POST['template2']))&&($_POST['template2']=="use this template")
 		echo "</html>";
 	}
 }	
-else if($_POST['template3']=="use this template")	// When third template is selected by user
+else if($_POST['template3']=="Use this template")	// When third template is selected by user
 {
 	
     header("Content-type: application/vnd.ms-word");
