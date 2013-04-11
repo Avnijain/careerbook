@@ -9,6 +9,7 @@ include_once ("../classes/lang.php");
 require_once '../controller/userInfo.php';
 include_once "../controller/friends_controller.php";
 
+
 if (! isset ( $_SESSION ['userData'] )) {
 	header ( "location:../index.php" );
 	die ();

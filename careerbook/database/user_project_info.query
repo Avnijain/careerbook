@@ -9,7 +9,7 @@ duration varchar(20) CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '
 
 ) ENGINE = INNODB AUTO_INCREMENT = 1;
 
-alter table user_project_info ADD FOREIGN KEY (user_id) REFERENCES user(id);
+alter table user_project_info ADD FOREIGN KEY (user_id) REFERENCES users(id);
 
 
 create table user_certification_info (
@@ -73,3 +73,15 @@ CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT 'English' NOT NULL COMMENT 'Languag
 
 alter table user_personal_info ADD COLUMN nationality varchar(20)
 CHARSET utf8 COLLATE utf8_unicode_ci DEFAULT 'English' NOT NULL COMMENT 'user nationality';
+
+create table user_activity_info (
+
+id bigint(11) unsigned PRIMARY KEY AUTO_INCREMENT COMMENT 'THIS WILL BE AUTO GENERATED UNIQUE ID',
+user_id bigint(11) unsigned NOT NULL COMMENT 'THIS WILL BE USER ID OF USER TABLE',
+login_datetime TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Login time of user',
+comments_count int(5) UNSIGNED DEFAULT 0 NOT NULL COMMENT 'Count number of comments by user',
+grouppost_count int(5) UNSIGNED DEFAULT 0 NOT NULL COMMENT 'Count number of posts by user'
+
+) ENGINE = INNODB AUTO_INCREMENT = 1;
+
+alter table user_activity_info ADD FOREIGN KEY (user_id) REFERENCES users(id);

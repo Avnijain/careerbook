@@ -39,7 +39,7 @@ class user_info_controller
 	private $objProfessionalInfo;
 	private $objAcademicInfo;
 	private $objIdentityInfo;	
-	private	 $ObjUserModel;
+	private	$ObjUserModel;
 	private $objAddressInfo;
 	private $objProjectInfo;
 	private $projectCountDB;
@@ -52,6 +52,7 @@ class user_info_controller
 	private $objCertificateInfo;
 	private $objExtraCurricularInfo;
 	private $objValidation;
+	private $_objActivityInfo;
 
 	public function __construct()
 	{
@@ -66,8 +67,9 @@ class user_info_controller
 		$this->objPreviousJobInfo = new UserPreviousJobInfo();
 		$this->objCertificateInfo[] = new UserCertificationInfo();
 		$this->objExtraCurricularInfo[] = new UserExtraCurricularInfo();
+		$this->_objActivityInfo = new userActivityInfo(); 
 	}
-/*************************************** User Personal Information ****************************************************/
+/******************* User Personal Information *****************/
 	public function setUserPersonalInfoForm($result){
 		$this->objPersonalInfo->setinfo($result);
 		
@@ -76,9 +78,6 @@ class user_info_controller
 		    return $error;
 		}
 		$resultDB = $this->ObjUserModel->fetchUserPersonalInfo($this);
-// 		echo "<pre/>";
-// 		print_r($resultDB);
-// 		die;
 		if(count($resultDB) > 0 ){
 			$this->ObjUserModel->updateUserPersonal($this);
 		}
@@ -86,9 +85,6 @@ class user_info_controller
 	public function setUserPersonalInfo($result)
 	{
 		$this->objPersonalInfo->setinfo($result);
-//		$this->obj->getdefinedvars();
-// 		echo "<pre/>";
-// 		print_r ($result);
 	}
 	public function setUserPersonalInfoDb(){
 		$result = $this->ObjUserModel->fetchUserPersonalInfo($this);
@@ -100,7 +96,6 @@ class user_info_controller
 	}	
 	public function getUserPersonalInfo()
 	{
-		//		print($varname);
 		return $this->objPersonalInfo->getinfo();
 	}
 	public function getUserPersonalInfoDB()
@@ -108,7 +103,7 @@ class user_info_controller
 		$flag = $this->setUserPersonalInfoDb();
 		return $this->objPersonalInfo->getInfo();
 	}
-/*************************************** User Profile Image  ****************************************************/	
+/******************* User Profile Image *****************/	
 	public function setUserImageInfoForm($result){
 		$this->objPersonalInfo->addImage($result);
 		$resultDB = $this->ObjUserModel->fetchUserPersonalInfo($this);
@@ -124,7 +119,7 @@ class user_info_controller
 	public function getImageInfo(){
 		return $this->objPersonalInfo->getInfo();
 	}
-/**************************************** User Address Information ***************************************************/
+/******************* User Address Information *****************/
 	public function setUserAddressInfoForm($result){
 		$this->objAddressInfo->setinfo($result);
 		$error = $this->objValidation->validate($this->objAddressInfo->getinfo());
@@ -142,8 +137,6 @@ class user_info_controller
 	}
 	public function setUserAddressInfoDb(){
 		$result = $this->ObjUserModel->fetchFullUserAddressInfo($this);
-//		print_r($result);
-//		die;
 		if(count($result) > 0 ){
 			$this->objAddressInfo->setinfo($result);
 			return true;
@@ -159,7 +152,7 @@ class user_info_controller
 	    $flag = $this->setUserAddressInfoDb();
 	    return $this->objAddressInfo->getInfo($flag);
 	}
-/***************************************** User Academic Information **************************************************/
+/******************* User Academic Information *****************/
 	public function setUserAcademicInfoForm($result){
 	    $this->objAcademicInfo->setinfo($result);
 	    
@@ -176,10 +169,6 @@ class user_info_controller
 	        $this->ObjUserModel->insertIntoUserAcademic($this) or die(mysql_error());
 	    }	    
 	}
-// 	private function serializedata($userInfo){
-// 		session_start();
-// 		$_SESSION['userData'] = serialize($userInfo);
-// 	}
 	public function setUserAcademicInfoDb(){
 		$result = $this->ObjUserModel->fetchUserAcademicInfo($this);	
 		if(count($result) > 0 ){
@@ -197,13 +186,10 @@ class user_info_controller
 	    $flag = $this->setUserAcademicInfoDb();
 	    return $this->objAcademicInfo->getInfo($flag);
 	}
-/***************************************** User Certificate Information **************************************************/
+/******************* User Certificate Information *****************/
 	public function setUserCertificateInfoForm($result){
-	    
 	    $this->setDatainCertificate($result);
-	    
 	    $nwProject = intval($this->certificateCountForm) - intval($this->certificateCountDB);
-//	    }
 	    if($this->certificateCountDB > 0 ){
 	        $this->ObjUserModel->updateUserCertificateInfo($this,$this->certificateCountDB);
 	    }
@@ -253,7 +239,7 @@ class user_info_controller
 	public function deleteUserCertificate($certificateID){
 	    return $this->ObjUserModel->deleteUserCertificate($this,$certificateID);	    
 	}
-/************************* Generic Data in Forms and DB Inertion Function for Array Objects ******************/	
+/******************* Generic Data in Forms and DB Inertion Function for Array Objects ******************/	
 	private function setDatainFormsArray($result, &$ojbtoUpdate, $arrayFormat, &$countForm, &$countDB ){
 	    $max = 0;
 	    foreach($result[0] as $key => $value){
@@ -263,13 +249,10 @@ class user_info_controller
 	        }
 	        break;
 	    }
-//        print($max);
-//        die;	    
 	    for($i = 0; $i < $max ; $i++){
 	        $tempArray = $arrayFormat;
 	        foreach($result[0] as $key => $value){
 	            $id = $key;
-	            //print($id);
 	            if(!empty($result[0][$id][$i])){
 	                $tempArray[0][$id] = $result[0][$id][$i];
 	            }
@@ -283,7 +266,6 @@ class user_info_controller
 	                    $tmpClass = get_class($ojbtoUpdate[0]);
 	                    $ojbtoUpdate[] = new $tmpClass; 
 	                }
-	                //UserCertificationInfo();
 	            }            
 	        }
 	        $countForm = $max;
@@ -291,33 +273,19 @@ class user_info_controller
 	            if(empty($countDB)){
 	                $countDB = 0;
 	            }
-	        }
-//echo "<pre/>";
-//print_r($ojbtoUpdate);
-//print($countForm);
-//print($countDB);
-//die;	    
+	        }   
 	}
 	private function setDatainDBArray($result, &$ojbtoUpdate, $arrayFormat, &$countDB ){
 	    $max = 0;
 	    foreach($result as $key => $value){
 	        $max++;
 	    }
-//        print($max);
-//        die;
-//        echo "<pre/>";
-//        print_r($ojbtoUpdate);
-//        die;
         foreach($result as $key => $value){
             $i = $key;
             $tempuser = $arrayFormat;
             foreach($value as $inkey => $invalue){
             $id = $inkey;
-            //print($id);
-            //foreach ($key as $inkey => $invalue){
             $tempuser[0][$id] = $result[$i][$id];
-             
-            //}
             }
             $ojbtoUpdate[$i]->setinfo($tempuser);
             if($i+1 == $max){
@@ -331,19 +299,11 @@ class user_info_controller
             }
         }
         $countDB = $max;
-//print($countDB);
-//echo "<pre/>";
-//print_r($ojbtoUpdate);
-//die;
-	}	
-
-/***************************************** User Extra Curricular Information **************************************************/
-	public function setUserExtraCurricularInfoForm($result){
-	    
-	    $this->setDatainExtraCurricular($result);
-	    
+	}
+/******************* User Extra Curricular Information *****************/
+	public function setUserExtraCurricularInfoForm($result){	    
+	    $this->setDatainExtraCurricular($result);	    
 	    $nwProject = intval($this->extraCurricularCountForm) - intval($this->extraCurricularCountDB);
-//	    }
 	    if($this->extraCurricularCountDB > 0 ){
 	        $this->ObjUserModel->updateUserExtraCurricularInfo($this,$this->extraCurricularCountDB);
 	    }
@@ -359,11 +319,6 @@ class user_info_controller
 	                               $this->extraCurricularCountForm, 
 	                               $this->extraCurricularCountDB
 	                               );
-// 	    echo "<pre/>";
-// 	    print_r($this->objExtraCurricularInfo);
-// 	    print($this->extraCurricularCountForm);
-// 	    print($this->extraCurricularCountDB);
-// 	    die;
 	}
 	public function setUserExtraCurricularInfoDb(){
 	    unset($this->objExtraCurricularInfo);
@@ -399,22 +354,16 @@ class user_info_controller
 	public function deleteUserExtraCurricular($extraCurricularID){
 	    return $this->ObjUserModel->deleteUserExtraCurricular($this,$extraCurricularID);	    
 	}
-/***************************************** User Project Information **************************************************/	
+/******************* User Project Information *****************/	
 	public function setUserProjectInfoForm($result){
-// 	    echo "<pre/>";
-// 	    print_r($result);
-// 	    die;
 	    $this->setDatainProject($result);
-//	    if(isset($this->projectCountForm) && isset($this->projectCountDB)){
-	     $nwProject = intval($this->projectCountForm) - intval($this->projectCountDB);
-//	    }
+	    $nwProject = intval($this->projectCountForm) - intval($this->projectCountDB);
 	    if($this->projectCountDB > 0 ){
 	        $this->ObjUserModel->updateUserProject($this,$this->projectCountDB);
 	    }
-
-        if($nwProject > 0){
+	    if($nwProject > 0){
 	        $this->ObjUserModel->insertIntoUserProject($this,$this->projectCountDB,$this->projectCountForm);
-        }
+	    }
 	}
 	private function setDatainProject($result){
 	    $this->setDatainFormsArray($result, $this->objProjectInfo,
@@ -434,10 +383,7 @@ class user_info_controller
 	    $allproject = array();
 	    foreach ($this->objProjectInfo as $key => $value){
 	        $allproject[] = $this->objProjectInfo[$key]->getinfo($flag); 
-	    }	    
-// 	    echo "<pre/>";
-// 	    print_r($allproject);
-// 	    die;
+	    }
 	    return $allproject;
 	}
 	public function getUserProjectInfoDB()
@@ -459,7 +405,7 @@ class user_info_controller
 	public function deleteUserProject($projectID){
 	    return $this->ObjUserModel->deleteUserProject($this,$projectID);	    
 	}
-/***************************************** User Professional Information **************************************************/		
+/******************* User Professional Information *****************/		
 	public function setUserProfessionalInfoForm($result){
 		$this->objProfessionalInfo->setinfo($result);
 
@@ -475,12 +421,6 @@ class user_info_controller
 		else{
 			$this->ObjUserModel->insertIntoUserProfessional($this);
 		}
-		//$result=$ObjUserModel->insertIntoUserProfessional($userInfo);
-		//print_r($this->objIdentityInfo->getinfo());
-		//		$this->obj->getdefinedvars();
-//		echo "<pre/>";
-// 		print_r ($result);
-// 		die;
 	}
 	public function setUserProfessionalInfoDb(){
 		$result = $this->ObjUserModel->fetchUserProfessionalInfo($this);
@@ -499,7 +439,7 @@ class user_info_controller
 	    $flag = $this->setUserProfessionalInfoDb();
 	    return $this->objProfessionalInfo->getinfo($flag);
 	}
-/************************************** User Previous Job Information *****************************************************/
+/******************* User Previous Job Information *****************/
 	public function setUserPreviousJobInfoForm($result){
 		$this->objPreviousJobInfo->setinfo($result);
 		
@@ -515,13 +455,7 @@ class user_info_controller
 		}
 		else{
 			$this->ObjUserModel->insertIntoUserPreviousJobInfo($this);
-		}
-		//$result=$ObjUserModel->insertIntoUserProfessional($userInfo);
-		//print_r($this->objIdentityInfo->getinfo());
-		//		$this->obj->getdefinedvars();
-		// 		echo "<pre/>";
-		// 		print_r ($result);
-		
+		}		
 	}
 	public function setUserPreviousJobInfoDb(){
 		$result = $this->ObjUserModel->fetchUserPreviousJobInfo($this);
@@ -540,15 +474,95 @@ class user_info_controller
 	    $flag = $this->setUserPreviousJobInfoDb();
 	    return $this->objPreviousJobInfo->getinfo($flag);
 	}
-/************************************** User Id Info *****************************************************/
+/******************* User Id Info *****************/
 	public function setUserIdInfo($result){
 		$this->objIdentityInfo->setinfo($result);
 	}
 	public function getUserIdInfo(){
 		return $this->objIdentityInfo->getinfo();
-}	
-/***************************************** END OF user_info_controller CLASS **************************************************/
+	}
+/******************* User Activity *****************/
+	private function todaydate(){	    
+	    $todayDate = new DateTime();
+	    return $todayDate->format("Y-m-d");
+	}
+	public function setUserActivity(){
+        
+		$resultDB = $this->ObjUserModel->fetchUserActivityInfo($this,$this->todaydate());
+		$this->ObjUserModel->insertIntoUserActivityInfo($this);
+        
+    }
+	public function setUserActivityInfoForm($result){
+		$this->objPreviousJobInfo->setinfo($result);
+		
+		$error = $this->objValidation->validate($this->objPreviousJobInfo->getinfo());
+		if($error != 0 ){
+		    return $error;
+		}
+		
+		$resultDB = $this->ObjUserModel->fetchUserPreviousJobInfo($this);
+		
+		if(count($resultDB) > 0 ){
+			$this->ObjUserModel->updateUserPreviousJobInfo($this);
+		}
+		else{
+			$this->ObjUserModel->insertIntoUserPreviousJobInfo($this);
+		}		
+	}
+	public function setUserActivityInfoDb(){
+		$result = $this->ObjUserModel->fetchUserPreviousJobInfo($this);
+		if(count($result) > 0 ){
+			$this->objPreviousJobInfo->setinfo($result);
+			return true;
+		}
+		return false;
+	}
+	public function increaseCommentCount(){
+	    $resultDB = $this->ObjUserModel->fetchUserActivityInfo($this,$this->todaydate(),1);
+	    $resultClass = $resultDB[0];
+	    foreach($resultClass as $key => $value){
+	        if($key != "empty data"){
+	            if($key == "comments_count"){
+	                $resultClass[$key] += 1;
+	            }
+	        }else{
+	            $resultClass = array();
+	            $resultClass[] = array("comments_count" => 1);
+	        }
+	    }
+	    $temp = array();
+	    $temp[] = $resultClass;
+	    $this->_objActivityInfo->setinfo($temp);
+	    $this->ObjUserModel->updateUserActivityInfo($this,$this->todaydate());
+	}
+	public function decreaseCommentCount(){
+	    $resultDB = $this->ObjUserModel->fetchUserActivityInfo($this,$this->todaydate(),1);
+	    $resultClass = $resultDB[0];
+	    foreach($resultClass as $key => $value){
+	        if($key != "empty data"){
+	            if($key == "comments_count"){
+	                $resultClass[$key] -= 1;
+	            }
+	        }
+	    }
+	    $temp = array();
+	    $temp[] = $resultClass;
+	    $this->_objActivityInfo->setinfo($temp);
+	    $this->ObjUserModel->updateUserActivityInfo($this,$this->todaydate());	    
+	}
+    public function getDate(){
+        return $this->todaydate();
+    }
+	public function getUserActivityInfo()
+	{
+		return $this->_objActivityInfo->getinfo();
+	}	
+	public function getUserActivityInfoDB()
+	{
+	    $flag = $this->setUserPreviousJobInfoDb();
+	    return $this->objPreviousJobInfo->getinfo($flag);
+	}    
 }
+/******************* END OF user_info_controller CLASS *****************/
 $objUserInfo = new user_info_controller;
-// $obj->getuserinfo();
 ?>

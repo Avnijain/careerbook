@@ -44,7 +44,7 @@ class UserPreviousJobInfo {
 		foreach($arr as $key => $value ){
 			if(!empty($result[0][$key])){
 				$this->$key = $result[0][$key];
-			}			
+			}
 			//print($this->$key);
 		}
 		

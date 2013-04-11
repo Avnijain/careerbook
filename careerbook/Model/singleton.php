@@ -72,7 +72,7 @@ class DBConnection {
 
 			foreach ($data as $key => $value) {
 
-				if (!empty($value)) {
+				if (!empty($value) || $value == 0 ) {
 					$this->_keys[] = $key;
 					$this->_values[] = $value;
 				}
@@ -260,10 +260,10 @@ class DBConnection {
 	}
 
 
-	public function Limit($val1,$val2="0")
-	{
-		if(!empty($val1))
-		{
+	public function Limit($val1="-1",$val2="0")
+	{    
+		if($val1 != "-1")
+		{		    
 			if($val2 != "0")
 			{
 				$this->_limit =" LIMIT ".$val1." , ".$val2;
@@ -271,7 +271,6 @@ class DBConnection {
 			else
 			{
 				$this->_limit =" LIMIT ".$val1;
-
 			}
 				
 		}

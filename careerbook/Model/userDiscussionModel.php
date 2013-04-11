@@ -23,8 +23,19 @@ class UserDiscussion extends model {
         $this->db->Update();
         //return $this->db->lastQuery(); 
 	}
+	public function getActivityReport($userInfo,$limit){
+	    $user_id = $userInfo->getUserIdInfo();
+	    $date = $userInfo->getDate();
+        $this->db->From("user_activity_info");
+        $this->db->Where(array("user_id = $user_id[id] AND login_datetime like '$date%'"),true);
+        $this->db->OrderBy("login_datetime desc");
+        $this->db->Limit(0,$limit);
+        $this->db->Select();        
+        return $this->db->resultArray();	    
+	}
 	public function deleteCommentPost($userInfo,$searchVal){
         $user_id = $userInfo->getUserIdInfo();
+        $userInfo->decreaseCommentCount();
         $user_id = $user_id['id'];
         $this->db->Fields(array("status"=>"D"));
         $this->db->From("user_discussions_comments");
@@ -62,12 +73,14 @@ class UserDiscussion extends model {
 	}
 	public function postComments($userInfo,$searchVal,$comment){
 	    $userID = $userInfo->getUserIdInfo();
+	    $userInfo->increaseCommentCount();
+	    
 	    $this->db->Fields(array("user_discussions_id"=>"$searchVal",	        
 	        "description"=>"$comment",
 	        "user_id"=>"$userID[id]"
 	    ));	    
 	    $this->db->From('user_discussions_comments');
-		$this->db->Insert ();		
+		$this->db->Insert ();
 	}	
 	function add_post() {
 		$this->db->Fields ( array (

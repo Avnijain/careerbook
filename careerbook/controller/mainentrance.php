@@ -10,7 +10,7 @@
  * validation check
  * ************************************************************************
  */
-ini_set ( "display_errors", "1" );
+ini_set ( "display_errorlogins", "1" );
 
 // namespace controller;
 
@@ -180,8 +180,7 @@ class mainentrance {
 	}
 	
 	public function start() {
-		session_start ();
-		
+		session_start ();		
 		if ($_REQUEST ['action'] == "forgetChngPwd") {
 			
 			$this->forgetChngPwd ();
@@ -219,7 +218,7 @@ class mainentrance {
 		}
 		if($_REQUEST ['action'] == "getComments")
 		{
-		    //    	    $result = $this->getMyFriendsDis();
+		    //    	    $result = $this->getMyFriendsDis();		    
 		    return $this->getComments();
 		}
 		if($_REQUEST ['action'] == "deleteDiscussionPost")
@@ -346,47 +345,54 @@ class mainentrance {
 	}
 	/************* Get Comments of particular discussion *****************/
 	private function getComments(){
-	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
+	    $this->obj_usrinfo=unserialize($_SESSION['userData']);
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();	    
-	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo,$_POST['discussionComment']);
+	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->getComments($this->obj_usrinfo,$_POST['discussionComment']);
+	    $_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
 	}
 	/************* Delete particular discussion *****************/
 	private function deleteDiscussionPost(){
-	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
+	    $this->obj_usrinfo=unserialize($_SESSION['userData']);
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
-	    $this->_obj_user_discussion_controller->deleteDiscussionPost($this->_obj_usrinfo,$_POST['discussionComment']);	    	    
+	    $this->_obj_user_discussion_controller->deleteDiscussionPost($this->obj_usrinfo,$_POST['discussionComment']);
+	    $_SESSION ['userData'] = serialize ( $this->obj_usrinfo );	    	    
 	}	
 	/************* Delete particular comment on discussion *****************/
 	private function deleteCommentPost(){
-	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
+	    $this->obj_usrinfo=unserialize($_SESSION['userData']);
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
-	    $this->_obj_user_discussion_controller->deleteCommentPost($this->_obj_usrinfo,$_POST['discussionComment']);
-	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->getComments($this->_obj_usrinfo,$_POST['discussionComment']);	    
+	    $this->_obj_user_discussion_controller->deleteCommentPost($this->obj_usrinfo,$_POST['discussionComment']);
+	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->getComments($this->obj_usrinfo,$_POST['discussionComment']);
+	    $_SESSION ['userData'] = serialize ( $this->obj_usrinfo );	    
 	}
 	/************* Delete User Project *****************/	
 	private function deleteUserProject (){
-	    $this->_obj_usrinfo = unserialize($_SESSION['userData']);
-	    echo $this->_obj_usrinfo->deleteUserProject($_POST['projectID']);
+	    $this->obj_usrinfo = unserialize($_SESSION['userData']);
+	    echo $this->obj_usrinfo->deleteUserProject($_POST['projectID']);
+	    $_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
 	}
 	/************* Delete User Extra Curricular *****************/	
 	private function deleteUserExtraCurricular (){
-	    $this->_obj_usrinfo = unserialize($_SESSION['userData']);
-	    echo $this->_obj_usrinfo->deleteUserExtraCurricular($_POST['ExtraCurricularID']);
+	    $this->obj_usrinfo = unserialize($_SESSION['userData']);
+	    echo $this->obj_usrinfo->deleteUserExtraCurricular($_POST['ExtraCurricularID']);
+	    $_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
 	}	
 	/************* Delete particular certificate *****************/
 	private function deleteUserCertificate (){
-	    $this->_obj_usrinfo = unserialize($_SESSION['userData']);
-	    $this->_obj_usrinfo->deleteUserCertificate($_POST['certificateID']);
+	    $this->obj_usrinfo = unserialize($_SESSION['userData']);
+	    $this->obj_usrinfo->deleteUserCertificate($_POST['certificateID']);
+	    $_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
 	}
 	/************* Post Comment for particular discussion *****************/
 	private function postComments(){
-	    $this->_obj_usrinfo=unserialize($_SESSION['userData']);
+	    $this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );	    
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
 	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->postComments(
-	        $this->_obj_usrinfo,
+	        $this->obj_usrinfo,
 	        $_POST['discussionID'],
 	        $_POST['comment']
 	        );
+        $_SESSION ['userData'] = serialize ( $this->obj_usrinfo );	        
 	}	
 	// function to register a user and validate the feilds
 	private function userRegistration() {
@@ -451,12 +457,13 @@ class mainentrance {
 				if ($result [0] ['status'] == 'I') {
 					$ObjModel->UpadteUserSattus ( $result [0] ['id'] ); // user login
 					                                               // first time
-				}
+				}				
 				$this->obj_usrinfo->setUserPersonalInfo ( $result );
 				$this->obj_usrinfo->setUserIdInfo ( $result );
-				$this->obj_usrinfo->setUserAddressInfoDb ( $result );
-				$this->obj_usrinfo->setUserAcademicInfoDb ( $result );
-				$this->obj_usrinfo->setUserProfessionalInfoDb ( $result );
+				$this->obj_usrinfo->setUserActivity();
+				$this->obj_usrinfo->setUserAddressInfoDb ();
+				$this->obj_usrinfo->setUserAcademicInfoDb ();
+				$this->obj_usrinfo->setUserProfessionalInfoDb ();				
 				
 				$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
 				//*************************************************************************************************
@@ -471,8 +478,7 @@ class mainentrance {
 				//********************************************************************************
 				$token=md5($_SESSION['secureSessionHijack'].$SID.$result[0]['email_primary']);		//session hijacking bock
 				setcookie("userToken",$token , time()+3600*24,"/");
-				//************************************************************************************************
-				
+				//************************************************************************************************				
 				header ( "location:../Home/userHomePage.php" );
 			}
 			else

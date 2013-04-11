@@ -1,6 +1,6 @@
-
 <?php
 include_once("../classes/lang.php");
+include_once '../controller/activityReportController.php';
 ?>
 <!--[if gte IE 7]>
 <style>
@@ -62,7 +62,7 @@ $(function() {
 				    	</div>
 				    </div>-->
 				    <div id="activityReport">
-				    	<img id="activityReportIMG" alt="userActivityReport" src="../View/activityReport.php" width="250" height="250">
+				    	<?php include 'activityReport.php'; ?>
 				    </div>
 				    <div class="cl">&nbsp;</div>
 				</div>
