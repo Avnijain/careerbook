@@ -38,9 +38,11 @@ include_once("../classes/lang.php");
         		?>
 		</div>
 		<div>
+		    <?php $uri = 'data:image/png;base64,'.base64_encode($groupData[0]['group_image']); ?>
+		    <img src="<?php echo $uri;?>" class="group_image">
 			<label><?php echo $lang->GROUPIMAGE;?></label><br /> <input class="btn blue" type="file"
 				name="group_image" id="group_image" />
-		</div><br/>
+		</div><br/><br/>
 		<?php
         		if(isset($_GET['errno'])) {
         		   if($_GET['errno'] == 7) {

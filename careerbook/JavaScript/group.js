@@ -3,22 +3,22 @@
 $(document).ready(function() {
 	
 	$("#description").click(function(){
-		$("#description").width("425");
+		$("#description").width("360");
 		$("#description").height("70");
 	});
 	
 	$("#group_discussion_description").click(function(){
-		$("#group_discussion_description").width("425");
+		$("#group_discussion_description").width("360");
 		$("#group_discussion_description").height("70");
 	});
 	
 	$("#group_discussion_comment").click(function(){
-		$("#group_discussion_comment").width("425");
+		$("#group_discussion_comment").width("360");
 		$("#group_discussion_comment").height("70");
 	});
 	
 	$("#group_discussion_description").click(function(){
-		$("#group_discussion_description").width("425");
+		$("#group_discussion_description").width("360");
 		$("#group_discussion_description").height("70");
 	});
 	

@@ -6,6 +6,7 @@
 
     $groupData=unserialize($_SESSION['groupList']);
     $groupData= $groupData->getGroupList();
+    
 
     $objUserId = unserialize($_SESSION['userData']);
     $userData=$objUserId->getUserIdInfo();
