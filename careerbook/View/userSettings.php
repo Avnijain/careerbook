@@ -37,8 +37,8 @@ include_once("../classes/lang.php");
 					<td><input type="password" name="confirmPwd" id="confirmPwd" /></td>
 				</tr>
 				<tr>
-					<td><center><input type="submit" class="btn blue" value="Submit"  />
-						<input type="button" class="btn blue" value="Cancel" onclick="cancle();" /></center>
+					<td><center><input type="submit" class="btn blue" value="<?php echo $lang->SUBMIT; ?>"/>
+						<input type="button" class="btn blue" value="<?php echo $lang->CANCEL; ?>" onclick="cancle();" /></center>
 						</td>
 				</tr>
 			</table>

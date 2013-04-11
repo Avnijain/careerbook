@@ -83,10 +83,10 @@ $(function() {
     <div id="post_user_discussion">
     	<form id="form"
     		action="../controller/mainentrance.php?action=addUserPost" method="post">
-    		<h2>Whats in Your Mind...</h2>
+    	<h2><?php echo $lang->WHATSINYOURMIND;?></h2>
     		<div>
     			<textarea id="textAreaDiscussions" class="group_textarea" name="description" cols="25"
-    				rows="06" placeholder="Description"></textarea>
+    				rows="06" placeholder="<?php echo $lang->WRITEDESCRIPTION; ?>"></textarea>
     		</div>
     		<div>
     			<input class="btn blue" type="submit" value="POST"

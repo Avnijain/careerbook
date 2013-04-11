@@ -38,7 +38,7 @@
             		elseif($values['status']=='A')
             		{
 						//echo "<div class="btn blue"><input type='button' value='Add' onClick='addFrnd(".$values['id'].");'></div>";
-            			echo "<center><input type='button' class='btn blue' value='Add As A Friend' onClick='addFrnd(".$values['id'].");'></center>";
+            			echo "<center><input type='button' class='btn blue' value='$lang->ADDASAFRIEND' onClick='addFrnd(".$values['id'].");'></center>";
             		}            
             ?></td>
             

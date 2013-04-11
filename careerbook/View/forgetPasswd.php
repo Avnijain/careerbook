@@ -57,7 +57,7 @@ background: url(../images/fpd.jpg) repeat-x 0px 0px;
 					<td><input id="text-feild" type="text" name=userid></td>
 				</tr>
 				<tr>
-					<td><input id="submit-button" class="btn blue" type="submit" value="Submit"></td>
+					<td><input id="submit-button" class="btn blue" type="submit" value="<?php echo $lang->SUBMIT?>"></td>
 				</tr>
 			</table>
 		</form>

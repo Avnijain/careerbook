@@ -29,17 +29,17 @@ include_once("../classes/lang.php");
 	<div id="main">
 		<div id="accordion">
 			<article>
-				<p><h3>Template 1</h3></p>
+				<p><h3><?php echo $lang->TEMPLATE1; ?></h3></p>
 				<img border=1 px red src="../images/resume1.jpg"
 				rel="#mies2" width=200px height=400px/>
 			</article>
 			<article> 
-				<p><h3>Template 2</h3></p>
+				<p><h3><?php echo $lang->TEMPLATE2; ?></h3></p>
 				<img border=1 px #cccc src="../images/resume3.jpg"
 				 rel="#mies1" width=200px height=400px /> 
 			</article>
 			<article>
-				<p><h3>Template 3</h3></p>
+				<p><h3><?php echo $lang->TEMPLATE3; ?></h3></p>
 				<img border=1 px #cccc src="../images/resume2.jpg" 
 				 rel="#mies3" width=200px height=400px />
 			</article>
@@ -68,7 +68,7 @@ include_once("../classes/lang.php");
 							<li><?php echo $lang->PROJECT; ?></li>
 						</ol>
 						</p>
-						<br /> <Input Type=Submit class="btn blue" value="use this template" name="template2" />
+						<br /> <Input Type=Submit class="btn blue" value="<?php echo $lang->USETHISTEMPLATE; ?>" name="template2" />
 					</div>
 				</div>
 				<!----------------------------------------------------second overlay-------------------------------------------------->
@@ -92,7 +92,7 @@ include_once("../classes/lang.php");
 								<li><?php echo $lang->EMPLOYMENTINFO; ?></li>
 							</ol>
 						</h3>
-						<br /> <Input Type=Submit class="btn blue" value="use this template" name="template1" />
+						<br /> <Input Type=Submit class="btn blue" value="<?php echo $lang->USETHISTEMPLATE; ?>" name="template1" />
 					</div>
 				</div>
 				
@@ -116,7 +116,7 @@ include_once("../classes/lang.php");
 								<li><?php echo $lang->WORKEXPERIENCE; ?></li>
 							</ol>
 						</h3>
-						<br/> <Input Type=Submit class="btn blue" value="use this template" name="template3" />
+						<br/> <Input Type=Submit class="btn blue" value="<?php echo $lang->USETHISTEMPLATE; ?>" name="template3" />
 					</div>
 				</div>
 				<br/>

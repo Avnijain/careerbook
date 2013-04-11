@@ -16,7 +16,8 @@
 	 4			1.0			Avni Jain			April 02,2013		added constant for UserHomepage.php,
 																	userSettings.php,friends.php,userHomePage.php
 	 5			1.0			Mohit K Singh		April 09,2013		added constant for al errors
-	 6			1.0			Prateek SAini		April 09,2013		Corrected Speeling Mistakes																	
+	 6			1.0			Prateek SAini		April 09,2013		Corrected Speeling Mistakes	
+	 7			1.0			Avni Jain			April 10,2013		added constants for all buttons		 
     *************************************************************************
 
 */
@@ -303,8 +304,23 @@
  				'COMMENTERROR'=>"Comment must not be empty and should be less than 100 chars",
  				'POSTERROR'=>"Post description must not be empty and should be less than 100 chars",
  				'POST'=>"Post",
- 				''=>"",
- 				''=>""
+ 				'FORGETPASSWORD'=>"Forget Password",
+ 				'ADDASAFRIEND'=>"Add As A Friend",
+				'ACCEPT'=>"Accept",
+				'CANCEL'=>"Cancel",
+				'USETHISTEMPLATE'=>"Use this template",
+				'TEMPLATE1'=>"Template 1",
+				'TEMPLATE2'=>"Template 2",
+				'TEMPLATE3'=>"Template 3",
+				'SEND'=>"Send",
+				'YES'=>"Yes",
+				'NO'=>"No",
+				'CLICKTOSEND'=>"click to send",
+				'WRITEDESCRIPTION'=>"write Description",
+				'WHATSINYOURMIND'=>"Whats in Your Mind...",
+				'POSTCOMMENT'=>"Post Comment",
+				''=>"",
+				''=>""
                 );
  $regError=array("7"=>"Wrong Captcha Code",
 				"6"=>"Already Have this Id",

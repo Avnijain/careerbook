@@ -14,6 +14,6 @@ $groupId=$_REQUEST['groupId'];
 		<input type="hidden" name="groupId" value="<?php echo $groupId;?>">
 		<h2><?php echo $lang->EDITPOST;?></h2><br/>
 		<textarea class="group_textarea" name="group_discussion_description" rows="6" cols="20"><?php if(isset($_SESSION['postDetail'])) echo nl2br($groupData[0]['description']);?></textarea>
-		<br/><input class="btn blue" type="submit" value="Post">
+		<br/><input class="btn blue" type="submit" value="<?php echo $lang->SUBMIT;?>">
 	</form>
 </div>

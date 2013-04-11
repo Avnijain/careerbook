@@ -41,7 +41,7 @@ if(isset($_REQUEST['c']))         					//to get the response from form_mailer
 				<input type="text" name="name" disabled="true" value="<?php echo $personalInfo['0']['first_name']?>" id="name" />
 				<label for="email" ><?php $lang->EMAIL?></label>
 				<input type="text" name="email" disabled="true" value="<?php echo $personalInfo['0']['email_primary'];?>" id="email" />
-				<input type="submit" name ="submit" value="click to send" />
+				<input type="submit" name ="submit" value="<?php echo $lang->CLICKTOSEND?>" />
 			</form>
 		</div>
 	</div>

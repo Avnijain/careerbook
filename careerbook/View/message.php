@@ -130,7 +130,7 @@ include_once("../classes/lang.php");
 					<textarea name="descripition" rows="8" cols="40" maxlength="150"></textarea>
 			</div>
 			<div>
-				<input id="message" class="btn blue" type="submit" value="Send" />
+				<input id="message" class="btn blue" type="submit" value="<?php echo $lang->SEND; ?>" />
 			</div>
 		</fieldset>
 		</form>

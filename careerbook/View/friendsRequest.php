@@ -19,8 +19,8 @@
             echo "<li>".$values['gender']."</li>";
             echo "<li>".$values['email_primary']."</li>";
             echo "</ul></td>";
-            echo "<td id='aid".$values['id']."'><input type='button'  class='btn blue' value='Accept' onClick='frndAccept(".$values['id'].");'></td>";
-            echo "<td id='cid".$values['id']."'><input type='button' class='btn blue' value='Cancel' onClick='frndDelete(".$values['id'].");'></td>";
+            echo "<td id='aid".$values['id']."'><input type='button'  class='btn blue' value='$lang->ACCEPT' onClick='frndAccept(".$values['id'].");'></td>";
+            echo "<td id='cid".$values['id']."'><input type='button' class='btn blue' value='$lang->CANCEL' onClick='frndDelete(".$values['id'].");'></td>";
             ?>
         </tr>
         <?php
