@@ -38,8 +38,9 @@ if(isset($_SESSION['userData']))
                 <?php require_once './View/login.php';  if(isset($_REQUEST['err'])&&($_REQUEST['err']=="AuthenticationFailed")) {
 				?><center><h3><?PHP echo $lang->INVAILDLOGIN; ?></h3></center><?php }?>
             </div>
-            <div id="googleAdds"></div>
+<!--               <div id="googleAdds"></div> 
 	    		<?php require_once './View/slideShow.html'; ?>
+	    		<br/> -->
             <div id="footer">
 		<div class="footer-bottom">
 			<div class="shell">

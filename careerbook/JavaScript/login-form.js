@@ -1,146 +1,127 @@
-/* *********************************************************************************************
+/*
+ * *************************** Creation Log ******************************* 
+ * File Name 	- 	login-form.php 
+ * Project Name - 	Careerbook 
+ * Description 	-	JavaScript file for start Version - 1.0 
+ * Created by	- 	Manish Ranjan 
+ * Created on 	- 	March 30, 2013 
+ * **************************** Update Log ******************************** 
+ * Sr.NO.		Version		Updated by Updated on Description 
+ * ------------------------------------------------------------------------- 
+ * ------------------------------------------------------------------------- 
+ * ************************************************************************
+ */
 
-Login form tutorial (CSS3 + jQuery) [Tutorial]
-"Login form tutorial (CSS3 + jQuery)" that was specially made for DesignModo by our friend Valeriu Timbuc. 
+(function($, W, D) {
 
-Links:
-http://vtimbuc.net/
-https://twitter.com/vtimbuc
-http://designmodo.com/futurico
-http://vladimirkudinov.com
-http://rockablethemes.com
-
-********************************************************************************************* */
+	var JQUERY4U = {};
 
 $(document).ready(function() {
-
-	// Check if JavaScript is enabled
-	$('body').addClass('js');
-
-	// Make the checkbox checked on load
-	$('.login-form span').addClass('checked').children('input').attr('checked', true);
-
-	// Click function
-	$('.login-form span').on('click', function() {
-
-		if ($(this).children('input').attr('checked')) {
-			$(this).children('input').attr('checked', false);
-			$(this).removeClass('checked');
-		}
-
-		else {
-			$(this).children('input').attr('checked', true);
-			$(this).addClass('checked');
-		}
 	
+	$.validator.addMethod("loginRegex", function(value,
+			element) {
+		return this.optional(element)
+				|| /^[a-z]+$/i.test(value);
+	});
+
+	$.validator
+		.addMethod(
+			"url",
+			function(value, element) {
+				return this.optional(element)
+					|| !(/^(([\w]+:)?\/\/)?(([\d\w]|%[a-fA-f\d]{2,2})+(:([\d\w]|%[a-fA-f\d]{2,2})+)?@)?([\d\w][-\d\w]{0,253}[\d\w]\.)+[\w]{2,4}(:[\d]+)?(\/([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)*(\?(&?([-+_~.\d\w]|%[a-fA-f\d]{2,2})=?)*)?(#([-+_~.\d\w]|%[a-fA-f\d]{2,2})*)?$/i
+					.test(value));
+	});
+
+	$.validator.addMethod("script",
+		function(value, element) {
+			return this.optional(element)
+				|| !(/(<([^>]+)>)/i.test(value));
 	});
 	
-	$('#email').blur(function() {
-		
-        var sEmail = $('#email').val();
+	$("#formElem")
+	.validate(
+			{
+				rules : {
 
-        if (validateEmail(sEmail)) { 
-        }
-        else {
-            $('#error_div1').text("Not a Valid Email id");
-            return false;
-        }
-    });
-	
-	$('#email').focus(function() {
-		$('#error_div1').text("");
-	});
-	
-	$("#first_name").blur(function() {
-		var sName = $('#first_name').val();
-		if (validateName(sName) ) {
-	        
-	    } else {
-	    	 $('#error_div1').text("First Name must not be blank and must be 3-14 chars long");
-	            return false;
-	    }
+					first_name : {
+						loginRegex : true,
+						required : true,
+						url : true,
+						script : true,
 
-	  });
-	
-	$('#first_name').focus(function() {
-		$('#error_div1').text("");
-	});
-	
-	$("#middle_name").blur(function() {
-		var sName = $('#middle_name').val();
-		if (Number == "") {
-	        
-	    } else if (validateName(sName)){
-	    } else {
-	    	 $('#error_div1').text("Middle Name must not be blank and must be 3-14 chars long");
-	            return false;
-	    }
-	  });
-	
-	$('#middle_name').focus(function() {
-		$('#error_div1').text("");
-	});
-	
-	$("#last_name").blur(function() {
-		var sName = $('#last_name').val();
-		if (validateName(sName) ) {
-	        
-	    } else {
-	    	 $('#error_div1').text("Last Name must not be blank and must be 3-14 chars long");
-	            return false;
-	    }
+					},
+					middle_name : {
+						loginRegex : true,
+						url : true,
+						script : true,
 
-	  });
-	
-	$('#last_name').focus(function() {
-		$('#error_div1').text("");
-	});
-	
-	$("#phone_no").blur(function() {
-		var Number = $('#phone_no').val();
-		if (Number == "") {
-	        
-	    } else if (validateName(Number)){
-	    	$('#error_div1').text("Phone No. should only contain 0-9");
-            return false;
-	    }
-	  });
-	
-	$('#phone_no').focus(function() {
-		$('#error_div1').text("");
+					},
+					last_name : {
+						loginRegex : true,
+						required : true,
+						url : true,
+						script : true,
+
+					},
+
+				
+					email : {
+						required : true,
+						email : true,
+						script : true,
+
+					},
+
+					phone_no : {
+						url : true,
+						script : true,
+						number : true,
+						minlength : 10,
+						maxlength : 10
+					},
+
+				},
+				messages : {
+					first_name : {
+						required : "Please enter your firstname",
+						loginRegex : "Firstname must contain only letters.",
+						url : "Url not allowed",
+						script : "Dont use script here",
+					},
+					
+					middle_name : {
+						loginRegex : "Middlename must contain only letters.",
+						url : "Url not allowed",
+						script : "Dont use script here",
+					},
+
+					last_name : {
+						required : "Please enter your lastname",
+						loginRegex : "Lastname must contain only letters.",
+						url : "Url not allowed",
+						script : "Dont use script here",
+					},
+					
+					phone_no : {
+						required : "Please provide a phoneno",
+						minlength : "Your phone must be at least 10 characters long",
+						maxlength : "Not more than 10 characters",
+						url : "Url not allowed",
+						number : "Only numbers allowed",
+						script : "Dont use script here",
+					},
+
+					email : {
+						email : "Please enter a valid email address",
+						script : "Dont use script here",
+					}
+
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
 	});
 });
-	
-//function to allow only numbers
-function numericsonly(ob) 
-{
-    //var invalidChars = /^[0-9-+]+$/;
-	var invalidChars = /^[0-9]$/;
-    if(invalidChars.test(ob.value)) 
-    {
-        ob.value = ob.value.replace(invalidChars,"");
-        return false;
-    } else {
-    	return true;
-    }
-} //function to allow only numbers ends here
 
-function validateName(sName) {
-	var filter = /^[a-zA-Z]{3,16}$/;
-    if (filter.test(sName)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-function validateEmail(sEmail) {
-    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    if (filter.test(sEmail)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
+})(jQuery, window, document);

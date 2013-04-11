@@ -1,7 +1,5 @@
 <?php
-
 include_once ("../classes/lang.php");
-
 ?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,17 +12,18 @@ include_once ("../classes/lang.php");
 <link rel="stylesheet" href="../css/jquery-ui.css" />
 <script src="../JavaScript/jquery-1.9.1.min.js"></script>
 <script src="../JavaScript/jquery-ui.js"></script>
+<script src="../JavaScript/jquery.validate.min.js"></script>
+<script src="../JavaScript/login-form.js"></script>
 <script>
-        $(function() {
+     $(function() {
 	 $( "#datepicker" ).datepicker({
 		 changeMonth: true,
 		 dateFormat: 'yy/mm/dd',
 		 changeYear: true
 		 });
-		 });
+	});
 
 </script>
-<script src="../JavaScript/login-form.js"></script>
 </head>
 <style>
 span.reference {
@@ -51,31 +50,29 @@ h3 {
 </style>
 <body>
                          
-                    <?php
-                    if (isset ( $_GET ['err'] )) {
-                        $value=substr($_GET['err'],1);
-                        $key=substr($_GET['err'],0,1);
-                        echo "<h3>$lang->REGISTRATIONERROR" . $key . "[" . $lang->getRegError ( $key ) . "] in ".$value."</h3>";
-                    }
-
+<?php
+if (isset ( $_GET ['err'] )) {
+    $value=substr($_GET['err'],1);
+    $key=substr($_GET['err'],0,1);
+    echo "<h3>$lang->REGISTRATIONERROR" . $key . "[" . $lang->getRegError ( $key ) . "] in ".$value."</h3>";
+}
 ?> 
-        <div>
-		<span class="reference"> </span>
+<div>
+<span class="reference"> </span>
 	</div>
 	<div id="content">
     <div id="error_div1"></div>
 		<div id="wrapper">
 			<div id="steps">
-				<form id="formElem" name="formElem"
+				<form id="formElem" name="formElem" 
 					action="../controller/mainentrance.php?action=Registration"
 					method="post">
 					<fieldset class="step">
 						<legend><?php echo $lang->ACCOUNT?></legend>
-
 						<p>
 							<label><?php echo $lang->EMAIL;?></label> <input id="email"
 								name="email_primary" placeholder="info@tympanus.net"
-								type="email"
+								type="email" size="25"  class="required email"
 								value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['email_primary']);?>"
 								AUTOCOMPLETE=OFF />					
 						</p>
@@ -83,7 +80,7 @@ h3 {
 					<fieldset class="step">
 						<legend><?php echo $lang->PERSONALDETAILS?></legend>
 						<p>
-							<label><?php echo $lang->FIRSTNAME;?></label> <input
+						<label><?php echo $lang->FIRSTNAME;?></label> <input
 								id="first_name" name="first_name"
 								value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['first_name']);?>" />
 						</p>
@@ -105,7 +102,7 @@ h3 {
                             </p>
 						<p>
 							<label><?php echo $lang->DOB;?></label>
-							</td> <input type="text" id="datepicker" name="date_of_birth" value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['date_of_birth']);?>" readonly="readonly" />
+							<input type="text" id="datepicker" name="date_of_birth" value="<?php if (isset($_SESSION['registration'])) echo htmlentities($_SESSION['registration']['date_of_birth']);?>" readonly="readonly" />
 						</p>
 						<p>
 							<label><?php echo $lang->PHONENUMBER;?></label> <input
