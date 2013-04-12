@@ -57,5 +57,4 @@ else
 	include_once '../lang/lang.'.$selectedLang.".php";
 }
 $lang= new language($langArr,$regError);
-
 ?>

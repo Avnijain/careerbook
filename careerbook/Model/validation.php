@@ -50,6 +50,7 @@ class UserDataValidation {
 				"company",
 				"address",
 				"city_name",
+		        "country_name",
 				"state_name",
 				"board_10",
 				"school_10",
@@ -93,6 +94,7 @@ class UserDataValidation {
 				"address",
 				"city_name",
 				"state_name",
+		        "country_name",
 				"board_10",
 				"school_10",
 				"board_12",
@@ -222,11 +224,19 @@ class UserDataValidation {
 		if ($value == "") {
 			return 0;
 		}
-		if (! filter_var ( $value, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_SANITIZE_MAGIC_QUOTES )) {
-			return 4;
-		} else {
-			return 0;
+		if(!preg_match("'<'",$value)){
+    		if (!preg_match("'[a-zA-Z]*'",$value)) {		    
+    			return 4;
+    		}
+    		 else {
+    			return 0;
+    		}
 		}
+		else {
+		    return 4;
+		}
+	
+		
 	
 	}
 	// *******************************************************validate Email

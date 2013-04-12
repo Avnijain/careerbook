@@ -125,7 +125,7 @@ if(!empty($personalInfo['0']['date_of_birth'])) {             // to get the age 
 				</td>
 				<?php if(!empty( $certificateInfo[$i]['duration'])) {?>
 				<td>
-				<?php $date=$certificateInfo[$i]['duration'];echo $objdate->reverseDate($date); ?>
+				<?php $date=$certificateInfo[$i]['duration'];echo $objdate->reverseDateClass($date); ?>
 				</td>
 				<?php }?>
 				</tr>

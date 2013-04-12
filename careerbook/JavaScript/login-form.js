@@ -79,14 +79,7 @@ $(document).ready(function() {
 						number : true,
 						minlength : 10,
 						maxlength : 10,
-					},
-					
-//					date_of_birth : {
-//						script : true,
-//						url : true,
-//						date : true
-//					},
-
+					}
 				},
 				messages : {
 					first_name : {
@@ -108,12 +101,6 @@ $(document).ready(function() {
 						url : "Url not allowed",
 						script : "Dont use script here",
 					},
-					
-//					date_of_birth : {
-//						url : "Url not allowed",
-//						script : "Dont use script here",
-//						date : "Date format not correct"
-//					},
 					
 					phone_no : {
 						required : "Please provide a phoneno",

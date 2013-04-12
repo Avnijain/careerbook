@@ -1,0 +1,773 @@
+[12-Apr-2013 04:27:59 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 04:27:59 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 04:28:09 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 04:28:09 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 04:29:18 UTC] PHP Warning:  preg_match(): Unknown modifier ')' in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/message_controller.php on line 50
+[12-Apr-2013 04:30:37 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:30:37 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:30:37 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:30:43 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:30:43 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:30:43 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:31:06 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:31:06 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:31:06 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:31:15 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:31:15 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:31:15 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:31:15 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:31:15 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:31:17 UTC] PHP Notice:  Undefined offset: 0 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/fetchCity.php on line 32
+[12-Apr-2013 04:31:19 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:31:19 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:31:19 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:31:19 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:31:19 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:31:25 UTC] PHP Notice:  Undefined offset: 0 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/fetchCity.php on line 32
+[12-Apr-2013 04:31:30 UTC] PHP Notice:  Undefined offset: 0 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/fetchCity.php on line 32
+[12-Apr-2013 04:31:33 UTC] PHP Notice:  Undefined offset: 0 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/fetchCity.php on line 32
+[12-Apr-2013 04:31:41 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:31:41 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:31:41 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:31:56 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:31:56 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:31:56 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:33:15 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:33:15 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:33:15 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:33:15 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:33:15 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:33:34 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:33:34 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:33:34 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:33:34 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:33:34 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:36:10 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:36:10 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:36:10 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:36:13 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:36:13 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:36:13 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:36:14 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:36:14 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:36:31 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:33 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:36:33 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:36:33 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:36:33 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:36:33 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:36:34 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:36 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:36 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:37 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:37 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:39 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:39 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:40 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:36:40 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:36:40 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:36:40 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:36:40 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:36:47 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:47 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:47 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:47 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:47 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:47 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:47 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:47 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:50 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:50 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:50 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:50 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:51 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:51 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:51 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:51 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:52 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:52 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:52 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:52 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:52 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:52 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:52 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:52 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:55 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:55 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:55 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:55 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:56 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:56 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:56 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:56 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:57 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:57 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:57 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:57 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:57 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:57 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:57 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:57 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:36:59 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:36:59 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:36:59 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:36:59 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:37:01 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:37:01 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:37:01 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:37:01 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:37:01 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:37:01 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:37:01 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:37:01 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:37:06 UTC] PHP Notice:  getimagesize(): Read error! in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 26
+[12-Apr-2013 04:37:06 UTC] PHP Warning:  imagesx(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 73
+[12-Apr-2013 04:37:06 UTC] PHP Warning:  imagesy(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 78
+[12-Apr-2013 04:37:06 UTC] PHP Warning:  imagecopyresampled(): 18 is not a valid Image resource in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/myImage.php on line 102
+[12-Apr-2013 04:38:17 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:38:17 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:38:17 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:38:28 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:38:28 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:38:28 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:38:28 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:38:28 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:39:17 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:39:17 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:43:37 UTC] PHP Warning:  preg_match(): Unknown modifier ')' in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/message_controller.php on line 50
+[12-Apr-2013 04:43:37 UTC] PHP Notice:  Use of undefined constant F - assumed 'F' in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/message.php on line 199
+[12-Apr-2013 04:43:42 UTC] PHP Warning:  preg_match(): Unknown modifier ')' in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/message_controller.php on line 50
+[12-Apr-2013 04:43:42 UTC] PHP Notice:  Use of undefined constant F - assumed 'F' in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/message.php on line 199
+[12-Apr-2013 04:44:05 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:44:05 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:44:05 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:44:19 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:44:19 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:44:19 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:44:24 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:44:24 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:44:24 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:44:33 UTC] PHP Notice:  Undefined offset: 0 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/fetchCity.php on line 32
+[12-Apr-2013 04:44:39 UTC] PHP Notice:  Undefined index: name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 20
+[12-Apr-2013 04:44:39 UTC] PHP Notice:  Undefined index: email in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 21
+[12-Apr-2013 04:45:16 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 169
+[12-Apr-2013 04:45:16 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 173
+[12-Apr-2013 04:45:17 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 04:45:17 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 04:45:17 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 04:46:18 UTC] PHP Notice:  Undefined index: name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 20
+[12-Apr-2013 04:46:18 UTC] PHP Notice:  Undefined index: email in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 21
+[12-Apr-2013 04:46:23 UTC] PHP Notice:  Undefined index: name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 20
+[12-Apr-2013 04:46:23 UTC] PHP Notice:  Undefined index: email in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 21
+[12-Apr-2013 04:54:12 UTC] PHP Notice:  Undefined index: name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 20
+[12-Apr-2013 04:54:12 UTC] PHP Notice:  Undefined index: email in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 21
+[12-Apr-2013 04:54:35 UTC] PHP Notice:  Undefined index: name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 20
+[12-Apr-2013 04:54:35 UTC] PHP Notice:  Undefined index: email in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/form_mailer.php on line 21
+[12-Apr-2013 05:01:17 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:01:17 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:01:17 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:01:51 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:01:51 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:01:51 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:02:10 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:02:10 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:02:10 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:02:14 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:02:14 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:02:32 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:02:32 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:02:32 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:02:52 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:02:52 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:02:52 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:03:05 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:03:05 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:03:05 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:03:10 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:03:10 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:03:10 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:03:39 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:03:39 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:03:39 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:03:53 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:03:53 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:03:53 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:05:52 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:05:52 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:05:52 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:06:24 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:06:24 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:06:24 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:06:28 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:06:28 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:06:28 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:06:45 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:06:45 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:06:45 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:11:11 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:11:11 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:11:11 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:11:42 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:11:42 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:11:42 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:11:42 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:11:42 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:11:44 UTC] PHP Notice:  Undefined offset: 2 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/dateManipulation.php on line 24
+[12-Apr-2013 05:11:44 UTC] PHP Notice:  Undefined offset: 1 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/dateManipulation.php on line 24
+[12-Apr-2013 05:11:44 UTC] PHP Notice:  Undefined offset: 2 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/dateManipulation.php on line 24
+[12-Apr-2013 05:11:44 UTC] PHP Notice:  Undefined offset: 1 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/dateManipulation.php on line 24
+[12-Apr-2013 05:11:44 UTC] PHP Notice:  Undefined offset: 2 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/dateManipulation.php on line 24
+[12-Apr-2013 05:11:44 UTC] PHP Notice:  Undefined offset: 1 in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/classes/dateManipulation.php on line 24
+[12-Apr-2013 05:13:39 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:13:39 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:13:39 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:13:57 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:13:57 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:13:57 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:13:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:13:57 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:13:57 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:13:57 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:13:57 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:13:57 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:14:06 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:14:06 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:14:06 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:14:20 UTC] PHP Notice:  Undefined variable: lang in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 841
+[12-Apr-2013 05:14:20 UTC] PHP Notice:  Trying to get property of non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 841
+[12-Apr-2013 05:14:47 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:14:47 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:14:47 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:14:47 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:14:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:14:47 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:14:47 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:15:21 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:15:21 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:15:21 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:15:33 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:15:33 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:15:33 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:15:55 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:15:55 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:15:55 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:15:55 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:16:12 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:16:12 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:16:12 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:16:21 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:16:21 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:16:21 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:37:23 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:37:23 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:37:23 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:39:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:39:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:39:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:39:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:39:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:39:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:39:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:39:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:39:48 UTC] PHP Notice:  Undefined index: country_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 377
+[12-Apr-2013 05:39:48 UTC] PHP Notice:  Undefined index: state_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 383
+[12-Apr-2013 05:39:48 UTC] PHP Notice:  Undefined index: city_name in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/UserInfoForm.php on line 389
+[12-Apr-2013 05:39:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:39:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:40:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:40:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:40:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:40:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:40:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:40:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:40:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:40:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:40:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:40:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:40:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:40:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:41:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:41:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:41:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:41:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:41:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:41:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:41:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:41:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:41:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:41:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:41:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:41:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:42:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:42:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:42:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:42:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:42:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:42:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:42:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:42:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:42:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:42:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:42:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:42:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:42:58 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:42:58 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:42:58 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:42:58 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:42:58 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:42:58 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:42:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:42:58 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:42:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:43:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:43:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:43:08 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:43:08 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:43:08 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:43:08 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:43:08 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:43:08 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:43:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:43:08 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:43:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:43:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:43:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:43:19 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:43:19 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:43:19 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:43:19 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:43:19 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:43:19 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:43:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:43:19 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:43:19 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:43:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:43:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:43:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:43:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:43:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:43:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:43:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:43:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:44:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:44:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:44:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:44:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:44:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:44:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:44:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:44:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:44:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:44:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:44:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:44:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:45:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:45:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:45:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:45:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:45:15 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:45:15 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:45:15 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:15 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:15 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:15 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:45:15 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:45:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:45:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:45:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:45:23 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:45:23 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:45:23 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:23 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:23 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:23 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:45:23 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:45:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:45:29 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:45:29 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:45:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:45:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:45:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:45:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:45:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:45:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:45:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:45:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:45:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:45:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:46:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:46:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:46:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:46:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:46:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:46:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:46:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:46:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:46:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:46:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:46:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:46:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:46:56 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:46:56 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:46:56 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:46:56 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:46:56 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:46:56 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:46:56 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:46:56 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:46:56 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:47:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:47:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:47:03 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:47:03 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:47:03 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:47:03 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:47:03 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:47:03 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:47:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:47:03 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:47:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:47:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:47:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:47:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:47:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:47:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:47:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:47:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:47:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:47:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:47:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:48:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:48:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:48:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:48:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:48:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:48:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:48:29 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:48:29 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:48:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:48:29 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:48:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:48:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:48:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:48:35 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:48:35 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:48:35 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:35 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:35 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:35 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:48:35 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:48:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:48:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:48:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:48:42 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:48:42 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:48:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:48:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:48:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:48:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:48:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:48:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:49:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:49:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:49:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:49:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:49:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:49:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:49:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:49:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:49:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:49:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:49:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:49:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:50:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:50:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:50:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:50:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:50:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:50:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:50:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:50:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:50:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:50:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:50:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:50:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:51:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:51:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:51:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:51:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:51:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:51:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:51:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:51:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:51:37 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:51:37 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:51:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:51:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:51:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:51:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:51:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:51:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:51:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:51:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:51:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:51:44 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:51:44 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:51:44 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:51:44 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:51:44 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:51:44 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 672
+[12-Apr-2013 05:51:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:51:44 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/mainentrance.php on line 693
+[12-Apr-2013 05:51:44 UTC] PHP Warning:  Invalid argument supplied for foreach() in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/controller/userInfo.php on line 246
+[12-Apr-2013 05:51:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:51:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:52:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:52:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:52:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:52:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:52:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:52:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:52:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:52:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:52:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:52:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:52:50 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 171
+[12-Apr-2013 05:52:50 UTC] PHP Notice:  Undefined variable: error in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/Model/validation.php on line 175
+[12-Apr-2013 05:52:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:52:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:53:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:53:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:53:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:53:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:53:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:53:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:53:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:53:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:53:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:53:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:53:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:53:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:54:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:54:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:54:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:54:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:54:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:54:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:54:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:54:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:54:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:54:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:54:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:54:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:55:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:55:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:55:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:55:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:55:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:55:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:55:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:55:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:55:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:55:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:55:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:55:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:56:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:56:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:56:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:56:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:56:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:56:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:56:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:56:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:56:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:56:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:56:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:56:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:57:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:57:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:57:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:57:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:57:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:57:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:57:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:57:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:57:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:57:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:57:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:57:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:58:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:58:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:58:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:58:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:58:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:58:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:58:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:58:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:58:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:58:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:58:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:58:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:59:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:59:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:59:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:59:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:59:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:59:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:59:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:59:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:59:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:59:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 05:59:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 05:59:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:00:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:00:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:00:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:00:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:00:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:00:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:00:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:00:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:00:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:00:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:00:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:00:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:01:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:01:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:01:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:01:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:01:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:01:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:01:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:01:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:01:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:01:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:01:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:01:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:02:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:02:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:02:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:02:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:02:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:02:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:02:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:02:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:02:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:02:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:02:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:02:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:03:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:03:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:03:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:03:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:03:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:03:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:03:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:03:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:03:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:03:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:03:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:03:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:04:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:04:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:04:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:04:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:04:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:04:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:04:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:04:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:04:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:04:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:04:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:04:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:05:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:05:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:05:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:05:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:05:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:05:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:05:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:05:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:05:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:05:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:05:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:05:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:06:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:06:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:06:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:06:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:06:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:06:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:06:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:06:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:06:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:06:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:06:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:06:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:07:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:07:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:07:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:07:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:07:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:07:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:07:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:07:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:07:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:07:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:07:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:07:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:08:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:08:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:08:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:08:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:08:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:08:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:08:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:08:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:08:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:08:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:08:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:08:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:09:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:09:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:09:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:09:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:09:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:09:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:09:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:09:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:09:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:09:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:09:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:09:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:10:01 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:10:01 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:10:11 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:10:11 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:10:21 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:10:21 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:10:31 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:10:31 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 06:10:41 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 06:10:41 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15

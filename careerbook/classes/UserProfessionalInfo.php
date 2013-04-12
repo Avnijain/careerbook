@@ -16,7 +16,7 @@ Sr.NO.		Version		Updated by           Updated on          Description
 */
 
 class UserProfessionalInfo {
-//	private $achievement;          //User achievements
+//	private $achievement;          //User achievements Future Scope
 	private $skill_set;            //User skills
 	private $current_position;     //User current position in job
 	private $current_company;      //User current company
@@ -31,8 +31,7 @@ class UserProfessionalInfo {
 			if(!empty($this->$key)){
 				$allfields[$key] = $this->$key;
 				$emptyFlag = false;
-			}			
-			//print($this->$key);
+			}
 		}
 		}
 		if($emptyFlag){
@@ -47,8 +46,7 @@ class UserProfessionalInfo {
 		foreach($arr as $key => $value ){
 			if(!empty($result[0][$key])){
 				$this->$key = $result[0][$key];
-			}			
-			//print($this->$key);
+			}
 		}
 		
 	}

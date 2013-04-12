@@ -27,8 +27,7 @@ class UserExtraCurricularInfo{
 			if(!empty($this->$key)){
 				$allfields[$key] = $this->$key;
 				$emptyFlag = false;
-			}			
-			//print($this->$key);
+			}
 		}
 		}
 		if($emptyFlag){
@@ -42,16 +41,8 @@ class UserExtraCurricularInfo{
 		foreach($arr as $key => $value ){
 			if(!empty($result[0][$key])){
 				$this->$key = $result[0][$key];
-			}			
-			//print($this->$key);
+			}
 		}
 	}
-	/* FOR TESTING AND GETTING CLASS VARIABLES
-	 public function getdefinedvars(){
-	$arr = get_class_vars(get_class($this));
-	foreach($arr as $key => $value){
-	print($key."<br/>");
-	}
-	}
-	*/
 }
+?>

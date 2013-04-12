@@ -319,8 +319,9 @@
 				'WRITEDESCRIPTION'=>"write Description",
 				'WHATSINYOURMIND'=>"Whats in Your Mind...",
 				'POSTCOMMENT'=>"Post Comment",
-				''=>"",
-				''=>""
+				'ADD1'=>"Headquater: Noida (Delhi NCR)",
+				'ADD2'=>"Career Book Pvt Ltd. A-42/6, Sector 62",
+                 'ADD3'=>"Noida, U.P - 201309"
                 );
  $regError=array("7"=>"Wrong Captcha Code",
 				"6"=>"Already Have this Id",
@@ -331,6 +332,7 @@
  				"8"=>"Image Upoad Error",
  				"4"=>"Invalid String",
  				"5"=>"Invalid Email",
+                 "O"=>"File upload error",
  				"10"=>"Invaid Date",
  				"T"=>"Error:More than 20 Words",
  				"F"=>"Error:More than 50 Words"

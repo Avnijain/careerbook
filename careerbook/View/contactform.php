@@ -38,9 +38,9 @@ if(isset($_REQUEST['c']))         					//to get the response from form_mailer
 				<textarea  name="message" value="Your Message" id="message" maxlength="150" ></textarea>
 				<p></p>	
 				<label for="name" ><?php $lang->NAME?></label>
-				<input type="text" name="name" disabled="true" value="<?php echo $personalInfo['0']['first_name']?>" id="name" />
+				<input type="text" name="name" id="name" readonly="true" value="<?php echo $personalInfo['0']['first_name']?>" id="name" />
 				<label for="email" ><?php $lang->EMAIL?></label>
-				<input type="text" name="email" disabled="true" value="<?php echo $personalInfo['0']['email_primary'];?>" id="email" />
+				<input type="text" name="email" id="email" readonly="readonly" value="<?php echo $personalInfo['0']['email_primary'];?>" id="email" />
 				<input type="submit" name ="submit" value="<?php echo $lang->CLICKTOSEND?>" />
 			</form>
 		</div>

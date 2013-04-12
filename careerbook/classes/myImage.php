@@ -104,8 +104,4 @@ class SimpleImage {
    }      
  
 }
-
-
-
-
 ?>

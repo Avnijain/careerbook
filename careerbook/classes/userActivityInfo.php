@@ -37,7 +37,6 @@ class userActivityInfo {
     				$emptyFlag = false;
     			}
 		    }
-			//print($this->$key);
 		}
 		if($emptyFlag){
 			return array("empty data" => "empty data" );

@@ -11,15 +11,11 @@ Created on                  -  March 23, 2013
 Sr.NO.		Version		Updated by           Updated on          Description
 -------------------------------------------------------------------------
 *************************************************************************
-
 */
 include_once '../controller/userInfo.php';
 include_once '../Model/message.php';
 class MessageController extends Message
 {
-
-
-	
 	function __construct() {
 		if(isset($_SESSION['userData']))
 		{
@@ -55,8 +51,6 @@ class MessageController extends Message
 			header('location: ../Home/userHomePage.php?message&c=script');
 			exit;
 		}
-		
-		
 		$this->_email_id=$emailid;
 		$recieverId=parent::get_id();
 		if($recieverId[0]['id']==1) {
@@ -77,21 +71,14 @@ class MessageController extends Message
 		$this->_user_to = $this->userid;
 	    $result=$this->get_message();
 		$n=count($result);
-		
 		for($i=0;$i<$n;$i++)
 		{
-// 		    echo $result[$i]['status'];
-// 		    die;
 	     if($result[$i]['status']=='U')
 		 {
-
 			parent::updateStatus($result[$i]['id']);
 		 }
 		}
-		//print_r($result);
 		return($result);
-		//echo $result['user_from'];
-		//echo $result['descripition'];
 	}
 	function handleSentMessage() {
 	
@@ -99,21 +86,15 @@ class MessageController extends Message
 	    $result=$this->sent_message();
 		print_r($result);
 		return($result);
-	
-	
 	}
 	function handleNewMessage() {
 	 $count=$this->getNewMessage();
-		//print_r($count);
 		return($count);
-		//session_start();
-		//$_SESSION['count']=
 	}
 	function handleGetFriend() {
 		$result=$this->getFriendId();
-// 		print_r($result);
 		return($result);
 	}
-	
 	}
 	$ob=new MessageController();
+	?>

@@ -27,8 +27,7 @@ class userIdentityInfo {
 			if(!empty($this->$key)){
 				$allfields[$key] = $this->$key;
 				$emptyFlag = false;
-			}			
-			//print($this->$key);
+			}
 		}
 		if($emptyFlag){
 			return array("empty data" => "empty data" );
@@ -41,7 +40,6 @@ class userIdentityInfo {
 
 		foreach($arr as $key => $value ){
 			$this->$key = $result[0][$key];
-			//print($this->$key);
 		}
 
 	}

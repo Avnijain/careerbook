@@ -40,7 +40,6 @@ class UserAcademicInfo {
 				$allfields[$key] = $this->$key;
 				$emptyFlag = false;
 			}			
-			//print($this->$key);
 		}
 		}
 		if($emptyFlag){
@@ -55,8 +54,7 @@ class UserAcademicInfo {
 		foreach($arr as $key => $value ){			
 			if(!empty($result[0][$key])){
 				$this->$key = $result[0][$key];
-			}			
-			//print($this->$key);
+			}
 		}
 	}
 }

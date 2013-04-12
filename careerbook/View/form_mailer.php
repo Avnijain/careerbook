@@ -15,8 +15,6 @@ Created on                  -  March 31, 2013
 $emailSubject = 'Careerbook:user message';						//mail subject
 $mailto = 'avni.jain@osscube.com';								//email-id of reciever
 
-
-
 $nameField = $_POST['name'];
 $emailField = $_POST['email'];
 $questionField = $_POST['message'];

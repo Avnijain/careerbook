@@ -1,5 +1,16 @@
 <?php
-
+/*
+ **************************** Creation Log *******************************
+File Name                   -  groupClass.php
+Project Name                -  Careerbook
+Description                 -  Friends manipulation classes
+Version                     -  1.0
+Created by                  -  Manish
+Created on                  -  March 20, 2013
+***************************** Update Log ********************************
+Sr.NO.		Version		Updated by           Updated on          Description
+-------------------------------------------------------------------------
+*/
 class GroupClass {
 	private $_groupList;
 	private $_groupDetail;
@@ -82,5 +93,4 @@ class GroupClass {
 		return count($this->_groupSearchList);
 	}
 }
-
 ?>

@@ -28,8 +28,7 @@ class UserPreviousJobInfo {
 			if(!empty($this->$key)){
 				$allfields[$key] = $this->$key;
 				$emptyFlag = false;
-			}			
-			//print($this->$key);
+			}
 		}
 		}
 		if($emptyFlag){
@@ -45,7 +44,6 @@ class UserPreviousJobInfo {
 			if(!empty($result[0][$key])){
 				$this->$key = $result[0][$key];
 			}
-			//print($this->$key);
 		}
 		
 	}

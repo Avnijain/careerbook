@@ -93,5 +93,4 @@ class AllUsersClass {		// class manipulation all search users
 $friendsData=new FriendClass();			//my friends class object
 $friendsReqData=new FriendRequestClass();	//my friends request class object
 $AllUserData=new AllUsersClass();		//all user class object
-
 ?>

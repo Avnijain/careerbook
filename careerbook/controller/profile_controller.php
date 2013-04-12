@@ -17,18 +17,7 @@ include_once '../controller/userInfo.php';
 include_once '../Model/profile.php';
 class ProfileController extends Profile
 {
-
-  
-	
-	function __construct() {
-		/*if(isset($_SESSION['userData']))
-		{
-			$obj = new user_info_controller();
-			$obj = unserialize($_SESSION['userData']);
-			$userid = $obj->getUserIdInfo();
-			$this->userid = $userid['id'];
-		}*/
-	}
+	function __construct() { }
 	function setId($id) {
 		$this->userid=$id;
 		

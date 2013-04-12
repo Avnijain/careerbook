@@ -16,7 +16,7 @@ include_once ("../classes/lang.php");
 <script src="../JavaScript/login-form.js"></script>
 <script>
      $(function() {
-	 $( "#datepicker" ).datepicker({
+	 $( "#date_of_birth" ).datepicker({
 		 changeMonth: true,
 		 dateFormat: 'yy/mm/dd',
 		 changeYear: true
