@@ -93,6 +93,7 @@ $(function() {
     				name="btnsubmit" />
     		</div>
     	</form>
+<?php if(isset($_GET['error'])){echo $_GET['error'];} ?>    	
 <div id="discussionError"></div>
 <div id="discussionLength"></div>    	
     </div>

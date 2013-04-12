@@ -72,6 +72,11 @@
 	?>
 </div>
 <script type="text/javascript">
+	$(function(){
+		$(window).load(function(){
+			viewGroup("<?php echo $groupData1[0] ['id'];?>");
+		});
+	});
 function expand(id,description) {
 	$("#"+id).html("<p>"+description+"</p>");
 }

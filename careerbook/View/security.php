@@ -9,9 +9,11 @@ include_once ("../classes/lang.php");
 require_once '../controller/userInfo.php';
 require_once "../classes/class.phpmailer.php";
 require_once "../classes/class.smtp.php";
+
 //********************************************************************************************************************
 $objUserInfo = unserialize ( $_SESSION ['userData'] );
-$userData = $objUserInfo->getUserPersonalInfo ();
+$userData = $objUserInfo->getUserPersonalInfo();
+
 
 $SID=$_COOKIE['PHPSESSID'];
 $fileName="../temp/".$userData['email_primary'].".txt";

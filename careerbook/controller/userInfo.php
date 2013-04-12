@@ -489,8 +489,12 @@ class user_info_controller
 	public function setUserActivity(){
         
 		$resultDB = $this->ObjUserModel->fetchUserActivityInfo($this,$this->todaydate());
-		$this->ObjUserModel->insertIntoUserActivityInfo($this);
-        
+		
+		if(count($resultDB) > 0 ){
+		}
+		else{
+		    $this->ObjUserModel->insertIntoUserActivityInfo($this);
+		}        
     }
 	public function setUserActivityInfoForm($result){
 		$this->objPreviousJobInfo->setinfo($result);

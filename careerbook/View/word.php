@@ -41,15 +41,16 @@ if((!empty($UserPreviousJobInfo['start_period']))&&(!empty($UserPreviousJobInfo[
 	$onlyMonth=$year[1];
 	$month=explode("-",$onlyMonth);
 	$year=explode("-",$onlyYear);
-}
-if($month[1]>0)
-{
-	$pastWorkDuration=$month[1]."$lang->MONTHS";
-}
-if($year[1]>0)
-{
- $pastWorkDuration=$year[1]."$lang->YEARS";
-	
+    
+    if($month[1]>0)
+    {
+    	$pastWorkDuration=$month[1]."$lang->MONTHS";
+    }
+    if($year[1]>0)
+    {
+     $pastWorkDuration=$year[1]."$lang->YEARS";
+    	
+    }
 }
 if((isset($_POST['template1']))&&($_POST['template1']=="Use this template")) // When first template is selected by user
 {	

@@ -27,7 +27,7 @@ class UserDiscussion extends model {
 	    $user_id = $userInfo->getUserIdInfo();
 	    $date = $userInfo->getDate();
         $this->db->From("user_activity_info");
-        $this->db->Where(array("user_id = $user_id[id] AND login_datetime like '$date%'"),true);
+        $this->db->Where(array("user_id = $user_id[id]"),true);
         $this->db->OrderBy("login_datetime desc");
         $this->db->Limit(0,$limit);
         $this->db->Select();        

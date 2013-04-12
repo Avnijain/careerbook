@@ -37,7 +37,7 @@ unset($resultSet[0]['discussionID']);
                 if(!empty($invalues['description'])){
                     ?>
                     <div id="displayComments<?php echo $invalues['id'] ?>" class="justComments displayComment">
-                    <?php print nl2br(($invalues['description'])); ?>
+                    <?php print nl2br(htmlspecialchars(($invalues['description']))); ?>
                     </div>
                     <?php                    
                 }

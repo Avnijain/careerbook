@@ -340,6 +340,10 @@ class mainentrance {
 		}
 		if ($_REQUEST ['action'] == "addUserPost") {
 			$this->_obj_user_discussion_controller = new UserDiscussionController ();
+			if (preg_match("'<'",$_POST['description'])) {
+			    header('location: ../Home/userHomePage.php?error="script not allowed"');
+			    die;
+			}			
 			$this->_obj_user_discussion_controller->handleAddUserPost ();
 		}
 	}
@@ -387,10 +391,14 @@ class mainentrance {
 	private function postComments(){
 	    $this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );	    
 	    $this->_obj_user_discussion_controller = new UserDiscussionController ();
+	    if (preg_match("'<'",$_POST['comment'])) {
+	        header('location: ../Home/userHomePage.php?error="script not allowed"');
+	        die;
+	    }
 	    $_SESSION['displayComments'] = $this->_obj_user_discussion_controller->postComments(
 	        $this->obj_usrinfo,
 	        $_POST['discussionID'],
-	        $_POST['comment']
+	        addslashes($_POST['comment'])
 	        );
         $_SESSION ['userData'] = serialize ( $this->obj_usrinfo );	        
 	}	
