@@ -2961,3 +2961,187 @@
 [12-Apr-2013 11:23:09 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
 [12-Apr-2013 11:23:19 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
 [12-Apr-2013 11:23:19 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:23:29 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:23:29 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:23:39 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:23:39 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:23:49 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:23:49 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:23:59 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:23:59 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:24:09 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:24:09 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:24:19 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:24:19 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:24:29 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:24:29 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:24:39 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:24:39 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:24:49 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:24:49 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:24:59 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:24:59 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:25:09 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:25:09 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:25:19 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:25:19 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:25:29 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:25:29 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:25:39 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:25:39 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:25:49 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:25:49 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:25:59 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:25:59 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:26:09 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:26:09 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:26:19 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:26:19 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:26:29 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:26:29 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:26:39 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:26:39 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:26:51 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:26:51 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 11:27:00 UTC] PHP Notice:  Undefined index: userData in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 14
+[12-Apr-2013 11:27:00 UTC] PHP Fatal error:  Call to a member function getUserPersonalInfo() on a non-object in /var/www/websites/careerbook/12042013/careerbook.git/trunk/careerbook/View/security.php on line 15
+[12-Apr-2013 13:40:50 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:40:50 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:40:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:40:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:40:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:40:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:40:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:40:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:40:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:41:10 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:41:10 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:41:10 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:10 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:10 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:10 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:41:10 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:41:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:41:31 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:41:31 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:41:32 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:32 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:32 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:32 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:41:32 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:41:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:41:42 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:41:42 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:41:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:41:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:41:42 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:41:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:45:24 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:45:24 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:45:24 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:24 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:24 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:24 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:45:24 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:45:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:45:33 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:45:33 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:45:33 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:33 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:33 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:33 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:45:33 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:45:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:45:41 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:45:41 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:45:41 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:41 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:41 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:41 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:45:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:45:41 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:45:41 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:46:22 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:46:22 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:46:22 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:22 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:22 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:46:22 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:46:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:46:37 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:46:37 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:46:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:46:37 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:46:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:46:50 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:46:50 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:46:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:46:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:46:50 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:46:50 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:47:11 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:47:11 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:47:11 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:47:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:47:11 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:47:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:48:12 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:48:12 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:48:12 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:48:12 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:48:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:48:12 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:48:12 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:48:23 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:48:23 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:48:24 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:48:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:48:24 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:48:24 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:49:10 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:49:10 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:49:10 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 646
+[12-Apr-2013 13:49:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:49:10 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:49:10 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:49:58 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:49:58 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:49:58 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:49:58 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:50:14 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:50:14 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:50:14 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:50:14 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:53:28 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:53:28 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:53:28 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:53:28 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:55:03 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
+[12-Apr-2013 13:55:03 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[12-Apr-2013 13:55:03 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:55:03 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 13:56:00 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 665
+[12-Apr-2013 13:56:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 14:06:57 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 636
+[12-Apr-2013 14:06:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 14:06:57 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 655
+[12-Apr-2013 14:06:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 14:08:18 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 636
+[12-Apr-2013 14:11:05 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 655
+[12-Apr-2013 14:11:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
+[12-Apr-2013 14:24:36 UTC] PHP Notice:  Array to string conversion in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 204

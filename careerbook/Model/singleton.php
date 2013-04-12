@@ -353,6 +353,7 @@ class DBConnection {
 		$this->_orderBy = "";
 		$this->_keys = array();
 		$this->_values = array();
+		$this->_limit = "";
 		return $bool;
 	}
 

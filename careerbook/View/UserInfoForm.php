@@ -240,12 +240,17 @@
 			phone_no:{
 				minlength: 10,
 				maxlength: 10
+			},
+			'10percentage':{
+				minlength: 1,
+				maxlength: 1
 			}
 		},
 		messages: {
 			firstname: "Please enter your firstname, MAX 40 Chars Allowed",
-			phoneno: "Please enter 10 Digit phone no"
-		},          
+			phoneno: "Please enter 10 Digit phone no",
+			'10percentage': "Enter Percentage Numeric value"
+		},
     	  submitHandler: function(form) {
     	    form.submit();
     	  }
@@ -399,7 +404,7 @@
                         <?php if(!empty($UserAcademicInfoDB['school_10'])){?>
                         value="<?php echo $UserAcademicInfoDB['school_10']; } ?>" />
                         
-                        <label><?php echo $lang->PERCENTAGE;?> </label> 
+                        <label for="10percentage"><?php echo $lang->PERCENTAGE;?> </label> 
                         <input id="10percentage" name="percentage_GPA_10" 
                         AUTOCOMPLETE="OFF"
                         <?php if (!empty($UserAcademicInfoDB['percentage_GPA_10']))

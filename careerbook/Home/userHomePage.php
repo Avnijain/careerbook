@@ -4,27 +4,25 @@ ini_set ( 'session.use_only_cookies', true);
 ini_set ( 'session.hash_function', "sha512");
 ini_set ( 'session.hash_bits_per_character', 5);
 
+/* Including all class files */
 include_once ("../classes/lang.php");
 include_once("../classes/dateManipulation.php");
 include_once('../classes/friendsClass.php');
 include_once('../classes/groupClass.php');
 
-
-
+/* Including all controller files */
 include_once '../controller/message_controller.php';
 require_once '../controller/userInfo.php';
 include_once "../controller/friends_controller.php";
 require_once '../controller/profile_controller.php';
 require_once '../controller/mainentrance.php';
 
-
-
-
 if (! isset ( $_SESSION ['userData'] )) {
 	header ( "location:../index.php" );
 	die ();
 }
 
+/* Retrieve User data from session */
 $objUserInfo = unserialize ( $_SESSION ['userData'] );
 $userData = $objUserInfo->getUserPersonalInfo ();
 $fileName="../temp/".$userData['email_primary'].".txt";
@@ -32,9 +30,7 @@ $fileName="../temp/".$userData['email_primary'].".txt";
 if (isset ( $_GET ['profile'] )) {
     include_once '../View/homeInterface.php';
     if(isset($_GET ['close'])) {
-        echo '<script type="text/javascript">'
-            , 'closeME();'
-                , '</script>';
+        echo '<script type="text/javascript">', 'closeME();', '</script>';
     }
     include_once '../View/menu.php';  
     $objUserInfo = unserialize($_SESSION['userData']);
@@ -49,43 +45,42 @@ if (isset ( $_GET ['profile'] )) {
     $_SESSION['userData'] = serialize($objUserInfo);    
 	include_once '../View/UserInfoForm.php';
 	include_once '../View/footer.php';
-} else if (isset ( $_GET ['resume'] )) {
-  include_once '../View/homeInterface.php';
+} 
+else if (isset ( $_GET ['resume'] )) {
+    
+    include_once '../View/homeInterface.php';
     if(isset($_GET ['close'])) {
-        echo '<script type="text/javascript">'
-            , 'closeME();'
-                , '</script>';
+        echo '<script type="text/javascript">', 'closeME();', '</script>';
     }
     include_once '../View/menu.php';
 	include '../View/resume.php';
 	include_once '../View/footer.php';
 
 } else if (isset ( $_GET ['logOut'] )) {
+    
 	unlink($fileName);
 	unset($_SESSION);
 	session_destroy();
 	header ( "location:../index.php" );
-	die ();
+		
 } else if (isset ( $_GET ['message'] )) {
+    
     include_once '../View/homeInterface.php';
     if(isset($_GET ['close'])) {
-        echo '<script type="text/javascript">'
-            , 'closeME();'
-                , '</script>';
+        echo '<script type="text/javascript">', 'closeME();', '</script>';
     }
     include_once '../View/menu.php';
 	include '../View/message.php';
 	include_once '../View/footer.php';	
 	
 } else if (isset ( $_GET ['information'] )) {
+    
     include_once '../View/homeInterface.php';
     if(isset($_GET ['close'])) {
-        echo '<script type="text/javascript">'
-            , 'closeME();'
-                , '</script>';
+        echo '<script type="text/javascript">', 'closeME();', '</script>';
     }
     include_once '../View/menu.php';
-    
+        
     if(isset($_SESSION['userData']))
     {
         $ob1 = new user_info_controller();
@@ -94,8 +89,7 @@ if (isset ( $_GET ['profile'] )) {
         $idd = $userid['id'];
     }
     if (isset($_REQUEST['user_id']) && isset($_REQUEST['hash'])) //if viewing friend's profile
-    {
-    
+    {    
         $str= date('ymd');
         $time=strtotime($str);
         $hash=md5($time.$lang->KEY.$_REQUEST['user_id']);
@@ -108,11 +102,9 @@ if (isset ( $_GET ['profile'] )) {
             $id=$idd;
         }
     }
-    else {							//viewing own profile
-    
+    else {							//viewing own profile    
         $id=$idd;
-    }
-    
+    }    
     $obj->setId($id);				 //setting the id of the user in profile class through profile controller function
     
     /***********Getting All user information from profile model class through profile controller functions******************/
@@ -131,28 +123,27 @@ if (isset ( $_GET ['profile'] )) {
     
 	include '../View/information.php';
 	include_once '../View/footer.php';
-}else if(isset ( $_GET ['contactUs'] )){
-if(isset($_SESSION['userData']))   					//to get current user login information
-{
-    $ob1 = new user_info_controller();
-    $ob1 = unserialize($_SESSION['userData']);
-    $userid = $ob1->getUserIdInfo();
-    $id = $userid['id'];
 }
-$obj->setId($id);
-$UserPersonalInfoDB = $objUserInfo->getUserPersonalInfo();
-$personalInfo=$obj->handlePersonalInfo();
-require_once '../View/contactform.php';
+else if(isset ( $_GET ['contactUs'] )){
+    
+    if(isset($_SESSION['userData']))   					//to get current user login information
+    {
+        $ob1 = $objUserInfo;
+        $userid = $ob1->getUserIdInfo();
+        $id = $userid['id'];
+    }
+    $obj->setId($id);
+    $UserPersonalInfoDB = $objUserInfo->getUserPersonalInfo();
+    $personalInfo=$obj->handlePersonalInfo();
+    require_once '../View/contactform.php';
 } 
 else{
-include_once '../View/homeInterface.php';
-if(isset($_GET ['close'])) {
-    echo '<script type="text/javascript">'
-        , 'closeME();'
-            , '</script>';
-}
-include_once '../View/menu.php';
-   include '../Home/userHomeContent.php';
-   include_once '../View/footer.php';
+    include_once '../View/homeInterface.php';
+    if(isset($_GET ['close'])) {
+        echo '<script type="text/javascript">', 'closeME();', '</script>';
+    }
+    include_once '../View/menu.php';
+    include '../Home/userHomeContent.php';
+    include_once '../View/footer.php';
 }
 ?>

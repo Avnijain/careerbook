@@ -5,13 +5,11 @@
  * for start Version - 1.0 Created by - Prateek Saini Created on - March 03,
  * 2013 **************************** Update Log ********************************
  * Sr.NO.		Version		Updated by Updated on Description
- * ------------------------------------------------------------------------- 1
- * 1.0 Mohit K. Singh March 03, 2013 writen function for sending mail and
+ * ------------------------------------------------------------------------- 
+ * 1 1.0 Mohit K. Singh March 03, 2013 writen function for sending mail and
  * validation check
  * ************************************************************************
  */
-ini_set ( "display_errorlogins", "1" );
-// namespace controller;
 require_once '../Model/model.php';
 require_once '../Model/validation.php';
 require_once '../controller/userInfo.php';
@@ -37,29 +35,25 @@ class mainentrance {
 		}
 		return self::$instance;
 	}
-	// *********************************************accept a friends
-	// request*******************************************
+	// *********************** accept a friends request ******************
 	private function acceptFrnd() {
 		$ObjModel = new MyClass ();
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
 		$ObjModel->acceptNewFrnd ( $this->obj_usrinfo, $_POST ['id'] );
 	}
-	// ******************************************************add a new
-	// friend*******************************************
+	// ************************ add a new friend**************************
 	private function addFrnd() {
 		$ObjModel = new MyClass ();
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
 		$ObjModel->addNewFrnd ( $this->obj_usrinfo, $_POST ['id'] );
 	}
-	// ******************************************************delete a
-	// friend*****************************************
+	// *********************** delete a friend****************************
 	private function delFrnd() {
 		$ObjModel = new MyClass ();
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
 		$ObjModel->delMyFrnd ( $this->obj_usrinfo, $_POST ['id'] );
 	}
-	// *************************************************change a users
-	// password*************************************
+	// ******************** change a users password***********************
 	private function chngPwd() {
 		if ($_POST ['currPwd'] != " " && $_POST ['newPwd'] != "" && $_POST ['confirmPwd'] != "") {
 			if ($_POST ['newPwd'] == $_POST ['confirmPwd']) {
@@ -86,8 +80,7 @@ class mainentrance {
 			header ( 'location: ../Home/userHomePage.php?Settings&err=1' );
 		}
 	}
-	// *****************************************delete an
-	// account********************************************************
+	// ************************* delete an account ****************************
 	private function delUser() {
 		$ObjModel = new MyClass ();
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
@@ -95,8 +88,7 @@ class mainentrance {
 		session_destroy ();
 		header ( "location:../index.php" );
 	}
-	// ***************************************************sent a forget password
-	// link*******************************************
+	// ************************* sent a forget password link*******************
 	private function forgetPasswd() {
 		
 		if ($_SESSION ['secure'] != $_POST ['captcha-code']) {
@@ -117,7 +109,7 @@ class mainentrance {
 				
 				$link=$_SERVER["DOCUMENT_ROOT"]."/careerbook/link/changePwd?id=".$result[0]['id']."&time=".$time."&hash=".$hash;			
 				/*
-				 * ***********************************mail here*******************************************************
+				 * ************************* mail here ****************************
 				 */
 				$mail = new PHPMailer();
 				$mail->IsSMTP();
@@ -128,7 +120,7 @@ class mainentrance {
 				$mail->Password = "2013careerbook*";
 				$mail->SMTPDebug = 1;
 				$webmaster_email = "careerbook2013@gmail.com";
-				//***********************************************user email id**************
+				//*********************** user email id **************
 				$email="avni.jain@osscube.com";
 				$name="Avni";
 				/*$emailField=$result[0]['email_primary'];
@@ -546,8 +538,7 @@ class mainentrance {
 		);		
 		$this->obj_usrinfo = unserialize ( $_SESSION ['userData'] );
 		/**
-		 * ************************** User Previous Job Info
-		 * ***********************
+		 * **************** User Previous Job Info ***********
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userPreviousJobInfo [0] ) as $key => $value ) {			
@@ -635,7 +626,6 @@ class mainentrance {
 		}
 		/**
 		 * ************************** User Project Information
-		 * ***********************
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userProjectInfo [0] ) as $key => $value ) {
@@ -643,7 +633,7 @@ class mainentrance {
 				if (! empty ( $_POST [$value] )) {
 					foreach ( $_POST [$value] as $inkey => $invalue ) {
 						if (! empty ( $invalue )) {
-							$userProjectInfo [0] [$value] = addslashes($_POST [$value]);
+							$userProjectInfo [0] [$value] = $_POST [$value];
 							$flagData = true;
 						}
 					}
@@ -662,7 +652,7 @@ class mainentrance {
 				if (! empty ( $_POST ["extracurricular_".$value] )) {
 					foreach ( $_POST ["extracurricular_".$value] as $inkey => $invalue ) {
 						if (! empty ( $invalue )) {
-							$userExtraCurricularInfo [0] [$value] = addslashes($_POST ["extracurricular_".$value]);
+							$userExtraCurricularInfo [0] [$value] = $_POST ["extracurricular_".$value];
 							$flagData = true;
 						}
 					}
@@ -697,7 +687,6 @@ class mainentrance {
 		}
 		/**
 		 * ************************** User Address Information
-		 * ***********************
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userAddressInfo [0] ) as $key => $value ) {
@@ -721,7 +710,6 @@ class mainentrance {
 		}
 		/**
 		 * ************************** User Certification Information
-		 * ***********************
 		 */
 		$flagData = false;
 		foreach ( array_keys ( $userCertificationInfo [0] ) as $key => $value ) {
