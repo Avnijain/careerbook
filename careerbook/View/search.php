@@ -1,11 +1,4 @@
-<?php
-	include_once("../classes/lang.php");
-    include_once('../classes/friendsClass.php');
-    $AllUserData=unserialize($_SESSION['allUsers']);
-    $allUserData= $AllUserData->getAllUsers();
-
-?>
-<center><h1><?php echo $AllUserData->countAllUsers();?><?php echo $lang->RESULTFOUND?></h1>
+<center><h1><?php echo $count; ?><?php echo $lang->RESULTFOUND?></h1>
 <table id="frnd">
     <?php
     foreach($allUserData as $keys=>$values){
@@ -37,7 +30,6 @@
             		}            		
             		elseif($values['status']=='A')
             		{
-						//echo "<div class="btn blue"><input type='button' value='Add' onClick='addFrnd(".$values['id'].");'></div>";
             			echo "<center><input type='button' class='btn blue' value='$lang->ADDASAFRIEND' onClick='addFrnd(".$values['id'].");'></center>";
             		}            
             ?></td>

@@ -1,13 +1,5 @@
-<?php
-include_once("../classes/lang.php");
-?>
 <center><div id="float-left">
-	<?php
-		$objUserInfo = unserialize($_SESSION['userData']);
-		$userData=$objUserInfo->getUserPersonalInfo();
-		$uri = 'data:image/png;base64,'.base64_encode($userData['profile_image']);
-	?>
-	
+
 	<img id="profile-pic" alt="user" src="<?php echo $uri;?>" width="140" height="150">
 </div></center>
 <div id="float-left">

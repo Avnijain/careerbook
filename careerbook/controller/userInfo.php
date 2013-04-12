@@ -12,13 +12,6 @@ Sr.NO.		Version		Updated by           Updated on          Description
 -------------------------------------------------------------------------
 *************************************************************************
 */
-//include_once('../classes/');
-
-
-/* 
- * Following class will create the user information objects and control the data flow.
- * All the ojects here created corresponds to class in user.php file 
- * */
 function __autoload($className)
 {
     if( strstr($className, "Model")){
@@ -29,17 +22,15 @@ function __autoload($className)
     }
     else{
         require('../classes/'.$className.'.php');
-    }
-	
+    }	
 }
-
 class user_info_controller
 {
 	private $objPersonalInfo;
 	private $objProfessionalInfo;
 	private $objAcademicInfo;
 	private $objIdentityInfo;	
-	private	$ObjUserModel;
+	private	 $ObjUserModel;
 	private $objAddressInfo;
 	private $objProjectInfo;
 	private $projectCountDB;
@@ -53,7 +44,6 @@ class user_info_controller
 	private $objExtraCurricularInfo;
 	private $objValidation;
 	private $_objActivityInfo;
-
 	public function __construct()
 	{
 	    $this->objValidation = new UserDataValidation();
@@ -71,8 +61,7 @@ class user_info_controller
 	}
 /******************* User Personal Information *****************/
 	public function setUserPersonalInfoForm($result){
-		$this->objPersonalInfo->setinfo($result);
-		
+		$this->objPersonalInfo->setinfo($result);	
 		$error = $this->objValidation->validate($this->objPersonalInfo->getinfo());
 		if($error != 0 ){
 		    return $error;
@@ -107,14 +96,9 @@ class user_info_controller
 	public function setUserImageInfoForm($result){
 		$this->objPersonalInfo->addImage($result);
 		$resultDB = $this->ObjUserModel->fetchUserPersonalInfo($this);
-		
 		if(count($resultDB) > 0 ){
 			$this->ObjUserModel->updateIntoUserImage($this);
-		}
-		else{
-		    //This will never be called
-			//$this->ObjUserModel->insertIntoUserImage($this);
-		}		
+		}	
 	}
 	public function getImageInfo(){
 		return $this->objPersonalInfo->getInfo();

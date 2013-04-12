@@ -433,6 +433,7 @@ class mainentrance {
 				$this->obj_usrinfo->setUserAcademicInfoDb ();
 				$this->obj_usrinfo->setUserProfessionalInfoDb ();
 				$_SESSION ['userData'] = serialize ( $this->obj_usrinfo );
+				$_SESSION['loginUserId'] = $result [0] ['id'];
 				//*************************************************************************************************
 				$_SESSION['secureSessionHijack'] = rand(100000,999999);
 				$SID=$_COOKIE['PHPSESSID'];
@@ -808,6 +809,8 @@ class mainentrance {
 		}
 	}
 } //***********************************************End of class*****************************
-$obj = mainentrance::getinstance ();
-$obj->start ();
+$objMainentrance = mainentrance::getinstance ();
+if(isset($_REQUEST['action'])){
+    $objMainentrance->start ();
+}
 ?>

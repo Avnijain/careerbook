@@ -1,10 +1,3 @@
-<?php
-    include_once('../classes/friendsClass.php');
-    include_once("../classes/lang.php");
-    $friendsReqData=unserialize($_SESSION['FrndReq']);
-    $myfrnd= $friendsReqData->getRequestedFriends();
-
-?>
 <center><h1><?php echo $lang->YOUHAVE;echo $friendsReqData->countReqFrnds()." ";echo $lang->FRIENDREQUEST;?> </h1>
 <table id="frnd">
     <?php

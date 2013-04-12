@@ -100,7 +100,7 @@ $(function() {
     <br/>
 <div>
 <?php
-    include_once 'getMessages.php';
+    include_once '../controller/getMessages.php';
 ?>
 </div>
 </div>

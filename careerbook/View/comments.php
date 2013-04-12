@@ -1,11 +1,16 @@
 <div id="discussionDisplay"></div>
+
 <?php include_once 'getComments.php'; ?>
+
 <textarea id="commentID" class="group_textarea" placeholder="Comment" rows="4" cols="50"></textarea>
 <div id="commentError"></div>
 <div id="commentLength"></div>
+
 <?php if(isset($_GET['error'])){echo $_GET['error'];} ?>
+
 <input type="submit" class="btn blue" id = "commentSubmit" value="post comment"></input>
 <script src="../JavaScript/jquery-1.7.1.js"></script>
+    
 <script>
 $(function(){
 	$("#commentID").click(function(){

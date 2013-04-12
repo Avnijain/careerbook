@@ -1,4 +1,3 @@
-
 <?php
 /*
  **************************** Creation Log *******************************
@@ -9,8 +8,6 @@ Version                     -  1.0
 Created by                  -  Avni Jain
 Created on                  -  March 31, 2013
 */
-
-
 
 $emailSubject = 'Careerbook:user message';						//mail subject
 $mailto = 'avni.jain@osscube.com';								//email-id of reciever
@@ -36,4 +33,3 @@ header ( 'location:contactform.php?c=sent' );
 else
 echo " oopps!!!! look like some problem has occured we'l get back soon"; // if false is returned in sucess that mail is not sent
 ?>
-

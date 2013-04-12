@@ -17,9 +17,7 @@ if(isset($_SESSION['displayComments'])) {
     $discussionID = $resultSet[0]['discussionID'];
 
 unset($resultSet[0]['discussionID']);
-//     echo "<pre/>";
-//     print_r($resultSet);
-//     die; 
+
     foreach ( $resultSet as $keys => $values ) {        
         foreach ( $values as $inkeys => $invalues ){
             if(isset($invalues['profile_image'])){

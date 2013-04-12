@@ -1,29 +1,5 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
-<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
-<script src="../JavaScript/jquery.validate.min.js"></script>
-<script type="text/javascript" src="../JavaScript/group.js"> </script>
 <?php
-	include_once('../classes/groupClass.php');
-	
-	$objUserId = unserialize($_SESSION['userData']);
-	$userData=$objUserId->getUserIdInfo();
-	$userId = $userData['id'];
-	
-	if(isset($_SESSION ['groupPost'])) {
-		$groupData = unserialize ( $_SESSION ['groupPost'] );
-		$groupData= $groupData->getPostList();
-	}
-	if (isset($_SESSION['groupDetail'])) {
-		$groupData1=unserialize($_SESSION['groupDetail']);
-		$groupData1= $groupData1->getGroupDetail();
-		
-		if (($groupData1[0]['group_image']) == NULL) {
-			$uri1 = "../images/default-group.jpg";
-		} else {
-			$uri1 = 'data:image/png;base64,'.base64_encode($groupData1[0]['group_image']);
-		}
-	}
-	//print_r($groupData);
 ?>
 <div class="group_header group_div">
 	<img src="<?php echo $uri1;?>" class="group_image">

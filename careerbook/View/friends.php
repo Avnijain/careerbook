@@ -1,13 +1,3 @@
-<?php
-include_once("../classes/lang.php");
-include_once ('../classes/friendsClass.php');
-$friendsData = unserialize ( $_SESSION ['myFriends'] );
-$myfrnd = $friendsData->getMyFriendsNetwork ();
-// echo $lang->KEY;
-
-// $encrypted = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $lang->KEY, '17', MCRYPT_MODE_ECB);
-// echo $encrypted;
-?>
 <center>
 	<h1><?php echo $lang->YOUHAVE ; echo $friendsData->countMyFriends(); echo " "; echo $lang->FRIENDS;?></h1>
 	<table id="frnd">

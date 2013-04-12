@@ -1,9 +1,5 @@
-<?php
-include_once("../classes/lang.php");
-?>
 <link href="../css/setting.css" rel="stylesheet" />
 
- 
 <script type="text/javascript" src="../JavaScript/friends.js"></script>
 <script language="javascript">
 $(document).ready(function() {

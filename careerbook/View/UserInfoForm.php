@@ -1,28 +1,6 @@
-<?php
-    //include_once("../classes/lang.php");
-    //require_once '../controller/userInfo.php';
-    require_once '../classes/dateManipulation.php';
-    $objUserInfo = unserialize($_SESSION['userData']);
-    $UserPersonalInfoDB = $objUserInfo->getUserPersonalInfoDB();
-    $UserAcademicInfoDB = $objUserInfo->getUserAcademicInfoDB();
-    $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
-    $UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
-    $UserCertificateInfoDB =  $objUserInfo->getUserCertificateInfoDB();
-    $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
-    $UserPreviousJobInfoDB =  $objUserInfo->getUserPreviousJobInfoDB();
-    $UserExtraCurricularInfoDB =  $objUserInfo->getUserExtraCurricularInfoDB();
-    $_SESSION['userData'] = serialize($objUserInfo);
-?>
 <link rel="stylesheet" href="../css/styleUserInfoForm.css"
 	type="text/css" media="screen" />
-
-
-<link rel="stylesheet" href="../css/styleUserInfoForm.css"
-	type="text/css" media="screen" />
-
 <script type="text/javascript" src="../JavaScript/sliding.form.js"></script>
-<script type="text/javascript" src="../JavaScript/jquery.validate.min.js"></script>
-
 <link rel="stylesheet" href="../css/jquery-ui.css" />
 
 <script src="../JavaScript/jquery-ui.js"></script>

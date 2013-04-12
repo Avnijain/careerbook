@@ -1,23 +1,4 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
-<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
-<script src="../JavaScript/jquery.validate.min.js"></script>
-<script type="text/javascript" src="../JavaScript/group.js"> </script>
-<?php
-	include_once('../classes/groupClass.php');
-	
-	$objUserId = unserialize($_SESSION['userData']);
-	$userData=$objUserId->getUserIdInfo();
-	$userId = $userData['id'];
-	
-	$groupData = unserialize ( $_SESSION ['groupDiscussionComment'] );
-	$groupData = ($groupData->getCommentList());
-	
-	
-	$groupData1 = unserialize ( $_SESSION ['postDetail'] );
-	$groupData1 = $groupData1->getPostDetail();
-	$uri1 = 'data:image/png;base64,'.base64_encode($groupData1[0]['profile_image']);
-	rsort($groupData);
-?>
 <div  class="group_header group_div">
 	<img src="<?php echo $uri1;?>" class="group_image">
 		<?php

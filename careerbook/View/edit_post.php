@@ -1,14 +1,4 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
-<script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
-<script src="../JavaScript/jquery.validate.min.js"></script>
-<script type="text/javascript" src="../JavaScript/group.js"> </script>
-<?php 
-include_once('../classes/groupClass.php');
-$groupData=unserialize($_SESSION['postDetail']);
-$groupData= $groupData->getPostDetail();
-$groupId=$_REQUEST['groupId'];
-$uri = 'data:image/png;base64,'.base64_encode($groupData[0]['profile_image']);
-?>
 <div id="groupPost">
 	<form id="editPost_form"
 		action="../controller/mainentrance.php?action=edit_post&postId=<?php echo $groupData[0]['id'];?>>"

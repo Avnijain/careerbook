@@ -1,14 +1,13 @@
 <?php 
-include_once("../classes/lang.php");
+    include_once("../classes/lang.php");
+    echo $lang->CONFIRMATIONMSG ;
+?>
 
- 
-echo $lang->CONFIRMATIONMSG ;?>
-<b><a href='#' onclick='closeMe();'>Login</a></b>
-<script>
-    
+<b><a href='#' onclick='closeMe();'><?php echo $lang->LOGIN;?></a></b>
+
+<script>    
     function closeMe()
     {
        parent.$.fancybox.close();
-    }
-    
+    }    
 </script>

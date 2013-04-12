@@ -12,57 +12,9 @@
      1			1.0			Avni Jain			March 19,2013		extracting and displaying user information
     *************************************************************************
 */
-include_once("../classes/lang.php");
-include_once("../classes/dateManipulation.php");
-require_once '../controller/userInfo.php';
-require_once '../controller/profile_controller.php';
-
-if(isset($_SESSION['userData']))
-{
-	$ob1 = new user_info_controller();
-	$ob1 = unserialize($_SESSION['userData']);
-	$userid = $ob1->getUserIdInfo();
-	$idd = $userid['id'];
-}
-if (isset($_REQUEST['user_id']) && isset($_REQUEST['hash'])) //if viewing friend's profile 
-{
-
-	$str= date('ymd');
-	$time=strtotime($str);
-	$hash=md5($time.$lang->KEY.$_REQUEST['user_id']);
-
-	if($_REQUEST['hash']==$hash) { 
-
-		$id=$_GET['user_id'];	//getting the friend's user id
-	}
-	else {
-		$id=$idd;
-	}
-}
-else {							//viewing own profile
-
-	$id=$idd;
-}
-
-$obj->setId($id);				 //setting the id of the user in profile class through profile controller function
-
-/***********Getting All user information from profile model class through profile controller functions******************/
-$acdemicInfo=$obj->handleAcademicInfo();
-$personalInfo=$obj->handlePersonalInfo();
-$projectInfo=$obj->handleProjectInfo();
-$jobInfo=$obj->handlePreviousJobInfo();
-$professionalInfo=$obj->handleProfessionalInfo();
-$certificateInfo=$obj->handleCertificateInfo();
-if(!empty($personalInfo['0']['date_of_birth'])) {             // to get the age in years of the user
-	$age=$objdate->getAge($personalInfo['0']['date_of_birth']);
-	$year=explode(" ",$age);
-	$onlyYear=$year[0];
-	$userAge=explode("-",$onlyYear);
-}
 ?>
 <link rel="stylesheet" type="text/css" href="../css/information.css" />
 <!-- ------------------------------------------------------------PROFILE PAGE VIEW----------------------------------------------------------------->
-<body>
 <div id="main">
 	<h2></h2>
 	<div id="mainframe">
@@ -162,4 +114,3 @@ if(!empty($personalInfo['0']['date_of_birth'])) {             // to get the age 
 			
 	</div>
 </div>
-</body>

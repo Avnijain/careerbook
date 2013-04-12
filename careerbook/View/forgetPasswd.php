@@ -1,5 +1,3 @@
-	
-	
 <?php
 include_once("../classes/lang.php");
 if (! isset ( $_GET ['code'] )) {
@@ -100,9 +98,3 @@ background: url(../images/fpd.jpg) repeat-x 0px 0px;
 <?php
 }
 ?>
-	
-	
-	
-	
-	
-	

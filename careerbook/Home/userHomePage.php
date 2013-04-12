@@ -1,13 +1,23 @@
 <?php
-ini_set("display_errors",1);
 ini_set ( 'session.cookie_httponly', true );
 ini_set ( 'session.use_only_cookies', true);
 ini_set ( 'session.hash_function', "sha512");
 ini_set ( 'session.hash_bits_per_character', 5);
 
 include_once ("../classes/lang.php");
+include_once("../classes/dateManipulation.php");
+include_once('../classes/friendsClass.php');
+include_once('../classes/groupClass.php');
+
+
+
+include_once '../controller/message_controller.php';
 require_once '../controller/userInfo.php';
 include_once "../controller/friends_controller.php";
+require_once '../controller/profile_controller.php';
+require_once '../controller/mainentrance.php';
+
+
 
 
 if (! isset ( $_SESSION ['userData'] )) {
@@ -15,95 +25,41 @@ if (! isset ( $_SESSION ['userData'] )) {
 	die ();
 }
 
-
 $objUserInfo = unserialize ( $_SESSION ['userData'] );
 $userData = $objUserInfo->getUserPersonalInfo ();
-
 $fileName="../temp/".$userData['email_primary'].".txt";
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-<title><?php echo $lang->USERINFOFORM;?></title>
-<link rel="stylesheet" type="text/css" href="../css/style.css"></link>
-<script type="text/javascript">
-        function closeME() {
-            parent.$.fancybox.close(); 
-        }
-        function changeToken() {
-       	 $.post("../View/security.php",function(data){});
-       	}
-       	var id = setInterval('changeToken();', 10000);
-</script>
-<script src="../JavaScript/jquery-1.7.1.js"></script>
-<script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.js"></script>
-<script type="text/javascript" src="../JavaScript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<link rel="stylesheet" type="text/css" href="../JavaScript/fancybox/jquery.fancybox-1.3.4.css" ></link>
-<?php
 
-if(isset($_GET ['close'])) {
-	echo '<script type="text/javascript">'
-		, 'closeME();'
-		, '</script>';
-	
-}
-?>
-
-</head>
-<body>
-    <a href="javascript:void(0)" id="selectorLogin"></a>
-	<div id="mainWrapper">
-		<div id="headerWrapper">
-			<div id="top">
-				<div class="cl">&nbsp;</div>
-				<div id="header_left">
-    				<h1 id="logo">
-    					<a href="#"><?php echo $lang->PROJECTTITLE; ?></a>
-    				</h1>
-				</div>				
-				<div id="header_right">
-					<div id = "header_userName" > 
-    				<label id="header_userNameLabel"><?php echo $lang->WELCOME ?> <?php				
-				
-    				echo $userData ['first_name'] . " " . $userData ['last_name'];
-    				?></label></div>
-    				<div id = "header_logout" ><a href="./userHomePage.php?logOut"
-        			class="btn blue"><?Php echo $lang->LOGOUT?></a></div>    				
-				</div>
-				<div id="header_right_search">
-    				<form action="userHomePage.php" method="get" id="search">
-    					<div class="field-holder">
-    						<input type="text" class="field" placeholder="Search"
-    							title="Search" name="Search">
-    					</div>
-    					<input type="submit" class="button" value="Search">
-    					<div class="cl">&nbsp;</div>
-    				</form>
-				</div>
-			</div>
-			<nav class="top-nav">
-				<div class="shell">
-					<a href="#" class="nav-btn"><?php echo $lang->HOME?><span></span></a>
-					<span class="top-nav-shadow"></span>
-					<ul>
-						<li class="active first"><span><a href="userHomePage.php"><?php echo $lang->HOME?></a></span></li>
-						<li><span><a href="../controller/mainentrance.php?action=Group"><?php echo $lang->GROUP?></a></span></li>
-						<li><span><a href="userHomePage.php?Friends"><?php echo $lang->FRIENDS?></a></span></li>
-						<li><span><a href="userHomePage.php?message"><?php echo $lang->MESSAGES?></a></span></li>
-						<li><span><a href="userHomePage.php?resume"><?php echo $lang->RESUME?></a></span></li>
-						<li><span><a href="userHomePage.php?profile"><?php echo $lang->ACCOUNT?></a></span></li>
-						<li><span><a href="userHomePage.php?information"><?php echo $lang->PROFILE?></a></span></li>
-						<li class="last"><span><a href="userHomePage.php?Settings"><?php echo $lang->SETTINGS?></a></span></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-		<div id="contentWrapper">
-<?php
 if (isset ( $_GET ['profile'] )) {
-	include '../View/UserInfoForm.php';
+    include_once '../View/homeInterface.php';
+    if(isset($_GET ['close'])) {
+        echo '<script type="text/javascript">'
+            , 'closeME();'
+                , '</script>';
+    }
+    include_once '../View/menu.php';  
+    $objUserInfo = unserialize($_SESSION['userData']);
+    $UserPersonalInfoDB = $objUserInfo->getUserPersonalInfoDB();
+    $UserAcademicInfoDB = $objUserInfo->getUserAcademicInfoDB();
+    $UserAddressInfoDB = $objUserInfo->getUserAddressInfoDB();
+    $UserProjectInfoDB = $objUserInfo->getUserProjectInfoDB();
+    $UserCertificateInfoDB =  $objUserInfo->getUserCertificateInfoDB();
+    $UserProfessionalInfoDB = $objUserInfo->getUserProfessionalInfoDB();
+    $UserPreviousJobInfoDB =  $objUserInfo->getUserPreviousJobInfoDB();
+    $UserExtraCurricularInfoDB =  $objUserInfo->getUserExtraCurricularInfoDB();
+    $_SESSION['userData'] = serialize($objUserInfo);    
+	include_once '../View/UserInfoForm.php';
+	include_once '../View/footer.php';
 } else if (isset ( $_GET ['resume'] )) {
+  include_once '../View/homeInterface.php';
+    if(isset($_GET ['close'])) {
+        echo '<script type="text/javascript">'
+            , 'closeME();'
+                , '</script>';
+    }
+    include_once '../View/menu.php';
 	include '../View/resume.php';
+	include_once '../View/footer.php';
+
 } else if (isset ( $_GET ['logOut'] )) {
 	unlink($fileName);
 	unset($_SESSION);
@@ -111,14 +67,92 @@ if (isset ( $_GET ['profile'] )) {
 	header ( "location:../index.php" );
 	die ();
 } else if (isset ( $_GET ['message'] )) {
+    include_once '../View/homeInterface.php';
+    if(isset($_GET ['close'])) {
+        echo '<script type="text/javascript">'
+            , 'closeME();'
+                , '</script>';
+    }
+    include_once '../View/menu.php';
 	include '../View/message.php';
+	include_once '../View/footer.php';	
+	
 } else if (isset ( $_GET ['information'] )) {
+    include_once '../View/homeInterface.php';
+    if(isset($_GET ['close'])) {
+        echo '<script type="text/javascript">'
+            , 'closeME();'
+                , '</script>';
+    }
+    include_once '../View/menu.php';
+    
+    if(isset($_SESSION['userData']))
+    {
+        $ob1 = new user_info_controller();
+        $ob1 = unserialize($_SESSION['userData']);
+        $userid = $ob1->getUserIdInfo();
+        $idd = $userid['id'];
+    }
+    if (isset($_REQUEST['user_id']) && isset($_REQUEST['hash'])) //if viewing friend's profile
+    {
+    
+        $str= date('ymd');
+        $time=strtotime($str);
+        $hash=md5($time.$lang->KEY.$_REQUEST['user_id']);
+    
+        if($_REQUEST['hash']==$hash) {
+    
+            $id=$_GET['user_id'];	//getting the friend's user id
+        }
+        else {
+            $id=$idd;
+        }
+    }
+    else {							//viewing own profile
+    
+        $id=$idd;
+    }
+    
+    $obj->setId($id);				 //setting the id of the user in profile class through profile controller function
+    
+    /***********Getting All user information from profile model class through profile controller functions******************/
+    $acdemicInfo=$obj->handleAcademicInfo();
+    $personalInfo=$obj->handlePersonalInfo();
+    $projectInfo=$obj->handleProjectInfo();
+    $jobInfo=$obj->handlePreviousJobInfo();
+    $professionalInfo=$obj->handleProfessionalInfo();
+    $certificateInfo=$obj->handleCertificateInfo();
+    if(!empty($personalInfo['0']['date_of_birth'])) {             // to get the age in years of the user
+        $age=$objdate->getAge($personalInfo['0']['date_of_birth']);
+        $year=explode(" ",$age);
+        $onlyYear=$year[0];
+        $userAge=explode("-",$onlyYear);
+    }
+    
 	include '../View/information.php';
-} else{
-   include '../View/userHomeContent.php';
+	include_once '../View/footer.php';
+}else if(isset ( $_GET ['contactUs'] )){
+if(isset($_SESSION['userData']))   					//to get current user login information
+{
+    $ob1 = new user_info_controller();
+    $ob1 = unserialize($_SESSION['userData']);
+    $userid = $ob1->getUserIdInfo();
+    $id = $userid['id'];
+}
+$obj->setId($id);
+$UserPersonalInfoDB = $objUserInfo->getUserPersonalInfo();
+$personalInfo=$obj->handlePersonalInfo();
+require_once '../View/contactform.php';
+} 
+else{
+include_once '../View/homeInterface.php';
+if(isset($_GET ['close'])) {
+    echo '<script type="text/javascript">'
+        , 'closeME();'
+            , '</script>';
+}
+include_once '../View/menu.php';
+   include '../Home/userHomeContent.php';
+   include_once '../View/footer.php';
 }
 ?>
-	</div>
-</div>
-</body>
-</html>

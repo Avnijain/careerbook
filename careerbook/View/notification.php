@@ -1,6 +1,3 @@
-<?php
-include_once("../classes/lang.php");
-?>
 <div class="post">
 	<p>
     <?php
@@ -16,9 +13,7 @@ include_once("../classes/lang.php");
 	</div>
 	<div class="data">
 	<?php
-        require_once '../controller/message_controller.php';
-        $objMessage1 = new MessageController();
-        $count=$objMessage1->handleNewMessage();
+
         if(($count[0]['count(id)'])>=1) {
     ?>
     	<p style="color:red;"><?php echo $lang->NEWUSERMESSAGES?> </br>
@@ -44,10 +39,6 @@ include_once("../classes/lang.php");
 	</div>
 	<div class="data">
 	<?php
-        include_once('../classes/friendsClass.php');
-        $friendsReqData=unserialize($_SESSION['FrndReq']);
-        $myFrndReqCount= $friendsReqData->countReqFrnds();
-        //echo ($myFrndReqCount);
         if($myFrndReqCount>0) {
     ?>
     <p style="color:red;">

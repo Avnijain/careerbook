@@ -9,8 +9,8 @@ Created by                  -  Avni Jain
 Created on                  -  March 18, 2013
 */
 
-include_once '../controller/message_controller.php'; $a="false";
-include_once("../classes/lang.php");
+
+
 ?>   
 <script type="text/javascript" src="../JavaScript/jquery1.min.js"></script>
 <!--[if IE 7]>

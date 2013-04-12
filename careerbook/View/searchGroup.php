@@ -1,16 +1,4 @@
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
-<?php 
-	 include_once("../classes/lang.php"); 
-	include_once('../classes/groupClass.php');
-	$groupData = array();
-	$noOfResult = 0;
-	if (isset($_SESSION['groupSearch'])) {
-		$groupData = unserialize($_SESSION['groupSearch']);
-		$count = $groupData->countGroupSearchList();
-		$groupData = $groupData->getGroupSearchList();
-		
-	}
-?>
 <div id="main">
 	<form action="../controller/mainentrance.php?action=searchGroup"
 		method="post">

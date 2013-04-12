@@ -9,9 +9,9 @@ Created by                  -  Avni Jain
 Created on                  -  March 07, 2013
 */
 
-include_once("../classes/lang.php");
+
 ?>
-<script	type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
+
 <script	type="text/javascript" src="../JavaScript/jquery.tools.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/resume.css" ></link>
 <link rel="stylesheet" type="text/css" href="../css/accordian.css" ></link>
@@ -45,7 +45,7 @@ include_once("../classes/lang.php");
 			</article>
 			
 			
-			<form action="../View/word.php" method=post>
+			<form action="../controller/word.php" method=post>
 				<!----------------------------------------------first overlay------------------------------------------------------------------>
 				<div class="simple_overlay" id="mies1">
 					<img src="../images/resume3.jpg" />

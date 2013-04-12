@@ -1,8 +1,7 @@
 <?php 
-include_once('../classes/groupClass.php');
-$groupData=unserialize($_SESSION['groupDetail']);
-$groupData= $groupData->getGroupDetail();
-include_once("../classes/lang.php");
+
+
+
 ?>
 <link rel="stylesheet" type="text/css" href="../css/group.css"></link>
 <script type="text/javascript" src="../JavaScript/jquery-1.9.1.min.js"></script>
