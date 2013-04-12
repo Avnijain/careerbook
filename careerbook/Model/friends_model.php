@@ -13,8 +13,6 @@
 	1            1.0        Prateek Saini        April 05, 2013      Added getFrndsComnt($userInfo) 
     -------------------------------------------------------------------------
 */
- 
-ini_set("display_errors", "1");
 require_once 'singleton.php';
 
 class FriendsModel extends model {		//class to get all data of friends from database 
@@ -34,33 +32,65 @@ class FriendsModel extends model {		//class to get all data of friends from data
     }
    //******************************************** fetch all user and his friends Discussions ***************************************    
     public function getFrndsDis($userInfo){
-    	$user_id = $userInfo->getUserIdInfo();
+    	$user_id = $userInfo->getUserIdInfo();    	
     	$user_id=$user_id['id'];
-		/* This Code will fetch all the User Post and their friend post from their profile page */
-    	$this->db->Fields ( array (
-    	    "distinct b.description discussion",
-    	    "b.user_id",
-    	    "d.profile_image",
-    	    "d.first_name",
-    	    "b.id"
+    	
+    	$this->db->Fields ( array (    	    
+    	    "id",
+    	    "friend_id"
     	));
     	
-    	$this->db->From ( "user_discussions b" );
-    	$this->db->Join ( "friends c", " c.user_id = '$user_id' " );
-    	$this->db->Join ( "users d", " d.id in (c.friend_id, \"$user_id\")" );
-    	$this->db->Where (array ("b.user_id = d.id AND b.status <> 'D' AND c.status = 'F'"),true);
-    	$this->db->OrderBy("b.created_on desc");
+    	$this->db->From ( "friends" );
+    	$this->db->Where (array ("user_id" => $user_id));
     	$this->db->Select ();
-//     	echo $this->db->lastQuery();
-    	//       print_r($this->db->resultArray ());
-//     	die;
+    	$resultSet = $this->db->resultArray();
     	
-    	$tempData = $this->db->resultArray();
-    	
-    	if(!empty($tempData)){
-    	    $result[] = $tempData;
+    	if(count($resultSet) > 0){
+    		/* This Code will fetch all the User Post and their friend post from their profile page */
+        	$this->db->Fields ( array (
+        	    "distinct b.description discussion",
+        	    "b.user_id",
+        	    "d.profile_image",
+        	    "d.first_name",
+        	    "b.id"
+        	));
+        	
+        	$this->db->From ( "user_discussions b" );
+        	$this->db->Join ( "friends c", " c.user_id = '$user_id' " );
+        	$this->db->Join ( "users d", " d.id in (c.friend_id, \"$user_id\")" );
+        	$this->db->Where (array ("b.user_id = d.id AND b.status <> 'D' AND c.status = 'F'"),true);
+        	$this->db->OrderBy("b.created_on desc");
+        	$this->db->Select ();
+        	
+        	$tempData = $this->db->resultArray();
+        	
+        	if(!empty($tempData)){
+        	    $result[] = $tempData;
+        	}
     	}
-            /* This Code will fetch all the Admin Post from User Discussions Table */    	
+    	else{
+    	    /* This Code will fetch all the user post from User Discussions Table when user has no friends */
+    	    $this->db->Fields ( array (
+        	    "distinct b.description discussion",
+        	    "b.user_id",
+        	    "d.profile_image",
+        	    "d.first_name",
+        	    "b.id"
+        	));
+        	
+        	$this->db->From ( "user_discussions b" );
+        	$this->db->Join ( "users d", " d.id in (\"$user_id\")" );
+        	$this->db->Where (array ("b.user_id = d.id AND b.status <> 'D'"),true);
+        	$this->db->OrderBy("b.created_on desc");
+        	$this->db->Select ();
+        	
+        	$tempData = $this->db->resultArray();
+        	
+        	if(!empty($tempData)){
+        	    $result[] = $tempData;
+        	}    	    
+    	}
+        /* This Code will fetch all the Admin Post from User Discussions Table */    	
     	$this->db->Fields ( array (    	    
     	    "b.description discussion",
     	    "d.profile_image",
@@ -71,7 +101,7 @@ class FriendsModel extends model {		//class to get all data of friends from data
     	$this->db->From ( "user_discussions b" );
     	$this->db->Join ( "users d", " d.id = 1" );
     	$this->db->Where (array ("b.user_id" => "1"));
-    	$this->db->Select ();    	
+    	$this->db->Select ();
         
     	$tempData = $this->db->resultArray();
 

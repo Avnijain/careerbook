@@ -171,7 +171,7 @@ class user_info_controller
 	    return $this->objAcademicInfo->getInfo($flag);
 	}
 /******************* User Certificate Information *****************/
-	public function setUserCertificateInfoForm($result){
+	public function setUserCertificateInfoForm($result){	    
 	    $this->setDatainCertificate($result);
 	    $nwProject = intval($this->certificateCountForm) - intval($this->certificateCountDB);
 	    if($this->certificateCountDB > 0 ){

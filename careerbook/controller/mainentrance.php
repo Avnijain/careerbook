@@ -601,7 +601,7 @@ class mainentrance {
 		        ($_FILES ["user_image"] ["type"] == "image/png")) &&
 		        ($_FILES ["user_image"] ["size"] < 3145728) &&
 		        in_array ( $extension, $allowedExts )) {
-		        if ($_FILES ["group_image"] ["error"] > 0) {
+		        if ($_FILES ["user_image"] ["error"] > 0) {
 		            header ( 'Location: ../Home/userHomePage.php?profile&err=OProfile_Image');
 		            die;
 		        }

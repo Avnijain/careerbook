@@ -211,3 +211,12 @@ span.error{
     color:#666;
     text-shadow:1px 1px 1px #fff;
 }
+#errors{
+float: left;
+clear: both;
+margin: 5px 0px;
+border: 1px solid #fff;
+width: 400px;
+padding: 10px;
+margin-left: 200px;
+}

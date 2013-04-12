@@ -30,7 +30,6 @@
     	   minDate: new Date('1975/01/01'),
     	   maxDate: '-1d'
   		});
-
      <?php }?>
      $("#dateOfBirth").datepicker({
   	   changeYear: true,
@@ -232,7 +231,15 @@
     	  }     	  
       });
 */
+        $.validator.addMethod("prevjob",
+        	function(value, element) {
+        		return this.optional(element)
+        			|| ($("#start_periodPREVJOB").val() < $("#end_periodPREVJOB").val());
+        });
       $("#formElem").validate({
+    	  errorPlacement: function(error, element) {
+    	     error.appendTo( "#errors" );
+    	   },
 		rules: {
 			first_name: {required: true,
 				maxlength: 40
@@ -241,15 +248,14 @@
 				minlength: 10,
 				maxlength: 10
 			},
-			'10percentage':{
-				minlength: 1,
-				maxlength: 1
+			PreviousJob_start_period: {
+				prevjob :true
 			}
 		},
 		messages: {
 			firstname: "Please enter your firstname, MAX 40 Chars Allowed",
 			phoneno: "Please enter 10 Digit phone no",
-			'10percentage': "Enter Percentage Numeric value"
+			PreviousJob_start_period : "Please enter start job greater than end job"
 		},
     	  submitHandler: function(form) {
     	    form.submit();
@@ -342,7 +348,8 @@
  	                <p><label for="phone_no"><?php echo $lang->PHONENUMBER;?></label>
  	                <input id="phoneno" name="phone_no" placeholder="XXXXXXXXXX" type="text" AUTOCOMPLETE="OFF"
                     <?php if(!empty($UserPersonalInfoDB['phone_no'])){?> value="<?php echo $UserPersonalInfoDB['phone_no']; } ?>" /></p>
-                    <div id = "displayErrorsPersonal" style="float:left"></div> 
+                    <div id = "displayErrorsPersonal" style="float:left"></div>
+                    <div id="errors"></div> 
                 </fieldset>
                 
                 <fieldset class="step">
@@ -497,6 +504,7 @@
                             <?php }?>
                         </p>
                     <?php } ?>
+                    <div id="errors"></div>
                     <p>
                     	<input type="button" value="<?php echo $lang->ADDMORE;?>" onclick="addMoreProject();">
                     </p>
@@ -534,6 +542,7 @@
                         <input id="end_periodPREVJOB" name="PreviousJob_end_period" type="text" AUTOCOMPLETE="OFF" readonly="true"
                         <?php if(!empty($UserPreviousJobInfoDB['end_period'])){?> value="<?php echo $UserPreviousJobInfoDB['end_period']; } ?>"/>
                     </p>
+                    <div id="errors"></div>
                 </fieldset>
                 <fieldset id="ExtraCertificate" class="step" id="otherCertificate">
                     <legend> <?php echo $lang->OTHER; ?></legend>
