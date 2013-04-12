@@ -10,7 +10,7 @@ if(!empty($_SESSION['activityReport'])){
 if(isset($resultSet)){
     if(count($resultSet) > 0){        
         foreach($resultSet as $key => $value){
-            $year[] = "day1";
+            $year[] = "day$key";
             foreach($value as $inkey => $invalue){
                 if($inkey == "comments_count"){
                     $ydata[] = intval($invalue);
