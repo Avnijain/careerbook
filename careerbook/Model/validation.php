@@ -193,7 +193,7 @@ class UserDataValidation {
 		if ($value == "") {
 			return 0;
 		}
-		if (! (preg_match ('~^(\d+)|(\d+)?\.(\d+)$~', $value ))) {
+		if (! (preg_match ("'^\d{0,2}(\.\d{1,2})?$'", $value ))) {
 			return 2;
 		} else {
 			return 0;
@@ -218,29 +218,19 @@ class UserDataValidation {
 		}
 	
 	}
-	// *******************************************************validate string
-	// type data**********************************************
+	// **************** validate string type data *******************
 	private function validateString($value) {
 		if ($value == "") {
 			return 0;
 		}
-		if(!preg_match("'<'",$value)){
-    		if (!preg_match("'[a-zA-Z]*'",$value)) {		    
+		if(!preg_match("'^[a-zA-Z\s]+$'",$value)) {		    
     			return 4;
     		}
     		 else {
     			return 0;
     		}
-		}
-		else {
-		    return 4;
-		}
-	
-		
-	
 	}
-	// *******************************************************validate Email
-	// type data**********************************************
+	// **************** validate Email type data *******************
 	private function validateEmail($value) {
 		if ($value == "") {
 			return 0;

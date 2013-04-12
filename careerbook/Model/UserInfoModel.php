@@ -219,7 +219,7 @@ class UserInfoModel extends model {
     public function fetchFullUserAddressInfo($userInfo){
         $this->db->From("user_personal_info upersnli");
         $user_id = $userInfo->getUserIdInfo();
-        $this->db->Fields(array('address','cty.name city_name','stt.name state_name','cntry.name country_name'));
+        $this->db->Fields(array('address','cty.name city_name','stt.name state_name','cntry.name country_name','language','nationality'));
         $this->db->Where(array("user_id"=>$user_id['id']));
         $this->db->Join("city cty", "cty.id = upersnli.city_id ", $type="INNER");
         $this->db->Join("state stt", "stt.id = cty.state_id ", $type="INNER");

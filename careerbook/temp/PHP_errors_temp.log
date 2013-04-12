@@ -3145,3 +3145,5 @@
 [12-Apr-2013 14:11:05 UTC] PHP Warning:  addslashes() expects parameter 1 to be string, array given in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\mainentrance.php on line 655
 [12-Apr-2013 14:11:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 230
 [12-Apr-2013 14:24:36 UTC] PHP Notice:  Array to string conversion in E:\xampp\htdocs\careerbook.git\trunk\careerbook\controller\userInfo.php on line 204
+[12-Apr-2013 14:56:52 UTC] PHP Parse error:  syntax error, unexpected '{' in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 227
+[12-Apr-2013 14:57:02 UTC] PHP Parse error:  syntax error, unexpected '{' in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 227
