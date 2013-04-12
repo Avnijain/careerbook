@@ -17,6 +17,7 @@ include_once '../Model/message.php';
 class MessageController extends Message
 {
 	function __construct() {
+	/************** getting user's id from session***************/
 		if(isset($_SESSION['userData']))
 		{
 			$obj = new user_info_controller();
@@ -25,6 +26,7 @@ class MessageController extends Message
 			$this->userid = $userid['id'];
 		}
 	}
+	/**************function to control the sending of message ***************/
 	function handleSendMessage() {
 		$this->_message_id='';
 		$this->_message_description = mysql_real_escape_string($_POST['descripition']);
@@ -67,6 +69,7 @@ class MessageController extends Message
 		$this->_messaging_time = date ( 'Y-m-d H:i:s' );
 	    $this->send_message();
 	}
+	/**************function to control inbox messages ****************/
 	function handleRecieveMessage() {
 		$this->_user_to = $this->userid;
 	    $result=$this->get_message();
@@ -80,6 +83,7 @@ class MessageController extends Message
 		}
 		return($result);
 	}
+	/**************function to control outbox messages ****************/
 	function handleSentMessage() {
 	
 	    $this->_user_from = $this->userid;
@@ -87,10 +91,12 @@ class MessageController extends Message
 		print_r($result);
 		return($result);
 	}
+	/**************function to control unread messages ****************/
 	function handleNewMessage() {
 	 $count=$this->getNewMessage();
 		return($count);
 	}
+	/**************function to get emailid of all friends of the user***************/
 	function handleGetFriend() {
 		$result=$this->getFriendId();
 		return($result);

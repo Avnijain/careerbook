@@ -45,7 +45,7 @@ Created on                  -  March 07, 2013
 			</article>
 			
 			
-			<form action="../controller/word.php" method=post>
+			<form action="../controller/wordcontroller.php" method=post>
 				<!----------------------------------------------first overlay------------------------------------------------------------------>
 				<div class="simple_overlay" id="mies1">
 					<img src="../images/resume3.jpg" />

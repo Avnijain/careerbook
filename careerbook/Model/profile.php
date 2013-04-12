@@ -1,6 +1,4 @@
 <?php
-// namespace Model;
-
 /*
  **************************** Creation Log *******************************
 File Name                   -  profile.php
@@ -22,12 +20,8 @@ require_once 'singleton.php';
 //Model for profile class 
 class Profile extends DBConnection {
 	
-	
 	protected $userid;
-	
-
-	
-	//function to get Academic Information
+	//function to get array of Academic Information
 	function get_academic_info() {
 		
 		
@@ -36,12 +30,10 @@ class Profile extends DBConnection {
 		$this->Where(array("user_id"=>$this->userid));
 		$this->Select();
 		return $this->resultArray();
-		echo $this->lastQuery();die;
-		//echo (mysql_error());
-
+		echo $this->lastQuery();
 	}
 	
-	//function to get user's message
+	//function to get array of user's previuos job information
 	function get_previous_job_info() {
 		
 		$this->Fields(array(
@@ -56,10 +48,10 @@ class Profile extends DBConnection {
 		$this->Where(array("user_id"=>$this->userid));
 
 		$this->Select();
-		//echo $this->lastQuery();
 		return $this->resultArray();
 		
 	}
+	//function to get array of project information of the user
 	function get_project_info() {
 	
 		$this->Fields(array(
@@ -72,11 +64,10 @@ class Profile extends DBConnection {
 		$this->From("user_project_info");
 		$this->Where1(array("user_id"=>$this->userid));
 		$this->Select();
-		//echo $this->lastQuery();
 		return $this->resultArray();
 	
 	}
-	//function to get sent message
+	//function to get array of proffesional information of user
 	function get_professional_info() {
 		
 		$this->Fields(array(
@@ -91,10 +82,9 @@ class Profile extends DBConnection {
 		$this->Where(array("user_id"=>$this->userid));
 
 		$this->Select();
-		//echo $this->lastQuery();
 		return $this->resultArray();
-		
 	}
+	//function that will return the array of user personal information
 	function get_info() {
 	
 		$this->Fields(array(
@@ -108,16 +98,13 @@ class Profile extends DBConnection {
 		)
 		);
 	
-		$this->From("users");
-		//$a="b.id";
-		
+		$this->From("users");	
 		$this->Where1(array("id"=>$this->userid));
-	
 		$this->Select();
-		//echo $this->lastQuery();
 		return $this->resultArray();
 	
 	}
+	//function to get certificate information of user
 	function get_certificate_info() {
 		$this->Fields(array(
 				"name",
@@ -125,16 +112,10 @@ class Profile extends DBConnection {
 				"duration"
 		)
 		);
-	
 		$this->From("user_certification_info");
-		//$a="b.id";
-		
 		$this->Where1(array("user_id"=>$this->userid));
-	
 		$this->Select();
-		//echo $this->lastQuery();
 		return $this->resultArray();
 	}
 }
-
 ?>
