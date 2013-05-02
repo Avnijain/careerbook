@@ -3169,3 +3169,13 @@
 [12-Apr-2013 18:23:21 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
 [12-Apr-2013 18:23:35 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 171
 [12-Apr-2013 18:23:35 UTC] PHP Notice:  Undefined variable: error in E:\xampp\htdocs\careerbook.git\trunk\careerbook\Model\validation.php on line 175
+[29-Apr-2013 15:36:36 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\singleton.php on line 53
+[29-Apr-2013 15:36:37 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\singleton.php on line 53
+[29-Apr-2013 15:36:37 UTC] PHP Warning:  mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\singleton.php on line 53
+[29-Apr-2013 15:36:37 UTC] PHP Fatal error:  Call to a member function From() on a non-object in C:\xampp\htdocs\careerbook\trunk\careerbook\Model\model.php on line 114
+[29-Apr-2013 15:38:42 UTC] PHP Notice:  Undefined variable: year in C:\xampp\htdocs\careerbook\trunk\careerbook\controller\setActivityReport.php on line 51
+[29-Apr-2013 15:38:42 UTC] PHP Notice:  Undefined variable: ydata in C:\xampp\htdocs\careerbook\trunk\careerbook\controller\setActivityReport.php on line 57
+[29-Apr-2013 15:38:51 UTC] PHP Notice:  Undefined variable: year in C:\xampp\htdocs\careerbook\trunk\careerbook\controller\setActivityReport.php on line 51
+[29-Apr-2013 15:38:51 UTC] PHP Notice:  Undefined variable: ydata in C:\xampp\htdocs\careerbook\trunk\careerbook\controller\setActivityReport.php on line 57
+[29-Apr-2013 15:38:53 UTC] PHP Notice:  Undefined variable: year in C:\xampp\htdocs\careerbook\trunk\careerbook\controller\setActivityReport.php on line 51
+[29-Apr-2013 15:38:53 UTC] PHP Notice:  Undefined variable: ydata in C:\xampp\htdocs\careerbook\trunk\careerbook\controller\setActivityReport.php on line 57
